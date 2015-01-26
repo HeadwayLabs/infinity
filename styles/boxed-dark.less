@@ -1,0 +1,41 @@
+/**
+ * View Style: Boxed Dark
+ *
+ * Boxed style
+ *
+ * @package View Builder
+ * @since 0.2
+ */
+
+@spacing: 15px;
+
+@import "common/typo.less";
+@import "common/parts.less";
+@import "common/meta.less";
+
+.boxed-dark {
+
+	font-family: Helvetica, Ariel, Serif;
+
+	&.blog article {
+		margin-bottom: @spacing;
+	}
+
+	article {
+		padding: 0 @spacing;
+		background-color: #333;
+	   border: 1px solid #222;
+	}
+
+	.vb-part:not(.image-part),
+	.vb-part:not(.image-part) a {
+		color: #fff;
+	}
+
+	.vb-part.readon-part {
+		color: #333;
+	}
+
+}
+
+

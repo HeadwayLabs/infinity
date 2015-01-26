@@ -1,0 +1,42 @@
+
+/* Parts
+***************************/
+.view-wrapper {
+
+	.vb-part {
+		margin: @spacing 0;
+	}
+
+	.excerpt-part {
+		line-height: 1.5
+	}
+
+	.image-part {
+		margin-left: -@spacing;
+		margin-right: -@spacing;
+	}
+
+	.post-format-part a {
+		text-decoration: none;
+	}
+
+	.readon-part,
+	.add-to-cart-part {
+		background: @button_bg_color;
+		padding: 1em 1.8em;
+		text-decoration: none;
+	}
+
+	.added_to_cart {
+		font-size: @small_font_size;
+		display: block;
+		text-align: center;
+		margin-top: 1em;
+		text-decoration: none;
+
+		&:after {
+			content: "";
+		}
+	}
+
+}

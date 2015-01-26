@@ -1,0 +1,61 @@
+/**
+ * View Style: Simple
+ *
+ * Display a post title and excerpt
+ *
+ * @package View Builder
+ * @since 0.2
+ */
+/* Typo
+***************************/
+.view-wrapper h2 {
+  font-size: 26px;
+  line-height: 1.3;
+}
+/* Parts
+***************************/
+.view-wrapper .vb-part {
+  margin: 15px 0;
+}
+.view-wrapper .excerpt-part {
+  line-height: 1.5;
+}
+.view-wrapper .image-part {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.view-wrapper .readon-part,
+.view-wrapper .add-to-cart-part {
+  background: #eee;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+.view-wrapper .added_to_cart {
+  font-size: .7em;
+  font-weight: 600;
+  display: block;
+  text-align: center;
+  margin-top: 1.4em;
+}
+.view-wrapper .added_to_cart:after {
+  content: "";
+}
+/* Meta Parts
+***************************/
+.view-wrapper .vb-part.meta-part {
+  font-size: 12px;
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  font-style: italic;
+  color: #999;
+  margin: 5px 0;
+}
+.view-wrapper .vb-part.meta-part a {
+  font-size: 12px;
+  color: #ccc;
+}
+.simple.blog article {
+  margin-bottom: 15px;
+}
+.simple article {
+  background: none;
+}

@@ -1,0 +1,94 @@
+#edit-slug-box { display: none; }
+
+#post-body { position: relative }
+
+#shortcode-preview {
+	position: absolute;
+	right: 1px;
+	font-size: 14px;
+	top: 1px;
+	z-index: 1;
+	background: #333;
+	color: #fff;
+	padding: 9px 30px;
+	margin: 0;
+}
+
+.query-switch {
+	position: absolute;
+	right: 0;
+	top: 13px;
+}
+
+.options-tabs-tabs a {
+	margin-right: 4px;
+	font-size: 12px;
+	padding: 6px 16px;
+	background: #f6f6f6;
+	border-color: #ddd;
+}
+
+.options-postbox .inside table.options-table tr td[colspan="2"] {
+	font-style: italic;
+}
+
+.options-postbox .inside table.options-table td {
+	border-top: 1px solid #ddd;
+
+	&.label {
+		width: 15%;
+	}
+
+}
+
+.options-tabs-tabs a.active{
+	background:#fff;
+	position: relative;
+	top: 1px;
+	z-index: 1;
+	padding-top: 7px;
+}
+
+/* modify slide/switch ui */
+
+.ui-toggle-switch {
+
+	label {
+		float: right;
+		margin: 0 2px 0 0;
+	}
+	label:first-child {
+		float:left;
+	}
+	.ui-slider {
+		width: 30px;
+		position: relative;
+		background: #1074a2;
+		margin: 0 5px;
+		border-radius: 2px;
+		cursor: pointer;
+		height: 11px;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.3) inset;
+
+		.ui-slider-range {
+			background: #ccc;
+			border-radius: 2px;
+		}
+
+		.ui-slider-handle {
+			left: 0%;
+			position: absolute;
+			top: 0;
+			border: 1px solid #777;
+			border-radius: 2px;
+			display: block;
+			z-index: 111;
+			width: 12px;
+			height: 9px;
+			background: #FAFAFA;
+			margin: 0;
+		}
+
+	}	
+}
+

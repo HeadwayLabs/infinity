@@ -1,0 +1,6 @@
+/* Filter Nav
+***************************/
+.magnet-filter li a {
+  background: red;
+  border: 1px solid green;
+}

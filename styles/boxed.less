@@ -1,0 +1,41 @@
+/**
+ * View Style: Boxed
+ *
+ * Boxed style
+ *
+ * @package View Builder
+ * @since 0.2
+ */
+
+/* Include Files */
+@import "common/vars.less";
+@import "common/typo.less";
+@import "common/parts.less";
+@import "common/woo-parts.less";
+@import "common/meta.less";
+@import "common/filter-nav.less";
+@import "common/pagination.less";
+@import "common/owl-carousel.less";
+@import "common/owl-slider.less";
+
+/* Override variables in vars.less */
+@spacing: 15px;
+
+//filter nav
+@filter_button_bg: #fff;
+@filter_button_border_color: #ccc;
+@filter_button_radius: 4px;
+
+.boxed {
+
+	font-family: Helvetica, Ariel, Serif;
+
+	article {
+		padding: 0 @spacing;
+		background-color: @primary_bg_color;
+	   border: 1px solid @primary_border_color;
+	}
+
+}
+
+

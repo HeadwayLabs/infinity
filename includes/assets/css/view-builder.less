@@ -1,0 +1,157 @@
+@import (inline) "grid.less";
+
+.view-wrapper {
+
+	.hidden {
+		visibility: hidden;
+	}
+
+	.display-block {
+		display: block;
+	}
+
+	.display-inline {
+		display: inline;
+	}
+
+	.display-inline-block {
+		display: inline-block;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+		width: auto;
+		vertical-align: bottom;
+	}
+
+	.vb-part.excerpt-part {
+		clear: both;
+	}
+
+}
+
+.pagination {
+	clear: both;
+	width: 100%;
+}
+
+/* social elements
+***************************/
+.share-part {
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+.share-part li {
+	list-style: none;
+	float: left;
+}
+.share-part li.first {
+	margin-left: 0!important;
+}
+
+/* likes
+***************************/
+
+a.vb-post-like { 
+	position: relative;
+	padding:1px;
+	font-weight: normal;
+	display: inline-block;
+	width: auto;
+	text-decoration: none;
+	-moz-transition: all 0.3s ease-out 0.2s;
+	-webkit-transition: all 0.3s ease-out 0.2s;
+	-o-transition: all 0.3s ease-out 0.2s;
+
+	&.liked { color: purple; }
+
+}
+
+i.fa-circle-o-notch {
+	font-size: 11px;
+	margin-left: 4px;
+	padding: 1px;
+	position: absolute;
+	top: 5px;
+}
+
+a.vb-post-like:hover,
+a.vb-post-like:active,
+a.vb-post-like:focus,
+a.liked:hover,
+a.liked:active,
+a.liked:focus {
+	color: #000;
+}
+
+/* Magnet */
+
+.magnet-filter {
+
+	display:inline-block;
+
+	li {
+		float:left;
+		list-style:none;
+	}
+
+	li a {
+		cursor: pointer;
+		display:block;
+	}
+
+} 
+
+.magnet-item {
+	height: auto;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+/* woocommerce
+***************************/
+.wc-part {
+	.star-rating {
+		display: inline-block;
+	}
+
+	&.button.added:after,
+	&.button.loading:after {
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	&.button.added:after {
+		content: "\f00c";
+		display: inline-block;
+		padding-left: 10px;
+	}
+
+	&.button.loading:after {
+		content: "\f021";
+		-moz-animation: fa-spin 2s infinite linear;
+		-o-animation: fa-spin 2s infinite linear;
+		-webkit-animation: fa-spin 2s infinite linear;
+		animation: fa-spin 2s infinite linear;
+		margin-left: 10px;
+   }
+
+}
+
+/* not customized
+***************************/
+.not-customized-notice {
+	padding: 14px 35px 14px 14px;
+	margin-bottom: 20px;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+	background-color: #fcf8e3;
+	border: 1px solid #fbeed5;
+	border-radius: 4px;
+	font-size: 15px;
+}

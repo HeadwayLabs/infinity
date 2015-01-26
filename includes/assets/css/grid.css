@@ -1,0 +1,27 @@
+.view-wrapper.grid,
+.view-wrapper.magnet {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  position: relative;
+}
+.view-wrapper.grid article,
+.view-wrapper.magnet article {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  float: left;
+  overflow: auto;
+  -webkit-transition: width 0.2s, height 1s;
+          transition: width 0.2s, height 1s;
+}
