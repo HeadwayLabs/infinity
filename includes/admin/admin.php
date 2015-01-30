@@ -28,6 +28,8 @@ class View_Builder_Admin {
 		add_filter( 'post_updated_messages', array( __CLASS__, 'view_updated_messages' ) );
 		add_filter( 'screen_layout_columns', array( __CLASS__, 'view_screen_layout_columns' ), 10, 2 );
 		add_filter( 'script_loader_src', array( __CLASS__, 'disable_autosave' ), 10, 2 );
+		add_action( 'edit_form_top', array( __CLASS__, 'link_to_customizer' ) );
+
 
 		require_once( views()->plugin_dir .'includes/view-meta.php' );
 
@@ -60,6 +62,22 @@ class View_Builder_Admin {
 		}
 	}
 
+	/**
+	 * Links to customizer
+	 * @package View_Builder
+	 * @since 0.4
+	 */
+	public static function link_to_customizer() {
+
+		if ( 'view' != get_current_screen()->id )
+			return;
+
+		if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
+			echo '<a id="open-customizer" href="' . wp_customize_url( get_template() ) . '" target="_blank" class="load-customize hide-if-no-customize button button-primary">'
+		. __( 'Open Customizer' ) . '</a>';
+		}
+
+	}
 
 	/**
 	 * Add save button to the view screen

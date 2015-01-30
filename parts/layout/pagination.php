@@ -1,8 +1,8 @@
 <?php 
 
 	$builder_options = TitanFramework::getInstance( 'builder-options' );
-
-	$show_pagination = $builder_options->getOption( 'pagination-show-' . strtolower(views()->view_name) . '' );
+	$view_name = strtolower(views()->view_name);
+	$show_pagination = $builder_options->getOption( 'pagination-show-' . $view_name . '' );
 
 
  ?>

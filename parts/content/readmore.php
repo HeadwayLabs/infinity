@@ -17,7 +17,7 @@
 
 	$display_as = $display_as != null ? ' display-' . $display_as : null;
 
-	$more_link = '<a href="'. get_permalink($post->ID) . '" class="vb-part readon-part' . $display_as . '">' . $more_text . '</a>';
+	$more_link = '<a href="'. get_permalink($post->ID) . '" class="vb-part readmore-part' . $display_as . '">' . $more_text . '</a>';
 	
 	if ( $excerpt_length > $excerpt_limit || $show_always == true ) {
 		

@@ -25,35 +25,40 @@ if ( $the_query->have_posts() ) :
 		$builder_options = TitanFramework::getInstance( 'builder-options' );
 		$layout = strtolower($builder_options->getOption( 'view-layout-' . $view_name . '' ));
 
-		$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );?>
+		$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' ); 
+		?>
 
-		<?php if (in_array('title', $parts)) : ?>
-			 
-			#view-<?php echo $id; ?> .date-part  {
+		<?php if( is_array($parts) ) : ?>
 
-				color: <?php echo $builder_options->getOption( 'date-styles-color-' . $view_name . '' ) ?>;
+			<?php if (in_array('title', $parts)) : ?>
+				 
+				#view-<?php echo $id; ?> .date-part  {
+
+					<?php if( $builder_options->getOption( 'date-styles-color-' . $view_name . '' ) ) : ?>
+						color: <?php echo $builder_options->getOption( 'date-styles-color-' . $view_name . '' ) ?>;
+					<?php endif; ?>
+
+				}
+
+			<?php endif ?>
+
+			/* Post Format */
+
+			<?php if (in_array('post-format', $parts)) : ?>
+
+			<?php $icon_size = $builder_options->getOption( 'post-format-option-icon-size-' . $view_name . '' );
+				$icon_size = $icon_size == null ? '32' : $icon_size;
+			?>
+				 
+			#view-<?php echo $id; ?> .post-format-part i  {
+
+				font-size: <?php echo $icon_size; ?>px;
 
 			}
 
-		<?php endif ?>
+			<?php endif ?>
 
-		/* Post Format */
-
-		<?php if (in_array('post-format', $parts)) : ?>
-
-		<?php $icon_size = $builder_options->getOption( 'post-format-option-icon-size-' . $view_name . '' );
-			$icon_size = $icon_size == null ? '32' : $icon_size;
-		?>
-			 
-		#view-<?php echo $id; ?> .post-format-part i  {
-
-			font-size: <?php echo $icon_size; ?>px;
-
-		}
-
-		<?php endif ?>
-
-		
+		<?php endif; ?>
 		
 	<?php endwhile; ?>
 

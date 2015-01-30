@@ -93,10 +93,10 @@
 					foreach ($btns as $position => $btn) {
 
 						if ( $btn == 'btn1' ) { 
-							$use_lightbox = ($spotlight_button_link1 == 'lightbox') ? ' vb-lightbox' : null;
+							$use_lightbox = ($spotlight_button_link1 == 'lightbox') ? 'vb-lightbox' : null;
 							?>
 							
-							<span class="<?php echo $thumb_icon_style.$use_lightbox; ?>">
+							<span class="spotlight-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
 			             	<?php if (!empty($spotlight_button_link1)) : ?>
 			             		<?php if ($spotlight_button_link1 == 'lightbox') : ?>
 			             			<a href="#" <?php echo $lightbox_url; ?>>
@@ -116,10 +116,10 @@
 						}
 
 						if ( $btn == 'btn2' ) { 
-							$use_lightbox = ($spotlight_button_link2 == 'lightbox') ? ' vb-lightbox' : null;
+							$use_lightbox = ($spotlight_button_link2 == 'lightbox') ? 'vb-lightbox' : null;
 							?>
 							
-							<span class="<?php echo $thumb_icon_style.$use_lightbox; ?>">
+							<span class="spotlight-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
 			             	<?php if (!empty($spotlight_button_link2)) : ?>
 			             		<?php if ($spotlight_button_link2 == 'lightbox') : ?>
 			             			<a href="#" <?php echo $lightbox_url; ?>>
@@ -139,10 +139,10 @@
 						}
 
 						if ( $btn == 'btn3' ) { 
-							$use_lightbox = ($spotlight_button_link3 == 'lightbox') ? ' vb-lightbox' : null;
+							$use_lightbox = ($spotlight_button_link3 == 'lightbox') ? 'vb-lightbox' : null;
 							?>
 							
-							<span class="<?php echo $thumb_icon_style.$use_lightbox; ?>">
+							<span class="spotlight-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
 			             	<?php if (!empty($spotlight_button_link3)) : ?>
 			             		<?php if ($spotlight_button_link3 == 'lightbox') : ?>
 			             			<a href="#" <?php echo $lightbox_url; ?>>
@@ -162,10 +162,10 @@
 						}
 
 						if ( $btn == 'btn4' ) { 
-							$use_lightbox = ($spotlight_button_link4 == 'lightbox') ? ' vb-lightbox' : null;
+							$use_lightbox = ($spotlight_button_link4 == 'lightbox') ? 'vb-lightbox' : null;
 							?>
 							
-							<span class="<?php echo $thumb_icon_style.$use_lightbox; ?>">
+							<span class="spotlight-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
 			             	<?php if (!empty($spotlight_button_link4)) : ?>
 			             		<?php if ($spotlight_button_link4 == 'lightbox') : ?>
 			             			<a href="#" <?php echo $lightbox_url; ?>>

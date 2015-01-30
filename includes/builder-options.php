@@ -35,6 +35,32 @@ if ( ! class_exists( 'TitanFramework' ) ) {
     return;
 }
 
+function view_widget_in_use($view_id){
+
+    $widget_settings = get_option('widget_infinity_widget');
+
+    $view_in_use = null;
+
+    foreach((array)$widget_settings as $instance => $options){
+
+        $id_base = 'infinity_widget';
+
+        $id = "{$id_base}-{$instance}";
+
+        // is this the instance
+        if(!is_active_widget(false, $id, $id_base)) continue;
+
+        // check if the view id option matches the id we are checking for
+        if($options['view_id'] == $view_id) {
+           $view_in_use = true;
+        } 
+
+    }
+
+    return $view_in_use;
+
+}
+
 
 function builder_options() {
 
@@ -64,185 +90,205 @@ if ( $the_query->have_posts() ) :
             /*
              * View customizer options
              */
-            $section = $builder_options->createThemeCustomizerSection( array(
-                'name' =>  get_the_title(),
-                'id'=> 'builder-' . $view_name,
-                'position' => 3,
-            ) );
+            if (view_widget_in_use($id)) {
 
-            if ( $query_mode == 1 ) {
+                $section = $builder_options->createThemeCustomizerSection( array(
+                    'name' =>  get_the_title(),
+                    'id'=> 'builder-' . $view_name,
+                    'position' => 3,
+                ) );
 
                 $section->createOption( array(
-                    'name' => 'Posts:',
-                    'id' => 'postopts-post-count-' . $view_name . '',
-                    'desc' => 'The total number of posts to show per view.',
+                    'name' => get_the_title(),
+                    'id' => 'id-hide-'.$id,
+                    'desc' => $id,
+                    'type' => 'heading',
+                ) );
+
+                if ( $query_mode == 1 ) {
+
+                    $section->createOption( array(
+                        'name' => 'Posts:',
+                        'id' => 'postopts-post-count-' . $id . '',
+                        'desc' => 'The total number of posts to show per view.',
+                        'type' => 'text',
+                        'default' => '20'
+                    ) );
+
+                }
+
+                $section->createOption( array(
+                    'name' => 'Columns:',
+                    'id' => 'postopts-columns-' . $view_name . '',
+                    'type' => 'select',
+                    'desc' => 'The number of columns to display for grid, masonry and carousel modes.',
+                    'options' => array(
+                        '1' => '1',
+                        '2' => '2',
+                        '3' => '3',
+                        '4' => '4',
+                        '5' => '5',
+                        '6' => '6',
+                        '7' => '7',
+                        '8' => '8',
+                        '9' => '9',
+                        '10' => '10',
+                        '11' => '11',
+                        '12' => '12',
+                        '13' => '13',
+                        '14' => '14',
+
+                    ),
+                    'default' => '4'
+                ) );
+
+                $section->createOption( array(
+                    'name' => 'Spacing:',
+                    'id' => 'postopts-post-spacing-' . $view_name . '',
+                    'desc' => 'The amount spacing in pixels between each item.',
                     'type' => 'text',
                     'default' => '20'
                 ) );
 
-            }
+                if ( $query_mode == 1 ) {
 
-            $section->createOption( array(
-                'name' => 'Columns:',
-                'id' => 'postopts-columns-' . $view_name . '',
-                'type' => 'select',
-                'desc' => 'The number of columns to display for grid, masonry and carousel modes.',
-                'options' => array(
-                    '1' => '1',
-                    '2' => '2',
-                    '3' => '3',
-                    '4' => '4',
-                    '5' => '5',
-                    '6' => '6',
-                    '7' => '7',
-                    '8' => '8',
-                    '9' => '9',
-                    '10' => '10',
-                    '11' => '11',
-                    '12' => '12',
-                    '13' => '13',
-                    '14' => '14',
+                    $section->createOption( array(
+                        'name' => 'Categories ',
+                        'id' => 'postopts-post-categories-' . $view_name . '',
+                        'type' => 'multicheck-categories-ib',
+                        'desc' => 'Select a category to display content from',
+                        'default' => 'all'
+                    ) );
 
-                ),
-                'default' => '4'
-            ) );
+                    $section->createOption( array(
+                        'name' => 'Order:',
+                        'id' => 'postopts-order-by-' . $view_name . '',
+                        'desc' => 'What to order the posts by. Set to <b>Meta value</b> or Meta value (Numeric) to order by custom meta values.',
+                        'type' => 'select',
+                        'default' => 'date',
+                        'options' => array(
+                            'date' => 'Date Published',
+                            'ID' => 'ID',
+                            'author' => 'Author',
+                            'title' => 'Title',
+                            'modified' => 'Date Modified',
+                            'parent' => 'Parent ID',
+                            'rand' => 'Random order',
+                            'likes' => 'Order by post likes',
+                            'comment_count' => 'Comment Count',
+                            'menu_order' => 'Page order',
+                            'meta_value' => 'Meta value',
+                            'meta_value_num' => 'Meta value (Numeric)'
+                        )
+                    ) );
 
-            $section->createOption( array(
-                'name' => 'Spacing:',
-                'id' => 'postopts-post-spacing-' . $view_name . '',
-                'desc' => 'The amount spacing in pixels between each item.',
-                'type' => 'text',
-                'default' => '20'
-            ) );
+                    $section->createOption( array(
+                        'name' => 'Key:',
+                        'id' => 'postopts-order-meta-key-' . $view_name . '',
+                        'desc' => 'Set a meta key to order content by. The key will be the meta key set when adding a custom meta element.',
+                        'type' => 'text',
+                        'default' => ''
+                    ) );
 
-            if ( $query_mode == 1 ) {
+                    $section->createOption( array(
+                        'name' => '',
+                        'id' => 'postopts-order-' . $view_name . '',
+                        'desc' => 'Set the order',
+                        'type' => 'select',
+                        'default' => 'DESC',
+                        'options' => array(
+                            'ASC' => 'ASC',
+                            'DESC' => 'DESC'
+                        )
+                    ) );
+
+                    $section->createOption( array(
+                        'name' => 'Offset:',
+                        'id' => 'postopts-post-offset-' . $view_name . '',
+                        'desc' => 'Offset results by x number of posts',
+                        'type' => 'text',
+                        'default' => ''
+                    ) );
+
+                    $section->createOption( array(
+                        'name' => '<a href="wp-admin/post.php?post='. $id .'&action=edit" target="_blank"><img src="'. views()->plugin_url .'/includes/admin/images/filter.png"/></a>',
+                        'id' => 'postopts-builder-'.$id,
+                        'type' => 'heading',
+                        'desc' => '<strong>Filter Content</strong> <p>Takes you to the advanced filter page with more advanced options where you can select specific content to display.</p>',
+                    ) );
+
+                } else {
+                    $section->createOption( array(
+                        'name' => 'You are currently in default mode. <a href="wp-admin/post.php?post='. $id .'&action=edit" target="_blank">Enable custom query</a> to show specific content.',
+                        'id' => 'postopts-disabled-query-'.$id,
+                        'type' => 'heading',
+                        'desc' => '<strong>Default Mode</strong>
+                                    <p>When default mode is selected, the output will be like a normal blog template according to normal wordpress behaviour. For example, if you add this on a page, it will display that page\'s content. If you add it on the Blog Index layout, it will list the posts like a normal blog and if you add this box on a category or tag layout, it will list posts of that category or tag respectively.</p>
+                                    <strong>Custom Query Mode</strong>
+                                    <p>Enable a custom query to display specific content from your wordpress installation. This content will always show on all pages irrespective of the wordpress relative page. Used to display posts specific post types or taxonomies on all pages.</p>'
+                    ) );
+                }
 
                 $section->createOption( array(
-                    'name' => 'Categories ',
-                    'id' => 'postopts-post-categories-' . $view_name . '',
-                    'type' => 'multicheck-categories-ib',
-                    'desc' => 'Select a category to display content from',
-                    'default' => 'all'
-                ) );
-
-                $section->createOption( array(
-                    'name' => 'Order:',
-                    'id' => 'postopts-order-by-' . $view_name . '',
-                    'desc' => 'What to order the posts by. Set to <b>Meta value</b> or Meta value (Numeric) to order by custom meta values.',
-                    'type' => 'select',
-                    'default' => 'date',
-                    'options' => array(
-                        'date' => 'Date Published',
-                        'ID' => 'ID',
-                        'author' => 'Author',
-                        'title' => 'Title',
-                        'modified' => 'Date Modified',
-                        'parent' => 'Parent ID',
-                        'rand' => 'Random order',
-                        'likes' => 'Order by post likes',
-                        'comment_count' => 'Comment Count',
-                        'menu_order' => 'Page order',
-                        'meta_value' => 'Meta value',
-                        'meta_value_num' => 'Meta value (Numeric)'
-                    )
-                ) );
-
-                $section->createOption( array(
-                    'name' => 'Key:',
-                    'id' => 'postopts-order-meta-key-' . $view_name . '',
-                    'desc' => 'Set a meta key to order content by. The key will be the meta key set when adding a custom meta element.',
-                    'type' => 'text',
-                    'default' => ''
+                    'name' => '1) Select a style',
+                    'id' => 'toggle-heading-style-' . $view_name . '',
+                    'type' => 'heading',
+                    'default' => '20'
                 ) );
 
                 $section->createOption( array(
                     'name' => '',
-                    'id' => 'postopts-order-' . $view_name . '',
-                    'desc' => 'Set the order',
+                    'desc' => 'Set a preset style that is applied to each item in the view.',
+                    'id' => 'style-name-' . $view_name . '',
                     'type' => 'select',
-                    'default' => 'ASC',
-                    'options' => array(
-                        'ASC' => 'ASC',
-                        'DESC' => 'DESC'
-                    )
+                    'options' => get_styles_list(),
+                    'default' => 'boxed'
                 ) );
 
                 $section->createOption( array(
-                    'name' => 'Offset:',
-                    'id' => 'postopts-post-offset-' . $view_name . '',
-                    'desc' => 'Offset results by x number of posts',
-                    'type' => 'text',
-                    'default' => ''
-                ) );
-
-                $section->createOption( array(
-                    'name' => '<a href="wp-admin/post.php?post='. $id .'&action=edit" target="_blank"><img src="'. views()->plugin_url .'/includes/admin/images/filter.png"/></a>',
-                    'id' => 'postopts-builder-'.$id,
+                    'name' => '2) Select a Layout',
+                    'id' => 'toggle-heading-select-layout-' . $view_name . '',
                     'type' => 'heading',
-                    'desc' => '<strong>Filter Content</strong> <p>Takes you to the advanced filter page with more advanced options where you can select specific content to display.</p>',
+                    'default' => '20'
                 ) );
 
-            } else {
                 $section->createOption( array(
-                    'name' => 'You are currently in default mode. <a href="wp-admin/post.php?post='. $id .'&action=edit" target="_blank">Enable custom query</a> to show specific content.',
-                    'id' => 'postopts-disabled-query-'.$id,
-                    'type' => 'heading',
-                    'desc' => '<strong>Default Mode</strong>
-                                <p>When default mode is selected, the output will be like a normal blog template according to normal wordpress behaviour. For example, if you add this on a page, it will display that page\'s content. If you add it on the Blog Index layout, it will list the posts like a normal blog and if you add this box on a category or tag layout, it will list posts of that category or tag respectively.</p>
-                                <strong>Custom Query Mode</strong>
-                                <p>Enable a custom query to display specific content from your wordpress installation. This content will always show on all pages irrespective of the wordpress relative page. Used to display posts specific post types or taxonomies on all pages.</p>'
+                    'desc' => 'Choose from one of the layouts below to display your items.',
+                    'id' => 'layout-heading-' . $view_name . '',
+                    'type' => 'heading'
                 ) );
-            }
 
-            $section->createOption( array(
-                'name' => '1) Select a style',
-                'id' => 'toggle-heading-style-' . $view_name . '',
-                'type' => 'heading',
-                'default' => '20'
-            ) );
+                $section->createOption( array(
+                    'name' => '',
+                    'id' => 'view-layout-' . $view_name . '',
+                    'type' => 'radio-image',
+                    'options' => get_layouts_list(),
+                    'default' => 'blog',
+                ) );
 
-            $section->createOption( array(
-                'name' => '',
-                'desc' => 'Set a preset style that is applied to each item in the view.',
-                'id' => 'style-name-' . $view_name . '',
-                'type' => 'select',
-                'options' => get_styles_list(),
-                'default' => 'boxed'
-            ) );
+                $section->createOption( array(
+                    'name' => '3) Build Individual Layout',
+                    'id' => 'toggle-heading-build-layout-' . $view_name . '',
+                    'type' => 'heading',
+                    'default' => '20'
+                ) );
 
-            $section->createOption( array(
-                'name' => '2) Select a Layout',
-                'id' => 'toggle-heading-select-layout-' . $view_name . '',
-                'type' => 'heading',
-                'default' => '20'
-            ) );
+                $section->createOption( array(
+                    'desc' => 'Use the builder below to show or hide & then configure the elements as needed.',
+                    'id' => 'builder-heading-' . $view_name . '',
+                    'type' => 'heading'
+                ) );
 
-            $section->createOption( array(
-                'name' => '',
-                'desc' => 'Choose from one of the layouts below to display your items.',
-                'id' => 'view-layout-' . $view_name . '',
-                'type' => 'radio-image',
-                'options' => get_layouts_list(),
-                'default' => 'grid',
-            ) );
+                $section->createOption( array(
+                    'name' => '',
+                    'id' => 'builder_parts' . $view_name . '',
+                    'description' => 'Choose from one of the layouts below to display your items.',
+                    'type' => 'sortable',
+                    'desc' => '',
+                    'options' => get_builder_elements(),
+                    'default' => array('title', 'image', 'excerpt', 'date', 'readmore')
 
-            $section->createOption( array(
-                'name' => '3) Build Individual Layout',
-                'id' => 'toggle-heading-build-layout-' . $view_name . '',
-                'type' => 'heading',
-                'default' => '20'
-            ) );
-
-            $section->createOption( array(
-                'name' => '',
-                'id' => 'builder_parts' . $view_name . '',
-                'description' => 'Choose from one of the layouts below to display your items.',
-                'type' => 'sortable',
-                'desc' => '',
-                'options' => get_builder_elements(),
-                'default' => array('title', 'image', 'excerpt', 'date', 'readmore')
-
-            ) );
+                ) );
 
 
                 //Title Options
@@ -514,9 +560,23 @@ if ( $the_query->have_posts() ) :
                     'type' => 'select',
                     'options' => array(
                         'WhiteRounded' => 'White Rounded',
-                        'BlackRounded' => 'Black Rounded'
+                        'BlackRounded' => 'Black Rounded',
+                        'WhiteHollowRounded' => 'White Hollow Rounded',
+                        'BlackHollowRounded' => 'Black Hollow Rounded',
+                        'WhiteSquare' => 'White Square',
+                        'BlackSquare' => 'Black Square',
+                        'WhiteHollowSquare' => 'White Hollow Square',
+                        'BlackHollowSquare' => 'Black Hollow Square',
+
                     ),
-                    'default' => 'WhiteRounded'
+                    'default' => 'WhiteRounded',
+                    'livepreview' => '
+                        var element = $("article .spotlight-button");
+                        var elClass = element.attr("class");
+                        var lastword = elClass.split(" ").pop();
+                        element.removeClass(lastword).addClass(value);
+                        showHideLoader();
+                    '
                 ) );
 
                 $section->createOption( array(
@@ -574,14 +634,14 @@ if ( $the_query->have_posts() ) :
 
                 $section->createOption( array(
                     'name' => 'Show Hover Spotlight',
-                    'id' => 'image-show-spotlight-' . $view_name . '',
+                    'id' => 'image-show-spotlight-hide-' . $view_name . '',
                     'type' => 'checkbox',
                     'default' => true
                 ) );
 
                 $section->createOption( array(
                     'name' => 'Spotlight Type',
-                    'id' => 'thumb-spotlight-type-' . $view_name . '',
+                    'id' => 'thumb-spotlight-type-hide-' . $view_name . '',
                     'type' => 'select',
                     'options' => array(
                         'icons' => 'Icons',
@@ -597,13 +657,19 @@ if ( $the_query->have_posts() ) :
                 ) );
 
                 $section->createOption( array(
+                    'desc' => 'Use the builder below to setup the content and effect that happens when a user hovers over a thumbnail.',
+                    'id' => 'spotlight-builder-heading-' . $view_name . '',
+                    'type' => 'heading'
+                ) );
+
+                $section->createOption( array(
                     'name' => 'Spotlight Content Builder',
                     'id' => 'image-parts-content-type-' . $view_name . '',
                     'desc' => 'Add <b>Icons</b> or <b>Content Parts</b> to the Image spotlight using the builder below. Then set the animation effect.',
                     'type' => 'sortable',
                     'options' => array(
                         'title' => 'Title',
-                        'excerpt' => 'Content',
+                        'excerpt' => 'Excerpt',
                         'date' => 'Date',
                         'time' => 'Time',
                         'categories' => 'Categories',
@@ -1280,6 +1346,8 @@ if ( $the_query->have_posts() ) :
                     'type' => 'checkbox',
                     'default' => true
                 ) );
+
+            }
 
     endwhile; 
 

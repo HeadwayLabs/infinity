@@ -11,23 +11,6 @@
 if ( ! defined( 'ABSPATH' ) )
 	exit;
 
-
-//general settings
-$general_options = get_option('ib_general_settings');
-
-if ($general_options['enable-post-formats'] == true ) {
-
-	function add_post_formats() {
-		$general_options = get_option('ib_general_settings');
-		add_theme_support( 'post-formats', $general_options['select-post-formats'] );
-	}
-	 
-	add_action( 'after_setup_theme', 'add_post_formats', 20 );
-
-}
-
-
-
 /**
  * Returns a WP_Query
  *
@@ -54,7 +37,7 @@ function vb_loop_query( $id, $query = '' ) {
 	$args['post_type'] = isset($options['post-type']) ? $options['post-type'] : 'post';
 
 	// pagination
-	$per_page = $builder_options->getOption( 'postopts-post-count-' . strtolower(views()->view_name) . '' );
+	$per_page = $builder_options->getOption( 'postopts-post-count-' . $id . '' );
 	$args['posts_per_page'] = $per_page;//$options['posts-per-page'];
 
 	//offset
@@ -265,6 +248,7 @@ function vb_loop_query( $id, $query = '' ) {
 function vb_render_view( $id, $layout_name, $args = null, $context = '' ) {
 
 	$view_layouts = vb_get_view_layouts();
+	$view_name = strtolower(views()->view_name);
 
 	$options = vb_options( $id );
 
@@ -280,7 +264,7 @@ function vb_render_view( $id, $layout_name, $args = null, $context = '' ) {
 
 	//first we add a notice if the view is not yet customized
 	$builder_options = TitanFramework::getInstance( 'builder-options' );
-	$parts = $builder_options->getOption( 'builder_parts' . strtolower(views()->view_name) . '' );
+	$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
 	$customize_url = add_query_arg( 'return', urlencode( wp_unslash( $_SERVER['REQUEST_URI'] ) ), 'wp-admin/customize.php' );
 
 	ob_start();
@@ -748,7 +732,7 @@ function vb_shortcode( $atts ) {
 	$layout = $builder_options->getOption( 'view-layout-' . $view_name . '' );
 
 	if (empty($layout))
-		$layout = 'grid';
+		$layout = 'blog';
 
 	return vb_render_view( $id, $layout, null, 'shortcode' );
 
@@ -987,6 +971,23 @@ function get_filter_taxonomy_list() {
 
 	return $taxonomies;
   
+}
+
+/**
+	* Get views
+	*
+	* @package View_Builder
+	* @since 1.0.0
+*/
+function vb_get_views( $args = array() ) {
+	$defaults = array(
+		'post_type' => 'view',
+		'nopaging'  => true
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+	return get_posts( $args );
 }
 
 /**

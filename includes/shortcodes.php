@@ -151,13 +151,6 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 		}
 
 		public static function vb_post_format($atts, $content = null) {
-
-			if (current_theme_supports('post-formats')) {
-  echo 'has pf';
-} else {
-	echo 'no pf';
-}
-
 			include(views()->plugin_dir . 'parts/content/post-format.php');
 			return $content;
 		}
@@ -215,7 +208,7 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 
 		public static function get_thumb_contents_parts( $builder_options ) {
 
-			$view_name = views()->view_name;
+			$view_name = strtolower(views()->view_name);
 
 			$parts = $builder_options->getOption( 'image-parts-content-type-' . $view_name . '' );
 			$title_tag = $builder_options->getOption( 'title-option-html-tag-' . $view_name . '' );
@@ -267,7 +260,7 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			//image settings
 
 			$layout = $builder_options->getOption( 'view-layout-' . $view_name . '' );
-			if ( $layout == 'slider' ||  $layout == 'traditional-blog') {
+			if ( $layout == 'slider' ||  $layout == 'blog') {
 				$columns			 		= '1';
 			} else {
 				$columns = $builder_options->getOption( 'postopts-columns-' . $view_name . '' );
@@ -279,8 +272,8 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			$crop_vertically_height_ratio	= $builder_options->getOption( 'image-option-crop-vertically-height-ratio-' . $view_name . '' );
 			$thumbnail_height 				= $builder_options->getOption( 'image-option-thumbnail-height-' . $view_name . '' );
 			$thumbnail_width 					= $builder_options->getOption( 'image-option-thumbnail-width-' . $view_name . '' );
-			$show_spotlight  					= $builder_options->getOption( 'image-show-spotlight-' . $view_name . '' );
-			$thumb_spotlight_type			= $builder_options->getOption( 'thumb-spotlight-type-' . $view_name . '' );
+			$show_spotlight  					= $builder_options->getOption( 'image-show-spotlight-hide-' . $view_name . '' );
+			$thumb_spotlight_type			= $builder_options->getOption( 'thumb-spotlight-type-hide-' . $view_name . '' );
 			$thumb_icon_effect 				= $builder_options->getOption( 'image-icon-type-effect-' . $view_name . '' );
 			$thumb_icon_style					= $builder_options->getOption( 'image-icon-type-style-' . $view_name . '' );
 			$thumb_spotlight_effect 		= $builder_options->getOption( 'image-icon-type-spotlight-effect-' . $view_name . '' );

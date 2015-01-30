@@ -88,7 +88,7 @@ $sections['to-move'] = array(
                 'on' => __('On&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;', 'fluent'),
                 'off' => __('Off', 'fluent'),
             ),
-            'default' => 1,
+            'default' => 0,
         )
     ),
 );
@@ -518,6 +518,15 @@ if ( $layout == 'carousel' ) {
                 'type' => 'text',
                 'default' => '5000'
             ),
+            'carousel-auto_height' => array(
+                'title' => 'Auto Height',
+                'type' => 'switch',
+                'labels' => array(
+                    'on' => __('On', 'fluent'),
+                    'off' => __('Off', 'fluent'),
+                ),
+                'default' => 1,
+            ),
             'carousel-navtext-next' => array(
                 'title' => 'Navigation Text (Next)',
                 'type' => 'text',
@@ -768,7 +777,6 @@ if ( $layout == 'slider' ) {
         'fields' => array(
             'slider-mousedrag' => array(
                 'title' => 'Mouse Drag',
-                'description' => 'Enable click drag mouse to page slider',
                 'type' => 'switch',
                 'labels' => array(
                     'off' => 'Off', 
@@ -786,13 +794,13 @@ if ( $layout == 'slider' ) {
                 'default' => 0,
             ),
             'slider-autoplay-hover-pause' => array(
-                'title' => 'Pause autoplay on hover',
+                'title' => 'Pause Autoplay on Hover',
                 'type' => 'switch',
                 'labels' => array(
                     'on' => __('On', 'fluent'),
                     'off' => __('Off', 'fluent'),
                 ),
-                'default' => 0,
+                'default' => 1,
             ),
             'slider-autoplay-timeout' => array(
                 'title' => 'Autoplay Timeout',
@@ -809,7 +817,7 @@ if ( $layout == 'slider' ) {
                 'default' => 1,
             ),
             'slider-show-dotsnav' => array(
-                'title' => 'Show Dots navigation',
+                'title' => 'Show Dots Navigation',
                 'type' => 'switch',
                 'labels' => array(
                     'on' => __('', 'fluent'),
@@ -839,10 +847,20 @@ if ( $layout == 'slider' ) {
                 ),
                 'default' => 'dots',
             ),
+            'slider-nav-position' => array(
+                'title' => 'Navigation Y Position',
+                'type' => 'select',
+                'options' => array(
+                    'top' => 'Top',
+                    'center' => 'Center',
+                    'bottom' => 'Bottom'
+                ),
+                'default' => 'center',
+            ),
             'slider-nav-thumb-width' => array(
                 'title' => 'Thumb Width',
                 'type' => 'text',
-                'default' => '30',
+                'default' => '36',
                 'conditions' => array(
                     array(
                         array(
@@ -855,7 +873,7 @@ if ( $layout == 'slider' ) {
             'slider-nav-thumb-height' => array(
                 'title' => 'Thumb Height',
                 'type' => 'text',
-                'default' => '30',
+                'default' => '36',
                 'conditions' => array(
                     array(
                         array(
@@ -869,6 +887,7 @@ if ( $layout == 'slider' ) {
                 'title' => 'Animate In',
                 'type' => 'select',
                 'description' => '',
+                'default' => 'fadeIn',
                 'options' => array(
                     'bounceIn' => 'bounceIn',
                     'bounceInDown' => 'bounceInDown',
@@ -906,6 +925,7 @@ if ( $layout == 'slider' ) {
                 'title' => 'Animate Out',
                 'type' => 'select',
                 'description' => '',
+                'default' => 'fadeOut',
                 'options' => array(
                     'bounceOut' => 'bounceOut',
                     'bounceOutDown' => 'bounceOutDown',
@@ -943,92 +963,6 @@ if ( $layout == 'slider' ) {
                     'zoomOutRight' => 'zoomOutRight',
                     'zoomOutUp' => 'zoomOutUp'
                 ),
-            ),
-            'slider-group' => array(
-                'title' => 'Responsive Settings',
-                'sub_title' => '',
-                'description' => '',
-                'multiple' => true,
-                'type' => 'group',
-                'fields' => array(
-                    'slider-width' => array(
-                        'title' => 'Breakpoint Width',
-                        'type' => 'text'
-                    ),
-                    // 'slider-slideby' => array(
-                    //     'title' => 'Slide By',
-                    //     'type' => 'number'
-                    // ),
-                    'slider-margin' => array(
-                        'title' => 'Spacing',
-                        'type' => 'text'
-                    ),
-                    'slider-loop' => array(
-                        'title' => 'Loop',
-                        'type' => 'switch',
-                        'labels' => array(
-                            'on' => __('', 'fluent'),
-                            'off' => __('', 'fluent'),
-                        ),
-                        'default' => 1,
-                    ),
-                    'slider-center' => array(
-                        'title' => 'Center',
-                        'type' => 'switch',
-                        'labels' => array(
-                            'on' => __('', 'fluent'),
-                            'off' => __('', 'fluent'),
-                        ),
-                        'default' => 1,
-                    ),
-                    'slider-nav' => array(
-                        'title' => 'Nav',
-                        'type' => 'switch',
-                        'labels' => array(
-                            'on' => __('', 'fluent'),
-                            'off' => __('', 'fluent'),
-                        ),
-                        'default' => 1,
-                    ),
-                    'slider-touchdrag' => array(
-                        'title' => 'Touch Drag',
-                        'type' => 'switch',
-                        'labels' => array(
-                            'on' => __('', 'fluent'),
-                            'off' => __('', 'fluent'),
-                        ),
-                        'default' => 1,
-                    ),
-                    'slider-pulldrag' => array(
-                        'title' => 'Pull Drag',
-                        'type' => 'switch',
-                        'labels' => array(
-                            'on' => __('', 'fluent'),
-                            'off' => __('', 'fluent'),
-                        ),
-                        'default' => 1,
-                    ),
-                    'slider-autoheight' => array(
-                        'title' => 'Auto Height',
-                        'type' => 'switch',
-                        'labels' => array(
-                            'on' => __('', 'fluent'),
-                            'off' => __('', 'fluent'),
-                        ),
-                        'default' => 1,
-                    ),
-                    'slider-showdots' => array(
-                        'title' => 'Dots Nav',
-                        'type' => 'switch',
-                        'labels' => array(
-                            'on' => __('', 'fluent'),
-                            'off' => __('', 'fluent'),
-                        ),
-                        'default' => 1,
-                    ),
-
-                    
-                )
             ),
         )
     );

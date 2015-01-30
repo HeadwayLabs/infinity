@@ -28,7 +28,7 @@
 .view-wrapper .post-format-part a {
   text-decoration: none;
 }
-.view-wrapper .readon-part,
+.view-wrapper .readmore-part,
 .view-wrapper .add-to-cart-part {
   background: #eeeeee;
   padding: 1em 1.8em;
@@ -67,7 +67,7 @@
   color: #fff;
   text-align: center;
   font-size: 14px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 /* Meta Parts
 ***************************/
@@ -172,8 +172,8 @@
 .owl-theme .owl-nav [class*='owl-'] {
   color: #ffffff;
   font-size: 14px;
-  margin: 5px;
-  padding: 4px 7px;
+  margin: 0px;
+  padding: 10px;
   background: #bbbbbb;
   display: inline-block;
   cursor: pointer;
@@ -203,7 +203,7 @@
 .owl-theme .owl-dots .owl-dot span {
   width: 10px;
   height: 10px;
-  margin: 5px 7px;
+  margin: 0 7px;
   background: #bbbbbb;
   display: block;
   -webkit-backface-visibility: visible;
@@ -215,16 +215,30 @@
 .owl-theme .owl-dots .owl-dot:hover span {
   background: #68b4bf;
 }
+.owl-theme.owl-nav-bottom .owl-dots.slider {
+  width: 91%;
+  margin-right: 4.5%;
+  margin-left: 4.5%;
+}
+.owl-theme .owl-stage-outer {
+  margin-bottom: 60px;
+}
 .owl-theme .owl-slider-nav {
   margin-top: 10px;
   text-align: center;
   -webkit-tap-highlight-color: transparent;
   width: 100%;
 }
-.owl-theme .owl-slider-nav.v-center {
+.owl-theme .owl-slider-nav.position-center {
   top: 50%;
-  margin-top: -30px;
+  margin-top: -20px;
   position: absolute;
+}
+.owl-theme .owl-slider-nav.position-bottom {
+  position: absolute;
+  top: 100%;
+  padding-top: 10px;
+  margin: 0;
 }
 .owl-theme .owl-slider-nav .owl-prev,
 .owl-theme .owl-slider-nav .owl-next {
@@ -239,8 +253,8 @@
 .owl-theme .owl-slider-nav [class*='owl-'] {
   color: #ffffff;
   font-size: 14px;
-  margin: 5px;
-  padding: 4px 7px;
+  margin: 0px;
+  padding: 10px;
   background: #bbbbbb;
   display: inline-block;
   cursor: pointer;
@@ -262,6 +276,20 @@
   text-align: center;
   -webkit-tap-highlight-color: transparent;
 }
+.owl-theme .owl-dots.slider {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+.owl-theme .owl-dots.dots {
+  margin-top: 25px;
+}
+.owl-theme .owl-dots.numbers {
+  margin-top: 12px;
+}
+.owl-theme .owl-dots.thumbs {
+  margin-top: 10px;
+}
 .owl-theme .owl-dots .owl-dot {
   display: inline-block;
   zoom: 1;
@@ -270,7 +298,7 @@
 .owl-theme .owl-dots .owl-dot span {
   width: 10px;
   height: 10px;
-  margin: 5px 7px;
+  margin: 0 7px;
   background: #bbbbbb;
   display: block;
   -webkit-backface-visibility: visible;
@@ -278,9 +306,34 @@
   transition: opacity 200ms ease;
   border-radius: 30px;
 }
+.owl-theme .owl-dots .owl-dot div {
+  min-width: 13px;
+  margin: 0 3px;
+  background: #ffffff;
+  display: block;
+  padding: 13px;
+  text-align: center;
+  line-height: 1;
+  border-radius: 2px;
+}
+.owl-theme .owl-dots .owl-dot img {
+  margin: 0 3px;
+  background: #ffffff;
+  display: block;
+  padding: 2px;
+  text-align: center;
+  line-height: 1;
+  border-radius: 2px;
+}
 .owl-theme .owl-dots .owl-dot.active span,
-.owl-theme .owl-dots .owl-dot:hover span {
+.owl-theme .owl-dots .owl-dot:hover span,
+.owl-theme .owl-dots .owl-dot.active div,
+.owl-theme .owl-dots .owl-dot:hover div,
+.owl-theme .owl-dots .owl-dot.active img,
+.owl-theme .owl-dots .owl-dot:hover img {
+  cursor: pointer;
   background: #68b4bf;
+  color: #ffffff;
 }
 /* Override variables in vars.less */
 .boxed {

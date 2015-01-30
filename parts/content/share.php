@@ -57,7 +57,7 @@
 
 	<?php if ( $facebook_image || $twitter_image || $linkedin_image || $googleplus_image ) : ?>
 
-	<ul class="vb-part share-part<?php echo $display_as ?>">
+	<ul class="vb-part share-part<?php echo $display_as ?> clearfix">
 
 		<?php echo $before; ?>
 

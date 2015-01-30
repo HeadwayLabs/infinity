@@ -17,7 +17,7 @@ $grid_spacing = $builder_options->getOption( 'postopts-post-spacing-' . $view_na
 
 //filter settings
 $disable_filter = isset(views()->options['masonry-disable-filter']) ? views()->options['masonry-disable-filter'] : false;
-$filter_type = views()->options['masonry-filter-type'];
+$filter_type = isset( views()->options['masonry-filter-type'] ) ? views()->options['masonry-filter-type'] : null;
 
 if ( !$disable_filter ) {
 
@@ -158,7 +158,7 @@ $filter_before_text = isset(views()->options['masonry-before-filter-text']) ? vi
 
 	//get customizer columns instead
 	$columns = $builder_options->getOption( 'postopts-columns-' . $view_name . '' );
-	$filter_animation = views()->options['masonry-filter-animation'];
+	$filter_animation = isset(views()->options['masonry-filter-animation'] ) ? views()->options['masonry-filter-animation'] : null;
 
 	$infinite_scroll = $builder_options->getOption( 'pagination-infinite-' . $view_name . '' );
 	$infinite_scroll_effect = $builder_options->getOption( 'pagination-infinite-effect-' . $view_name . '' );

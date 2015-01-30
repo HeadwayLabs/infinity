@@ -19,6 +19,10 @@ class View_Builder_Assets {
 	 */
 	private static $instance;
 
+	private static $general_css;
+
+	private static $images_css;
+
 	/**
 	 * View_Builder_Assets Instance
 	 *
@@ -70,7 +74,7 @@ class View_Builder_Assets {
 
 		add_action( 'customize_controls_enqueue_scripts', array(__CLASS__, 'enqueueCustomizer' ) );
 
-		//add_action( 'customize_preview_init', array(__CLASS__, 'enqueueCustomizerPreview' ) );
+		add_action( 'customize_preview_init', array(__CLASS__, 'enqueueCustomizerPreview' ) );
 
 		add_action('wp_ajax_dynamic_css', array( __CLASS__, 'dynamic_css') );
 		add_action('wp_ajax_nopriv_dynamic_css', array( __CLASS__, 'dynamic_css') );
@@ -78,6 +82,24 @@ class View_Builder_Assets {
 		add_action('wp_ajax_dynamic_js', array( __CLASS__, 'dynamic_js') );
 		add_action('wp_ajax_nopriv_dynamic_js', array( __CLASS__, 'dynamic_js') );
 
+		//minqueue
+		//define('MINQUEUE_OPTIONS', false);
+		add_filter('minqueue_options', array( __CLASS__, 'min_queue_options') );
+
+	}
+
+	public static function min_queue_options($options) {
+
+		$options = array(
+			'cache_dir' => 'minqueue_cache',
+			'styles_method' => 'manual',
+			'styles_manual' => array(
+				'general' => self::$general_css,
+				'images' => self::$images_css,
+			)
+		);
+
+		return $options;
 	}
 
 
@@ -91,21 +113,22 @@ class View_Builder_Assets {
 		exit;
 	}
 
-	// public static function enqueueCustomizerPreview() {
-	// 	add_action( 'wp_enqueue_scripts', array(__CLASS__, 'preview_scripts' ) );
-	// }
+	public static function enqueueCustomizerPreview() {
+		add_action( 'wp_enqueue_scripts', array(__CLASS__, 'preview_scripts' ) );
+	}
 
-	// public static function preview_scripts() {
+	public static function preview_scripts() {
 
-	// 	wp_enqueue_script( 'jquery-ui-core' );
-	// 	wp_enqueue_script( 'jquery-ui-resizable' );
-	// 	global $wp_scripts;
-	// 	$queryui = $wp_scripts->query('jquery-ui-core');
-	// 	$url = "http://ajax.googleapis.com/ajax/libs/jqueryui/". $queryui->ver."/themes/smoothness/jquery-ui.css";
-	// 	wp_enqueue_style('jquery-ui-smoothness', $url, false, null);
-	// 	wp_enqueue_script('vb-preview', views()->plugin_url . 'includes/assets/js/preview.js', array(), views()->version, 1);
+		// wp_enqueue_script( 'jquery-ui-core' );
+		// wp_enqueue_script( 'jquery-ui-resizable' );
+		// global $wp_scripts;
+		// $queryui = $wp_scripts->query('jquery-ui-core');
+		// $url = "http://ajax.googleapis.com/ajax/libs/jqueryui/". $queryui->ver."/themes/smoothness/jquery-ui.css";
+		// wp_enqueue_style('jquery-ui-smoothness', $url, false, null);
+		wp_enqueue_script('vb-preview', views()->plugin_url . 'includes/assets/js/preview.js', array(), views()->version, 1);
+		wp_enqueue_style('vb-preview', views()->plugin_url . 'includes/assets/css/preview.css');
 
-	// }
+	}
 
 	public static function enqueueCustomizer() {
 		wp_enqueue_script('vb-customizer-js', views()->plugin_url . 'includes/admin/assets/js/min/customizer-min.js');
@@ -116,11 +139,16 @@ class View_Builder_Assets {
 
 		$enqueue_masonry_simple 	= null;
 		$enqueue_carousel 			= null;
+		$enqueue_blog 					= null;
 		$enqueue_slider 				= null;
 		$enqueue_image 				= null;
 		$enqueue_likes 				= null;
 		$enqueue_grid					= null;
 		$enqueue_dashicons			= null;
+
+		self::$general_css = array();
+		self::$images_css = array();
+		self::$general_css = array();
 
 		$args = array(
 			'post_type' => 'view',
@@ -147,7 +175,7 @@ class View_Builder_Assets {
 				$layout = $builder_options->getOption( 'view-layout-' . $view_name . '' );
 	
 				$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
-				$spotlight = $builder_options->getOption( 'image-show-spotlight-' . $view_name . '' );
+				$spotlight = $builder_options->getOption( 'image-show-spotlight-hide-' . $view_name . '' );
 
 				if (!empty($parts)) {
 
@@ -168,6 +196,9 @@ class View_Builder_Assets {
 				if ($layout == 'carousel')
 					$enqueue_carousel = true;
 
+				if ($layout == 'blog')
+					$enqueue_blog = true;
+
 				if ($layout == 'slider') {
 					$enqueue_slider = true;
 					$enqueue_dashicons = true;
@@ -176,24 +207,29 @@ class View_Builder_Assets {
 				if ($layout == 'grid')
 					$enqueue_grid = true;
 
-
-
 				//lets enqueue a css file for each view if it exists in layout
 				$style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
+
+				if($style_name)
+					array_push(self::$general_css, 'vb-'.$style_name);
 
 				if(!empty($style_name)) {
 					
 					//default styles
-					if( file_exists( views()->plugin_dir . 'styles/'. $style_name .'.css' ) )
-						wp_enqueue_style( 'vb-'. $style_name .'-css', views()->plugin_url . 'styles/'. $style_name .'.css');
+					$css_styles = array();
+					if( file_exists( views()->plugin_dir . 'styles/'. $style_name .'.css' ) ) {
+						wp_enqueue_style( 'vb-'. $style_name, views()->plugin_url . 'styles/'. $style_name .'.css');
+					}
 
 					//template styles
-					if( file_exists( get_template_directory() . '/' . $style_name .'.css' ) )
-						wp_enqueue_style( 'vb-'. $style_name .'-css', get_template_directory_uri() . '/' . $style_name .'.css');
+					if( file_exists( get_template_directory() . '/' . $style_name .'.css' ) ) {
+						wp_enqueue_style( 'vb-'. $style_name, get_template_directory_uri() . '/' . $style_name .'.css');
+					}
 
 					//child theme styles
-					if( file_exists( get_stylesheet_directory() . '/' . $style_name .'.css' ) )
-						wp_enqueue_style( 'vb-'. $style_name .'-css', get_stylesheet_directory_uri() . '/' . $style_name .'.css');
+					if( file_exists( get_stylesheet_directory() . '/' . $style_name .'.css' ) ) {
+						wp_enqueue_style( 'vb-'. $style_name, get_stylesheet_directory_uri() . '/' . $style_name .'.css');
+					}
 
 				}
 
@@ -208,11 +244,13 @@ class View_Builder_Assets {
 		/* Enqueue dynamic styles and scripts for front end */
 
 		wp_enqueue_style('vb-view-builder', views()->plugin_url . 'includes/assets/css/view-builder.min.css');
+		array_push(self::$general_css, 'vb-view-builder');
 		// wp_enqueue_script( 'vb-view-builder', views()->plugin_url . 'includes/assets/js/min/view-builder-min.js', array('jquery'), views()->version, 1 );
 
 		if ( !is_admin() ) {
 
-			wp_enqueue_style( 'dynamic-css', admin_url('admin-ajax.php').'?action=dynamic_css');
+			wp_enqueue_style( 'vb-dynamic', admin_url('admin-ajax.php').'?action=dynamic_css');
+
 			wp_enqueue_script( 'dynamic-js', admin_url('admin-ajax.php').'?action=dynamic_js', array('jquery'), views()->version, 1 );
 
 			wp_localize_script( 'dynamic-js', 'builder_meta', $meta_options );
@@ -246,28 +284,39 @@ class View_Builder_Assets {
 			wp_enqueue_script('vb-carousel', views()->plugin_url . 'layouts/assets/js/min/owl.carousel-min.js', array('jquery'), views()->version, 1);
 
 			wp_enqueue_style('vb-owl-structure', views()->plugin_url . 'layouts/assets/css/owl.carousel.css');
+			array_push(self::$general_css, 'vb-owl-structure');
 
 		}
 
-		if ( $enqueue_dashicons )
+		if ( $enqueue_dashicons ) {
 			wp_enqueue_style('dashicons');
+			array_push(self::$general_css, 'dashicons');
+		}
 
-		if ( $enqueue_grid )
+		if ( $enqueue_grid ) 
 			wp_enqueue_script('vb-grid', views()->plugin_url . 'layouts/assets/js/min/grid-min.js', array('jquery'), views()->version);
 
 		if ( $enqueue_image  ) {
 
 			wp_enqueue_style('vb-animate', views()->plugin_url . 'includes/assets/css/animate.min.css');
+			array_push(self::$images_css, 'vb-animate');
 			wp_enqueue_style('vb-sinister', views()->plugin_url . 'includes/assets/css/sinister.min.css');
-
+			array_push(self::$images_css, 'vb-sinister');
 			wp_enqueue_style('vb-lightgallery', views()->plugin_url . 'includes/assets/css/lightGallery.min.css');
-			wp_enqueue_script('vb-lightgallery', views()->plugin_url . 'includes/assets/js/lightGallery.min.js', array('jquery'), views()->version, 1);
+			array_push(self::$images_css, 'vb-lightgallery');
+			
+			wp_enqueue_script('vb-lightgallery', views()->plugin_url . 'includes/assets/js/min/lightGallery.min.js', array('jquery'), views()->version, 1);
 
 		}
+
+		$infinite_scroll = $builder_options->getOption( 'pagination-infinite-' . $view_name . '' );
+		if ( $infinite_scroll && $enqueue_grid || $enqueue_masonry_simple || $enqueue_blog)
+			wp_enqueue_script('vb-infinite-scroll', views()->plugin_url . 'layouts/assets/js/min/jquery.infinitescroll.min.js', array('jquery'), views()->version);
 
 		if ( $enqueue_likes || $enqueue_image ) {
 			
 			wp_enqueue_style('vb-font-awesome', views()->plugin_url . 'includes/assets/css/font-awesome.min.css');
+			array_push(self::$images_css, 'vb-font-awesome');
 
 		}
 
@@ -334,7 +383,8 @@ class View_Builder_Assets {
 	$autoplay = ( isset( $options['carousel-autoplay'] ) == true ) ? 'autoplay:' . $options['carousel-autoplay'] . ',' : 'autoplay: false,';
 	$autoplay_hover_pause = ( isset( $options['carousel-autoplay-hover-pause'] ) == true ) ? 'autoplayHoverPause:' . $options['carousel-autoplay-hover-pause'] . ',' : 'autoplayHoverPause: false,';
 	$autoplay_timeout = ( isset( $options['carousel-autoplay-timeout'] ) ) ? 'autoplayTimeout:' . $options['carousel-autoplay-timeout'] . ',' : null;
-	
+	$auto_height = ( isset( $options['carousel-auto_height'] ) ) ? 'autoHeight:true,' : 'autoHeight:false,';
+
 	$nav_text_prev = ( isset( $options['carousel-navtext-prev'] ) == true ) ? $options['carousel-navtext-prev'] : null;
 	$nav_text_next = ( isset( $options['carousel-navtext-next'] ) == true ) ? $options['carousel-navtext-next'] : null;
 	
@@ -364,6 +414,8 @@ class View_Builder_Assets {
 
 						<?php echo $nav_text; ?>
 
+						<?php echo $auto_height; ?>
+
 						responsive:true,
 						responsive:{
 							<?php echo $responsive_js; ?>
@@ -385,54 +437,7 @@ class View_Builder_Assets {
 	$builder_options = TitanFramework::getInstance( 'builder-options' );
 	$layout = $builder_options->getOption( 'view-layout-' . $view_name . '' );
 
-	//number of items is equal to columns set
-	$columns = $builder_options->getOption( 'postopts-columns-' . $view_name . '' );
-
-	$responsive_js = null;
-
-	/* Carousel Group - Responsive carousel options */
-	if ( ! empty( $options['slider-group'] ) ) {
-
-		$meta_query = array();
-
-		foreach ( $options['slider-group'] as $option ) {
-
-			$width = $option['slider-width'];
-			$margin = ( isset( $option['slider-margin'] ) ) ? 'margin:' . $option['slider-margin'] . ',' : null;
-			$loop = ( isset( $option['slider-loop'] ) == true) ? 'loop:true,' : null;
-			$center = ( isset( $option['slider-center'] ) ) ? 'center:' . $option['slider-center'] . ',' : 'center: false,';
-			$nav = ( isset( $option['slider-nav'] ) ) ? 'nav: true,' : 'nav: false,';
-			//$slideby = ( isset( $option['slider-slideby'] ) ) ? 'slideBy:' . $option['slider-slideby'] . ',' : null;
-
-			$touchdrag = ( isset( $option['slider-touchdrag'] ) == true) ? 'touchDrag:' . $option['slider-touchdrag'] . ',' : 'touchDrag: false,';
-			$pulldrag = ( isset( $option['slider-pulldrag'] ) == true) ? 'pullDrag:' . $option['slider-pulldrag'] . ',' : 'pullDrag: false,';
-			$auto_height = ( isset( $option['slider-autoheight'] ) == true) ? 'autoHeight:' . $option['slider-autoheight'] . ',' : 'autoHeight: false,';
-			$dots = ( isset( $option['slider-showdots'] ) == true) ? 'dots:' . $option['slider-showdots'] . ',' : 'dots: false,';
-
-
-			$responsive_js .= '
-							' . $width . ': {
-							' . $margin . '
-							' . $loop . '
-							' . $center . '
-							' . $nav . '
-							' . $touchdrag . '
-							' . $pulldrag . '
-							' . $auto_height . '
-							' . $dots . '
-							dotsEach: false,
-							},
-			';
-
-		}
-
-	} 
-
-	//$responsive = (views()->options['slider-responsive']) ? 'responsive:' .views()->options['slider-responsive'] . ',' : '';
-
 	$items = 'items:1,'; 
-	$margin = $builder_options->getOption( 'postopts-post-spacing-' . $view_name . '' );
-	$margin = ($margin) ? 'margin:' . $margin . ',' : '';
 	$mousedrag = ( isset( $options['slider-mousedrag'] ) == true ) ? 'mouseDrag:' . $options['slider-mousedrag'] . ',' : 'mouseDrag: false,';
 	$autoplay = ( isset( $options['slider-autoplay'] ) == true ) ? 'autoplay:' . $options['slider-autoplay'] . ',' : 'autoplay: false,';
 	$autoplay_hover_pause = ( isset( $options['slider-autoplay-hover-pause'] ) == true ) ? 'autoplayHoverPause:' . $options['slider-autoplay-hover-pause'] . ',' : 'autoplayHoverPause: false,';
@@ -442,7 +447,7 @@ class View_Builder_Assets {
 	$animate_out = ( isset( $options['slider-animate-out'] ) ) ? 'animateOut:"' . $options['slider-animate-out'] . '",' : null;
 	$animate_in = ( isset( $options['slider-animate-in'] ) ) ? 'animateIn:"' . $options['slider-animate-in'] . '",' : null;
 	$slider_nav_type = ( isset( $options['slider-nav-type'] ) ) ? $options['slider-nav-type'] : 'dots';
-
+	$slider_nav_thumb_height = ( isset( views()->options['slider-nav-thumb-height'] ) ) ? views()->options['slider-nav-thumb-height'] : '36';
 	$nav_text_prev = ( isset( $options['slider-navtext-prev'] ) == true ) ? $options['slider-navtext-prev'] : null;
 	$nav_text_next = ( isset( $options['slider-navtext-next'] ) == true ) ? $options['slider-navtext-next'] : null;
 	
@@ -450,14 +455,12 @@ class View_Builder_Assets {
 	if( $nav_text_prev && $nav_text_next )
 		$nav_text = "navText: ['". $nav_text_prev ."','". $nav_text_next ."'],";
 
-	$dotsData = null;
+	$dots_data = null;
 	if ( $slider_nav_type == 'numbers' || $slider_nav_type == 'thumbs' ) {
-			$dotsData = 'dotData:true,';
+			$dots_data = 'dotData:true,';
 	}
 
-	$center_nav = true;
-	if( $center_nav == true )
-		$center_class = ' v-center';
+	$nav_position_class = ( isset( $options['slider-nav-position'] ) != '' ) ? $options['slider-nav-position'] : null;
 
 	?>
 
@@ -468,8 +471,6 @@ class View_Builder_Assets {
 
 				$("#view-<?php echo views()->id; ?>.slider").owlCarousel({
 						<?php echo $items; ?>
-
-						<?php echo $margin; ?>
 
 						<?php echo $mousedrag; ?>
 
@@ -489,18 +490,20 @@ class View_Builder_Assets {
 
 						<?php echo $animate_out; ?>
 
-						<?php echo $dotsData; ?>
+						<?php echo $dots_data; ?>
 
 						autoHeight: true,
 						responsive:true,
+						themeClass: 'owl-theme owl-slider-nav-type-<?php echo $slider_nav_type; ?> owl-nav-<?php echo $nav_position_class; ?>',
 						controlsClass: 'owl-slider-controls',
-						navContainerClass: 'owl-slider-nav<?php echo $center_class; ?>',
-						dotsClass: 'owl-dots slider',
-						responsive:{
-							<?php echo $responsive_js; ?>
-						}
+						navContainerClass: 'owl-slider-nav position-<?php echo $nav_position_class; ?>',
+						dotsClass: 'owl-dots slider <?php echo $slider_nav_type; ?>'
 					});
-
+					$("#view-<?php echo views()->id; ?>.slider.owl-slider-nav-type-thumbs").css({'margin-bottom': '<?php echo ($slider_nav_thumb_height*2)-10 ?>px'});
+					
+					<?php if( $slider_nav_thumb_height > 44 ) : ?>
+						$("#view-<?php echo views()->id; ?>.slider.owl-slider-nav-type-thumbs").find('.owl-slider-nav.position-bottom').css({'margin-top':'<?php echo ($slider_nav_thumb_height/2)-20 ?>px'});
+					<?php endif; ?>
 			});
 		})(jQuery);
 

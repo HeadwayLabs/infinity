@@ -48,7 +48,6 @@ $style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );?>
 		<?php endif; ?>
 
 		<?php load_template( views()->plugin_dir . 'parts/layout/pagination.php', false ); ?>
-		<?php //echo content builder before zone ?>
 
 	</div>
 
@@ -107,8 +106,7 @@ $style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );?>
 			wrapper,
 			<?php echo $columns; ?>,
 			<?php echo '['.$responsive_js.']'; ?>,
-			'<?php echo views()->plugin_url ?>images/loading.gif',
-			'<?php echo $infinite_scroll_effect; ?>'
+			'<?php echo views()->plugin_url ?>images/loading.gif'
 		);
 
 		<?php endif; ?>

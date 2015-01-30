@@ -15,27 +15,30 @@
 /* Parts
 ***************************/
 .view-wrapper .vb-part {
-  margin: 15px 0;
+  margin: 2em 0;
 }
 .view-wrapper .excerpt-part {
   line-height: 1.5;
 }
 .view-wrapper .image-part {
-  margin-left: -15px;
-  margin-right: -15px;
+  margin-left: -2em;
+  margin-right: -2em;
 }
-.view-wrapper .readon-part,
+.view-wrapper .post-format-part a {
+  text-decoration: none;
+}
+.view-wrapper .readmore-part,
 .view-wrapper .add-to-cart-part {
-  background: #eee;
-  padding: 10px 20px;
+  background: #eeeeee;
+  padding: 1em 1.8em;
   text-decoration: none;
 }
 .view-wrapper .added_to_cart {
-  font-size: .7em;
-  font-weight: 600;
+  font-size: 0.8em;
   display: block;
   text-align: center;
-  margin-top: 1.4em;
+  margin-top: 1em;
+  text-decoration: none;
 }
 .view-wrapper .added_to_cart:after {
   content: "";
@@ -47,14 +50,14 @@
   font-family: Georgia, Times, 'Times New Roman', serif;
   font-style: italic;
   color: #999;
-  margin: 5px 0;
+  margin: 0.66666667em 0;
 }
 .view-wrapper .vb-part.meta-part a {
   font-size: 12px;
   color: #ccc;
 }
 .simple.blog article {
-  margin-bottom: 15px;
+  margin-bottom: 2em;
 }
 .simple article {
   background: none;

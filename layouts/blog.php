@@ -1,6 +1,6 @@
 <?php
 /**
- * View Template: Traditional Blog
+ * View Template: Blog
  *
  * Display a post title and excerpt
  *
@@ -46,6 +46,35 @@ $grid_spacing = $builder_options->getOption( 'postopts-post-spacing-' . $view_na
 	<?php endif; ?>
 
 	<?php load_template( views()->plugin_dir . 'parts/layout/pagination.php' ); ?>
-	<?php //echo content builder before zone ?>
 
 </div>
+
+
+<?php 
+$infinite_scroll = $builder_options->getOption( 'pagination-infinite-' . $view_name . '' );
+if($infinite_scroll) : ?>
+
+	<script>
+
+		(function ($) {
+
+	      var view = $('#view-<?php echo views()->id; ?>');
+	      var wrapper = $('#wrapper-<?php echo views()->id; ?>');
+			var article = $('#view-<?php echo views()->id; ?> article');
+
+	      view.infinitescroll({ // .magnet  contains items
+		        loading: {
+		            msgText: "<em>Loading the next set of posts...</em>",
+		            img: '<?php echo views()->plugin_url ?>images/loading.gif',
+		        },
+		        navSelector: '#pagenav', 
+		        nextSelector: '#pagenav a',
+		        itemSelector: '.item'
+		    });
+
+		})(jQuery);
+
+	</script>
+
+<?php endif; ?>
+

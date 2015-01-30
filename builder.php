@@ -149,11 +149,12 @@ if ( ! class_exists( 'HW_Builder' ) ) :
 		private function includes() {
 
 			require_once( $this->plugin_dir . 'includes/builder-options.php' );
+			require_once( $this->plugin_dir . 'includes/minqueue/plugin.php' );
 			require_once( $this->plugin_dir . 'includes/functions.php' );
 			require_once( $this->plugin_dir . 'includes/assets.php' );
 			require_once( $this->plugin_dir . 'includes/post-like.php' );
 			require_once( $this->plugin_dir . 'includes/shortcodes.php' );
-			//require_once( $this->plugin_dir . 'includes/widget.php' );
+			require_once( $this->plugin_dir . 'includes/widget.php' );
 
 			require_once( $this->plugin_dir . 'includes/fluent-framework/fluent-framework.php' );
 
