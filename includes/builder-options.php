@@ -154,7 +154,7 @@ if ( $the_query->have_posts() ) :
 
                     $section->createOption( array(
                         'name' => 'Categories ',
-                        'id' => 'postopts-post-categories-' . $view_name . '',
+                        'id' => 'postopts-post-categories-' . $id . '',
                         'type' => 'multicheck-categories-ib',
                         'desc' => 'Select a category to display content from',
                         'default' => 'all'

@@ -63,9 +63,9 @@ function vb_loop_query( $id, $query = '' ) {
 	}
 
 	//category for simple query
-	if ( empty( $options['taxonomy-group'] ) ) {
+	if ( empty( $options['taxonomy-group'] ) || $options['post-taxonomies-relation'] == 'none' ) {
 
-		$categories = $builder_options->getOption( 'postopts-post-categories-' . $view_name . '' );
+		$categories = $builder_options->getOption( 'postopts-post-categories-' . $id . '' );
 		if ( $categories && !in_array( 'all', $categories ) ) {
 			$categories = implode( ',', $categories );
 			$args['cat'] = $categories;
