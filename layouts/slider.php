@@ -15,6 +15,7 @@ $style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
 $slider_nav_thumb_height = ( isset( views()->options['slider-nav-thumb-height'] ) ) ? views()->options['slider-nav-thumb-height'] : '36';
 $slider_nav_thumb_width = ( isset( views()->options['slider-nav-thumb-width'] ) ) ? views()->options['slider-nav-thumb-width'] : '36';
 $slider_nav_type = ( isset( views()->options['slider-nav-type'] ) ) ? views()->options['slider-nav-type'] : 'dots';
+$view_id = views()->id;
 
 ?>
 
@@ -47,5 +48,5 @@ $slider_nav_type = ( isset( views()->options['slider-nav-type'] ) ) ? views()->o
 
 	<?php load_template( views()->plugin_dir . 'parts/layout/pagination.php' ); ?>
 	
-	<?php view_builder_assets()->slider_js( $view_name ); ?>
+	<?php view_builder_assets()->slider_js( $view_id ); ?>
 

@@ -14,8 +14,11 @@
 $builder_options = TitanFramework::getInstance( 'builder-options' );
 $options = views()->options;
 $view_name = strtolower(str_replace(' ', '-', views()->view_name));
-$grid_spacing = $builder_options->getOption( 'postopts-post-spacing-' . $view_name . '' )/2;
-$style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );?>
+$view_id = views()->id;
+$grid_spacing = $builder_options->getOption( 'postopts-post-spacing-' . $view_id . '' )/2;
+$style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
+
+?>
 
 <style>
 
@@ -84,7 +87,7 @@ $style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );?>
 	} 
 
 	//get customizer columns instead
-	$columns = $builder_options->getOption( 'postopts-columns-' . $view_name . '' );
+	$columns = $builder_options->getOption( 'postopts-columns-' . $view_id . '' );
 	$infinite_scroll = $builder_options->getOption( 'pagination-infinite-' . $view_name . '' );
 	$infinite_scroll_effect = $builder_options->getOption( 'pagination-infinite-effect-' . $view_name . '' );
 

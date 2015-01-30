@@ -11,6 +11,7 @@
 $builder_options = TitanFramework::getInstance( 'builder-options' );
 $view_name = strtolower(str_replace(' ', '-', views()->view_name));
 $style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
+$view_id = views()->id;
 
 ?>
 
@@ -44,5 +45,5 @@ $style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
 	<?php load_template( views()->plugin_dir . 'parts/layout/pagination.php' ); ?>
 	<?php //echo content builder before zone ?>
 
-	<?php view_builder_assets()->carousel_js( $view_name ); ?>
+	<?php view_builder_assets()->carousel_js( $view_id ); ?>
 

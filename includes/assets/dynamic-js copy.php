@@ -29,7 +29,7 @@
 		// 		$view_name = strtolower(str_replace(' ', '-', get_the_title()));
 
 		// 		$builder_options = TitanFramework::getInstance( 'builder-options' );
-		// 		$layout = strtolower($builder_options->getOption( 'view-layout-' . $view_name . '' ));
+		// 		$layout = strtolower($builder_options->getOption( 'view-layout-' . $id . '' ));
 	
 		// 		$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
 

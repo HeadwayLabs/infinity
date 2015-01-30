@@ -119,7 +119,7 @@ if ( $the_query->have_posts() ) :
 
                 $section->createOption( array(
                     'name' => 'Columns:',
-                    'id' => 'postopts-columns-' . $view_name . '',
+                    'id' => 'postopts-columns-' . $id . '',
                     'type' => 'select',
                     'desc' => 'The number of columns to display for grid, masonry and carousel modes.',
                     'options' => array(
@@ -144,7 +144,7 @@ if ( $the_query->have_posts() ) :
 
                 $section->createOption( array(
                     'name' => 'Spacing:',
-                    'id' => 'postopts-post-spacing-' . $view_name . '',
+                    'id' => 'postopts-post-spacing-' . $id . '',
                     'desc' => 'The amount spacing in pixels between each item.',
                     'type' => 'text',
                     'default' => '20'
@@ -260,7 +260,7 @@ if ( $the_query->have_posts() ) :
 
                 $section->createOption( array(
                     'name' => '',
-                    'id' => 'view-layout-' . $view_name . '',
+                    'id' => 'view-layout-' . $id . '',
                     'type' => 'radio-image',
                     'options' => get_layouts_list(),
                     'default' => 'blog',

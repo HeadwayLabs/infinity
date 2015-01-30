@@ -246,6 +246,7 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 		public static function get_post_parts( $builder_options ) {
 
 			$view_name = strtolower(views()->view_name);
+			$id = strtolower(views()->id);
 
 			$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
 
@@ -259,11 +260,11 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			
 			//image settings
 
-			$layout = $builder_options->getOption( 'view-layout-' . $view_name . '' );
+			$layout = $builder_options->getOption( 'view-layout-' . $id . '' );
 			if ( $layout == 'slider' ||  $layout == 'blog') {
 				$columns			 		= '1';
 			} else {
-				$columns = $builder_options->getOption( 'postopts-columns-' . $view_name . '' );
+				$columns = $builder_options->getOption( 'postopts-columns-' . $id . '' );
 			}
 			$thumb_align			 			= $builder_options->getOption( 'image-option-thumb-align-' . $view_name . '' );
 			$auto_size			 				= $builder_options->getOption( 'image-option-auto-size-' . $view_name . '' );

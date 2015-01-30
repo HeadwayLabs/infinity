@@ -45,6 +45,7 @@ $the_query = new WP_Query( $args );
 $meta_options = array();
 
 $view_name = null;
+$id = null;
 
 if ( $the_query->have_posts() ) :
 
@@ -65,7 +66,7 @@ endif;
 
 wp_reset_postdata();
 
-$layout = strtolower(str_replace(' ', '-', $builder_options->getOption( 'view-layout-' . $view_name . '' )));
+$layout = strtolower(str_replace(' ', '-', $builder_options->getOption( 'view-layout-' . $id . '' )));
 
 //sections are groups of fields, displayed as metaboxes or blocks depending on the usage case
 $sections = array();

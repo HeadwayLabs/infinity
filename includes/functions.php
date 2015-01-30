@@ -729,7 +729,7 @@ function vb_shortcode( $atts ) {
 	$builder_options = TitanFramework::getInstance( 'builder-options' );
 	$view_name = strtolower(views()->view_name);
 
-	$layout = $builder_options->getOption( 'view-layout-' . $view_name . '' );
+	$layout = $builder_options->getOption( 'view-layout-' . $id . '' );
 
 	if (empty($layout))
 		$layout = 'blog';

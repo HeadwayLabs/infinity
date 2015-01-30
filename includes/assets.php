@@ -172,7 +172,7 @@ class View_Builder_Assets {
 				$view_name = strtolower(str_replace(' ', '-', get_the_title()));
 
 				$builder_options = TitanFramework::getInstance( 'builder-options' );
-				$layout = $builder_options->getOption( 'view-layout-' . $view_name . '' );
+				$layout = $builder_options->getOption( 'view-layout-' . $id . '' );
 	
 				$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
 				$spotlight = $builder_options->getOption( 'image-show-spotlight-hide-' . $view_name . '' );
@@ -322,15 +322,15 @@ class View_Builder_Assets {
 
 	}
 
-	function carousel_js( $view_name ) {
+	function carousel_js( $view_id ) {
 
 	$options = views()->options;
 
 	$builder_options = TitanFramework::getInstance( 'builder-options' );
-	$layout = $builder_options->getOption( 'view-layout-' . $view_name . '' );
+	$layout = $builder_options->getOption( 'view-layout-' . $view_id . '' );
 
 	//number of items is equal to columns set
-	$columns = $builder_options->getOption( 'postopts-columns-' . $view_name . '' );
+	$columns = $builder_options->getOption( 'postopts-columns-' . $view_id . '' );
 
 	$responsive_js = null;
 
@@ -377,7 +377,7 @@ class View_Builder_Assets {
 	//$responsive = (views()->options['carousel-responsive']) ? 'responsive:' .views()->options['carousel-responsive'] . ',' : '';
 
 	$items = ($columns) ? 'items:' . $columns . ',' : ''; 
-	$margin = $builder_options->getOption( 'postopts-post-spacing-' . $view_name . '' );
+	$margin = $builder_options->getOption( 'postopts-post-spacing-' . $view_id . '' );
 	$margin = ($margin) ? 'margin:' . $margin . ',' : '';
 	$mousedrag = ( isset( $options['carousel-mousedrag'] ) == true ) ? 'mouseDrag:' . $options['carousel-mousedrag'] . ',' : 'mouseDrag: false,';
 	$autoplay = ( isset( $options['carousel-autoplay'] ) == true ) ? 'autoplay:' . $options['carousel-autoplay'] . ',' : 'autoplay: false,';
@@ -430,12 +430,12 @@ class View_Builder_Assets {
 	<?php
 	}
 
-	function slider_js( $view_name ) {
+	function slider_js( $view_id ) {
 
 	$options = views()->options;
 
 	$builder_options = TitanFramework::getInstance( 'builder-options' );
-	$layout = $builder_options->getOption( 'view-layout-' . $view_name . '' );
+	$layout = $builder_options->getOption( 'view-layout-' . $view_id . '' );
 
 	$items = 'items:1,'; 
 	$mousedrag = ( isset( $options['slider-mousedrag'] ) == true ) ? 'mouseDrag:' . $options['slider-mousedrag'] . ',' : 'mouseDrag: false,';

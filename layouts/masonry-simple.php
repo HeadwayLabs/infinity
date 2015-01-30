@@ -12,8 +12,9 @@ views()->count = -1;
 
 $builder_options = TitanFramework::getInstance( 'builder-options' );
 $view_name = strtolower(str_replace(' ', '-', views()->view_name));
+$view_id = views()->id;
 $style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
-$grid_spacing = $builder_options->getOption( 'postopts-post-spacing-' . $view_name . '' )/2;
+$grid_spacing = $builder_options->getOption( 'postopts-post-spacing-' . $view_id . '' )/2;
 
 //filter settings
 $disable_filter = isset(views()->options['masonry-disable-filter']) ? views()->options['masonry-disable-filter'] : false;
@@ -157,7 +158,7 @@ $filter_before_text = isset(views()->options['masonry-before-filter-text']) ? vi
 	} 
 
 	//get customizer columns instead
-	$columns = $builder_options->getOption( 'postopts-columns-' . $view_name . '' );
+	$columns = $builder_options->getOption( 'postopts-columns-' . $view_id . '' );
 	$filter_animation = isset(views()->options['masonry-filter-animation'] ) ? views()->options['masonry-filter-animation'] : null;
 
 	$infinite_scroll = $builder_options->getOption( 'pagination-infinite-' . $view_name . '' );

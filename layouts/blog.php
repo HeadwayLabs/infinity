@@ -12,8 +12,9 @@ views()->count = -1;
 
 $builder_options = TitanFramework::getInstance( 'builder-options' );
 $view_name = strtolower(str_replace(' ', '-', views()->view_name));
+$view_id = views()->id;
 $style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
-$grid_spacing = $builder_options->getOption( 'postopts-post-spacing-' . $view_name . '' );?>
+$grid_spacing = $builder_options->getOption( 'postopts-post-spacing-' . $view_id . '' );?>
 
 <style>
 
@@ -58,9 +59,9 @@ if($infinite_scroll) : ?>
 
 		(function ($) {
 
-	      var view = $('#view-<?php echo views()->id; ?>');
-	      var wrapper = $('#wrapper-<?php echo views()->id; ?>');
-			var article = $('#view-<?php echo views()->id; ?> article');
+	      var view = $('#view-<?php echo $view_id; ?>');
+	      var wrapper = $('#wrapper-<?php echo $view_id; ?>');
+			var article = $('#view-<?php echo $view_id; ?> article');
 
 	      view.infinitescroll({ // .magnet  contains items
 		        loading: {
