@@ -25,7 +25,7 @@ function showHideQueryBox(el, handle) {
 
 		var html = '<div id="shortcode-preview">'+ shortcode +'</div>';
 
-		$('#post-body').prepend(html);
+		$('body.post-php #post-body').prepend(html);
 
 		//move switch
 		var querySwitch = $('#to-move').find('.field-type-switch');
