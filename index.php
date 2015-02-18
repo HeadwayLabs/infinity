@@ -1,5 +1,5 @@
 <?php
 /**
- * Silence is golden...xxx
+ * Silence is golden
  */
 ?>
