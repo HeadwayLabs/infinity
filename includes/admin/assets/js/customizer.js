@@ -193,7 +193,7 @@
 
 			}
 
-		}, 1000);
+		}, 10000);
 
 
 	var part_types = [
@@ -223,6 +223,8 @@
 		"btn3",
 		"btn4"
 	];
+
+	setTimeout(function(){
 
 	//image icon options modifications
 	$("li[id*=accordion-section-builder]").each(function(index, el) {
@@ -501,6 +503,8 @@
 
 		
 	});//end parts options modifications
+
+	}, 4000);
 	
 	});
 })(jQuery);
