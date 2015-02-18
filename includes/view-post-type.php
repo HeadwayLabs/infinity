@@ -113,6 +113,24 @@ $args = array(
     // )
 );
 
+$sections['performace'] = array(
+    'dash_icon' => '',
+    'title' =>  __('Performance', 'fluent'),
+    'priority' => 'low',
+    'fields' => array(
+        'enable-enqueue-performanceq' => array(
+            'type' => 'switch',
+            'title' => 'Enable performance',
+            'options' => array(
+                'off' => __('Off'),
+                'on' => __('On')
+            ),
+            'default' => 1,
+            'description' => 'Enables CSS & JS file minification and concatenation.'
+        )
+    ),
+);
+
 $sections['post-formats'] = array(
     'dash_icon' => '',
     'title' =>  __('Post Formats', 'fluent'),
@@ -125,6 +143,7 @@ $sections['post-formats'] = array(
                 'off' => __('Off'),
                 'on' => __('On')
             ),
+            'default' => 0,
             'description' => 'Check this option to enable post formats if your theme does not. This will make it so you can add post format icons in the builder.'
         ),
         'select-post-formats' => array(
@@ -144,10 +163,20 @@ $sections['post-formats'] = array(
                 'chat' => 'Chat' 
             ),
             'default' => array('quote', 'aside', 'link', 'image'),
+            'conditions' => array(
+                array(
+                    array(
+                        'id' => 'enable-post-formats',
+                        'value' => '1',
+                        )
+                    )
+                ),
             'description' => 'Check this option to enable post formats if your theme does not. This will make it so you can add post format icons in the builder.'
         ),
     ),
 );
+
+
 $panel = new Fluent_Options_Page( $args, $sections );
 
  

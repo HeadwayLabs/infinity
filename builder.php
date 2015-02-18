@@ -9,9 +9,9 @@
  * @license		http://www.opensource.org/licenses/gpl-3.0.php GPL License
  * @since 		1.0.0
  *
- * Plugin Name: HW Builder
+ * Plugin Name: Infinity Builder
  * Plugin URI: http://www.headwaylabs.com
- * Description: The HW Builder.............................................
+ * Description: Create Infinite view of your wordpress content with ease.
  * Author: Andy Neale
  * Author URI: http://www.headwaylabs.com
  * Version: 1.0.0
@@ -155,6 +155,8 @@ if ( ! class_exists( 'HW_Builder' ) ) :
 			require_once( $this->plugin_dir . 'includes/post-like.php' );
 			require_once( $this->plugin_dir . 'includes/shortcodes.php' );
 			require_once( $this->plugin_dir . 'includes/widget.php' );
+
+			require_once( $this->plugin_dir . 'includes/integrations/headway/example-block.php' );
 
 			require_once( $this->plugin_dir . 'includes/fluent-framework/fluent-framework.php' );
 

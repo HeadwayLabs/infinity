@@ -11,6 +11,20 @@
 if ( ! defined( 'ABSPATH' ) )
 	exit;
 
+//general settings
+$general_options = get_option('ib_general_settings');
+ 
+if ($general_options['enable-post-formats'] == true ) {
+ 
+	function add_post_formats() {
+		$general_options = get_option('ib_general_settings');
+		add_theme_support( 'post-formats', $general_options['select-post-formats'] );
+	}
+	 
+	add_action( 'after_setup_theme', 'add_post_formats', 20 );
+ 
+}
+
 /**
  * Returns a WP_Query
  *

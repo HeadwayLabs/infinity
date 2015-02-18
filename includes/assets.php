@@ -83,8 +83,14 @@ class View_Builder_Assets {
 		add_action('wp_ajax_nopriv_dynamic_js', array( __CLASS__, 'dynamic_js') );
 
 		//minqueue
-		//define('MINQUEUE_OPTIONS', false);
-		add_filter('minqueue_options', array( __CLASS__, 'min_queue_options') );
+		define('MINQUEUE_OPTIONS', false);
+
+		$options = get_option('ib_general_settings');
+
+		$enable_performance = ( !isset( $options['enable-enqueue-performancez'] ) )  ? 'on' : $options['enable-enqueue-performancez'];
+
+		if ( $enable_performance == 'on' )
+			add_filter('minqueue_options', array( __CLASS__, 'min_queue_options') );
 
 	}
 
@@ -145,6 +151,7 @@ class View_Builder_Assets {
 		$enqueue_likes 				= null;
 		$enqueue_grid					= null;
 		$enqueue_dashicons			= null;
+		$is_infinite_scroll			= null;
 
 		self::$general_css = array();
 		self::$images_css = array();
@@ -206,6 +213,8 @@ class View_Builder_Assets {
 
 				if ($layout == 'grid')
 					$enqueue_grid = true;
+
+				$is_infinite_scroll = $builder_options->getOption( 'pagination-infinite-' . $view_name . '' );
 
 				//lets enqueue a css file for each view if it exists in layout
 				$style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
@@ -309,8 +318,7 @@ class View_Builder_Assets {
 
 		}
 
-		$infinite_scroll = $builder_options->getOption( 'pagination-infinite-' . $view_name . '' );
-		if ( $infinite_scroll && $enqueue_grid || $enqueue_masonry_simple || $enqueue_blog)
+		if ( $is_infinite_scroll && $enqueue_grid || $enqueue_masonry_simple || $enqueue_blog)
 			wp_enqueue_script('vb-infinite-scroll', views()->plugin_url . 'layouts/assets/js/min/jquery.infinitescroll.min.js', array('jquery'), views()->version);
 
 		if ( $enqueue_likes || $enqueue_image ) {

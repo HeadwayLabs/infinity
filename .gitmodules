@@ -1,0 +1,3 @@
+[submodule "includes/fluent-framework"]
+	path = includes/fluent-framework
+	url = https://github.com/HeadwayLabs/fluent.git

@@ -54,12 +54,16 @@ class View_Builder_Admin {
 		  $post = get_post($_GET['post']);
 		  $typenow = $post->post_type;
 		}
-		if ( $pagenow == 'post.php' && $typenow=='view') {
 
-			wp_enqueue_style('view-admin-css', views()->plugin_url . 'includes/admin/assets/css/views.min.css');
-			wp_enqueue_script('vb_like_post', views()->plugin_url . 'includes/admin/assets/js/views.js', array('jquery'), '1.0', 1 );
+		if ($typenow=='view') {
+			if ( $pagenow == 'post.php' || $pagenow == 'edit.php') {
 
+				wp_enqueue_style('view-admin-css', views()->plugin_url . 'includes/admin/assets/css/views.min.css');
+				wp_enqueue_script('vb_like_post', views()->plugin_url . 'includes/admin/assets/js/views.js', array('jquery'), '1.0', 1 );
+
+			}
 		}
+
 	}
 
 	/**
