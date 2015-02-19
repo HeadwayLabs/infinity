@@ -281,14 +281,14 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			$lightbox_height					= $builder_options->getOption( 'image-icon-type-lightbox-height-' . $view_name . '' );
 			$lightbox_width					= $builder_options->getOption( 'image-icon-type-lightbox-width-' . $view_name . '' );
 			$thumb_content_hover_effect	= $builder_options->getOption( 'image-content-type-hover-effect-' . $view_name . '' );
-			$spotlight_button1  				= $builder_options->getOption( 'btn1-option-icon-' . $view_name . '' );
-			$spotlight_button_link1			= $builder_options->getOption( 'btn1-option-link-' . $view_name . '' );
-			$spotlight_button2 				= $builder_options->getOption( 'btn2-option-icon-' . $view_name . '' );
-			$spotlight_button_link2 		= $builder_options->getOption( 'btn2-option-link-' . $view_name . '' );
-			$spotlight_button3  				= $builder_options->getOption( 'btn3-option-icon-' . $view_name . '' );
-			$spotlight_button_link3  		= $builder_options->getOption( 'btn3-option-link-' . $view_name . '' );
-			$spotlight_button4  				= $builder_options->getOption( 'btn4-option-icon-' . $view_name . '' );
-			$spotlight_button_link4 		= $builder_options->getOption( 'btn4-option-link-' . $view_name . '' );
+			$cover_button1  				= $builder_options->getOption( 'btn1-option-icon-' . $view_name . '' );
+			$cover_button_link1			= $builder_options->getOption( 'btn1-option-link-' . $view_name . '' );
+			$cover_button2 				= $builder_options->getOption( 'btn2-option-icon-' . $view_name . '' );
+			$cover_button_link2 		= $builder_options->getOption( 'btn2-option-link-' . $view_name . '' );
+			$cover_button3  				= $builder_options->getOption( 'btn3-option-icon-' . $view_name . '' );
+			$cover_button_link3  		= $builder_options->getOption( 'btn3-option-link-' . $view_name . '' );
+			$cover_button4  				= $builder_options->getOption( 'btn4-option-icon-' . $view_name . '' );
+			$cover_button_link4 		= $builder_options->getOption( 'btn4-option-link-' . $view_name . '' );
 			$thumb_display_as 				= $builder_options->getOption( 'image-styles-display-as-' . $view_name . '' );
 
 
@@ -416,14 +416,14 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 							thumb_spotlight_effect="' . $thumb_spotlight_effect . '" 
 							thumb_icon_style="' . $thumb_icon_style . '" 
 							thumb_icon_effect="' . $thumb_icon_effect . '" 
-							spotlight_button1="' . $spotlight_button1 . '" 
-							spotlight_button_link1="' . $spotlight_button_link1 . '" 
-							spotlight_button2="' . $spotlight_button2 . '" 
-							spotlight_button_link2="' . $spotlight_button_link2 . '" 
-							spotlight_button3="' . $spotlight_button3 . '" 
-							spotlight_button_link3="' . $spotlight_button_link3 . '" 
-							spotlight_button4="' . $spotlight_button4 . '" 
-							spotlight_button_link4="' . $spotlight_button_link4 . '" 
+							spotlight_button1="' . $cover_button1 . '" 
+							spotlight_button_link1="' . $cover_button_link1 . '" 
+							spotlight_button2="' . $cover_button2 . '" 
+							spotlight_button_link2="' . $cover_button_link2 . '" 
+							spotlight_button3="' . $cover_button3 . '" 
+							spotlight_button_link3="' . $cover_button_link3 . '" 
+							spotlight_button4="' . $cover_button4 . '" 
+							spotlight_button_link4="' . $cover_button_link4 . '" 
 							lightbox_height="'. $lightbox_height .'" 
 							lightbox_width="'. $lightbox_width .'" 
 							display_as="'. $thumb_display_as .'"

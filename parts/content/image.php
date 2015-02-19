@@ -93,21 +93,21 @@
 					foreach ($btns as $position => $btn) {
 
 						if ( $btn == 'btn1' ) { 
-							$use_lightbox = ($spotlight_button_link1 == 'lightbox') ? 'vb-lightbox' : null;
+							$use_lightbox = ($cover_button_link1 == 'lightbox') ? 'vb-lightbox' : null;
 							?>
 							
 							<span class="spotlight-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
-			             	<?php if (!empty($spotlight_button_link1)) : ?>
-			             		<?php if ($spotlight_button_link1 == 'lightbox') : ?>
+			             	<?php if (!empty($cover_button_link1)) : ?>
+			             		<?php if ($cover_button_link1 == 'lightbox') : ?>
 			             			<a href="#" <?php echo $lightbox_url; ?>>
-			             		<?php elseif ($spotlight_button_link1 == 'content') : ?>
+			             		<?php elseif ($cover_button_link1 == 'content') : ?>
 			             			<a href="<?php echo get_permalink($id); ?>">
 			             		<?php else : ?> 
-			             			<a href="<?php echo $spotlight_button_link1; ?>">
+			             			<a href="<?php echo $cover_button_link1; ?>">
 			             		<?php endif; ?>   
 			             	<?php endif; ?>
-			             		<i class="fa fa-<?php echo $spotlight_button1 ?>"></i>
-			             	<?php if ($spotlight_button_link1) : ?>
+			             		<i class="fa fa-<?php echo $cover_button1 ?>"></i>
+			             	<?php if ($cover_button_link1) : ?>
 			             	</a>
 			             	<?php endif; ?>
 		             	</span>
@@ -116,21 +116,21 @@
 						}
 
 						if ( $btn == 'btn2' ) { 
-							$use_lightbox = ($spotlight_button_link2 == 'lightbox') ? 'vb-lightbox' : null;
+							$use_lightbox = ($cover_button_link2 == 'lightbox') ? 'vb-lightbox' : null;
 							?>
 							
 							<span class="spotlight-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
-			             	<?php if (!empty($spotlight_button_link2)) : ?>
-			             		<?php if ($spotlight_button_link2 == 'lightbox') : ?>
+			             	<?php if (!empty($cover_button_link2)) : ?>
+			             		<?php if ($cover_button_link2 == 'lightbox') : ?>
 			             			<a href="#" <?php echo $lightbox_url; ?>>
-			             		<?php elseif ($spotlight_button_link2 == 'content') : ?>
+			             		<?php elseif ($cover_button_link2 == 'content') : ?>
 			             			<a href="<?php echo get_permalink($id); ?>">
 			             		<?php else : ?> 
-			             			<a href="<?php echo $spotlight_button_link2; ?>">
+			             			<a href="<?php echo $cover_button_link2; ?>">
 			             		<?php endif; ?>   
 			             	<?php endif; ?>
-			             		<i class="fa fa-<?php echo $spotlight_button2 ?>"></i>
-			             	<?php if ($spotlight_button_link2) : ?>
+			             		<i class="fa fa-<?php echo $cover_button2 ?>"></i>
+			             	<?php if ($cover_button_link2) : ?>
 			             	</a>
 			             	<?php endif; ?>
 		             	</span>
@@ -139,21 +139,21 @@
 						}
 
 						if ( $btn == 'btn3' ) { 
-							$use_lightbox = ($spotlight_button_link3 == 'lightbox') ? 'vb-lightbox' : null;
+							$use_lightbox = ($cover_button_link3 == 'lightbox') ? 'vb-lightbox' : null;
 							?>
 							
 							<span class="spotlight-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
-			             	<?php if (!empty($spotlight_button_link3)) : ?>
-			             		<?php if ($spotlight_button_link3 == 'lightbox') : ?>
+			             	<?php if (!empty($cover_button_link3)) : ?>
+			             		<?php if ($cover_button_link3 == 'lightbox') : ?>
 			             			<a href="#" <?php echo $lightbox_url; ?>>
-			             		<?php elseif ($spotlight_button_link3 == 'content') : ?>
+			             		<?php elseif ($cover_button_link3 == 'content') : ?>
 			             			<a href="<?php echo get_permalink($id); ?>">
 			             		<?php else : ?> 
-			             			<a href="<?php echo $spotlight_button_link3; ?>">
+			             			<a href="<?php echo $cover_button_link3; ?>">
 			             		<?php endif; ?>   
 			             	<?php endif; ?>
-			             		<i class="fa fa-<?php echo $spotlight_button3 ?>"></i>
-			             	<?php if ($spotlight_button_link3) : ?>
+			             		<i class="fa fa-<?php echo $cover_button3 ?>"></i>
+			             	<?php if ($cover_button_link3) : ?>
 			             	</a>
 			             	<?php endif; ?>
 		             	</span>
@@ -162,21 +162,21 @@
 						}
 
 						if ( $btn == 'btn4' ) { 
-							$use_lightbox = ($spotlight_button_link4 == 'lightbox') ? 'vb-lightbox' : null;
+							$use_lightbox = ($cover_button_link4 == 'lightbox') ? 'vb-lightbox' : null;
 							?>
 							
 							<span class="spotlight-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
-			             	<?php if (!empty($spotlight_button_link4)) : ?>
-			             		<?php if ($spotlight_button_link4 == 'lightbox') : ?>
+			             	<?php if (!empty($cover_button_link4)) : ?>
+			             		<?php if ($cover_button_link4 == 'lightbox') : ?>
 			             			<a href="#" <?php echo $lightbox_url; ?>>
-			             		<?php elseif ($spotlight_button_link4 == 'content') : ?>
+			             		<?php elseif ($cover_button_link4 == 'content') : ?>
 			             			<a href="<?php echo get_permalink($id); ?>">
 			             		<?php else : ?> 
-			             			<a href="<?php echo $spotlight_button_link4; ?>">
+			             			<a href="<?php echo $cover_button_link4; ?>">
 			             		<?php endif; ?>   
 			             	<?php endif; ?>
-			             		<i class="fa fa-<?php echo $spotlight_button4 ?>"></i>
-			             	<?php if ($spotlight_button_link4) : ?>
+			             		<i class="fa fa-<?php echo $cover_button4 ?>"></i>
+			             	<?php if ($cover_button_link4) : ?>
 			             	</a>
 			             	<?php endif; ?>
 		             	</span>

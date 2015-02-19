@@ -182,7 +182,7 @@ class View_Builder_Assets {
 				$layout = $builder_options->getOption( 'view-layout-' . $id . '' );
 	
 				$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
-				$spotlight = $builder_options->getOption( 'image-show-spotlight-hide-' . $view_name . '' );
+				$cover = $builder_options->getOption( 'image-show-spotlight-hide-' . $view_name . '' );
 
 				if (!empty($parts)) {
 
