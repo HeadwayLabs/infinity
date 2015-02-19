@@ -102,7 +102,7 @@ if ( $the_query->have_posts() ) :
                     'name' => get_the_title(),
                     'id' => 'id-hide-'.$id,
                     'desc' => $id,
-                    'type' => 'heading',
+                    'type' => 'heading-infinity',
                 ) );
 
                 if ( $query_mode == 1 ) {
@@ -155,7 +155,7 @@ if ( $the_query->have_posts() ) :
                     $section->createOption( array(
                         'name' => 'Categories ',
                         'id' => 'postopts-post-categories-' . $id . '',
-                        'type' => 'multicheck-categories-ib',
+                        'type' => 'multicheck-categories-infinity',
                         'desc' => 'Select a category to display content from',
                         'default' => 'all'
                     ) );
@@ -213,7 +213,7 @@ if ( $the_query->have_posts() ) :
                     $section->createOption( array(
                         'name' => '<a href="wp-admin/post.php?post='. $id .'&action=edit" target="_blank"><img src="'. views()->plugin_url .'/includes/admin/images/filter.png"/></a>',
                         'id' => 'postopts-builder-'.$id,
-                        'type' => 'heading',
+                        'type' => 'heading-infinity',
                         'desc' => '<strong>Filter Content</strong> <p>Takes you to the advanced filter page with more advanced options where you can select specific content to display.</p>',
                     ) );
 
@@ -221,7 +221,7 @@ if ( $the_query->have_posts() ) :
                     $section->createOption( array(
                         'name' => 'You are currently in default mode. <a href="wp-admin/post.php?post='. $id .'&action=edit" target="_blank">Enable custom query</a> to show specific content.',
                         'id' => 'postopts-disabled-query-'.$id,
-                        'type' => 'heading',
+                        'type' => 'heading-infinity',
                         'desc' => '<strong>Default Mode</strong>
                                     <p>When default mode is selected, the output will be like a normal blog template according to normal wordpress behaviour. For example, if you add this on a page, it will display that page\'s content. If you add it on the Blog Index layout, it will list the posts like a normal blog and if you add this box on a category or tag layout, it will list posts of that category or tag respectively.</p>
                                     <strong>Custom Query Mode</strong>
@@ -232,7 +232,7 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => '1) Select a style',
                     'id' => 'toggle-heading-style-' . $view_name . '',
-                    'type' => 'heading',
+                    'type' => 'heading-infinity',
                     'default' => '20'
                 ) );
 
@@ -248,14 +248,14 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => '2) Select a Layout',
                     'id' => 'toggle-heading-select-layout-' . $view_name . '',
-                    'type' => 'heading',
+                    'type' => 'heading-infinity',
                     'default' => '20'
                 ) );
 
                 $section->createOption( array(
                     'desc' => 'Choose from one of the layouts below to display your items.',
                     'id' => 'layout-heading-' . $view_name . '',
-                    'type' => 'heading'
+                    'type' => 'heading-infinity'
                 ) );
 
                 $section->createOption( array(
@@ -269,21 +269,21 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => '3) Build Individual Layout',
                     'id' => 'toggle-heading-build-layout-' . $view_name . '',
-                    'type' => 'heading',
+                    'type' => 'heading-infinity',
                     'default' => '20'
                 ) );
 
                 $section->createOption( array(
                     'desc' => 'Use the builder below to show or hide & then configure the elements as needed.',
                     'id' => 'builder-heading-' . $view_name . '',
-                    'type' => 'heading'
+                    'type' => 'heading-infinity'
                 ) );
 
                 $section->createOption( array(
                     'name' => '',
                     'id' => 'builder_parts' . $view_name . '',
                     'description' => 'Choose from one of the layouts below to display your items.',
-                    'type' => 'sortable',
+                    'type' => 'sortable-infinity',
                     'desc' => '',
                     'options' => get_builder_elements(),
                     'default' => array('title', 'image', 'excerpt', 'date', 'readmore')
@@ -653,13 +653,13 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => '4) Build Image Spotlight',
                     'id' => 'toggle-heading-build-spotlight-' . $view_name . '',
-                    'type' => 'heading'
+                    'type' => 'heading-infinity'
                 ) );
 
                 $section->createOption( array(
                     'desc' => 'Use the builder below to setup the content and effect that happens when a user hovers over a thumbnail.',
                     'id' => 'spotlight-builder-heading-' . $view_name . '',
-                    'type' => 'heading'
+                    'type' => 'heading-infinity'
                 ) );
 
                 $section->createOption( array(
