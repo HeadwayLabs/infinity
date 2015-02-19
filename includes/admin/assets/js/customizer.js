@@ -504,7 +504,7 @@
 		
 	});//end parts options modifications
 
-	}, 4000);
+	}, 5000);
 	
 	});
 })(jQuery);
