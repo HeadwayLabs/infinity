@@ -2,7 +2,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class TitanFrameworkOptionMulticheckIb extends TitanFrameworkOption {
+class TitanFrameworkOptionMulticheckInfinity extends TitanFrameworkOption {
 
 	public $defaultSecondarySettings = array(
 		'options' => array(),
@@ -67,7 +67,7 @@ class TitanFrameworkOptionMulticheckIb extends TitanFrameworkOption {
 	 * Display for theme customizer
 	 */
 	public function registerCustomizerControl( $wp_customize, $section, $priority = 1 ) {
-		$wp_customize->add_control( new TitanFrameworkOptionMulticheckControlIb( $wp_customize, $this->getID(), array(
+		$wp_customize->add_control( new TitanFrameworkOptionMulticheckControlInfinity( $wp_customize, $this->getID(), array(
 			'label' => $this->settings['name'],
 			'section' => $section->settings['id'],
 			'settings' => $this->getID(),
@@ -83,9 +83,9 @@ class TitanFrameworkOptionMulticheckIb extends TitanFrameworkOption {
 /*
  * WP_Customize_Control with description
  */
-add_action( 'customize_register', 'registerTitanFrameworkOptionMulticheckControlIb', 1 );
-function registerTitanFrameworkOptionMulticheckControlIb() {
-	class TitanFrameworkOptionMulticheckControlIb extends WP_Customize_Control {
+add_action( 'customize_register', 'registerTitanFrameworkOptionMulticheckControlInfinity', 1 );
+function registerTitanFrameworkOptionMulticheckControlInfinity() {
+	class TitanFrameworkOptionMulticheckControlInfinity extends WP_Customize_Control {
 		public $description;
 		public $options;
 

@@ -2,7 +2,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class TitanFrameworkOptionMulticheckCategoriesIb extends TitanFrameworkOptionMulticheckIb {
+class TitanFrameworkOptionMulticheckCategoriesInfinity extends TitanFrameworkOptionMulticheckInfinity {
 
 	public $defaultSecondarySettings = array(
 		'options' => array(),
@@ -52,7 +52,7 @@ class TitanFrameworkOptionMulticheckCategoriesIb extends TitanFrameworkOptionMul
 			$this->settings['options'][$category->term_id] = $category->name . ( $this->settings['show_count'] ? " (" . $category->count . ")" : '' );
 		}
 
-		$wp_customize->add_control( new TitanFrameworkOptionMulticheckControlIb( $wp_customize, $this->getID(), array(
+		$wp_customize->add_control( new TitanFrameworkOptionMulticheckControlInfinity( $wp_customize, $this->getID(), array(
 			'label' => $this->settings['name'],
 			'section' => $section->settings['id'],
 			'settings' => $this->getID(),
