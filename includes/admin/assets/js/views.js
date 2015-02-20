@@ -10,42 +10,58 @@ function showHideQueryBox(el, handle) {
 
 	$(document).ready(function() {
 
-		var wpbody = $('#wpbody-content');
-		var pub = $('#publish');
-		pub.clone(true).addClass('cloned-save top').prependTo(wpbody);
-		pub.clone(true).addClass('cloned-save bottom').appendTo(wpbody);
-		pub.hide();
+		if ($('body').is('.post-new-php')) {
 
-		$('.cloned-save').click(function() {
-			pub.trigger('click');
-		});
+			$('.create-view').click(function() {
+				$(this).parents('.view-create-new-notice-wrapper').fadeOut();
+			});
+
+		}
+
+		if ($('body').is('.post-php')) {
+
+			setTimeout( function() {
+				$('#message, .update-nag').fadeOut();
+			}, 5000 );
+
+			var wpbody = $('#wpbody-content');
+			var pub = $('#publish');
+			pub.clone(true).addClass('cloned-save top').prependTo(wpbody);
+			pub.clone(true).addClass('cloned-save bottom').appendTo(wpbody);
+			pub.hide();
+
+			$('.cloned-save').click(function() {
+				pub.trigger('click');
+			});
 
 
-		var shortcode = $('#to-move').find('.field-type-raw').text();
+			var shortcode = $('#to-move').find('.field-type-raw').text();
 
-		var html = '<div id="shortcode-preview">'+ shortcode +'</div>';
+			var html = '<div id="shortcode-preview" class="toolbar-wrap">'+ shortcode +'</div>';
 
-		$('body.post-php #post-body').prepend(html);
+			$('body.post-php #views-toolbar').prepend(html);
 
-		//move switch
-		var querySwitch = $('#to-move').find('.field-type-switch');
-		var advQueryBox = $('#advanced-query-params');
-		advQueryBox.find('.handlediv').hide();
-		var theSwitch = querySwitch.clone(true).prependTo(advQueryBox).addClass('query-switch');
+			//move switch
+			var querySwitch = $('#to-move').find('.field-type-switch');
+			var advQueryBox = $('#advanced-query-params');
+			advQueryBox.find('.handlediv').hide();
+			var theSwitch = querySwitch.clone(true).prependTo(advQueryBox).addClass('query-switch');
 
-		advQueryBox.find('.hndle').off();
+			advQueryBox.find('.hndle').off();
 
-		showHideQueryBox(theSwitch, advQueryBox);
+			showHideQueryBox(theSwitch, advQueryBox);
 
-		theSwitch.change(function() {
+			theSwitch.change(function() {
 
-			querySwitch.find('select').val($(this).val()).trigger('change');
+				querySwitch.find('select').val($(this).val()).trigger('change');
+				
+				showHideQueryBox($(this), advQueryBox);
+
+			});
 			
-			showHideQueryBox($(this), advQueryBox);
+			$('#to-move').hide();
 
-		});
-		
-		$('#to-move').hide();
+		}
 	
 	});
 })(jQuery);

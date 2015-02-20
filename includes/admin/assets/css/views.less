@@ -1,3 +1,4 @@
+
 #edit-slug-box { display: none; }
 
 body.post-php #wpbody-content {
@@ -6,20 +7,6 @@ body.post-php #wpbody-content {
 
 form#post {
 	position: relative;
-}
-
-#open-customizer {
-	position: absolute;
-	right: 219px;
-	top: 11px;
-	z-index: 100;
-	border-radius: 0;
-	height: 36px;
-	line-height: 34px;
-	background: #96749E;
-	border-color: #5D3B65;
-	box-shadow: 0px 1px rgba(255,255,255,.2) inset;
-	border-right-color: #111;
 }
 
 #publish.cloned-save {
@@ -45,22 +32,18 @@ form#post {
 
 #post-body { position: relative }
 
-#shortcode-preview {
-	position: absolute;
-	right: 1px;
-	font-size: 14px;
-	top: 1px;
-	z-index: 1;
-	background: #333;
-	color: #fff;
-	padding: 9px 30px;
-	margin: 0;
-}
-
 .query-switch {
 	position: absolute;
 	right: 0;
 	top: 13px;
+}
+
+#advanced-query-params td.field-type-switch {
+	background: #ddd;
+	padding: 11px 5px 10px 20px;
+	margin: 0;
+	top: -1px;
+	border: 1px solid #ccc;	
 }
 
 .options-tabs-tabs a {
@@ -135,3 +118,202 @@ form#post {
 	}	
 }
 
+.view-create-new-notice-wrapper {
+	background: #eee;
+	position: absolute;
+	top: 0;
+	left: -11px;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+
+	.view-create-new-notice {
+		background: #FFFFFF;
+		width: 96%;
+		margin: 0;
+		margin: 40px auto;
+		left: 0;
+		box-sizing: border-box;
+		text-align: center;
+	
+		h1 {
+  			margin-top: 10px;
+		}
+
+		h2 {
+  			margin-top: 0;
+		}
+
+		.intro {
+	  		width: 80%;
+	  		margin: auto;
+	  		font-size: 1.1rem;
+  		}
+
+		.inner {
+			padding: 20px;
+			border: 1px solid #979797;
+	  		border-bottom: none;
+	  		border-radius: 5px 5px 0 0;
+
+		}
+
+		a.confirm-create-view {
+			background: #96749E;
+			border: 1px solid #5D3B65;
+			box-shadow: 0px 2px 4px 0px rgba(224,224,224,0.50);
+			border-radius: 0px 0px 5px 5px;
+		}
+	}
+
+	#create-view-steps {
+	
+		overflow:hidden;
+		text-align: left;
+		margin-top: 30px;
+		
+		p, li {
+  			font-size: .9rem;
+		}
+	
+		li div {
+			font-size: 12px;
+	  		color: #999;
+		}
+
+		h2 {
+			font-size: 1.4rem;
+		}
+
+		.step-column {
+	  		background: url(../../images/number-1.png);
+	  	  	background-repeat: no-repeat;
+	  		background-position: top left;
+			float: left;
+			width: 30%;
+	  		margin: 0 2%;
+	  		padding-left: 90px;
+	  		box-sizing: border-box;
+
+	  		&.step-one {
+	  			margin-left: 0;
+	  		} 
+	  
+	  		&.step-two {
+  				background-image: url(../../images/number-2.png);
+			}
+	  
+	  		&.step-three {
+  				background-image: url(../../images/number-3.png);
+  				margin-right: 0;
+			}
+
+			ul {
+				list-style: inherit;
+				margin-left: 20px;
+				font-size: 1rem;
+			}
+
+			img {
+				border: 1px solid #ccc;
+			}
+
+		}
+
+	}
+  
+  	a.confirm-create-view {
+	display: block;
+  	color: white;
+	width: 100%;
+	padding: 16px;
+	text-align: center;
+	font-size: 19px;
+	font-size: 19px;
+	line-height: 26px;
+	box-sizing: border-box;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+
+}
+
+
+#views-toolbar {
+  
+  	margin: 15px 0 25px 0;
+	float: left;
+	width: 100%;
+
+	#shortcode-preview.toolbar-wrap {
+		padding: 0px 30px;
+		float: right;
+		font-size: 15px;
+		height: 40px;
+		line-height: 40px;
+		color: #333;
+		background: #FFFFFF;
+		border: 1px solid rgba(150,150,150,0.35);
+		box-shadow: 0 0 0 3px #E0E0E0;
+		border-radius: 1px;
+	}
+  
+  	.toolbar-wrap {
+		background: #806288;
+		border: 1px solid rgba(37,26,39,0.35);
+		box-shadow: 0 0 0 3px rgba(255,255,255, .8);
+		float: left;
+		border-radius: 1px;
+	}
+  
+  	#open-customizer {
+  		float: left;
+		display: inline-block;
+		margin-right: 15px;
+		color: #fff;
+		background: #3885C6;
+		font-size: 20px;
+		&:hover {
+			background: rgba(0,0,0,.7);
+		}
+	}
+
+	#open-headway span {
+		background: url(../../images/headway-icon.png) no-repeat center center;
+		background-size: 16px;
+		border-right: 0;
+	}
+
+	a {
+		font-family: dashicons;
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		text-decoration: none;
+		color: #fff;
+		position: relative;
+		border-right: 1px solid rgba(37,26,39,0.35);
+		float: left;
+
+		&:hover {
+			background: rgba(0,0,0,.2);
+		}
+	
+		span {
+  			display: block;
+	  		margin: auto;
+	  		position: absolute;
+	  		left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+		}
+	
+	}
+
+}
+
+.view-create-new-notice p.intro {
+	font-size: 16px;
+}

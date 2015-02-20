@@ -9,22 +9,6 @@
 
 $builder_options = TitanFramework::getInstance( 'builder-options' );
 
-add_action('admin_head', 'hidePostBoxOnAddScreen');
-
-function hidePostBoxOnAddScreen() {
-    $screen = get_current_screen();
-    if ( $screen->action == 'add' ) {
-        echo '<script>
-        (function ($) {
-            $(document).ready(function() {
-                $(".postbox-container").hide();
-            });
-        })(jQuery);
-        </script>';
-
-    }
-}
-
 //TODO: must make it return null if not on view edit screen
 $postid = null;
 if( is_admin() && isset( $_REQUEST['post'] ) ) {
