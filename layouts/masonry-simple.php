@@ -15,6 +15,7 @@ $view_name = strtolower(str_replace(' ', '-', views()->view_name));
 $view_id = views()->id;
 $style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
 $grid_spacing = $builder_options->getOption( 'postopts-post-spacing-' . $view_id . '' )/2;
+$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
 
 //filter settings
 $disable_filter = isset(views()->options['masonry-disable-filter']) ? views()->options['masonry-disable-filter'] : false;
@@ -106,7 +107,7 @@ $filter_before_text = isset(views()->options['masonry-before-filter-text']) ? vi
 
 		<article id="post-<?php the_ID(); ?>" class="article-<?php echo views()->count; ?> article magnet-item item clearfix hentry <?php echo tax_term_classes( $taxonomy ) ?>">
 
-			<?php View_Builder_Shortcodes::get_post_parts( $builder_options ); ?>
+			<?php View_Builder_Shortcodes::get_post_parts( $builder_options, $parts, $view_name ); ?>
 
 		</article>
 

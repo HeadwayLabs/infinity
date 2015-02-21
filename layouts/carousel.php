@@ -12,6 +12,7 @@ $builder_options = TitanFramework::getInstance( 'builder-options' );
 $view_name = strtolower(str_replace(' ', '-', views()->view_name));
 $style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
 $view_id = views()->id;
+$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
 
 ?>
 
@@ -27,7 +28,7 @@ $view_id = views()->id;
 
 			<article id="post-<?php the_ID(); ?>" class="article-<?php echo views()->count; ?> article item clearfix hentry">
 	
-				<?php View_Builder_Shortcodes::get_post_parts( $builder_options, views()->id ); ?>
+				<?php View_Builder_Shortcodes::get_post_parts( $builder_options, $parts, $view_name ); ?>
 
 			</article>
 

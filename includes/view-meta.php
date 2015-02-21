@@ -63,7 +63,7 @@ $sections['to-move'] = array(
         'shortcode-info' => array(
             'type' => 'raw',
             'show_title' => false,
-            'content'=> '[display_view id="'.$postid.'"]',
+            'content'=> '[infinity id="'.$postid.'"]',
             'description' => ''
         ),
         'query-mode' => array(

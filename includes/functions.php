@@ -741,17 +741,15 @@ function vb_shortcode( $atts ) {
 	$options = vb_options( $id );
 
 	$builder_options = TitanFramework::getInstance( 'builder-options' );
+
 	$view_name = strtolower(views()->view_name);
 
-	$layout = $builder_options->getOption( 'view-layout-' . $id . '' );
-
-	if (empty($layout))
-		$layout = 'blog';
+	$layout = (!empty($builder_options->getOption( 'view-layout-' . $id . '' ))) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
 
 	return vb_render_view( $id, $layout, null, 'shortcode' );
 
 }
-add_shortcode( 'display_view', 'vb_shortcode' );
+add_shortcode( 'infinity', 'vb_shortcode' );
 
 /**
  * Get view parameters

@@ -243,28 +243,21 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 
 		}
 
-		public static function get_post_parts( $builder_options ) {
+		public static function get_post_parts( $builder_options, $parts, $view_name ) {
 
-			$view_name = strtolower(views()->view_name);
-			$id = strtolower(views()->id);
-
-			$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
-
-			//title settings
-			$title_tag 					= $builder_options->getOption( 'title-option-html-tag-' . $view_name . '' );
-			$title_linked 				= $builder_options->getOption( 'title-option-link-' . $view_name . '' );
-			$title_shorten 			= $builder_options->getOption( 'title-option-shorten-title-' . $view_name . '' );
-			$title_limit 				= $builder_options->getOption( 'title-option-shorten-limit-' . $view_name . '' );
-			$title_before 				= $builder_options->getOption( 'title-option-before-text-' . $view_name . '' );
-			$title_display_as 		= $builder_options->getOption( 'title-styles-display-as-' . $view_name . '' );
+			if ( empty($parts) ) {
+				$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
+			}
 			
 			//image settings
 
-			$layout = $builder_options->getOption( 'view-layout-' . $id . '' );
+			$layout = (!empty($builder_options->getOption( 'view-layout-' . $id . '' ))) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
+			
+			$columns = $builder_options->getOption( 'postopts-columns-' . $id . '' );
+			$columns = (!empty($columns)) ? 'columns="' . $columns . '"' : null;
+
 			if ( $layout == 'slider' ||  $layout == 'blog') {
-				$columns			 		= '1';
-			} else {
-				$columns = $builder_options->getOption( 'postopts-columns-' . $id . '' );
+				$columns	= '1';
 			}
 			$thumb_align			 			= $builder_options->getOption( 'image-option-thumb-align-' . $view_name . '' );
 			$auto_size			 				= $builder_options->getOption( 'image-option-auto-size-' . $view_name . '' );

@@ -17,6 +17,7 @@ $view_name = strtolower(str_replace(' ', '-', views()->view_name));
 $view_id = views()->id;
 $grid_spacing = $builder_options->getOption( 'postopts-post-spacing-' . $view_id . '' )/2;
 $style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
+$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
 
 ?>
 
@@ -38,7 +39,7 @@ $style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
 
 				<article id="post-<?php the_ID(); ?>" class="article-<?php echo views()->count; ?> article item clearfix hentry">
 		
-					<?php View_Builder_Shortcodes::get_post_parts( $builder_options ); ?>
+					<?php View_Builder_Shortcodes::get_post_parts( $builder_options, $parts, $view_name ); ?>
 
 				</article>
 

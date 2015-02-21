@@ -36,6 +36,11 @@
 	$builder_options = TitanFramework::getInstance( 'builder-options' );
 	$btns = $builder_options->getOption( 'image-spotlight-icon-type-icons-' . $view_name . '' );
 	$display_as = $display_as != null ? ' display-' . $display_as : null;
+	$layout = (!empty($builder_options->getOption( 'view-layout-' . $id . '' ))) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
+
+	if ( $layout == 'slider' ||  $layout == 'blog') {
+		$columns	= '1';
+	}
 
 	ob_start(); 
 
