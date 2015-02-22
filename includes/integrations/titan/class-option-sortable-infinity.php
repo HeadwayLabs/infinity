@@ -35,7 +35,7 @@ class TitanFrameworkOptionSortableInfinity extends TitanFrameworkOption {
 		parent::__construct( $settings, $owner );
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueueSortable' ) );
-		add_action( 'admin_head', array( __CLASS__, 'createSortableScript' ) );
+		add_action( 'admin_head', array( __CLASS__, 'createSortableScriptInfinity' ) );
 		add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueueSortable' ) );
 	}
 
@@ -58,7 +58,7 @@ class TitanFrameworkOptionSortableInfinity extends TitanFrameworkOption {
 	 * @return	void
 	 * @since	1.4
 	 */
-	public static function createSortableScript() {
+	public static function createSortableScriptInfinity() {
 		if ( ! self::$firstLoad ) {
 			return;
 		}
@@ -70,7 +70,7 @@ class TitanFrameworkOptionSortableInfinity extends TitanFrameworkOption {
 			"use strict";
 
 			// initialize
-			$('.tf-sortable > ul ~ input').each(function() {
+			$('.if-sortable > ul ~ input').each(function() {
 				var value = $(this).val();
 				try {
 					value = unserialize( value );
@@ -79,42 +79,42 @@ class TitanFrameworkOptionSortableInfinity extends TitanFrameworkOption {
 				}
 
 				var ul = $(this).siblings('ul:eq(0)');
-				ul.find('li').addClass('invisible').find('i.visibility').toggleClass('dashicons-visibility-faint');
+				ul.find('li.ui-sortable-handle').addClass('invisible').find('i.visibility').toggleClass('dashicons-visibility-faint');
 				$.each(value, function(i, val) {
-					ul.find('li[data-value="' + val + '"]').removeClass('invisible').find('i.visibility').toggleClass('dashicons-visibility-faint');
+					ul.find('li.ui-sortable-handle[data-value=' + val + ']').removeClass('invisible').find('i.visibility').toggleClass('dashicons-visibility-faint');
 				});
 			});
 
-			$('.tf-sortable > ul').each(function() {
+			$('.if-sortable > ul').each(function() {
 				$(this).sortable()
 				.disableSelection()
 				.on( "sortstop", function( event, ui ) {
-					tfUpdateSortable(ui.item.parent());
+					ifUpdateSortable(ui.item.parent());
 				})
-				.find('li').each(function() {
+				.find('li.ui-sortable-handle').each(function() {
 					$(this).find('i.visibility').click(function() {
 						$(this).toggleClass('dashicons-visibility-faint').parents('li:eq(0)').toggleClass('invisible');
 					});
 				})
 				.click(function() {
-					tfUpdateSortable( $(this).parents('ul:eq(0)') );
+					ifUpdateSortable( $(this).parents('ul:eq(0)') );
 				})
 			});
 		});
 
-		function tfUpdateSortable(ul) {
+		function ifUpdateSortable(ul) {
 			"use strict";
 			var $ = jQuery;
 
 			var values = [];
 
-			ul.find('li').each(function() {
+			ul.find('li.ui-sortable-handle').each(function() {
 				if ( ! $(this).is('.invisible') ) {
 					values.push( $(this).attr('data-value') );
 				}
 			});
 
-			ul.siblings('input').eq(0).val( serialize( values ) ).attr('data-order', values ).trigger('change');
+			ul.siblings('input').eq(0).val( serialize( values ) ).trigger('change');
 		}
 		</script>
 		<?php
@@ -260,11 +260,10 @@ function registerTitanFrameworkOptionSortableControlInfinity() {
 	class TitanFrameworkOptionSortableControlInfinity extends WP_Customize_Control {
 		public $description;
 		public $options;
-		
-		public $settings;
+		public $visible_button;
 
 		public function render_content() {
-			TitanFrameworkOptionSortable::createSortableScript();
+			TitanFrameworkOptionSortableInfinity::createSortableScriptInfinity();
 
 			if ( ! is_array( $this->options ) ) {
 				return;
@@ -274,11 +273,12 @@ function registerTitanFrameworkOptionSortableControlInfinity() {
 			}
 
 			?>
-			<label class='tf-sortable'>
+			<label class='if-sortable'>
 				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 			<?php
 
 			$values = $this->value();
+
 			if ( $values == '' ) {
 				$values = array_keys( $this->options );
 			}
@@ -293,11 +293,12 @@ function registerTitanFrameworkOptionSortableControlInfinity() {
 			if ( $this->visible_button === true ) {
 				$visibleButton = "<i class='dashicons dashicons-visibility visibility'></i>";
 			}
-
 			$admin_button = "<i class='dashicons dashicons-admin-generic'></i>";
 			$appearance_button = "<i class='dashicons dashicons-admin-appearance'></i>";
+			//$values = array_filter( $values );
+
 			?>
-			<ul>
+			<ul class="infinity-sortable">
 				<?php
 				foreach ( $values as $dummy => $value ) {
 					printf( "<li data-value='%s' class='%s'><i class='dashicons dashicons-menu'></i>%s%s%s<span>%s</span></li>",
@@ -312,7 +313,7 @@ function registerTitanFrameworkOptionSortableControlInfinity() {
 
 				$invisibleKeys = array_diff( array_keys( $this->options ), $values );
 				foreach ( $invisibleKeys as $dummy => $value ) {
-					printf( "<li data-value='%s' class='%s'><i class='dashicons dashicons-menu'></i>%s%s%s<span>%s</span></li>",
+					printf( "<li data-value='%s' class='%s invisible'><i class='dashicons dashicons-menu'></i>%s%s%s<span>%s</span></li>",
 						esc_attr( $value ),
 						esc_attr( $value ),
 						$visibleButton,
@@ -331,7 +332,7 @@ function registerTitanFrameworkOptionSortableControlInfinity() {
 			}
 
 			?>
-				<input type='hidden' class="sortable-input" <?php $this->link(); ?> value='<?php echo esc_attr( $values )  ?>'/>
+				<input type='hidden' <?php $this->link(); ?> value='<?php echo esc_attr( $values )  ?>'/>
 			</label>
 			<?php
 			echo "<p class='description'>{$this->description}</p>";

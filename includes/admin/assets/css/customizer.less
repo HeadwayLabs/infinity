@@ -112,7 +112,7 @@
 	border-right: 1px solid #ddd;
 }
 
-#customize-theme-controls .tf-sortable .builder-options {
+#customize-theme-controls .if-sortable .builder-options {
 	/* display: none; */
 	/* display: block; */
 	display: block;
@@ -218,16 +218,63 @@
 	display: none!important;
 }
 
-#customize-theme-controls .tf-sortable .builder-options li {
+/* sortable */
+.if-sortable li {
+	cursor: move;
+	background: #fafafa;
+	padding: 0 0 0 15px;
+	border: 1px solid #DDD;
+	position: relative;
+	line-height: 40px;
+}
+
+.if-sortable ul {
+	margin-top: 0;
+	background: rgba(0, 0, 0, 0);
+	border: 1px solid #EEE;
+	padding: 5px;
+	display: inline-block;
+}
+
+.if-sortable ul li:last-of-type {
+	margin-bottom: 0;
+}
+
+.if-sortable ul li i {
+	float: right;
+	background: #fcfcfc;
+	display: inline-block;
+	border-left: 1px solid #ddd;
+	border-bottom: 1px solid #DDD;
+	width: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #777;
+}
+
+.if-sortable ul li i.visibility {
+	cursor: pointer;
+}
+
+.if-sortable ul li i:last-of-type {
+	margin-left: 50px;
+}
+
+.if-sortable li.invisible {
+	color: #ccc;
+	background: transparent;
+}
+
+#customize-theme-controls .if-sortable .builder-options li {
 	padding: 0;
 	cursor: pointer;
 }
 
-#customize-theme-controls .tf-sortable .part-options li.help {
+#customize-theme-controls .if-sortable .part-options li.help {
 	float: left!important;
 }
 
-#customize-theme-controls .tf-sortable .builder-options li .customize-control-title {
+#customize-theme-controls .if-sortable .builder-options li .customize-control-title {
 	font-size: 12px;
 	line-height: 39px;
 	margin-right: 10px;
@@ -236,11 +283,11 @@
 	margin: 4px 0 0 0;
 }
 
-#customize-theme-controls .tf-sortable .builder-options li .customize-control input[type=text] {
+#customize-theme-controls .if-sortable .builder-options li .customize-control input[type=text] {
 	width: 40%;
 }
 
-#customize-theme-controls .tf-sortable {
+#customize-theme-controls .if-sortable {
 	display: block;
 	padding: 0;
 	font-size: 14px;
@@ -248,7 +295,7 @@
 	border-color: #CAD2E1;*/
 }
 
-#customize-theme-controls .tf-sortable ul {
+#customize-theme-controls .if-sortable ul {
 	border-color: #ddd;
 	background: #fff;
 }
@@ -259,24 +306,24 @@
 	font-size: 13px;
 }
 
-#customize-theme-controls .tf-sortable ul li > span {
+#customize-theme-controls .if-sortable ul li > span {
 	padding-left: 10px;
 }
 
-#customize-theme-controls .tf-sortable ul li i {
+#customize-theme-controls .if-sortable ul li i {
 	width: 24px;
 	font-size: 14px;
 }
 
-#customize-theme-controls .tf-sortable ul li i:last-of-type {
+#customize-theme-controls .if-sortable ul li i:last-of-type {
 	margin-left: 10px;
 }
 
-#customize-theme-controls .tf-sortable i.dashicons-admin-generic {
+#customize-theme-controls .if-sortable i.dashicons-admin-generic {
 	cursor: pointer;
 }
 
-#customize-theme-controls .tf-sortable i.dashicons-admin-appearance {
+#customize-theme-controls .if-sortable i.dashicons-admin-appearance {
 	cursor: pointer;
 }
 
@@ -286,18 +333,18 @@
 	height: 100%;
 }
 
-#customize-theme-controls .tf-sortable > li.invisible * {
+#customize-theme-controls .if-sortable > li.invisible * {
 	color: #ccc;
 	opacity: .8;
 }
 
-#customize-theme-controls .tf-sortable li.invisible i:hover {
+#customize-theme-controls .if-sortable li.invisible i:hover {
 	color: #666;
 	opacity: 1;
 	background: #fff;
 }
 
-#customize-theme-controls .tf-sortable li ul li.invisible {
+#customize-theme-controls .if-sortable li ul li.invisible {
 	color: #333;
 }
 
