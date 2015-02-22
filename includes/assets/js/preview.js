@@ -1,5 +1,5 @@
 function showHideLoader() {
-	jQuery("body #whitewrap").addClass('loading').prepend('<div class="loading-overlay"><div><img src="wp-content/plugins/views-builder/images/loading.gif" /><p>&nbsp;&nbsp;Working..</p></div></div>');
+	jQuery("body #whitewrap").addClass('loading').prepend('<div class="loading-overlay"><div><img src="moowp-content/plugins/views-builder/images/loading.gif" /><p>&nbsp;&nbsp;Working..</p></div></div>');
 	setTimeout(function() {
 		jQuery("#whitewrap").removeClass('loading');
 		jQuery(".loading-overlay").remove();

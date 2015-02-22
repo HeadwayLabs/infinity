@@ -22,7 +22,21 @@ function showHideQueryBox(el, handle) {
 
 			setTimeout( function() {
 				$('#message, .update-nag').fadeOut();
-			}, 5000 );
+			}, 3500 );
+
+			var view_name = $('#titlediv').find('input').val();
+
+			var name = 'IntroTip-'+view_name;
+			var hideIntro = localStorage.getItem(name);
+
+			if(hideIntro == 1) {
+				$('.start-message').hide();
+			}
+
+			$('.close-start-message').click(function() {
+				$('.start-message').fadeOut('slow');
+				localStorage.setItem(name, 1);
+			});
 
 			var wpbody = $('#wpbody-content');
 			var pub = $('#publish');

@@ -32,6 +32,11 @@ class View_Builder_Admin {
 		add_action( 'edit_form_top', array( __CLASS__, 'view_add_toolbar' ) );
 		add_action( 'admin_head', array( __CLASS__, 'view_hide_post_box_on_add_screen' ) );
 		add_action( 'admin_notices', array( __CLASS__, 'view_add_help_to_add_screen' ) );
+		
+		add_action( 'admin_head', array( __CLASS__, 'view_add_tinymce' ) );
+		add_action( 'before_wp_tiny_mce', array( __CLASS__, 'views_mce_head' ) );
+
+
 
 		require_once( views()->plugin_dir .'includes/view-meta.php' );
 
@@ -82,6 +87,8 @@ class View_Builder_Admin {
 		if ( 'view' != $screen->id || $screen->action == 'add')
 			return;
 
+		echo '<div class="start-message"><p>Welcome to your new view. The next step is to add this view to your website. Use the toolbar below to use to your preferred method. Once you have added it, you can access the Customizer to build your layouts. You can also enable query mode below to filter specific wordpress content.<a href="#" class="close-start-message"><span class="dashicons dashicons-no-alt"></span></a></p></div>';
+
 		echo '<div id="views-toolbar">';
 
 			if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
@@ -125,7 +132,7 @@ class View_Builder_Admin {
 	}
 
 	/**
-	 * Hide the screen options from the loop edit screen
+	 * Hide the screen options from the view edit screen
 	 *
 	 * @package View_Builder
 	 * @since 1.0.0
@@ -138,7 +145,7 @@ class View_Builder_Admin {
 	}
 
 	/**
-	 * Remove publish metabox from the loop edit screen
+	 * Remove publish metabox from the view edit screen
 	 *
 	 * @package View_Builder
 	 * @since 1.0.0
@@ -148,7 +155,7 @@ class View_Builder_Admin {
 	}
 
 	/**
-	 * Messages displayed when a loop is updated.
+	 * Messages displayed when a view is updated.
 	 *
 	 * @package View_Builder
 	 * @since 1.0.0
@@ -175,17 +182,19 @@ class View_Builder_Admin {
 	    $screen = get_current_screen();
 	    if ( $screen->action == 'add' ) {
 	        echo '<script>
+	        /* <![CDATA[ */
 	        (function ($) {
 	            $(document).ready(function() {
 	                $(".postbox-container").hide();
 	            });
 	        })(jQuery);
+				/* ]]> */
 	        </script>';
 
 	    }
 	}
 
-	function view_change_title_text( $title ){
+	public static function view_change_title_text( $title ){
      $screen = get_current_screen();
  
      if  ( 'view' == $screen->post_type ) {
@@ -236,7 +245,7 @@ class View_Builder_Admin {
 						 				<p>There are several ways to add a view to your website depending on your needs. Then use the Wordpress Customizer to build your infinite view.</p>
 						 				<ul>
 						 					<li>Use Headway <div><em>Headway View Block displays any view.</em></div> </li>
-						 					<li>Any Wordpress Content<div><em>Add view to any wordpress post or page.</em></div> </li>
+						 					<li>Any Wordpress Content<div><em>Add view to any Wordpress posts or pages.</em></div> </li>
 						 					<li>Using a Wordpress Widget <div><em>Use the Views Widget to display any view.</em></div> </li>
 						 				</ul>
 						 			</div>
@@ -248,6 +257,87 @@ class View_Builder_Admin {
 	        ';
 
 	    }
+	}
+
+
+	/**
+	 * Initiates mce button 
+	 *
+	 * @package View_Builder
+	 * @since 1.0.0
+	 */
+	public static function view_add_tinymce() {
+	    global $typenow;
+
+	    // only on Post Type: post and page
+	    if( ! in_array( $typenow, array( 'post', 'page' ) ) )
+	        return ;
+
+	    add_filter( 'mce_external_plugins', array( __CLASS__, 'view_add_tinymce_plugin' ) );
+	    // Add to line 1 form WP TinyMCE
+	    add_filter( 'mce_buttons', array( __CLASS__, 'view_add_tinymce_button' ) );
+	}
+
+	/**
+	 *  Includes JS for tinymce
+	 *
+	 * @package View_Builder
+	 * @since 1.0.0
+	 */
+	public static function view_add_tinymce_plugin( $plugin_array ) {
+	    $plugin_array['views'] = views()->plugin_url . 'includes/admin/assets/js/min/add-shortcode-min.js';
+	    return $plugin_array;
+	}
+
+	/**
+	 * Add the button key to use via JS
+	 *
+	 * @package View_Builder
+	 * @since 1.0.0
+	 */
+	public static function view_add_tinymce_button( $buttons ) {
+
+	    array_push( $buttons, 'view_button_key' );
+	    return $buttons;
+	}
+
+	/**
+	 * Create JSON object with list of views
+	 *
+	 * @package View_Builder
+	 * @since 1.0.0
+	 */
+	public static function views_mce_head() {
+		$all_views = vb_get_views();
+		$views = array();
+		foreach ( $all_views as $view ) {
+			$views[] = array(
+				'value'   => $view->ID,
+				'text' => $view->post_title
+			);
+		}
+		$views = json_encode( array(
+			'views' => $views
+		) );
+	?>
+	<style>
+		i.mce-i-infinity-icon {
+		    background: url('image.png');
+		    padding: 0;
+		    vertical-align: top;
+		    speak: none;
+		    -webkit-font-smoothing: antialiased;
+		    -moz-osx-font-smoothing: grayscale;
+		    margin-left: -2px;
+		    padding-right: 2px
+		}
+	</style>
+	<script type='text/javascript'>
+	/* <![CDATA[ */
+	var infinityViews = <?php echo $views; ?>;
+	/* ]]> */
+	</script>
+<?php
 	}
 
 }
