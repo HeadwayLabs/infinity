@@ -81,7 +81,7 @@ class TitanFrameworkOptionSortable extends TitanFrameworkOption {
 				var ul = $(this).siblings('ul:eq(0)');
 				ul.find('li').addClass('invisible').find('i.visibility').toggleClass('dashicons-visibility-faint');
 				$.each(value, function(i, val) {
-					ul.find('li[data-value="' + val + '"]').removeClass('invisible').find('i.visibility').toggleClass('dashicons-visibility-faint');
+					ul.find('li[data-value=' + val + ']').removeClass('invisible').find('i.visibility').toggleClass('dashicons-visibility-faint');
 				});
 			});
 
@@ -114,7 +114,7 @@ class TitanFrameworkOptionSortable extends TitanFrameworkOption {
 				}
 			});
 
-			ul.siblings('input').eq(0).val( serialize( values ) ).attr('data-order', values ).trigger('change');
+			ul.siblings('input').eq(0).val( serialize( values ) ).trigger('change');
 		}
 		</script>
 		<?php
@@ -260,8 +260,7 @@ function registerTitanFrameworkOptionSortableControl() {
 	class TitanFrameworkOptionSortableControl extends WP_Customize_Control {
 		public $description;
 		public $options;
-		
-		public $settings;
+		public $visible_button;
 
 		public function render_content() {
 			TitanFrameworkOptionSortable::createSortableScript();
@@ -293,31 +292,22 @@ function registerTitanFrameworkOptionSortableControl() {
 			if ( $this->visible_button === true ) {
 				$visibleButton = "<i class='dashicons dashicons-visibility visibility'></i>";
 			}
-
-			$admin_button = "<i class='dashicons dashicons-admin-generic'></i>";
-			$appearance_button = "<i class='dashicons dashicons-admin-appearance'></i>";
 			?>
 			<ul>
 				<?php
 				foreach ( $values as $dummy => $value ) {
-					printf( "<li data-value='%s' class='%s'><i class='dashicons dashicons-menu'></i>%s%s%s<span>%s</span></li>",
-						esc_attr( $value ),
+					printf( "<li data-value='%s'><i class='dashicons dashicons-menu'></i>%s%s</li>",
 						esc_attr( $value ),
 						$visibleButton,
-						$appearance_button,
-						$admin_button,
 						$this->options[ $value ]
 					);
 				}
 
 				$invisibleKeys = array_diff( array_keys( $this->options ), $values );
 				foreach ( $invisibleKeys as $dummy => $value ) {
-					printf( "<li data-value='%s' class='%s'><i class='dashicons dashicons-menu'></i>%s%s%s<span>%s</span></li>",
-						esc_attr( $value ),
+					printf( "<li data-value='%s'><i class='dashicons dashicons-menu'></i>%s%s</li>",
 						esc_attr( $value ),
 						$visibleButton,
-						$appearance_button,
-						$admin_button,
 						$this->options[ $value ]
 					);
 				}
@@ -331,7 +321,7 @@ function registerTitanFrameworkOptionSortableControl() {
 			}
 
 			?>
-				<input type='hidden' class="sortable-input" <?php $this->link(); ?> value='<?php echo esc_attr( $values )  ?>'/>
+				<input type='hidden' <?php $this->link(); ?> value='<?php echo esc_attr( $values )  ?>'/>
 			</label>
 			<?php
 			echo "<p class='description'>{$this->description}</p>";

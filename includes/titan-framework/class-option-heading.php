@@ -16,39 +16,4 @@ class TitanFrameworkOptionHeading extends TitanFrameworkOption {
 		</tr>
 		<?php
 	}
-
-	/*
-	 * Display for theme customizer
-	 */
-	public function registerCustomizerControl( $wp_customize, $section, $priority = 1 ) {
-		$wp_customize->add_control( new TitanFrameworkHeadingControl( $wp_customize, $this->getID(), array(
-			'label' => $this->settings['name'],
-			'section' => $section->settings['id'],
-			'settings' => $this->getID(),
-			'description' => $this->settings['desc'],
-			'type' => 'heading',
-			'priority' => $priority,
-		) ) );
-	}
-
-
-}
-
-/*
- * We create a new control for the theme customizer
- */
-add_action( 'customize_register', 'registerTitanFrameworkOptionHeadingControl', 1 );
-function registerTitanFrameworkOptionHeadingControl() {
-	class TitanFrameworkHeadingControl extends WP_Customize_Control {
-		public $description;
-
-		public function render_content() {
-			if ($this->label) {
-				echo '<label><h3>'. $this->label . '</h3></label>';
-			}
-			if ($this->description) {
-				echo '<span class="description">'. $this->description . '</span>';
-			}
-		}
-	}
 }
