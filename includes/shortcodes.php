@@ -479,11 +479,23 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			  				break;
 
 			  			case 'excerpt':
+							$content_to_show 			= $builder_options->getOption( 'excerpt-option-content-to-show-' . $view_name . '' );
+							$content_to_show 			= (!empty($content_to_show)) ? 'content_to_show="' . $content_to_show . '"' : null;							
+							
+							$excerpt_length 			= $builder_options->getOption( 'excerpt-option-length-' . $view_name . '' );
+							$excerpt_length 			= (!empty($excerpt_length)) ? 'excerpt_length="' . $excerpt_length . '"' : null;
+
+							$excerpt_more 				= $builder_options->getOption( 'excerpt-option-more-' . $view_name . '' );
+							$excerpt_more 				= (!empty($excerpt_more)) ? 'excerpt_more="' . $excerpt_more . '"' : null;
+
+							$excerpt_display_as 		= $builder_options->getOption( 'excerpt-styles-display-as-' . $view_name . '' );
+							$excerpt_display_as 		= (!empty($excerpt_display_as)) ? 'display_as="' . $excerpt_display_as . '"' : null;
+
 							echo do_shortcode(stripslashes('[vb_excerpt
-							content_to_show="'. $content_to_show .'" 
-							excerpt_more="'. $excerpt_more .'" 
-							display_as="'. $excerpt_display_as .'" 
-							excerpt_length="'. $excerpt_length .'"]'));
+							'. $content_to_show .' 
+							'. $excerpt_more .' 
+							'. $excerpt_display_as .' 
+							'. $excerpt_length .']'));
 			  				break;
 
 			  			case 'date':
