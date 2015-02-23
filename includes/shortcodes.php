@@ -249,24 +249,6 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 				$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
 			}
 
-			//author settings
-			$author_linked 			= $builder_options->getOption( 'author-option-linked-' . $view_name . '' );
-			$author_before 			= $builder_options->getOption( 'author-option-before-' . $view_name . '' );
-			$author_display_as 		= $builder_options->getOption( 'author-styles-display-as-' . $view_name . '' );
-
-			//avatar settings
-			$avatar_size 				= $builder_options->getOption( 'avatar-option-size-' . $view_name . '' );
-			$avatar_linked 			= $builder_options->getOption( 'avatar-option-linked-' . $view_name . '' );
-			$avatar_before 			= $builder_options->getOption( 'avatar-option-before-' . $view_name . '' );
-			$avatar_display_as 		= $builder_options->getOption( 'avatar-styles-display-as-' . $view_name . '' );
-
-			//comments settings
-			$comments_format 			= $builder_options->getOption( 'comments-option-comments-format-' . $view_name . '' );
-			$comments_format_1 		= $builder_options->getOption( 'comments-option-comments-format-1-' . $view_name . '' );
-			$comments_format_0 		= $builder_options->getOption( 'comments-option-comments-format-0-' . $view_name . '' );
-			$comments_before 			= $builder_options->getOption( 'comments-option-before-' . $view_name . '' );
-			$comments_display_as 	= $builder_options->getOption( 'comments-styles-display-as-' . $view_name . '' );
-
 			//read more settings
 			$more_text 					= $builder_options->getOption( 'readmore-option-more-text-' . $view_name . '' );
 			$more_show_always			= $builder_options->getOption( 'readmore-option-show-always-' . $view_name . '' );
@@ -564,29 +546,65 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			  				break;
 
 			  			case 'author':
+							$author_linked 			= $builder_options->getOption( 'author-option-linked-' . $view_name . '' );
+							$author_linked 			= (!empty($author_linked)) ? 'linked="' . $author_linked . '"' : null;
+
+							$author_before 			= $builder_options->getOption( 'author-option-before-' . $view_name . '' );
+							$author_before 			= (!empty($author_before)) ? 'before="' . $author_before . '"' : null;
+
+							$author_display_as 		= $builder_options->getOption( 'author-styles-display-as-' . $view_name . '' );
+							$author_display_as 		= (!empty($author_display_as)) ? 'display_as="' . $author_display_as . '"' : null;
+
 			  				echo do_shortcode(stripslashes('[vb_author 
-			  				linked="'. $author_linked .'"  
-							before="'. $author_before .'" 
-							display_as="'. $author_display_as .'"
+			  				'. $author_linked .' 
+							'. $author_before .' 
+							'. $author_display_as .'
 			  				]'));
 			  				break;
 
 			  			case 'avatar':
+							$avatar_size 				= $builder_options->getOption( 'avatar-option-size-' . $view_name . '' );
+							$avatar_size 				= (!empty($avatar_size)) ? 'avatar_size="' . $avatar_size . '"' : null;
+
+							$avatar_linked 			= $builder_options->getOption( 'avatar-option-linked-' . $view_name . '' );
+							$avatar_linked 			= (!empty($avatar_linked)) ? 'linked="' . $avatar_linked . '"' : null;
+
+							$avatar_before 			= $builder_options->getOption( 'avatar-option-before-' . $view_name . '' );
+							$avatar_before 			= (!empty($avatar_before)) ? 'before="' . $avatar_before . '"' : null;
+
+							$avatar_display_as 		= $builder_options->getOption( 'avatar-styles-display-as-' . $view_name . '' );
+							$avatar_display_as 		= (!empty($avatar_display_as)) ? 'display_as="' . $avatar_display_as . '"' : null;
+
 			  				echo do_shortcode(stripslashes('[vb_avatar 
-			  				avatar_size="'. $avatar_size .'" 
-			  				linked="'. $avatar_linked .'" 
-							before="'. $avatar_before .'" 
-							display_as="'. $avatar_display_as .'"
+			  				'. $avatar_size .' 
+			  				'. $avatar_linked .' 
+							'. $avatar_before .' 
+							'. $avatar_display_as .'
 			  				]'));
 			  				break;
 
 			  			case 'comments':
+							$comments_format 		= $builder_options->getOption( 'comments-option-comments-format-' . $view_name . '' );
+							$comments_format 		= (!empty($comments_format)) ? 'comments_format="' . $comments_format . '"' : null;
+
+							$comments_format_1 	= $builder_options->getOption( 'comments-option-comments-format-1-' . $view_name . '' );
+							$comment_format_1 	= (!empty($comment_format_1)) ? 'comment_format_1="' . $comment_format_1 . '"' : null;
+
+							$comments_format_0 	= $builder_options->getOption( 'comments-option-comments-format-0-' . $view_name . '' );
+							$comment_format_0 	= (!empty($comment_format_0)) ? 'comment_format_0="' . $comment_format_0 . '"' : null;
+
+							$comments_before 		= $builder_options->getOption( 'comments-option-before-' . $view_name . '' );
+							$comments_before 		= (!empty($comments_before)) ? 'before="' . $comments_before . '"' : null;
+
+							$comments_display_as = $builder_options->getOption( 'comments-styles-display-as-' . $view_name . '' );
+							$comments_display_as = (!empty($comments_display_as)) ? 'display_as="' . $comments_display_as . '"' : null;
+
 			  				echo do_shortcode(stripslashes('[vb_comments 
-			  				comment_format="'. $comments_format .'" 
-			  				comment_format_1="'. $comments_format_1 .'" 
-			  				comment_format_0="'. $comments_format_0 .'" 
-							before="'. $comments_before .'" 
-							display_as="'. $comments_display_as .'"
+			  				'. $comments_format .' 
+			  				'. $comments_format_1 .' 
+			  				'. $comments_format_0 .' 
+							'. $comments_before .' 
+							'. $comments_display_as .'
 			  				]'));
 			  				break;
 
