@@ -95,13 +95,26 @@ class View_Builder_Admin {
 				echo '<a id="open-customizer" href="' . wp_customize_url( get_template() ) . '" title="Open Wordpress Customizer to start editing this View." target="_blank" class="load-customize hide-if-no-customize open-customizer toolbar-wrap"><span class="dashicons dashicons-admin-appearance"></span></a>';
 			}
 
+			$id = $post->ID;
+
+			$options = vb_options( $id );
+
+			$query_mode = $options['query-mode'];
+
 			echo '<div class="add-toolbar toolbar-wrap"">';
-				
-				if ( current_user_can( 'edit_theme_options' ) ) {
-					echo '<a id="open-widgets" href="widgets.php" title="Open Widgets to add a widget for this view" target="_blank" class="load-customize hide-if-no-customize open-widgets"><span class="dashicons dashicons-welcome-widgets-menus"></span></a>';
+
+				if ( $query_mode == 1 && current_user_can( 'edit_theme_options' ) ) {
+					echo '<a id="open-posts" href="edit.php" title="Open Posts to add this view to a post" target="_blank" class="load-customize hide-if-no-customize open-posts"><span class="dashicons dashicons-admin-post"></span></a>';
+					echo '<a id="open-posts" href="edit.php?post_type=page" title="Open Posts to add this view to a post" target="_blank" class="load-customize hide-if-no-customize open-posts"><span class="dashicons dashicons-admin-page"></span></a>';
+				}
+
+				//disable for default mode
+				if ( $query_mode == 0 && current_user_can( 'edit_theme_options' ) ) {
+					echo '<p id="open-posts" title="Disabled: You can\'t add a view to a page when custom query is off. With the query off it will try load the same page you add it to inside itself since default mode does what wordpress does." target="_blank" class="disabled load-customize hide-if-no-customize open-page"><span class="dashicons dashicons-admin-post"></span></p>';
+					echo '<p id="open-posts" title="Disabled: You can\'t add a view to a post when custom query is off. With the query off it will try load the same post you add it to inside itself since default mode does what wordpress does." target="_blank" class="disabled load-customize hide-if-no-customize open-posts"><span class="dashicons dashicons-admin-page"></span></p>';
 				}
 				if ( current_user_can( 'edit_theme_options' ) ) {
-					echo '<a id="open-posts" href="edit.php" title="Open Posts to add this view to a post" target="_blank" class="load-customize hide-if-no-customize open-posts"><span class="dashicons dashicons-admin-page"></span></a>';
+					echo '<a id="open-widgets" href="widgets.php" title="Open Widgets to add a widget for this view" target="_blank" class="load-customize hide-if-no-customize open-widgets"><span class="dashicons dashicons-welcome-widgets-menus"></span></a>';
 				}
 				if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
 					echo '<a id="open-headway" href="' . home_url() . '/?visual-editor=true' . '" title="Open Headway to add a block for this view" target="_blank" class="load-customize hide-if-no-customize open-headway"><span></span></a>';
@@ -212,7 +225,7 @@ class View_Builder_Admin {
 	 */
 	public static function view_add_help_to_add_screen() {
 	    $screen = get_current_screen();
-	    if ( $screen->action == 'add' ) {
+	    if ( 'view' == $screen->post_type && $screen->action == 'add' ) {
 	        echo '
 					<div class="view-create-new-notice-wrapper">
 						<div class="view-create-new-notice">
