@@ -50,9 +50,22 @@
   outline: 1px solid #199EBF;
   overflow: visible!important;
 }
+.hover-inspector.inspector-view {
+  top: 0;
+  left: 0;
+  float: left;
+  position: absolute;
+  overflow: hidden;
+  margin: 1px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 99.8%;
+  height: 100%;
+}
 .hover-inspector.part {
   outline: 1px solid orange;
-  position: relative!important;
+  position: relative;
 }
 .hover-inspector div.inspector-info {
   font-family: Helvetica, Arial, Tahoma, sans-serif;

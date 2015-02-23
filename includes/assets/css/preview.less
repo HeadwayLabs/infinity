@@ -58,9 +58,21 @@
 	outline: 1px solid #199EBF;
 	overflow: visible!important;
 
+	&.inspector-view {
+			top: 0;
+			left: 0;
+			float: left;
+			position: absolute;
+			overflow: hidden;
+			margin: 1px;
+			box-sizing: border-box;
+			width: 99.8%;
+			height: 100%;
+	}
+
 	&.part {
 		outline: 1px solid orange;
-		position: relative!important;
+		position: relative;
 	}
 
 	div.inspector-info {

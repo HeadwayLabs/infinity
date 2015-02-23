@@ -340,9 +340,9 @@
 			$(el).hover(
 				function() {
 					var title = $(this).find('li[id*=customize-control-builder-options_id-hide-] h3').text();
-					previewDiv.children('iframe').contents().find('#view-'+id).addClass('hover-inspector').prepend('<div class="inspector-info">'+ title +'</div>');
+					previewDiv.children('iframe').contents().find('#view-'+id).prepend('<div class="hover-inspector inspector-view"><div class="inspector-info">'+ title +'</div></div>');
 				}, function() {
-					previewDiv.children('iframe').contents().find('#view-'+id).removeClass('hover-inspector').find('.inspector-info').remove();
+					previewDiv.children('iframe').contents().find('#view-'+id).find('.hover-inspector').remove();
 				}
 			);
 
@@ -354,7 +354,7 @@
 		var previewDiv = $('#customize-preview');
 
 		$(el).find("li[id*=customize-control-builder-options_builder_parts] li").hover(function() {
-			var part = $(this).attr('class');
+			var part = $(this).attr('data-value');
 			part = part.replace(/-/g, " ");
 			previewDiv.children('iframe').contents().find('#view-'+id+' .'+ part +'-part').addClass('hover-inspector part').prepend('<div class="inspector-info part">'+ part +'</div>');
 		}, function() {
