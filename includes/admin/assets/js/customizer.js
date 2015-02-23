@@ -23,8 +23,6 @@
 		var iconSortable = $(el).find('li[id*=customize-control-builder-options_image-spotlight-icon-type]');
 
 		$(el).find('#image-icon-options')
-			.remove()
-			.clone(true)
 			.addClass('image-options-wrapper')
 			.appendTo(iconSortable);
 
@@ -38,8 +36,6 @@
 		var contentSortable = $(el).find('li[id*=customize-control-builder-options_image-parts-content-type]');
 
 		$(el).find('#image-content-options')
-			.remove()
-			.clone(true)
 			.addClass('image-options-wrapper')
 			.appendTo(contentSortable);
 
@@ -238,8 +234,6 @@
 			var imageSortable = $(el).find($("li[id*=customize-control-builder-options_image-spotlight-icon-type-icons-] li." + image + ""));
 
 			$(el).find('#' + image + '-options')
-				.remove()
-				.clone(true)
 				.addClass('image-options builder-options')
 				.appendTo(imageSortable)
 				.hide();
@@ -279,7 +273,7 @@
 		postsToolbar.prependTo('.wp-full-overlay').hide();
 
 		$(this).find("li[id*=customize-control-builder-options_postopts]").each(function() {
-			$(this).remove().clone(true).appendTo(postsToolbar);
+			$(this).remove().appendTo(postsToolbar);
 		});
 
 		//create bottom toolbar with pagination settings 
@@ -287,7 +281,7 @@
 		paginationToolbar.appendTo('.wp-full-overlay').hide();
 
 		$(this).find("li[id*=customize-control-builder-options_pagination]").each(function() {
-			$(this).remove().clone(true).prependTo(paginationToolbar);
+			$(this).remove().prependTo(paginationToolbar);
 		});
 
 		$('.customizer-toolbar li').hover(function() {
