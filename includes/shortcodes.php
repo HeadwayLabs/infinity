@@ -455,14 +455,14 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 
 
 			  				echo do_shortcode(stripslashes('[vb_image 
-							'. $thumb_align .' 
-							'. $auto_size .' 
-							'. $autosize_container_width .' 
-							'. $crop_vertically .' 
+							' . $thumb_align . ' 
+							' . $auto_size . ' 
+							' . $autosize_container_width . ' 
+							' . $crop_vertically . ' 
 							' . $columns . ' 
-							'. $crop_vertically_height_ratio .' 
-							'. $thumb_spotlight_type .' 
-							'. $thumb_content_hover_effect .' 
+							' . $crop_vertically_height_ratio . ' 
+							' . $thumb_spotlight_type . ' 
+							' . $thumb_content_hover_effect . ' 
 							' . $thumbnail_height . ' 
 							' . $thumbnail_width . ' 
 							' . $show_spotlight . ' 
@@ -477,9 +477,9 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 							' . $cover_button_link3 . ' 
 							' . $cover_button4 . ' 
 							' . $cover_button_link4 . ' 
-							'. $lightbox_height .'  
-							'. $lightbox_width .'  
-							'. $thumb_display_as .'
+							' . $lightbox_height . '  
+							' . $lightbox_width . '  
+							' . $thumb_display_as . '
 							]'));
 			  				break;
 

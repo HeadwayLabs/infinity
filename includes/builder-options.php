@@ -286,8 +286,7 @@ if ( $the_query->have_posts() ) :
                     'type' => 'sortable-infinity',
                     'desc' => '',
                     'options' => get_builder_elements(),
-                    'default' => array('title', 'image', 'excerpt', 'date', 'readmore')
-
+                    'default' => array('title', 'image', 'excerpt', 'date', 'readmore'),
                 ) );
 
 
@@ -298,53 +297,6 @@ if ( $the_query->have_posts() ) :
                     'id' => 'title-option-before-text-' . $view_name . '',
                     'type' => 'text',
                     'default' => ''
-                ) );
-
-                $section->createOption( array(
-                    'name' => 'Title Markup',
-                    'id' => 'title-option-html-tag-' . $view_name . '',
-                    'type' => 'select',
-                    'options' => array(
-                        'h1' => 'H1',
-                        'h2' => 'H2',
-                        'h3' => 'H3',
-                    ),
-                    'default' => 'h2',
-                    'livepreview' => '',
-                ) );
-
-                $section->createOption( array(
-                    'name' => 'Link title',
-                    'id' => 'title-option-link-' . $view_name . '',
-                    'type' => 'checkbox',
-                    'default' => true
-                ) );
-
-                $section->createOption( array(
-                    'name' => 'Shorten Title',
-                    'id' => 'title-option-shorten-title-' . $view_name . '',
-                    'type' => 'checkbox',
-                    'default' => false
-                ) );
-
-                $section->createOption( array(
-                    'name' => 'Limit to characters',
-                    'id' => 'title-option-shorten-limit-' . $view_name . '',
-                    'type' => 'text',
-                    'default' => '50'
-                ) );
-
-                $section->createOption( array(
-                    'name' => 'Display As',
-                    'id' => 'title-styles-display-as-' . $view_name . '',
-                    'type' => 'select',
-                    'default' => '',
-                    'options' => array(
-                        '' => 'None',
-                        'block' => 'Block',
-                        'inline' => 'Inline',
-                        'inline-block' => 'Inline Block'
-                    )
                 ) );
 
 
@@ -485,7 +437,7 @@ if ( $the_query->have_posts() ) :
                     'name' => 'Crop thumb vertically',
                     'id' => 'image-option-crop-vertically-' . $view_name . '',
                     'type' => 'checkbox',
-                    'default' => false
+                    'default' => true
                 ) );
 
                 $section->createOption( array(
@@ -666,7 +618,7 @@ if ( $the_query->have_posts() ) :
                     'name' => 'Spotlight Content Builder',
                     'id' => 'image-parts-content-type-' . $view_name . '',
                     'desc' => 'Add <b>Icons</b> or <b>Content Parts</b> to the Image spotlight using the builder below. Then set the animation effect.',
-                    'type' => 'sortable',
+                    'type' => 'sortable-infinity',
                     'options' => array(
                         'title' => 'Title',
                         'excerpt' => 'Excerpt',
@@ -687,7 +639,7 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => 'Spotlight Icon Builder',
                     'id' => 'image-spotlight-icon-type-icons-' . $view_name . '',
-                    'type' => 'sortable',
+                    'type' => 'sortable-infinity',
                     'options' => array(
                         'btn1' => 'Icon 1',
                         'btn2' => 'Icon 2',
@@ -767,7 +719,7 @@ if ( $the_query->have_posts() ) :
                     'name' => 'Display As',
                     'id' => 'image-styles-display-as-' . $view_name . '',
                     'type' => 'select',
-                    'default' => '',
+                    'default' => 'B',
                     'options' => array(
                         '' => 'None',
                         'block' => 'Block',

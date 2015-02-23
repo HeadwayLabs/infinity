@@ -4,25 +4,25 @@
 			'thumb_align'                    => 'left',
 			'auto_size'                      => false,
 			'auto_size_container_width'		=> '940',
-			'crop_vertically'        			=> false,
+			'crop_vertically'        			=> true,
 			'columns'                        => 4,//make = number of columns
-			'thumbnail_width'               	=> '200',
-			'thumbnail_height'              	=> '120',
+			'thumbnail_width'               	=> '250',
+			'thumbnail_height'              	=> '200',
 			'crop_vertically_height_ratio' 	=> '75',
 			'show_spotlight'               	=> true,
 			'thumb_spotlight_effect'        	=> 'vb-overlay',
 			'thumb_spotlight_type'          	=> 'icons',//icons or content
-			'thumb_content_hover_effect'   	=>  'Al',
-			'thumb_icon_effect'             	=> 'CStyleC',
-			'thumb_icon_style'              	=> 'WhiteSquare',
-			'spotlight_button1'             	=> 'search',
-			'spotlight_button_link1'        	=> false,
-			'spotlight_button2'             	=> 'link',
-			'spotlight_button_link2'        	=> false,
-			'spotlight_button3'             	=> false,
-			'spotlight_button_link3'        	=> false,
-			'spotlight_button4'             	=> false,
-			'spotlight_button_link4'        	=> false,
+			'thumb_content_hover_effect'   	=>  'H',
+			'thumb_icon_effect'             	=> 'StyleH',
+			'thumb_icon_style'              	=> 'WhiteRounded',
+			'cover_button1'             	=> 'search',
+			'cover_button_link1'        	=> 'lightbox',
+			'cover_button2'             	=> 'link',
+			'cover_button_link2'        	=> 'content',
+			'cover_button3'             	=> false,
+			'cover_button_link3'        	=> false,
+			'cover_button4'             	=> false,
+			'cover_button_link4'        	=> false,
 			'lightbox_width'                 => '1024',
 			'lightbox_height'               	=> '768',
 			'display_as' => null
@@ -35,6 +35,9 @@
 	$view_name = strtolower(str_replace(' ', '-', views()->view_name));
 	$builder_options = TitanFramework::getInstance( 'builder-options' );
 	$btns = $builder_options->getOption( 'image-spotlight-icon-type-icons-' . $view_name . '' );
+	if ( empty($btns) ) {
+		$btns = array('btn1', 'btn2');
+	}
 	$display_as = $display_as != null ? ' display-' . $display_as : null;
 	$layout = (!empty($builder_options->getOption( 'view-layout-' . $id . '' ))) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
 
