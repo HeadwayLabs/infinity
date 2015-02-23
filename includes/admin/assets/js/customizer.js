@@ -431,8 +431,6 @@
 			var builderSortable = $(el).find($("li[id*=customize-control-builder-options_builder_parts] li." + part_type + ""));
 
 			$(el).find('#' + part_type + '-options')
-				.remove()
-				.clone(true)
 				.addClass('part-options builder-options')
 				.appendTo(builderSortable)
 				.hide();
@@ -459,8 +457,6 @@
 				.wrapAll('<ul id="' + part_type + '-styles" class="clearfix"></ul>');
 
 			$(el).find('#' + part_type + '-styles')
-				.remove()
-				.clone(true)
 				.addClass('style-options builder-options')
 				.appendTo(builderSortable)
 				.hide();
