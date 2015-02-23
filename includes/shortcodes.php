@@ -249,48 +249,6 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 				$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
 			}
 			
-			//image settings
-
-			$layout = (!empty($builder_options->getOption( 'view-layout-' . $id . '' ))) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
-			
-			$columns = $builder_options->getOption( 'postopts-columns-' . $id . '' );
-			$columns = (!empty($columns)) ? 'columns="' . $columns . '"' : null;
-
-			if ( $layout == 'slider' ||  $layout == 'blog') {
-				$columns	= '1';
-			}
-			$thumb_align			 			= $builder_options->getOption( 'image-option-thumb-align-' . $view_name . '' );
-			$auto_size			 				= $builder_options->getOption( 'image-option-auto-size-' . $view_name . '' );
-			$autosize_container_width		= $builder_options->getOption( 'image-option-autosize-container-width-' . $view_name . '' );
-			$crop_vertically					= $builder_options->getOption( 'image-option-crop-vertically-' . $view_name . '' );
-			$crop_vertically_height_ratio	= $builder_options->getOption( 'image-option-crop-vertically-height-ratio-' . $view_name . '' );
-			$thumbnail_height 				= $builder_options->getOption( 'image-option-thumbnail-height-' . $view_name . '' );
-			$thumbnail_width 					= $builder_options->getOption( 'image-option-thumbnail-width-' . $view_name . '' );
-			$show_spotlight  					= $builder_options->getOption( 'image-show-spotlight-hide-' . $view_name . '' );
-			$thumb_spotlight_type			= $builder_options->getOption( 'thumb-spotlight-type-hide-' . $view_name . '' );
-			$thumb_icon_effect 				= $builder_options->getOption( 'image-icon-type-effect-' . $view_name . '' );
-			$thumb_icon_style					= $builder_options->getOption( 'image-icon-type-style-' . $view_name . '' );
-			$thumb_spotlight_effect 		= $builder_options->getOption( 'image-icon-type-spotlight-effect-' . $view_name . '' );
-			$lightbox_height					= $builder_options->getOption( 'image-icon-type-lightbox-height-' . $view_name . '' );
-			$lightbox_width					= $builder_options->getOption( 'image-icon-type-lightbox-width-' . $view_name . '' );
-			$thumb_content_hover_effect	= $builder_options->getOption( 'image-content-type-hover-effect-' . $view_name . '' );
-			$cover_button1  				= $builder_options->getOption( 'btn1-option-icon-' . $view_name . '' );
-			$cover_button_link1			= $builder_options->getOption( 'btn1-option-link-' . $view_name . '' );
-			$cover_button2 				= $builder_options->getOption( 'btn2-option-icon-' . $view_name . '' );
-			$cover_button_link2 		= $builder_options->getOption( 'btn2-option-link-' . $view_name . '' );
-			$cover_button3  				= $builder_options->getOption( 'btn3-option-icon-' . $view_name . '' );
-			$cover_button_link3  		= $builder_options->getOption( 'btn3-option-link-' . $view_name . '' );
-			$cover_button4  				= $builder_options->getOption( 'btn4-option-icon-' . $view_name . '' );
-			$cover_button_link4 		= $builder_options->getOption( 'btn4-option-link-' . $view_name . '' );
-			$thumb_display_as 				= $builder_options->getOption( 'image-styles-display-as-' . $view_name . '' );
-
-
-			//content settings
-			$content_to_show 			= $builder_options->getOption( 'excerpt-option-content-to-show-' . $view_name . '' );
-			$excerpt_length 			= $builder_options->getOption( 'excerpt-option-length-' . $view_name . '' );
-			$excerpt_more 				= $builder_options->getOption( 'excerpt-option-more-' . $view_name . '' );
-			$excerpt_display_as 		= $builder_options->getOption( 'excerpt-styles-display-as-' . $view_name . '' );
-
 			//date settings
 			$date_before 				= $builder_options->getOption( 'date-option-before-text-' . $view_name . '' );
 			$date_format 				= $builder_options->getOption( 'date-option-meta-date-format-' . $view_name . '' );
@@ -394,32 +352,116 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			  				break;
 
 			  			case 'image':
+
+			  				$layout = (!empty($builder_options->getOption( 'view-layout-' . $id . '' ))) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
+			
+							$columns = $builder_options->getOption( 'postopts-columns-' . $id . '' );
+							$columns = (!empty($columns)) ? 'columns="' . $columns . '"' : null;
+
+							if ( $layout == 'slider' ||  $layout == 'blog') {
+								$columns	= '1';
+							}
+
+							$thumb_align			 			= $builder_options->getOption( 'image-option-thumb-align-' . $view_name . '' );
+			  				$thumb_align 						= (!empty($thumb_align)) ? 'thumb_align="' . $thumb_align . '"' : null;
+
+							$auto_size			 				= $builder_options->getOption( 'image-option-auto-size-' . $view_name . '' );
+			  				$auto_size 							= (!empty($auto_size)) ? 'auto_size="' . $auto_size . '"' : null;
+
+							$autosize_container_width		= $builder_options->getOption( 'image-option-autosize-container-width-' . $view_name . '' );
+							$autosize_container_width 		= (!empty($autosize_container_width)) ? 'autosize_container_width="' . $autosize_container_width . '"' : null;
+
+
+							$crop_vertically					= $builder_options->getOption( 'image-option-crop-vertically-' . $view_name . '' );
+							$crop_vertically 					= (!empty($crop_vertically)) ? 'crop_vertically="' . $crop_vertically . '"' : null;
+
+							$crop_vertically_height_ratio	= $builder_options->getOption( 'image-option-crop-vertically-height-ratio-' . $view_name . '' );
+							$crop_vertically_height_ratio = (!empty($crop_vertically_height_ratio)) ? 'crop_vertically_height_ratio="' . $crop_vertically_height_ratio . '"' : null;
+
+							$thumbnail_height 				= $builder_options->getOption( 'image-option-thumbnail-height-' . $view_name . '' );
+							$thumbnail_height 				= (!empty($thumbnail_height)) ? 'thumbnail_height="' . $thumbnail_height . '"' : null;
+
+							$thumbnail_width 					= $builder_options->getOption( 'image-option-thumbnail-width-' . $view_name . '' );
+							$thumbnail_width 					= (!empty($thumbnail_width)) ? 'thumbnail_width="' . $thumbnail_width . '"' : null;
+
+							$show_spotlight  					= $builder_options->getOption( 'image-show-spotlight-hide-' . $view_name . '' );
+							$show_spotlight 					= (!empty($show_spotlight)) ? 'show_spotlight="' . $show_spotlight . '"' : null;
+
+							$thumb_spotlight_type			= $builder_options->getOption( 'thumb-spotlight-type-hide-' . $view_name . '' );
+							$thumb_spotlight_type 			= (!empty($thumb_spotlight_type)) ? 'thumb_spotlight_type="' . $thumb_spotlight_type . '"' : null;
+
+							$thumb_icon_effect 				= $builder_options->getOption( 'image-icon-type-effect-' . $view_name . '' );
+							$thumb_icon_effect 				= (!empty($thumb_icon_effect)) ? 'thumb_icon_effect="' . $thumb_icon_effect . '"' : null;
+
+							$thumb_icon_style					= $builder_options->getOption( 'image-icon-type-style-' . $view_name . '' );
+							$thumb_icon_style 				= (!empty($thumb_icon_style)) ? 'thumb_icon_style="' . $thumb_icon_style . '"' : null;
+
+							$thumb_spotlight_effect 		= $builder_options->getOption( 'image-icon-type-spotlight-effect-' . $view_name . '' );
+							$thumb_spotlight_effect 		= (!empty($thumb_spotlight_effect)) ? 'thumb_spotlight_effect="' . $thumb_spotlight_effect . '"' : null;
+
+							$lightbox_height					= $builder_options->getOption( 'image-icon-type-lightbox-height-' . $view_name . '' );
+							$lightbox_height 					= (!empty($lightbox_height)) ? 'lightbox_height="' . $lightbox_height . '"' : null;
+
+							$lightbox_width					= $builder_options->getOption( 'image-icon-type-lightbox-width-' . $view_name . '' );
+							$lightbox_width 					= (!empty($lightbox_width)) ? 'lightbox_width="' . $lightbox_width . '"' : null;
+
+							$thumb_content_hover_effect	= $builder_options->getOption( 'image-content-type-hover-effect-' . $view_name . '' );
+							$thumb_content_hover_effect 	= (!empty($thumb_content_hover_effect)) ? 'thumb_content_hover_effect="' . $thumb_content_hover_effect . '"' : null;
+
+							$cover_button1  					= $builder_options->getOption( 'btn1-option-icon-' . $view_name . '' );
+							$cover_button1 					= (!empty($cover_button1)) ? 'cover_button1="' . $cover_button1 . '"' : null;
+
+							$cover_button_link1				= $builder_options->getOption( 'btn1-option-link-' . $view_name . '' );
+							$cover_button_link1 				= (!empty($cover_button_link1)) ? 'cover_button_link1="' . $cover_button_link1 . '"' : null;
+
+							$cover_button2 					= $builder_options->getOption( 'btn2-option-icon-' . $view_name . '' );
+							$cover_button2 					= (!empty($cover_button2)) ? 'cover_button2="' . $cover_button2 . '"' : null;
+
+							$cover_button_link2 				= $builder_options->getOption( 'btn2-option-link-' . $view_name . '' );
+							$cover_button_link2 				= (!empty($cover_button_link2)) ? 'cover_button_link2="' . $cover_button_link2 . '"' : null;
+
+							$cover_button3  					= $builder_options->getOption( 'btn3-option-icon-' . $view_name . '' );
+							$cover_button3 					= (!empty($cover_button3)) ? 'cover_button3="' . $cover_button3 . '"' : null;
+
+							$cover_button_link3  			= $builder_options->getOption( 'btn3-option-link-' . $view_name . '' );
+							$cover_button_link3 				= (!empty($cover_button_link3)) ? 'cover_button_link3="' . $cover_button_link3 . '"' : null;
+
+							$cover_button4  					= $builder_options->getOption( 'btn4-option-icon-' . $view_name . '' );
+							$cover_button4 					= (!empty($cover_button4)) ? 'cover_button4="' . $cover_button4 . '"' : null;
+
+							$cover_button_link4 				= $builder_options->getOption( 'btn4-option-link-' . $view_name . '' );
+							$cover_button_link4 				= (!empty($cover_button_link4)) ? 'cover_button_link4="' . $cover_button_link4 . '"' : null;
+
+							$thumb_display_as 				= $builder_options->getOption( 'image-styles-display-as-' . $view_name . '' );
+							$thumb_display_as 				= (!empty($thumb_display_as)) ? 'thumb_display_as="' . $thumb_display_as . '"' : null;
+
+
 			  				echo do_shortcode(stripslashes('[vb_image 
-							thumb_align="'. $thumb_align .'" 
-							auto_size="'. $auto_size .'" 
-							autosize_container_width="'. $autosize_container_width .'" 
-							crop_vertically="'. $crop_vertically .'" 
-							columns="' . $columns . '" 
-							crop_vertically_height_ratio="'. $crop_vertically_height_ratio .'" 
-							thumb_spotlight_type="'. $thumb_spotlight_type .'" 
-							thumb_content_hover_effect="'. $thumb_content_hover_effect .'" 
-							thumbnail_height="' . $thumbnail_height . '" 
-							thumbnail_width="' . $thumbnail_width . '" 
-							show_spotlight="' . $show_spotlight . '" 
-							thumb_spotlight_effect="' . $thumb_spotlight_effect . '" 
-							thumb_icon_style="' . $thumb_icon_style . '" 
-							thumb_icon_effect="' . $thumb_icon_effect . '" 
-							spotlight_button1="' . $cover_button1 . '" 
-							spotlight_button_link1="' . $cover_button_link1 . '" 
-							spotlight_button2="' . $cover_button2 . '" 
-							spotlight_button_link2="' . $cover_button_link2 . '" 
-							spotlight_button3="' . $cover_button3 . '" 
-							spotlight_button_link3="' . $cover_button_link3 . '" 
-							spotlight_button4="' . $cover_button4 . '" 
-							spotlight_button_link4="' . $cover_button_link4 . '" 
-							lightbox_height="'. $lightbox_height .'" 
-							lightbox_width="'. $lightbox_width .'" 
-							display_as="'. $thumb_display_as .'"
+							'. $thumb_align .' 
+							'. $auto_size .' 
+							'. $autosize_container_width .' 
+							'. $crop_vertically .' 
+							' . $columns . ' 
+							'. $crop_vertically_height_ratio .' 
+							'. $thumb_spotlight_type .' 
+							'. $thumb_content_hover_effect .' 
+							' . $thumbnail_height . ' 
+							' . $thumbnail_width . ' 
+							' . $show_spotlight . ' 
+							' . $thumb_spotlight_effect . ' 
+							' . $thumb_icon_style . ' 
+							' . $thumb_icon_effect . ' 
+							' . $cover_button1 . ' 
+							' . $cover_button_link1 . ' 
+							' . $cover_button2 . ' 
+							' . $cover_button_link2 . ' 
+							' . $cover_button3 . ' 
+							' . $cover_button_link3 . ' 
+							' . $cover_button4 . ' 
+							' . $cover_button_link4 . ' 
+							'. $lightbox_height .'  
+							'. $lightbox_width .'  
+							'. $thumb_display_as .'
 							]'));
 			  				break;
 
