@@ -249,29 +249,6 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 				$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
 			}
 
-			//read more settings
-			$more_text 					= $builder_options->getOption( 'readmore-option-more-text-' . $view_name . '' );
-			$more_show_always			= $builder_options->getOption( 'readmore-option-show-always-' . $view_name . '' );
-			$more_display_as 			= $builder_options->getOption( 'readmore-styles-display-as-' . $view_name . '' );
-
-			//social options
-			$share_icon_image_w		= $builder_options->getOption( 'share-option-icon-w-' . $view_name . '' );
-			$share_icon_image_h		= $builder_options->getOption( 'share-option-icon-h-' . $view_name . '' );
-			$facebook_image 			= $builder_options->getOption( 'share-option-facebook-share-icon-' . $view_name . '' );
-		   $twitter_image 			= $builder_options->getOption( 'share-option-twitter-share-icon-' . $view_name . '' );
-		   $googleplus_image 		= $builder_options->getOption( 'share-option-googleplus-share-icon-' . $view_name . '' );
-		   $linkedin_image 			= $builder_options->getOption( 'share-option-linkedin-share-icon-' . $view_name . '' );
-		   $facebook_target 			= $builder_options->getOption( 'share-option-facebook-target-' . $view_name . '' );
-		   $twitter_target 			= $builder_options->getOption( 'share-option-twitter-target-' . $view_name . '' );
-		   $googleplus_target 		= $builder_options->getOption( 'share-option-googleplus-target-' . $view_name . '' );
-		   $linkedin_target 			= $builder_options->getOption( 'share-option-linkedin-target-' . $view_name . '' );
-		   $share_before 				= $builder_options->getOption( 'share-option-before-' . $view_name . '' );
-			$share_display_as 		= $builder_options->getOption( 'share-styles-display-as-' . $view_name . '' );
-
-			//likes options
-			$likes_before 				= $builder_options->getOption( 'likes-option-before-' . $view_name . '' );
-			$likes_display_as 		= $builder_options->getOption( 'likes-styles-display-as-' . $view_name . '' );
-
 			if ( self::$is_woo_active ) {
 				
 				$wc_price_before 			= $builder_options->getOption( 'wc-price-option-before-' . $view_name . '' );
@@ -609,35 +586,91 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			  				break;
 
 			  			case 'share':
+							$share_icon_image_w		= $builder_options->getOption( 'share-option-icon-w-' . $view_name . '' );
+							$share_icon_image_w 		= (!empty($share_icon_image_w)) ? 'share_icon_image_w="' . $share_icon_image_w . '"' : null;
+
+							$share_icon_image_h		= $builder_options->getOption( 'share-option-icon-h-' . $view_name . '' );
+							$share_icon_image_h 		= (!empty($share_icon_image_h)) ? 'share_icon_image_h="' . $share_icon_image_h . '"' : null;
+
+							$facebook_image 			= $builder_options->getOption( 'share-option-facebook-share-icon-' . $view_name . '' );
+						  	$facebook_image 			= (!empty($facebook_image)) ? 'facebook_image="' . $facebook_image . '"' : null;
+
+						   $twitter_image 			= $builder_options->getOption( 'share-option-twitter-share-icon-' . $view_name . '' );
+						   $twitter_image 			= (!empty($twitter_image)) ? 'twitter_image="' . $twitter_image . '"' : null;
+
+						   $googleplus_image 		= $builder_options->getOption( 'share-option-googleplus-share-icon-' . $view_name . '' );
+						  	$googleplus_image 		= (!empty($googleplus_image)) ? 'googleplus_image="' . $googleplus_image . '"' : null;
+
+						   $linkedin_image 			= $builder_options->getOption( 'share-option-linkedin-share-icon-' . $view_name . '' );
+						   $linkedin_image 			= (!empty($linkedin_image)) ? 'linkedin_image="' . $linkedin_image . '"' : null;
+
+						   $facebook_target 			= $builder_options->getOption( 'share-option-facebook-target-' . $view_name . '' );
+						   $facebook_target 			= (!empty($facebook_target)) ? 'facebook_target="' . $facebook_target . '"' : null;
+
+						   $twitter_target 			= $builder_options->getOption( 'share-option-twitter-target-' . $view_name . '' );
+						   $twitter_target 			= (!empty($twitter_target)) ? 'twitter_target="' . $twitter_target . '"' : null;
+
+						   $googleplus_target 		= $builder_options->getOption( 'share-option-googleplus-target-' . $view_name . '' );
+						  	$googleplus_target 		= (!empty($googleplus_target)) ? 'googleplus_target="' . $googleplus_target . '"' : null;
+
+						   $linkedin_target 			= $builder_options->getOption( 'share-option-linkedin-target-' . $view_name . '' );
+						   $linkedin_target 			= (!empty($linkedin_target)) ? 'linkedin_target="' . $linkedin_target . '"' : null;
+
+						   $share_before 				= $builder_options->getOption( 'share-option-before-' . $view_name . '' );
+							$share_before 				= (!empty($share_before)) ? 'before="' . $share_before . '"' : null;
+
+							$share_display_as 		= $builder_options->getOption( 'share-styles-display-as-' . $view_name . '' );
+							$share_display_as 		= (!empty($share_display_as)) ? 'display_as="' . $share_display_as . '"' : null;
+
 			  				echo do_shortcode(stripslashes('[vb_share 
-			  				share_icon_image_w="'. $share_icon_image_w .'" 
-			  				share_icon_image_h="'. $share_icon_image_h .'" 
-							facebook_image="'.  $facebook_image .'" 
-							twitter_image="'.  $twitter_image .'" 
-							googleplus_image="'.  $googleplus_image .'" 
-							linkedin_image="'.  $linkedin_image .'" 
-							facebook_target="'.  $facebook_target .'" 
-							twitter_target="'.  $twitter_target .'" 
-							googleplus_target="'.  $googleplus_target .'" 
-							linkedin_target="'.  $linkedin_target .'" 
-							before="'. $share_before .'" 
-							display_as="'. $share_display_as .'"
+			  				'. $share_icon_image_w .' 
+			  				'. $share_icon_image_h .' 
+							'. $facebook_image .' 
+							'. $twitter_image .' 
+							'. $googleplus_image .' 
+							'. $linkedin_image .' 
+							'. $facebook_target .' 
+							'. $twitter_target .' 
+							'. $googleplus_target .' 
+							'. $linkedin_target .' 
+							'. $share_before .' 
+							'. $share_display_as .'"
 			  				]'));
 			  				break;
 
 			  			case 'likes':
+							$likes_before 				= $builder_options->getOption( 'likes-option-before-' . $view_name . '' );
+							$likes_before 					= (!empty($likes_before)) ? 'before="' . $likes_before . '"' : null;
+
+							$likes_display_as 		= $builder_options->getOption( 'likes-styles-display-as-' . $view_name . '' );
+			  				$likes_display_as 					= (!empty($likes_display_as)) ? 'display_as="' . $likes_display_as . '"' : null;
+
 			  				echo do_shortcode(stripslashes('[vb_likes 
-							display_as="'. $likes_display_as .'" 
-							before="'. $likes_before .'" 
+							'. $likes_display_as .' 
+							'. $likes_before .' 
 							]'));
 			  				break;
 
 			  			case 'readmore':
+							$excerpt_length 			= $builder_options->getOption( 'excerpt-option-length-' . $view_name . '' );
+							$excerpt_length 			= (!empty($excerpt_length)) ? 'excerpt_limit="' . $excerpt_length . '"' : null;
+							
+							$more_text 					= $builder_options->getOption( 'readmore-option-more-text-' . $view_name . '' );
+							$more_text 					= (!empty($more_text)) ? 'more_text="' . $more_text . '"' : null;
+
+							$more_show_always			= $builder_options->getOption( 'readmore-option-show-always-' . $view_name . '' );
+							$more_show_always 		= (!empty($more_show_always)) ? 'show_always="' . $more_show_always . '"' : null;
+
+							$more_display_as 			= $builder_options->getOption( 'readmore-styles-display-as-' . $view_name . '' );
+							$more_display_as 			= (!empty($more_display_as)) ? 'display_as="' . $more_display_as . '"' : null;
+
+
 			  				echo do_shortcode(stripslashes('[vb_readmore 
-							excerpt_limit="'. $excerpt_length .'" 
-							show_always="'. $more_show_always .'" 
-							display_as="'. $more_display_as .'" 
-							more_text="'. $more_text .'"]'));
+							'. $excerpt_length .' 
+							'. $more_show_always .' 
+							'. $more_display_as .' 
+							'. $more_text .'
+							]'));
 			  				break;
 
 			  			case 'wc-price':
