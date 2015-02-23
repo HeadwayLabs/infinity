@@ -67,7 +67,7 @@ class View_Builder_Admin {
 			if ( $pagenow == 'post.php' || $pagenow == 'edit.php' || $pagenow == 'post-new.php' ) {
 
 				wp_enqueue_style('view-admin-css', views()->plugin_url . 'includes/admin/assets/css/views.min.css');
-				wp_enqueue_script('vb_like_post', views()->plugin_url . 'includes/admin/assets/js/views.js', array('jquery'), '1.0', 1 );
+				wp_enqueue_script('vb_like_post', views()->plugin_url . 'includes/admin/assets/js/min/views-min.js', array('jquery'), '1.0', 1 );
 
 			}
 
