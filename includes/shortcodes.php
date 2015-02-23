@@ -342,13 +342,31 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 
 					switch ($part) {
 			  			case 'title':
+							$title_tag 					= $builder_options->getOption( 'title-option-html-tag-' . $view_name . '' );
+							$title_tag 					= (!empty($title_tag)) ? 'html_tag="' . $title_tag . '"' : null;
+							
+							$title_linked 				= $builder_options->getOption( 'title-option-link-' . $view_name . '' );
+							$title_linked 				= (!empty($title_linked)) ? 'linked="' . $title_linked . '"' : null;
+
+							$title_shorten 			= $builder_options->getOption( 'title-option-shorten-title-' . $view_name . '' );
+							$title_shorten 			= (!empty($title_shorten)) ? 'shorten="' . $title_shorten . '"' : null;
+
+							$title_limit				= $builder_options->getOption( 'title-option-shorten-limit-' . $view_name . '' );
+							$title_limit 				= (!empty($title_limit)) ? 'limit="'. $title_limit .'"' : null;
+
+							$title_before 				= $builder_options->getOption( 'title-option-before-text-' . $view_name . '' );
+							$title_before 				= (!empty($title_before)) ? 'before="'. $title_before .'"' : null;
+
+							$title_display_as 		= $builder_options->getOption( 'title-styles-display-as-' . $view_name . '' );
+							$title_display_as 		= (!empty($title_display_as)) ? 'display_as="'. $title_display_as .'"' : null;
+
 			  				echo do_shortcode(stripslashes('[vb_title 
-			  				html_tag="' . $title_tag . '" 
-							linked="'. $title_linked .'" 
-							shorten="'. $title_shorten .'" 
-							limit="'. $title_limit .'" 
-							before="'. $title_before .'" 
-							display_as="'. $title_display_as .'"]'));
+			  				' . $title_tag . ' 
+							' . $title_linked . '
+							' . $title_shorten . ' 
+							' . $title_limit . '
+							' . $title_before .'
+							' . $title_display_as .']'));
 			  				break;
 
 			  			case 'image':
