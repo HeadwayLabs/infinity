@@ -10,6 +10,8 @@ class HeadwayExampleBlock extends HeadwayBlockAPI {
 	
 	public $options_class = 'HeadwayExampleBlockOptions';
 
+	public $html_tag = 'div';
+
 	public $description = 'Explain what the block does here in 140 characters or less.'; /* This will be shown in the block type selector */
 		
 
