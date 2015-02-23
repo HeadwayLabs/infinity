@@ -249,11 +249,6 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 				$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
 			}
 			
-			//date settings
-			$date_before 				= $builder_options->getOption( 'date-option-before-text-' . $view_name . '' );
-			$date_format 				= $builder_options->getOption( 'date-option-meta-date-format-' . $view_name . '' );
-			$date_display_as 			= $builder_options->getOption( 'date-styles-display-as-' . $view_name . '' );
-
 			//time settings
 			$time_before 				= $builder_options->getOption( 'time-option-time-before-' . $view_name . '' );
 			$time_format 				= $builder_options->getOption( 'time-option-time-format-' . $view_name . '' );
@@ -451,7 +446,7 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 							$cover_button_link4 				= (!empty($cover_button_link4)) ? 'cover_button_link4="' . $cover_button_link4 . '"' : null;
 
 							$thumb_display_as 				= $builder_options->getOption( 'image-styles-display-as-' . $view_name . '' );
-							$thumb_display_as 				= (!empty($thumb_display_as)) ? 'thumb_display_as="' . $thumb_display_as . '"' : null;
+							$thumb_display_as 				= (!empty($thumb_display_as)) ? 'display_as="' . $thumb_display_as . '"' : null;
 
 
 			  				echo do_shortcode(stripslashes('[vb_image 
@@ -492,10 +487,20 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			  				break;
 
 			  			case 'date':
+							$date_format 				= $builder_options->getOption( 'date-option-meta-date-format-' . $view_name . '' );
+							$date_format 				= (!empty($date_format)) ? 'date_format="' . $date_format . '"' : null;
+
+							$date_display_as 			= $builder_options->getOption( 'date-styles-display-as-' . $view_name . '' );
+							$date_display_as 			= (!empty($date_display_as)) ? 'display_as="' . $date_display_as . '"' : null;
+
+							$date_before 				= $builder_options->getOption( 'date-option-before-text-' . $view_name . '' );
+							$date_before 				= (!empty($date_before)) ? 'before="' . $date_before . '"' : null;
+
 			  				echo do_shortcode(stripslashes('[vb_date 
-							date_format="'. $date_format .'" 
-							display_as="'. $date_display_as .'" 
-							before="'. $date_before .'"]'));
+							'. $date_format .' 
+							'. $date_display_as .' 
+							'. $date_before .' 
+							]'));
 			  				break;
 
 			  			case 'time':
