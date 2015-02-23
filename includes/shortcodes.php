@@ -248,20 +248,6 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			if ( empty($parts) ) {
 				$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
 			}
-			
-			//categories settings
-			$categories_before 		= $builder_options->getOption( 'categories-option-before-' . $view_name . '' );
-			$categories_display_as 	= $builder_options->getOption( 'categories-styles-display-as-' . $view_name . '' );
-
-			//tags settings
-			$tags_before 				= $builder_options->getOption( 'tags-option-before-' . $view_name . '' );
-			$tags_display_as 			= $builder_options->getOption( 'tags-styles-display-as-' . $view_name . '' );
-
-			//post format settings
-			$post_format_before 		= $builder_options->getOption( 'post-format-option-before-' . $view_name . '' );
-			$post_format_type 		= $builder_options->getOption( 'post-format-option-type-' . $view_name . '' );
-			$post_format_icon_size  = $builder_options->getOption( 'post-format-option-icon-size-' . $view_name . '' );
-			$post_format_display_as = $builder_options->getOption( 'post-format-styles-display-as-' . $view_name . '' );
 
 			//author settings
 			$author_linked 			= $builder_options->getOption( 'author-option-linked-' . $view_name . '' );
@@ -510,34 +496,70 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			  				break;
 
 			  			case 'time':
+							$time_before 				= $builder_options->getOption( 'time-option-time-before-' . $view_name . '' );
+							$time_before 				= (!empty($time_before)) ? 'before="' . $time_before . '"' : null;
+
+							$time_format 				= $builder_options->getOption( 'time-option-time-format-' . $view_name . '' );
+							$time_format 				= (!empty($time_format)) ? 'format="' . $time_format . '"' : null;
+
+							$time_since 				= $builder_options->getOption( 'time-option-time-since-' . $view_name . '' );
+							$time_since 				= (!empty($time_since)) ? 'time_since="' . $time_since . '"' : null;
+
+							$time_display_as 			= $builder_options->getOption( 'time-styles-display-as-' . $view_name . '' );
+							$time_display_as 			= (!empty($time_display_as)) ? 'display_as="' . $time_display_as . '"' : null;
+
 			  				echo do_shortcode(stripslashes('[vb_time 
-							show_as_since="'. $time_since .'" 
-							format="'. $time_format .'" 
-							before="'. $time_before .'" 
-							display_as="'. $time_display_as .'"
+							'. $time_since .' 
+							'. $time_format .' 
+							'. $time_before .' 
+							'. $time_display_as .'
 			  				 ]'));
 			  				break;
 
 			  			case 'categories':
+							$categories_before 		= $builder_options->getOption( 'categories-option-before-' . $view_name . '' );
+							$categories_before 		= (!empty($categories_before)) ? 'before="' . $categories_before . '"' : null;
+
+							$categories_display_as 	= $builder_options->getOption( 'categories-styles-display-as-' . $view_name . '' );
+							$categories_display_as 	= (!empty($categories_display_as)) ? 'display_as="' . $categories_display_as . '"' : null;
+
 			  				echo do_shortcode(stripslashes('[vb_categories 
-							before="'. $categories_before .'" 
-							display_as="'. $categories_display_as .'"
+							'. $categories_before .' 
+							'. $categories_display_as .' 
 			  				]'));
 			  				break;
 
 			  			case 'tags':
+							$tags_before 				= $builder_options->getOption( 'tags-option-before-' . $view_name . '' );
+							$tags_before 				= (!empty($tags_before)) ? 'before="' . $tags_before . '"' : null;
+
+							$tags_display_as 			= $builder_options->getOption( 'tags-styles-display-as-' . $view_name . '' );
+							$tags_display_as 			= (!empty($tags_display_as)) ? 'display_as="' . $tags_display_as . '"' : null;
+
 			  				echo do_shortcode(stripslashes('[vb_tags 
-							before="'. $tags_before .'" 
-							display_as="'. $tags_display_as .'"
+							'. $tags_before .' 
+							'. $tags_display_as .'
 			  				]'));
 			  				break;
 
 			  			case 'post-format':
+							$post_format_before 		= $builder_options->getOption( 'post-format-option-before-' . $view_name . '' );
+							$post_format_before 		= (!empty($post_format_before)) ? 'before="' . $post_format_before . '"' : null;
+
+							$post_format_type 		= $builder_options->getOption( 'post-format-option-type-' . $view_name . '' );
+							$post_format_type 		= (!empty($post_format_type)) ? 'format_type="' . $post_format_type . '"' : null;
+
+							$post_format_icon_size  = $builder_options->getOption( 'post-format-option-icon-size-' . $view_name . '' );
+							$post_format_icon_size 	= (!empty($post_format_icon_size)) ? 'icon_size="' . $post_format_icon_size . '"' : null;
+
+							$post_format_display_as = $builder_options->getOption( 'post-format-styles-display-as-' . $view_name . '' );
+							$post_format_display_as = (!empty($post_format_display_as)) ? 'display_as="' . $post_format_display_as . '"' : null;
+
 			  				echo do_shortcode(stripslashes('[vb_post_format 
-							before="'. $post_format_before .'" 
-							format_type="' . $post_format_type . '" 
-							icon_size="'. $post_format_icon_size .'" 
-							display_as="'. $post_format_display_as .'"
+							'. $post_format_before .' 
+							' . $post_format_type . ' 
+							'. $post_format_icon_size .' 
+							'. $post_format_display_as .'
 			  				]'));
 			  				break;
 
