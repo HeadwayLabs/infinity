@@ -278,19 +278,18 @@ function vb_render_view( $id, $layout_name, $args = null, $context = '' ) {
 
 	//first we add a notice if the view is not yet customized
 	$builder_options = TitanFramework::getInstance( 'builder-options' );
+
 	$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
+
+	if ( empty($parts) ) {
+		$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
+	}
+	
 	$customize_url = add_query_arg( 'return', urlencode( wp_unslash( $_SERVER['REQUEST_URI'] ) ), 'wp-admin/customize.php' );
 
 	ob_start();
 
-	if (empty($parts)) :
-		echo '<p class="not-customized-notice">You have not yet configured this view. Please go to the <a href="'. $customize_url .'">customizer</a> and setup the views displays options to see it here.</p>';
-	
-	else :
-
-		load_template( $single_view_layout, false );
-
-	endif;
+	load_template( $single_view_layout, false );
 
 	$content = ob_get_clean();
 
