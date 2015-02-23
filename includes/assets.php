@@ -132,7 +132,7 @@ class View_Builder_Assets {
 		// $url = "http://ajax.googleapis.com/ajax/libs/jqueryui/". $queryui->ver."/themes/smoothness/jquery-ui.css";
 		// wp_enqueue_style('jquery-ui-smoothness', $url, false, null);
 		wp_enqueue_script('vb-preview', views()->plugin_url . 'includes/assets/js/preview.js', array(), views()->version, 1);
-		wp_enqueue_style('vb-preview', views()->plugin_url . 'includes/assets/css/preview.css');
+		wp_enqueue_style('vb-preview', views()->plugin_url . 'includes/assets/css/preview-min.css');
 
 	}
 
@@ -182,6 +182,9 @@ class View_Builder_Assets {
 				$layout = (!empty($builder_options->getOption( 'view-layout-' . $id . '' ))) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
 	
 				$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
+				if ( empty($parts) ) {
+					$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
+				}
 				$cover = $builder_options->getOption( 'image-show-spotlight-hide-' . $view_name . '' );
 
 				if (!empty($parts)) {
