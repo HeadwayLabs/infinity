@@ -249,12 +249,6 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 				$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
 			}
 			
-			//time settings
-			$time_before 				= $builder_options->getOption( 'time-option-time-before-' . $view_name . '' );
-			$time_format 				= $builder_options->getOption( 'time-option-time-format-' . $view_name . '' );
-			$time_since 				= $builder_options->getOption( 'time-option-time-since-' . $view_name . '' );
-			$time_display_as 			= $builder_options->getOption( 'time-styles-display-as-' . $view_name . '' );
-
 			//categories settings
 			$categories_before 		= $builder_options->getOption( 'categories-option-before-' . $view_name . '' );
 			$categories_display_as 	= $builder_options->getOption( 'categories-styles-display-as-' . $view_name . '' );

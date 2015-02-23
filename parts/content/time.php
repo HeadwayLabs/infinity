@@ -1,8 +1,8 @@
 <?php
 
 	extract( shortcode_atts( array(
-		'format' 	=> 'wordpress-default',
-		'show_time_since'	=> true,
+		'time_format' 	=> 'wordpress-default',
+		'time_since'	=> true,
 		'before' => '',
 		'display_as' => 'inline-block',
 	), $atts ) );
