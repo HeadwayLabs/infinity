@@ -1,39 +1,4 @@
 <?php
-/*******************************************************
- * TITAN FRAMEWORK CODE START
- *******************************************************/
-/*
- * Check if the plugin is activated. Our site will blow up if we don't have the plugin.
- * Prevent the site from loading to supress the errors.
- */
-if ( ! class_exists( 'TitanFramework' ) ) {
-    if ( ! class_exists( 'TitanFrameworkThemeChecker' ) ) {
-        class TitanFrameworkThemeChecker {
-            function __construct() {
-                if ( ! is_admin() ) {
-                    add_action( 'init', array( $this, 'displaySiteNotification' ) );
-                } else {
-                    add_filter( 'admin_notices', array( $this, 'displayAdminNotification' ) );
-                }
-            }
-
-            public function displaySiteNotification() {
-                die( __( "This theme requires the plugin Titan Framework. Please install it in the admin first before continuing.", "default" ) );
-            }
-
-            public function displayAdminNotification() {
-                echo "<div class='error'><p><strong>"
-                    . __( "This theme requires the Titan Framework plugin.", "default" )
-                    . sprintf( " <a href='%s'>%s</a>",
-                        admin_url( "plugin-install.php?tab=search&type=term&s=titan+framework" ),
-                        __( "Click here to search for the plugin.", "default" ) )
-                    . "</strong></p></div>";
-            }
-        }
-        new TitanFrameworkThemeChecker();
-    }
-    return;
-}
 
 function view_widget_in_use($view_id){
 
