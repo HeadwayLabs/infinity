@@ -653,7 +653,6 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			  				break;
 
 			  			case 'wc-price':
-				
 							$wc_price_before 			= $builder_options->getOption( 'wc-price-option-before-' . $view_name . '' );
 							$wc_price_before 			= (!empty($wc_price_before)) ? 'before="' . $wc_price_before . '"' : null;
 
@@ -667,7 +666,6 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			  				break;
 
 			  			case 'wc-rating':
-
 							$wc_rating_before 				= $builder_options->getOption( 'wc-rating-option-before-' . $view_name . '' );
 							$wc_rating_before 				= (!empty($wc_rating_before)) ? 'before="' . $wc_rating_before . '"' : null;
 
