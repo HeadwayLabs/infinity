@@ -26,6 +26,10 @@ if ( $the_query->have_posts() ) :
 		$layout = strtolower($builder_options->getOption( 'view-layout-' . $id . '' ));
 
 		$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' ); 
+
+		if ( empty($parts) ) {
+			$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
+		}
 		?>
 
 		<?php if( is_array($parts) ) : ?>
