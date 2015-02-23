@@ -321,8 +321,9 @@ class View_Builder_Admin {
 		) );
 	?>
 	<style>
-		i.mce-i-infinity-icon {
-		    background: url('image.png');
+		i.mce-i-icon.infinity-icon {
+		    background: url('../wp-content/plugins/infinity/includes/admin/images/infinity-tiny_mce-button.png') no-repeat center center;
+		    background-size: 18px 8px;
 		    padding: 0;
 		    vertical-align: top;
 		    speak: none;
