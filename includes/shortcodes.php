@@ -249,27 +249,6 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 				$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
 			}
 
-			if ( self::$is_woo_active ) {
-				
-				$wc_price_before 			= $builder_options->getOption( 'wc-price-option-before-' . $view_name . '' );
-				$wc_price_display_as 	= $builder_options->getOption( 'wc-price-styles-display-as-' . $view_name . '' );
-
-				$wc_add_cart_add_text 			= $builder_options->getOption( 'wc-add-to-cart-option-add-text-' . $view_name . '' );
-				$wc_add_cart_display_as 		= $builder_options->getOption( 'wc-add-to-cart-styles-display-as-' . $view_name . '' );
-
-				$wc_rating_before 				= $builder_options->getOption( 'wc-rating-option-before-' . $view_name . '' );
-				$wc_rating_display_as 			= $builder_options->getOption( 'wc-rating-styles-display-as-' . $view_name . '' );
-				$wc_rating_show_review_count 	= $builder_options->getOption( 'wc-rating-option-show-review-count-' . $view_name . '' );
-				$wc_rating_show_as_stars	 	= $builder_options->getOption( 'wc-rating-option-show-as-stars-' . $view_name . '' );
-
-				$wc_sale_flash_before 				= $builder_options->getOption( 'wc-sale-flash-option-before-' . $view_name . '' );
-				$wc_sale_flash_after 				= $builder_options->getOption( 'wc-sale-flash-option-after-' . $view_name . '' );
-				$wc_sale_flash_text 					= $builder_options->getOption( 'wc-sale-flash-option-text-' . $view_name . '' );
-				$wc_sale_flash_as_percent_off 	= $builder_options->getOption( 'wc-sale-flash-option-as-percent-off-' . $view_name . '' );
-				$wc_sale_flash_display_as 			= $builder_options->getOption( 'wc-sale-flash-styles-display-as-' . $view_name . '' );
-
-			}
-
 			if ( $parts ) {
 
 				foreach ($parts as $position => $part) {
@@ -674,35 +653,77 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			  				break;
 
 			  			case 'wc-price':
+				
+							$wc_price_before 			= $builder_options->getOption( 'wc-price-option-before-' . $view_name . '' );
+							$wc_price_before 			= (!empty($wc_price_before)) ? 'before="' . $wc_price_before . '"' : null;
+
+							$wc_price_display_as 	= $builder_options->getOption( 'wc-price-styles-display-as-' . $view_name . '' );
+							$wc_price_display_as 	= (!empty($wc_price_display_as)) ? 'display_as="' . $wc_price_display_as . '"' : null;
+
 			  				echo do_shortcode(stripslashes('[vb_wc_price 
-							before="'. $wc_price_before .'" 
-							display_as="'. $wc_price_display_as .'"
+							'. $wc_price_before .' 
+							'. $wc_price_display_as .' 
 			  				]'));
 			  				break;
 
 			  			case 'wc-rating':
+
+							$wc_rating_before 				= $builder_options->getOption( 'wc-rating-option-before-' . $view_name . '' );
+							$wc_rating_before 				= (!empty($wc_rating_before)) ? 'before="' . $wc_rating_before . '"' : null;
+
+							$wc_rating_display_as 			= $builder_options->getOption( 'wc-rating-styles-display-as-' . $view_name . '' );
+							$wc_rating_display_as 			= (!empty($wc_rating_display_as)) ? 'display_as="' . $wc_rating_display_as . '"' : null;
+
+							$wc_rating_show_review_count 	= $builder_options->getOption( 'wc-rating-option-show-review-count-' . $view_name . '' );
+							$wc_rating_show_review_count 	= (!empty($wc_rating_show_review_count)) ? 'show_review_count="' . $wc_rating_show_review_count . '"' : null;
+
+							$wc_rating_show_as_stars	 	= $builder_options->getOption( 'wc-rating-option-show-as-stars-' . $view_name . '' );
+							$wc_rating_show_as_stars 		= (!empty($wc_rating_show_as_stars)) ? 'show_as_stars="' . $wc_rating_show_as_stars . '"' : null;
+
+
 			  				echo do_shortcode(stripslashes('[vb_wc_rating 
-			  				show_as_stars="'. $wc_rating_show_as_stars .'" 
-			  				show_review_count="'. $wc_rating_show_review_count .'" 
-							before="'. $wc_rating_before .'" 
-							display_as="'. $wc_rating_display_as .'"
+			  				'. $wc_rating_show_as_stars .' 
+			  				'. $wc_rating_show_review_count .' 
+							'. $wc_rating_before .' 
+							'. $wc_rating_display_as .'
 			  				]'));
 			  				break;
 
 			  			case 'wc-sale-flash':
+			  				$wc_sale_flash_before 				= $builder_options->getOption( 'wc-sale-flash-option-before-' . $view_name . '' );
+							$wc_sale_flash_before 				= (!empty($wc_sale_flash_before)) ? 'before="' . $wc_sale_flash_before . '"' : null;
+
+							$wc_sale_flash_after 				= $builder_options->getOption( 'wc-sale-flash-option-after-' . $view_name . '' );
+							$wc_sale_flash_after 				= (!empty($wc_sale_flash_after)) ? 'after="' . $wc_sale_flash_after . '"' : null;
+
+							$wc_sale_flash_text 					= $builder_options->getOption( 'wc-sale-flash-option-text-' . $view_name . '' );
+							$wc_sale_flash_text 					= (!empty($wc_sale_flash_text)) ? 'sale_text="' . $wc_sale_flash_text . '"' : null;
+
+							$wc_sale_flash_as_percent_off 	= $builder_options->getOption( 'wc-sale-flash-option-as-percent-off-' . $view_name . '' );
+							$wc_sale_flash_as_percent_off 	= (!empty($wc_sale_flash_as_percent_off)) ? 'as_percentage_off="' . $wc_sale_flash_as_percent_off . '"' : null;
+
+							$wc_sale_flash_display_as 			= $builder_options->getOption( 'wc-sale-flash-styles-display-as-' . $view_name . '' );
+							$wc_sale_flash_display_as 			= (!empty($wc_sale_flash_display_as)) ? 'display_as="' . $wc_sale_flash_display_as . '"' : null;
+
 			  				echo do_shortcode(stripslashes('[vb_wc_sale_flash 
-							before="'. $wc_sale_flash_before .'" 
-							after="'. $wc_sale_flash_after .'"
-							sale_text="'. $wc_sale_flash_text .'" 
-							as_percentage_off="'. $wc_sale_flash_as_percent_off .'"
-							display_as="'. $wc_sale_flash_display_as .'"
+							'. $wc_sale_flash_before .' 
+							'. $wc_sale_flash_after .'
+							'. $wc_sale_flash_text .' 
+							'. $wc_sale_flash_as_percent_off .'
+							'. $wc_sale_flash_display_as .'
 			  				]'));
 			  				break;
 
 			  			case 'wc-add-to-cart':
+			  				$wc_add_cart_add_text 			= $builder_options->getOption( 'wc-add-to-cart-option-add-text-' . $view_name . '' );
+							$wc_add_cart_add_text 			= (!empty($wc_add_cart_add_text)) ? 'add_cart_text="' . $wc_add_cart_add_text . '"' : null;
+
+							$wc_add_cart_display_as 		= $builder_options->getOption( 'wc-add-to-cart-styles-display-as-' . $view_name . '' );
+							$wc_add_cart_display_as 		= (!empty($wc_add_cart_display_as)) ? 'display_as="' . $wc_add_cart_display_as . '"' : null;
+
 			  				echo do_shortcode(stripslashes('[vb_wc_add_to_cart 
-							add_cart_text="'. $wc_add_cart_add_text .'"
-							display_as="'. $wc_add_cart_display_as .'"
+							'. $wc_add_cart_add_text .' 
+							'. $wc_add_cart_display_as .'
 			  				]'));
 			  				break;
 			  			
