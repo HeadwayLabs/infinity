@@ -245,10 +245,6 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 
 		public static function get_post_parts( $builder_options, $parts, $view_name, $include_image=true ) {
 
-			if ( empty($parts) ) {
-				$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
-			}
-
 			if ( $parts ) {
 
 				foreach ($parts as $position => $part) {

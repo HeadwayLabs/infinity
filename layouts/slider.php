@@ -16,7 +16,7 @@ $slider_nav_thumb_height = ( isset( views()->options['slider-nav-thumb-height'] 
 $slider_nav_thumb_width = ( isset( views()->options['slider-nav-thumb-width'] ) ) ? views()->options['slider-nav-thumb-width'] : '36';
 $slider_nav_type = ( isset( views()->options['slider-nav-type'] ) ) ? views()->options['slider-nav-type'] : 'dots';
 $view_id = views()->id;
-$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
+$parts = views()->get_infinity_option( 'builder_parts' . $view_name . '', array('title', 'image', 'excerpt', 'date', 'readmore') );
 
 ?>
 
