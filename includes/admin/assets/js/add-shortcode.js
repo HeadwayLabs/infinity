@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
         editor.addButton( 'view_button_key', {
 
             text: '',
-            icon: 'icon dashicons dashicons-slides',
+            icon: 'icon infinity-icon',
             onclick: function() {
                 // Open window
                 editor.windowManager.open( {
