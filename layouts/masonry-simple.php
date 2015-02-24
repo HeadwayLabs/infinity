@@ -14,8 +14,7 @@ $builder_options = TitanFramework::getInstance( 'builder-options' );
 $view_name = strtolower(str_replace(' ', '-', views()->view_name));
 $view_id = views()->id;
 $style_name = views()->get_infinity_option( 'style-name-' . $view_name . '', 'boxed' );
-$grid_spacing = $builder_options->getOption( 'postopts-post-spacing-' . $view_id . '' )/2;
-$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
+$grid_spacing = views()->get_infinity_option( 'postopts-post-spacing-' . $view_id . '', '20' )/2;
 $parts = views()->get_infinity_option( 'builder_parts' . $view_name . '', array('title', 'image', 'excerpt', 'date', 'readmore') );
 
 //filter settings
@@ -160,11 +159,11 @@ $filter_before_text = isset(views()->options['masonry-before-filter-text']) ? vi
 	} 
 
 	//get customizer columns instead
-	$columns = $builder_options->getOption( 'postopts-columns-' . $view_id . '' );
+	$columns = views()->get_infinity_option( 'postopts-columns-' . $view_id . '', '4' );
 	$filter_animation = isset(views()->options['masonry-filter-animation'] ) ? views()->options['masonry-filter-animation'] : null;
 
-	$infinite_scroll = $builder_options->getOption( 'pagination-infinite-' . $view_name . '' );
-	$infinite_scroll_effect = $builder_options->getOption( 'pagination-infinite-effect-' . $view_name . '' );
+	$infinite_scroll = views()->get_infinity_option( 'pagination-infinite-' . $view_name . '', false );
+	$infinite_scroll_effect = views()->get_infinity_option( 'pagination-infinite-effect-' . $view_name . '', 'fade' );
 
  ?>
 
