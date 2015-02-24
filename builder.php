@@ -188,7 +188,24 @@ if ( ! class_exists( 'HW_Builder' ) ) :
 
 		}
 
+		/**
+		 * Simplifies getting options with a default
+		 *
+		 * @package HW_Builder
+		 * @since 1.0.0
+		*/
+		public function get_infinity_option($option, $default=null) {
+
+			$builder_options = TitanFramework::getInstance( 'builder-options' );
+			$option  = $builder_options->getOption( 'style-name-' . $view_name . '' );
+			$option  = empty($option) ? $default : $option;
+
+			return $option;
+
+		}
+
 	} //end class
+
 
 	/**
 	 * Return the class instance with a function and call it on the init add_action
