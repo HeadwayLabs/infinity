@@ -167,7 +167,7 @@
 
 	//setup loading structure		
 	var previewDiv = $('#customize-preview');
-	previewDiv.prepend('<div class="loading-overlay" style="display: none"><div><img src="wp-content/plugins/views-builder/images/loading.gif" /><p>&nbsp;&nbsp;Working..</p></div></div>');
+	previewDiv.prepend('<div class="loading-overlay" style="display: none"><div><img src="../wp-content/plugins/infinity/images/loading.gif" /><p>&nbsp;&nbsp;Working..</p></div></div>');
 	var loadingOverlay = previewDiv.find('.loading-overlay');
 
 		setInterval(function(){
