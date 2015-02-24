@@ -11,9 +11,9 @@ $name = 'View';//name will be converted to lowercase with underscores for spaces
 $args = array(
     //normal register_post_type() args, defaults used unless otherwise stated
     'labels'               => array(
-        'name'               => sprintf(__('%ss', 'infinity'), $name),
+        'name'               => sprintf(__('%ss', 'infinity'), 'Infinite'),
         'singular_name'      => $name,
-        'menu_name'          => sprintf(__( '%ss', 'infinity' ), $name),
+        'menu_name'          => sprintf(__( '%ss', 'infinity' ), 'Infinity View'),
         'name_admin_bar'     => sprintf(__( '%s', 'infinity' ), $name),
         'add_new'            => __( 'Add New', 'infinity' ),
         'add_new_item'       => sprintf(__( 'Add New %s', 'infinity' ), $name),
