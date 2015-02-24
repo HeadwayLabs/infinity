@@ -208,7 +208,13 @@
       	<div class="<?php echo 'Content'. $thumb_content_hover_effect . ''; ?>">
             <div class="Content">
                  
-					<?php View_Builder_Shortcodes::get_thumb_contents_parts( $builder_options ); ?>
+					<?php 
+						$cover_parts = $builder_options->getOption( 'image-parts-content-type-' . $view_name . '' );
+						if ( empty($cover_parts) ) {
+							$cover_parts = array('title', 'categories', );
+						}
+						View_Builder_Shortcodes::get_post_parts( $builder_options, $cover_parts, $view_name, false );
+					?>
 
             </div>
          </div>

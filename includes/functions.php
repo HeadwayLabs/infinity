@@ -1041,7 +1041,41 @@ function get_builder_elements() {
 	  'readmore' => 'Read More'
 	);
 
-	if (current_theme_supports('post-formats')) {
+	if ( current_theme_supports('post-formats' )) {
+		$elements['post-format'] = 'Post Format';
+	}
+
+	if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+				
+		$elements['wc-price'] = 'Woo Price';
+		$elements['wc-rating'] = 'Woo Rating';
+		$elements['wc-sale-flash'] = 'Woo Sale Badge';
+		$elements['wc-add-to-cart'] = 'Woo Add to Cart';
+
+	}
+
+	return $elements;
+
+}
+
+function get_cover_builder_elements() {
+
+	$elements = array(
+	  'title' => 'Title',
+	  'excerpt' => 'Content',
+	  'date' => 'Date',
+	  'time' => 'Time',
+	  'categories' => 'Categories',
+	  'tags' => 'Tags',
+	  'author' => 'Author',
+	  'avatar' => 'Avatar',
+	  'comments' => 'Comments',
+	  'share' => 'Social Share',
+	  'likes' => 'Likes',
+	  'readmore' => 'Read More'
+	);
+
+	if ( current_theme_supports('post-formats' )) {
 		$elements['post-format'] = 'Post Format';
 	}
 
