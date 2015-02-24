@@ -315,13 +315,13 @@ if ( $the_query->have_posts() ) :
                     'default' => ''
                 ) );
 
-                $section->createOption( array(
-                    'name' => 'Before Text',
-                    'id' => 'date-styles-color-' . $view_name . '',
-                    'type' => 'color',
-                    'default' => '',
-                    'livepreview' => '$("#view-'.$id.' article").find(".date-part").css("color", value);',
-                ) );
+                // $section->createOption( array(
+                //     'name' => 'Before Text',
+                //     'id' => 'date-styles-color-' . $view_name . '',
+                //     'type' => 'color',
+                //     'default' => '',
+                //     'livepreview' => '$("#view-'.$id.' article").find(".date-part").css("color", value);',
+                // ) );
 
                 $section->createOption( array(
                     'name' => 'Date Format',
