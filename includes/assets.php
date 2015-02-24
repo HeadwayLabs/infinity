@@ -220,7 +220,7 @@ class View_Builder_Assets {
 				$is_infinite_scroll = $builder_options->getOption( 'pagination-infinite-' . $view_name . '' );
 
 				//lets enqueue a css file for each view if it exists in layout
-				$style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
+				$style_name = views()->get_infinity_option( 'style-name-' . $view_name . '', 'boxed' );
 
 				if($style_name)
 					array_push(self::$general_css, 'vb-'.$style_name);

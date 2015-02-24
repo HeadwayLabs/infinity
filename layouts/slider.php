@@ -10,7 +10,7 @@
 
 $builder_options = TitanFramework::getInstance( 'builder-options' );
 $view_name = strtolower(str_replace(' ', '-', views()->view_name));
-$style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
+$style_name = views()->get_infinity_option( 'style-name-' . $view_name . '', 'boxed' );
 
 $slider_nav_thumb_height = ( isset( views()->options['slider-nav-thumb-height'] ) ) ? views()->options['slider-nav-thumb-height'] : '36';
 $slider_nav_thumb_width = ( isset( views()->options['slider-nav-thumb-width'] ) ) ? views()->options['slider-nav-thumb-width'] : '36';

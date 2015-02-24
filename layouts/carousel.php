@@ -10,7 +10,7 @@
 
 $builder_options = TitanFramework::getInstance( 'builder-options' );
 $view_name = strtolower(str_replace(' ', '-', views()->view_name));
-$style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
+$style_name = views()->get_infinity_option( 'style-name-' . $view_name . '', 'boxed' );
 $view_id = views()->id;
 $parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
 

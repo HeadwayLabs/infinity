@@ -13,7 +13,7 @@ views()->count = -1;
 $builder_options = TitanFramework::getInstance( 'builder-options' );
 $view_name = strtolower(str_replace(' ', '-', views()->view_name));
 $view_id = views()->id;
-$style_name = $builder_options->getOption( 'style-name-' . $view_name . '' );
+$style_name = views()->get_infinity_option( 'style-name-' . $view_name . '', 'boxed' );
 $grid_spacing = $builder_options->getOption( 'postopts-post-spacing-' . $view_id . '' );
 $parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
 ?>
@@ -24,7 +24,7 @@ $parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
 
 </style>
 
-<div id="view-<?php echo views()->id; ?>" class="view-wrapper blog <?php echo $view_name; ?>-view <?php echo $style_name; ?>" data-view="<?php echo $view_name; ?>">
+<div id="view-<?php echo views()->id; ?>" class="view-wrapper blog <?php echo $view_name; ?>-view <?php echo $style_name; ?> clearfix" data-view="<?php echo $view_name; ?>">
 
 	<?php //echo content builder before zone ?>
 
