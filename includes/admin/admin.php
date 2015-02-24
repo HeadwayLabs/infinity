@@ -87,7 +87,7 @@ class View_Builder_Admin {
 		if ( 'view' != $screen->id || $screen->action == 'add')
 			return;
 
-		echo '<div class="start-message"><p>Welcome to your new view. The next step is to add this view to your website. Use the toolbar below to use to your preferred method. Once you have added it, you can access the Customizer to build your layouts. You can also enable query mode below to filter specific wordpress content.<a href="#" class="close-start-message"><span class="dashicons dashicons-no-alt"></span></a></p></div>';
+		echo '<div class="start-message"><p>Welcome to your new view. The next step is to add this view to your website. The toolbar below links to the places you will add this view in Wordpress. Once you have added it, you can access the Customizer to build your layouts. You can also enable query mode below to filter specific wordpress content.<a href="#" class="close-start-message"><span class="dashicons dashicons-no-alt"></span></a></p></div>';
 
 		echo '<div id="views-toolbar">';
 
