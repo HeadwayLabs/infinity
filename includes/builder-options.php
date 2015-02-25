@@ -298,7 +298,7 @@ if ( $the_query->have_posts() ) :
                     'name' => 'Display As',
                     'id' => 'excerpt-styles-display-as-' . $view_name . '',
                     'type' => 'select',
-                    'default' => '',
+                    'default' => null,
                     'options' => array(
                         '' => 'None',
                         'block' => 'Block',
@@ -601,20 +601,8 @@ if ( $the_query->have_posts() ) :
                     'id' => 'image-parts-content-type-' . $view_name . '',
                     'desc' => 'Add <b>Icons</b> or <b>Content Parts</b> to the Image spotlight using the builder below. Then set the animation effect.',
                     'type' => 'sortable-infinity',
-                    'options' => array(
-                        'title' => 'Title',
-                        'excerpt' => 'Excerpt',
-                        'date' => 'Date',
-                        'time' => 'Time',
-                        'categories' => 'Categories',
-                        'author' => 'Author',
-                        'avatar' => 'Avatar',
-                        'comments' => 'Comments',
-                        'share' => 'Social Share',
-                        'like' => 'Like',
-                        'readmore' => 'Read More'
-                    ),
-                    'default' => array('title')
+                    'options' => get_cover_builder_elements(),
+                    'default' => array('title', 'categories')
 
                 ) );
 
