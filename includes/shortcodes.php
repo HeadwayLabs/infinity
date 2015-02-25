@@ -287,18 +287,17 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 								$columns = (!empty($columns)) ? 'columns="' . $columns . '"' : null;
 
 								if ( $layout == 'slider' ||  $layout == 'blog') {
-									$columns	= '1';
+									$columns	= 'columns="1"';
 								}
 
 								$thumb_align			 			= $builder_options->getOption( 'image-option-thumb-align-' . $view_name . '' );
 				  				$thumb_align 						= (!empty($thumb_align)) ? 'thumb_align="' . $thumb_align . '"' : null;
-
-								$auto_size			 				= $builder_options->getOption( 'image-option-auto-size-' . $view_name . '' );
+				  				
+				  				$auto_size 							= $builder_options->getOption( 'image-option-auto-size-' . $view_name . '' );
 				  				$auto_size 							= (!empty($auto_size)) ? 'auto_size="' . $auto_size . '"' : null;
 
 								$autosize_container_width		= $builder_options->getOption( 'image-option-autosize-container-width-' . $view_name . '' );
 								$autosize_container_width 		= (!empty($autosize_container_width)) ? 'autosize_container_width="' . $autosize_container_width . '"' : null;
-
 
 								$crop_vertically					= $builder_options->getOption( 'image-option-crop-vertically-' . $view_name . '' );
 								$crop_vertically 					= (!empty($crop_vertically)) ? 'crop_vertically="' . $crop_vertically . '"' : null;
@@ -313,7 +312,7 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 								$thumbnail_width 					= (!empty($thumbnail_width)) ? 'thumbnail_width="' . $thumbnail_width . '"' : null;
 
 								$show_spotlight  					= $builder_options->getOption( 'image-show-spotlight-hide-' . $view_name . '' );
-								$show_spotlight 					= (!empty($show_spotlight)) ? 'show_spotlight="' . $show_spotlight . '"' : null;
+				  				$show_spotlight 					= (!empty($show_spotlight)) ? 'show_spotlight="' . $show_spotlight . '"' : null;
 
 								$thumb_spotlight_type			= $builder_options->getOption( 'thumb-spotlight-type-hide-' . $view_name . '' );
 								$thumb_spotlight_type 			= (!empty($thumb_spotlight_type)) ? 'thumb_spotlight_type="' . $thumb_spotlight_type . '"' : null;

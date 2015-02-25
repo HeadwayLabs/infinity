@@ -410,9 +410,6 @@
 			}
 		});
 
-		//add headings - no way to do this with titanium currently
-		$(this).find("li[id*=customize-control-builder-options_image-option-thumbnail-width]").before('<li id="customize-control-builder-options_image-option-sizing-heading" class="help"><h3>Dimensions</h3><p class="description">Set the thumbnail dimensions manually or use auto size which makes each image the width of the article (Needs container width).</p></li>');
-
 		spotlightBuilder($(el));
 
 		$.each(part_types, function(index, part_type) {

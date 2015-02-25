@@ -2,14 +2,14 @@
 
 	extract( shortcode_atts( array(
 			'thumb_align'                    => 'left',
-			'auto_size'                      => false,
+			'auto_size'                      => 'on',
 			'auto_size_container_width'		=> '940',
-			'crop_vertically'        			=> true,
+			'crop_vertically'        			=> 'on',
 			'columns'                        => 4,//make = number of columns
 			'thumbnail_width'               	=> '250',
 			'thumbnail_height'              	=> '200',
-			'crop_vertically_height_ratio' 	=> '75',
-			'show_spotlight'               	=> true,
+			'crop_vertically_height_ratio' 	=> '60',
+			'show_spotlight'               	=> 'on',
 			'thumb_spotlight_effect'        	=> 'vb-overlay',
 			'thumb_spotlight_type'          	=> 'icons',//icons or content
 			'thumb_content_hover_effect'   	=>  'H',
@@ -19,10 +19,10 @@
 			'cover_button_link1'        	=> 'lightbox',
 			'cover_button2'             	=> 'link',
 			'cover_button_link2'        	=> 'content',
-			'cover_button3'             	=> false,
-			'cover_button_link3'        	=> false,
-			'cover_button4'             	=> false,
-			'cover_button_link4'        	=> false,
+			'cover_button3'             	=> null,
+			'cover_button_link3'        	=> null,
+			'cover_button4'             	=> null,
+			'cover_button_link4'        	=> null,
 			'lightbox_width'                 => '1024',
 			'lightbox_height'               	=> '768',
 			'display_as' => null
@@ -55,14 +55,14 @@
 
 	$thumbnail_object = wp_get_attachment_image_src($thumbnail_id, 'full');  
 
-	if ( $auto_size ) {
+	if ( $auto_size == 'on' ) {
 
 		/* all images height depends on ratios so set to '' */
 		$thumbnail_height = '';
 		$thumbnail_width = $approx_img_width + 10; /* Add a 10px buffer to insure that image will be large enough */
 
 		/* if crop vertically make all images the same height */
-		if ( $crop_vertically )
+		if ( $crop_vertically == 'on' )
 			$thumbnail_height = round($approx_img_width * ($crop_vertically_height_ratio) * .01);
 
 		$thumbnail_url = vb_resize_image($thumbnail_object[0], $thumbnail_width, $thumbnail_height);
@@ -70,8 +70,8 @@
 	} else {
 
 		/* if crop vertically make all images the same height */
-		// if ( $crop_images_vertically )
-		// 	$thumbnail_height = round($thumbnail_height  * ($crop_vertically_height_ratio) *  .01);
+		if ( $crop_vertically == 'on' )
+			$thumbnail_height = round($thumbnail_height  * ($crop_vertically_height_ratio) *  .01);
 
 		$thumbnail_url    = vb_resize_image($thumbnail_object[0], $thumbnail_width, $thumbnail_height);
 
@@ -81,16 +81,15 @@
 
 	$figure_class = ($thumb_spotlight_type == 'content') ? ' ContentWrapper'. $thumb_content_hover_effect .' chrome-fix' : null;
 
-
 	?>
 
 	<figure class="vb-part align<?php echo $thumb_align; ?><?php echo $display_as; ?> image-part vb-spotlight<?php echo $figure_class; ?>">
 
-		<a href="<?php echo get_permalink() ?>" class="post-thumbnail" title="<?php echo get_the_title(); ?>">
+		<a href="<?php echo get_permalink() ?>" class="post-thumb" title="<?php echo get_the_title(); ?>">
 			<img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo get_the_title(); ?>"  width="<?php echo $thumbnail_width; ?>" height="<?php echo $thumbnail_height; ?>"/>
 		</a>
 
-		<?php if ( $show_spotlight && $thumb_spotlight_type == 'icons') : ?>
+		<?php if ( $show_spotlight == 'on' && $thumb_spotlight_type == 'icons') : ?>
 			<div class="<?php echo $thumb_spotlight_effect; ?>"></div>
          <div class="<?php echo $thumb_icon_effect; ?>">
 
@@ -203,7 +202,7 @@
 
       <?php endif; ?>
 
-      <?php if ( $show_spotlight && $thumb_spotlight_type == 'content') :  ?>
+      <?php if ( $show_spotlight == 'on' && $thumb_spotlight_type == 'content') :  ?>
 
       	<div class="<?php echo 'Content'. $thumb_content_hover_effect . ''; ?>">
             <div class="Content">

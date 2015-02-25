@@ -24,7 +24,7 @@
   margin: 0;
 }
 
-.view-wrapper article figure a.post-thumbnail,
+.view-wrapper article figure a.post-thumb,
 .view-wrapper article figure img {
   display: block;
   position: relative;

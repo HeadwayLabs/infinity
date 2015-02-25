@@ -301,7 +301,7 @@ function registerTitanFrameworkOptionSortableControlInfinity() {
 			<ul class="infinity-sortable">
 				<?php
 				foreach ( $values as $dummy => $value ) {
-					printf( "<li data-value='%s' class='%s'><i class='dashicons dashicons-menu'></i>%s%s%s<span>%s</span></li>",
+					printf( "<li data-value='%s' class='%s'><i class='dashicons dashicons-menu'></i>%s%s%s<span class='sort-title'>%s</span></li>",
 						esc_attr( $value ),
 						esc_attr( $value ),
 						$visibleButton,
@@ -313,7 +313,7 @@ function registerTitanFrameworkOptionSortableControlInfinity() {
 
 				$invisibleKeys = array_diff( array_keys( $this->options ), $values );
 				foreach ( $invisibleKeys as $dummy => $value ) {
-					printf( "<li data-value='%s' class='%s invisible'><i class='dashicons dashicons-menu'></i>%s%s%s<span>%s</span></li>",
+					printf( "<li data-value='%s' class='%s invisible'><i class='dashicons dashicons-menu'></i>%s%s%s<span class='sort-title'>%s</span></li>",
 						esc_attr( $value ),
 						esc_attr( $value ),
 						$visibleButton,

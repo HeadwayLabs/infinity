@@ -268,7 +268,7 @@ if ( $the_query->have_posts() ) :
                 //Excerpt Options
 
                 $section->createOption( array(
-                    'name' => '',
+                    'name' => 'Content to show',
                     'id' => 'excerpt-option-content-to-show-' . $view_name . '',
                     'type' => 'select',
                     'options' => array(
@@ -282,7 +282,7 @@ if ( $the_query->have_posts() ) :
                     'name' => 'Excerpt Length',
                     'id' => 'excerpt-option-length-' . $view_name . '',
                     'type' => 'text',
-                    'default' => '110',
+                    'default' => '140',
                     'livepreview' => ''
                 ) );
 
@@ -357,15 +357,41 @@ if ( $the_query->have_posts() ) :
                 //Image Options
 
                 $section->createOption( array(
-                    'name' => 'Align Thumb',
+                    'name' => 'Thumb Alignment',
                     'id' => 'image-option-thumb-align-' . $view_name . '',
-                    'type' => 'select',
+                    'type' => 'radio-toggle-infinity',
                     'options' => array(
                         'left' => 'Left',
-                        'right' => 'Right',
-                        'none' => 'None'
+                        'none' => 'None',
+                        'right' => 'Right'
                     ),
-                    'default' => 'none'
+                    'default' => 'left'
+                ) );
+
+                $section->createOption( array(
+                    'name' => 'Automatically Size Thumbnail',
+                    'desc' => 'Will resize to fit width of article.',
+                    'id' => 'image-option-auto-size-' . $view_name . '',
+                    'type' => 'radio-toggle-infinity',
+                    'options' => array(
+                        'on' => 'Yes',
+                        'off' => 'No'
+                    ),
+                    'default' => 'on'
+                ) );
+
+                $section->createOption( array(
+                    'name' => 'Auto size container width',
+                    'id' => 'image-option-autosize-container-width-' . $view_name . '',
+                    'type' => 'text',
+                    'default' => '940'
+
+                ) );
+
+                $section->createOption( array(
+                    'name' => 'Dimensions if "Auto is Off"',
+                    'id' => 'image-option-heading-dimensions-' . $view_name . '',
+                    'type' => 'heading-infinity'
                 ) );
 
                 $section->createOption( array(
@@ -383,33 +409,24 @@ if ( $the_query->have_posts() ) :
                     'default' => '200'
 
                 ) );
-                $section->createOption( array(
-                    'name' => 'Auto Size Thumb',
-                    'id' => 'image-option-auto-size-' . $view_name . '',
-                    'type' => 'checkbox',
-                    'default' => true
-                ) );
-
-                $section->createOption( array(
-                    'name' => 'Auto size container width',
-                    'id' => 'image-option-autosize-container-width-' . $view_name . '',
-                    'type' => 'text',
-                    'default' => '940'
-
-                ) );
 
                 $section->createOption( array(
                     'name' => 'Crop thumb vertically',
+                    'desc' => 'Makes the height of all images the same even if originals are not.',
                     'id' => 'image-option-crop-vertically-' . $view_name . '',
-                    'type' => 'checkbox',
-                    'default' => true
+                    'type' => 'radio-toggle-infinity',
+                    'options' => array(
+                        'on' => 'Yes',
+                        'off' => 'No'
+                    ),
+                    'default' => 'on'
                 ) );
 
                 $section->createOption( array(
                     'name' => 'Crop vertical ratio',
                     'id' => 'image-option-crop-vertically-height-ratio-' . $view_name . '',
                     'type' => 'text',
-                    'default' => '75'
+                    'default' => '60'
                 ) );
 
                 $section->createOption( array(
