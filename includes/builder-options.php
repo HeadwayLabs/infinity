@@ -635,8 +635,9 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => 'Icon 1',
                     'id' => 'btn1-option-icon-' . $view_name . '',
-                    'type' => 'text',
-                    'default' => 'search'
+                    'type' => 'select',
+                    'default' => 'search',
+                    'options' => font_awesome_icons(),                    
 
                 ) );
 
@@ -652,9 +653,9 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => 'Icon 2',
                     'id' => 'btn2-option-icon-' . $view_name . '',
-                    'type' => 'text',
-                    'default' => 'link'
-
+                    'type' => 'select',
+                    'default' => 'link',
+                    'options' => font_awesome_icons(),                    
                 ) );
 
                 $section->createOption( array(
@@ -668,7 +669,8 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => 'Icon 3',
                     'id' => 'btn3-option-icon-' . $view_name . '',
-                    'type' => 'text',
+                    'type' => 'select',
+                    'options' => font_awesome_icons(),                    
                     'default' => null
 
                 ) );
@@ -684,8 +686,9 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => 'Icon 4',
                     'id' => 'btn4-option-icon-' . $view_name . '',
-                    'type' => 'text',
-                    'default' => null
+                    'type' => 'select',
+                    'options' => font_awesome_icons(),                    
+                    'default' => 'check'
 
                 ) );
 
@@ -693,7 +696,7 @@ if ( $the_query->have_posts() ) :
                     'name' => 'Link 4',
                     'id' => 'btn4-option-link-' . $view_name . '',
                     'type' => 'text',
-                    'default' => null
+                    'default' => 'check'
 
                 ) );
 
