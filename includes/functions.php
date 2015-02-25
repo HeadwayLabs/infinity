@@ -1033,7 +1033,7 @@ function get_builder_elements() {
 
 	$elements = array(
 	  'title' => 'Title',
-	  'image' => 'Image',
+	  'image' => 'Image Thumbnail',
 	  'excerpt' => 'Content',
 	  'date' => 'Date',
 	  'time' => 'Time',

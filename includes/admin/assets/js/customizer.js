@@ -259,7 +259,6 @@
 	$("li[id*=accordion-section-builder]").each(function(index, el) {
 
 
-		//create top toolbar with post display settings
 
 		//add heading to toolbar
 		//var str = $(this).attr('id');
@@ -268,12 +267,13 @@
 		// //return last words to get title
 		// str = str.split(/\s+/).slice(3,20).join(" ");
 		// var headingText = str;
-		
+
+		//create top toolbar with post display settings
 		var postsToolbar = $('<ul id="posts-toolbar-options-'+ $(this).attr('id') +'" class="customizer-toolbar top"></ul>');
 		postsToolbar.prependTo('.wp-full-overlay').hide();
 
 		$(this).find("li[id*=customize-control-builder-options_postopts]").each(function() {
-			$(this).remove().appendTo(postsToolbar);
+			$(this).appendTo(postsToolbar);
 		});
 
 		//create bottom toolbar with pagination settings 
@@ -281,7 +281,7 @@
 		paginationToolbar.appendTo('.wp-full-overlay').hide();
 
 		$(this).find("li[id*=customize-control-builder-options_pagination]").each(function() {
-			$(this).remove().prependTo(paginationToolbar);
+			$(this).prependTo(paginationToolbar);
 		});
 
 		$('.customizer-toolbar li').hover(function() {
