@@ -33,6 +33,7 @@
   background: #eeeeee;
   padding: 1em 1.8em;
   text-decoration: none;
+  float: left;
 }
 .view-wrapper .added_to_cart {
   font-size: 0.8em;
@@ -336,10 +337,10 @@
   color: #ffffff;
 }
 /* Override variables in vars.less */
-.boxed {
+.view-wrapper.boxed {
   font-family: Helvetica, Ariel, Serif;
 }
-.boxed article {
+.view-wrapper.boxed article {
   padding: 0 15px;
   background-color: #ffffff;
   border: 1px solid #dddddd;
