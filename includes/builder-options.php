@@ -755,10 +755,14 @@ if ( $the_query->have_posts() ) :
                 ) );
 
                 $section->createOption( array(
-                    'name' => 'Time Since',
+                    'name' => 'Show as Time Since',
                     'id' => 'time-option-time-since-' . $view_name . '',
-                    'type' => 'checkbox',
-                    'default' => true
+                    'type' => 'radio-toggle-infinity',
+                    'options' => array(
+                        'on' => 'Yes',
+                        'off' => 'No'
+                    ),
+                    'default' => 'on'
                 ) );
 
                 $section->createOption( array(

@@ -2,7 +2,7 @@
 
 	extract( shortcode_atts( array(
 		'time_format' 	=> 'wordpress-default',
-		'time_since'	=> true,
+		'show_time_since'	=> 'on',
 		'before' => '',
 		'display_as' => 'inline-block',
 	), $atts ) );
@@ -16,11 +16,11 @@
 
 	ob_start(); ?>
 
-	<?php if ( $show_time_since == false ) : ?>
+	<?php if ( $show_time_since == 'off' ) : ?>
 		
 		<span class="vb-part time-part<?php echo $display_as ?> meta-part"><?php echo $before ?><?php echo $time ?></span>
 
-	<?php elseif ( $show_time_since == true ) : ?>
+	<?php elseif ( $show_time_since == 'on' ) : ?>
 
 	<time class="vb-part time-part time-since<?php echo $display_as ?> meta-part" datetime="<?php echo get_the_time('c') ?>">
 		<?php echo $before ?>
