@@ -514,13 +514,34 @@ if ( $layout == 'carousel' ) {
             ),
             'carousel-navtext-next' => array(
                 'title' => 'Navigation Text (Next)',
-                'type' => 'text',
-                'default' => 'Next'
+                'type' => 'textarea',
+                'rows' => '1',
+                'default' => '<span class="dashicons dashicons-arrow-right-alt2"></span>'
             ),
             'carousel-navtext-prev' => array(
                 'title' => 'Navigation Text (Prev)',
-                'type' => 'text',
-                'default' => 'Prev'
+                'type' => 'textarea',
+                'rows' => '1',
+                'default' => '<span class="dashicons dashicons-arrow-left-alt2"></span>'
+            ),
+            'carousel-nav-position' => array(
+                'title' => 'Navigation Y Position',
+                'type' => 'select',
+                'options' => array(
+                    'top' => 'Top',
+                    'center' => 'Center',
+                    'bottom' => 'Bottom'
+                ),
+                'default' => 'center',
+            ),
+            'carousel-show-nav' => array(
+                'title' => 'Show Next & Prev Nav',
+                'type' => 'switch',
+                'labels' => array(
+                    'on' => __('', 'fluent'),
+                    'off' => __('', 'fluent'),
+                ),
+                'default' => 1,
             ),
             'carousel-group' => array(
                 'title' => 'Responsive Settings',
