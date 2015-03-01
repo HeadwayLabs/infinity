@@ -420,6 +420,7 @@
 				.wrapAll('<ul id="' + part_type + '-options" class="clearfix"></ul>');
 
 			var builderSortable = $(el).find($("li[id*=customize-control-builder-options_builder_parts] li." + part_type + ""));
+			var coverbuilderSortable = $(el).find($("li[id*=customize-control-builder-options_image-parts] li." + part_type + ""));
 
 			$(el).find('#' + part_type + '-options')
 				.addClass('part-options builder-options')
@@ -432,11 +433,38 @@
 					builderSortable.find('.style-options').fadeOut();
 					$(this).siblings('.dashicons-admin-appearance').removeAttr('data-toggled').removeClass('active');
 					$(this).addClass('active');
-					$(this).attr('data-toggled','on').nextAll('.part-options').fadeIn();
+					$(this).attr('data-toggled','on');
+					$(el).find('#' + part_type + '-options')
+						.show()
+						.appendTo(builderSortable);
+					coverbuilderSortable.find('.dashicons-admin-generic').attr('data-toggled','off').removeClass('active');
 				}
 				else if ($(this).attr('data-toggled') === 'on') {
 					$(this).removeClass('active');
 					$(this).attr('data-toggled','off').nextAll('.part-options').fadeOut();
+				}
+
+			});
+
+			var coverbuilderSortable = $(el).find($("li[id*=customize-control-builder-options_image-parts] li." + part_type + ""));
+
+			coverbuilderSortable.find('.dashicons-admin-generic').on( 'click', function() {
+
+				if (!$(this).attr('data-toggled') || $(this).attr('data-toggled') === 'off') {
+					coverbuilderSortable.find('.style-options').fadeOut();
+					$(this).siblings('.dashicons-admin-appearance').removeAttr('data-toggled').removeClass('active');
+					$(this).addClass('active');
+					$(this).attr('data-toggled','on');
+					$(el).find('#' + part_type + '-options')
+						.show()
+						.addClass('part-options builder-options')
+						.appendTo(coverbuilderSortable);
+					builderSortable.find('.dashicons-admin-generic').attr('data-toggled','off').removeClass('active');
+				}
+				else if ($(this).attr('data-toggled') === 'on') {
+					$(this).removeClass('active');
+					$(this).attr('data-toggled','off');
+					$(el).find('#' + part_type + '-options').hide();
 				}
 
 			});
