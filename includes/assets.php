@@ -87,7 +87,7 @@ class View_Builder_Assets {
 
 		$options = get_option('ib_general_settings');
 
-		$enable_performance = ( !isset( $options['enable-enqueue-performancez'] ) )  ? 'on' : $options['enable-enqueue-performancez'];
+		$enable_performance = ( !isset( $options['enable-enqueue-performance'] ) )  ? 'on' : $options['enable-enqueue-performance'];
 
 		if ( $enable_performance == 'on' )
 			add_filter('minqueue_options', array( __CLASS__, 'min_queue_options') );
