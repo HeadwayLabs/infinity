@@ -198,8 +198,8 @@ if ( ! class_exists( 'HW_Builder' ) ) :
 		public function get_infinity_option($option, $default=null) {
 
 			$builder_options = TitanFramework::getInstance( 'builder-options' );
-			$option  = $builder_options->getOption( 'style-name-' . $view_name . '' );
-			$option  = empty($option) ? $default : $option;
+			$option  = $builder_options->getOption( $option );
+			$option  = ($option == null) ? $default : $option;
 
 			return $option;
 
