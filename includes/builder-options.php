@@ -1274,7 +1274,7 @@ if ( $the_query->have_posts() ) :
                     'id' => 'pagination-show-' . $view_name . '',
                     'desc' => 'Set whether to show post pagination or not.',
                     'type' => 'checkbox',
-                    'default' => true
+                    'default' => false
                 ) );
 
             }
