@@ -156,7 +156,7 @@ if ( ! class_exists( 'HW_Builder' ) ) :
 			require_once( $this->plugin_dir . 'includes/shortcodes.php' );
 			require_once( $this->plugin_dir . 'includes/widget.php' );
 
-			require_once( $this->plugin_dir . 'includes/integrations/headway/example-block.php' );
+			require_once( $this->plugin_dir . 'includes/integrations/headway/infinity-block.php' );
 
 			require_once( $this->plugin_dir . 'includes/fluent-framework/fluent-framework.php' );
 
