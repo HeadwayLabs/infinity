@@ -16,11 +16,11 @@
 
 	if ( $content_to_show == 'excerpt' ) {
 
-		echo '<p class="vb-part excerpt-part entry-content' . $display_as . '">' . get_trimmed_excerpt($excerpt_length, $excerpt_more) . '</p>';
+		echo '<div class="vb-part content-part entry-content' . $display_as . '"><p>' . get_trimmed_excerpt($excerpt_length, $excerpt_more) . '</p></div>';
 
 	} elseif ( $content_to_show == 'content' ) {
 
-		echo '<div class="vb-part excerpt-part entry-content' . $display_as . '">' . get_formatted_content() . '</div>';
+		echo '<div class="vb-part content-part entry-content' . $display_as . '">' . get_formatted_content() . '</div>';
 
 	}
 
