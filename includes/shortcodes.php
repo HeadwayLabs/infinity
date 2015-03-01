@@ -440,7 +440,7 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 							$time_format 				= (!empty($time_format)) ? 'format="' . $time_format . '"' : null;
 
 							$time_since 				= $builder_options->getOption( 'time-option-time-since-' . $view_name . '' );
-							$time_since 				= (!empty($time_since)) ? 'time_since="' . $time_since . '"' : null;
+							$time_since 				= (!empty($time_since)) ? 'show_time_since="' . $time_since . '"' : null;
 
 							$time_display_as 			= $builder_options->getOption( 'time-styles-display-as-' . $view_name . '' );
 							$time_display_as 			= (!empty($time_display_as)) ? 'display_as="' . $time_display_as . '"' : null;
