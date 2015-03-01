@@ -12,19 +12,19 @@
 /* Parts
 ***************************/
 /* Thumb Cover */
-.vb-spotlight {
+.infinity-cover {
   /* Cover Buttons */
 }
-.vb-spotlight .thumb-icons span {
+.infinity-cover .thumb-icons span {
   display: inline-block !important;
   float: none !important;
   height: 40px;
   width: 40px;
 }
-.vb-spotlight .thumb-icons span > a {
+.infinity-cover .thumb-icons span > a {
   display: block;
 }
-.vb-spotlight .thumb-icons span > a i {
+.infinity-cover .thumb-icons span > a i {
   display: inline-block;
   font-family: FontAwesome;
   text-rendering: auto;

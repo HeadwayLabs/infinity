@@ -83,7 +83,7 @@
 
 	?>
 
-	<figure class="vb-part align<?php echo $thumb_align; ?><?php echo $display_as; ?> image-part vb-spotlight<?php echo $figure_class; ?>">
+	<figure class="vb-part align<?php echo $thumb_align; ?><?php echo $display_as; ?> image-part infinity-cover<?php echo $figure_class; ?>">
 
 		<a href="<?php echo get_permalink() ?>" class="post-thumb" title="<?php echo get_the_title(); ?>">
 			<img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo get_the_title(); ?>"  width="<?php echo $thumbnail_width; ?>" height="<?php echo $thumbnail_height; ?>"/>

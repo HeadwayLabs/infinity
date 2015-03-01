@@ -45,13 +45,13 @@
   content: "";
 }
 /* Thumb Cover */
-.vb-spotlight {
+.infinity-cover {
   /* Cover Buttons */
 }
-.vb-spotlight .thumb-cover {
+.infinity-cover .thumb-cover {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
 }
-.vb-spotlight .thumb-icons span {
+.infinity-cover .thumb-icons span {
   position: absolute;
   background-color: white;
   border: medium none;
@@ -67,12 +67,12 @@
   -o-border-radius: 50%;
   border-radius: 50%;
 }
-.vb-spotlight .thumb-icons span > a {
+.infinity-cover .thumb-icons span > a {
   color: #222;
   display: block;
   font-weight: normal;
 }
-.vb-spotlight .thumb-icons span > a i {
+.infinity-cover .thumb-icons span > a i {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
