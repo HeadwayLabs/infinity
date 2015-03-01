@@ -55,7 +55,7 @@ $filter_before_text = isset(views()->options['masonry-before-filter-text']) ? vi
 
 		<?php if( $filter_type == 'buttons' ) : ?>
 
-		<nav class="magnet-filter">
+		<nav class="magnet-filter infinity-filter">
 
 			<ul class="reset-list clearer">
 
