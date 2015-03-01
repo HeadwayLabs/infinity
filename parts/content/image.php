@@ -9,9 +9,9 @@
 			'thumbnail_width'               	=> '250',
 			'thumbnail_height'              	=> '200',
 			'crop_vertically_height_ratio' 	=> '60',
-			'show_spotlight'               	=> 'on',
-			'thumb_spotlight_effect'        	=> 'ImageFade',
-			'thumb_spotlight_type'          	=> 'icons',//icons or content
+			'show_cover'               	=> 'on',
+			'thumb_cover_effect'        	=> 'ImageFade',
+			'thumb_cover_type'          	=> 'icons',//icons or content
 			'thumb_content_hover_effect'   	=>  'H',
 			'thumb_icon_effect'             	=> 'StyleH',
 			'thumb_icon_style'              	=> 'WhiteRounded',
@@ -34,7 +34,7 @@
 
 	$view_name = strtolower(str_replace(' ', '-', views()->view_name));
 	$builder_options = TitanFramework::getInstance( 'builder-options' );
-	$btns = $builder_options->getOption( 'image-spotlight-icon-type-icons-' . $view_name . '' );
+	$btns = $builder_options->getOption( 'image-cover-icon-type-icons-' . $view_name . '' );
 	if ( empty($btns) ) {
 		$btns = array('btn1', 'btn2');
 	}
@@ -79,7 +79,7 @@
 
 	$lightbox_url = 'data-src="' . esc_url(vb_resize_image( $thumbnail_object[0], $lightbox_width, $lightbox_height )) . '"';
 
-	$figure_class = ($thumb_spotlight_type == 'content') ? ' ContentWrapper'. $thumb_content_hover_effect .' chrome-fix' : null;
+	$figure_class = ($thumb_cover_type == 'content') ? ' ContentWrapper'. $thumb_content_hover_effect .' chrome-fix' : null;
 
 	?>
 
@@ -89,8 +89,8 @@
 			<img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo get_the_title(); ?>"  width="<?php echo $thumbnail_width; ?>" height="<?php echo $thumbnail_height; ?>"/>
 		</a>
 
-		<?php if ( $show_spotlight == 'on' && $thumb_spotlight_type == 'icons') : ?>
-			<div class="<?php echo $thumb_spotlight_effect; ?> thumb-cover"></div>
+		<?php if ( $show_cover == 'on' && $thumb_cover_type == 'icons') : ?>
+			<div class="<?php echo $thumb_cover_effect; ?> thumb-cover"></div>
          <div class="<?php echo $thumb_icon_effect; ?> thumb-icons">
 
 				<?php 
@@ -202,7 +202,7 @@
 
       <?php endif; ?>
 
-      <?php if ( $show_spotlight == 'on' && $thumb_spotlight_type == 'content') :  ?>
+      <?php if ( $show_cover == 'on' && $thumb_cover_type == 'content') :  ?>
 
       	<div class="<?php echo 'Content'. $thumb_content_hover_effect . ''; ?>">
             <div class="Content">

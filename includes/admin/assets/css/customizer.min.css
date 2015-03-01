@@ -184,15 +184,15 @@
 #image-builder-tabs li.content {
   border-left: none;
 }
-#image-builder-tabs li.show-hide-spotlight {
+#image-builder-tabs li.show-hide-cover {
   float: right;
   padding: 0 6px;
 }
-#customize-theme-controls .spotlight-disabled {
+#customize-theme-controls .cover-disabled {
   opacity: .3;
   position: relative;
 }
-#image-builder-tabs li.show-hide-spotlight.active .dashicons {
+#image-builder-tabs li.show-hide-cover.active .dashicons {
   color: red;
   opacity: .4;
 }
@@ -216,7 +216,7 @@
   height: 26px;
   margin-top: -1px;
 }
-#image-builder-tabs li.show-hide-spotlight.active {
+#image-builder-tabs li.show-hide-cover.active {
   border-color: #eee;
 }
 #customize-theme-controls .hidden {

@@ -185,7 +185,7 @@ class View_Builder_Assets {
 				if ( empty($parts) ) {
 					$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
 				}
-				$cover = $builder_options->getOption( 'image-show-spotlight-hide-' . $view_name . '' );
+				$cover = $builder_options->getOption( 'image-show-cover-hide-' . $view_name . '' );
 
 				if (!empty($parts)) {
 

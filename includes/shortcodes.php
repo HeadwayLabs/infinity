@@ -274,11 +274,11 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 								$thumbnail_width 					= $builder_options->getOption( 'image-option-thumbnail-width-' . $view_name . '' );
 								$thumbnail_width 					= (!empty($thumbnail_width)) ? 'thumbnail_width="' . $thumbnail_width . '"' : null;
 
-								$show_spotlight  					= $builder_options->getOption( 'image-show-spotlight-hide-' . $view_name . '' );
-				  				$show_spotlight 					= (!empty($show_spotlight)) ? 'show_spotlight="' . $show_spotlight . '"' : null;
+								$show_cover  					= $builder_options->getOption( 'image-show-cover-hide-' . $view_name . '' );
+				  				$show_cover 					= (!empty($show_cover)) ? 'show_cover="' . $show_cover . '"' : null;
 
-								$thumb_spotlight_type			= $builder_options->getOption( 'thumb-spotlight-type-hide-' . $view_name . '' );
-								$thumb_spotlight_type 			= (!empty($thumb_spotlight_type)) ? 'thumb_spotlight_type="' . $thumb_spotlight_type . '"' : null;
+								$thumb_cover_type			= $builder_options->getOption( 'thumb-cover-type-hide-' . $view_name . '' );
+								$thumb_cover_type 			= (!empty($thumb_cover_type)) ? 'thumb_cover_type="' . $thumb_cover_type . '"' : null;
 
 								$thumb_icon_effect 				= $builder_options->getOption( 'image-icon-type-effect-' . $view_name . '' );
 								$thumb_icon_effect 				= (!empty($thumb_icon_effect)) ? 'thumb_icon_effect="' . $thumb_icon_effect . '"' : null;
@@ -286,8 +286,8 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 								$thumb_icon_style					= $builder_options->getOption( 'image-icon-type-style-' . $view_name . '' );
 								$thumb_icon_style 				= (!empty($thumb_icon_style)) ? 'thumb_icon_style="' . $thumb_icon_style . '"' : null;
 
-								$thumb_spotlight_effect 		= $builder_options->getOption( 'image-icon-type-spotlight-effect-' . $view_name . '' );
-								$thumb_spotlight_effect 		= (!empty($thumb_spotlight_effect)) ? 'thumb_spotlight_effect="' . $thumb_spotlight_effect . '"' : null;
+								$thumb_cover_effect 		= $builder_options->getOption( 'image-icon-type-cover-effect-' . $view_name . '' );
+								$thumb_cover_effect 		= (!empty($thumb_cover_effect)) ? 'thumb_cover_effect="' . $thumb_cover_effect . '"' : null;
 
 								$lightbox_height					= $builder_options->getOption( 'image-icon-type-lightbox-height-' . $view_name . '' );
 								$lightbox_height 					= (!empty($lightbox_height)) ? 'lightbox_height="' . $lightbox_height . '"' : null;
@@ -333,12 +333,12 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 								' . $crop_vertically . ' 
 								' . $columns . ' 
 								' . $crop_vertically_height_ratio . ' 
-								' . $thumb_spotlight_type . ' 
+								' . $thumb_cover_type . ' 
 								' . $thumb_content_hover_effect . ' 
 								' . $thumbnail_height . ' 
 								' . $thumbnail_width . ' 
-								' . $show_spotlight . ' 
-								' . $thumb_spotlight_effect . ' 
+								' . $show_cover . ' 
+								' . $thumb_cover_effect . ' 
 								' . $thumb_icon_style . ' 
 								' . $thumb_icon_effect . ' 
 								' . $cover_button1 . ' 

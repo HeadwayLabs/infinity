@@ -160,7 +160,7 @@ function infinity_builder_block_default_design_settings() {
 			)
 		),
 
-		'block-infinity-block-thumbnail-spotlight' => array(
+		'block-infinity-block-thumbnail-cover' => array(
 			'properties' => array(
 				'background-color' => 'rgba(0,0,0,0.5)'
 			)

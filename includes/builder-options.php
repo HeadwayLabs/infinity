@@ -463,7 +463,7 @@ if ( $the_query->have_posts() ) :
 
                 $section->createOption( array(
                     'name' => 'Icon Spotlight Effect',
-                    'id' => 'image-icon-type-spotlight-effect-' . $view_name . '',
+                    'id' => 'image-icon-type-cover-effect-' . $view_name . '',
                     'type' => 'select',
                     'options' => array(
                         'ImageFade' => 'Fade In',
@@ -569,14 +569,14 @@ if ( $the_query->have_posts() ) :
 
                 $section->createOption( array(
                     'name' => 'Show Hover Spotlight',
-                    'id' => 'image-show-spotlight-hide-' . $view_name . '',
+                    'id' => 'image-show-cover-hide-' . $view_name . '',
                     'type' => 'checkbox',
                     'default' => true
                 ) );
 
                 $section->createOption( array(
                     'name' => 'Spotlight Type',
-                    'id' => 'thumb-spotlight-type-hide-' . $view_name . '',
+                    'id' => 'thumb-cover-type-hide-' . $view_name . '',
                     'type' => 'select',
                     'options' => array(
                         'icons' => 'Icons',
@@ -587,20 +587,20 @@ if ( $the_query->have_posts() ) :
 
                 $section->createOption( array(
                     'name' => '4) Build Image Spotlight',
-                    'id' => 'toggle-heading-build-spotlight-' . $view_name . '',
+                    'id' => 'toggle-heading-build-cover-' . $view_name . '',
                     'type' => 'heading-infinity'
                 ) );
 
                 $section->createOption( array(
                     'desc' => 'Use the builder below to setup the content and effect that happens when a user hovers over a thumbnail.',
-                    'id' => 'spotlight-builder-heading-' . $view_name . '',
+                    'id' => 'cover-builder-heading-' . $view_name . '',
                     'type' => 'heading-infinity'
                 ) );
 
                 $section->createOption( array(
                     'name' => 'Spotlight Content Builder',
                     'id' => 'image-parts-content-type-' . $view_name . '',
-                    'desc' => 'Add <b>Icons</b> or <b>Content Parts</b> to the Image spotlight using the builder below. Then set the animation effect.',
+                    'desc' => 'Add <b>Icons</b> or <b>Content Parts</b> to the Image cover using the builder below. Then set the animation effect.',
                     'type' => 'sortable-infinity',
                     'options' => get_cover_builder_elements(),
                     'default' => array('title', 'categories')
@@ -609,7 +609,7 @@ if ( $the_query->have_posts() ) :
 
                 $section->createOption( array(
                     'name' => 'Spotlight Icon Builder',
-                    'id' => 'image-spotlight-icon-type-icons-' . $view_name . '',
+                    'id' => 'image-cover-icon-type-icons-' . $view_name . '',
                     'type' => 'sortable-infinity',
                     'options' => array(
                         'btn1' => 'Icon 1',

@@ -132,7 +132,7 @@ class HeadwayInfinityBlock extends HeadwayBlockAPI {
 				));
 
 				$this->register_block_element(array(
-					'id' => 'thumbnail-spotlight',
+					'id' => 'thumbnail-cover',
 					'parent' => 'thumbnail',
 					'name' => 'Thumb Cover',
 					'selector' => 'figure.image-part .thumb-cover',
@@ -140,21 +140,21 @@ class HeadwayInfinityBlock extends HeadwayBlockAPI {
 
 				$this->register_block_element(array(
 					'id' => 'cover-button',
-					'parent' => 'thumbnail-spotlight',
+					'parent' => 'thumbnail-cover',
 					'name' => 'Cover Button',
 					'selector' => '.thumb-icons .cover-button',
 				));
 
 				$this->register_block_element(array(
 					'id' => 'cover-link',
-					'parent' => 'thumbnail-spotlight',
+					'parent' => 'thumbnail-cover',
 					'name' => 'Cover Link',
 					'selector' => '.thumb-icons .cover-button a',
 				));
 
 				$this->register_block_element(array(
 					'id' => 'cover-link-icon',
-					'parent' => 'thumbnail-spotlight',
+					'parent' => 'thumbnail-cover',
 					'name' => 'Cover Link Icon',
 					'selector' => '.thumb-icons .cover-button a i',
 				));

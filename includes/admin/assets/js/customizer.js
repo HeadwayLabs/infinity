@@ -5,22 +5,22 @@
 		el.addClass('hidden');
 	}
 
-	function spotlightBuilder(el) {
+	function coverBuilder(el) {
 
-		var tabs = $('<ul id="image-builder-tabs"><li class="icons"><span class="dashicons dashicons-forms"></span></li><li class="content"><span class="dashicons dashicons-text"></span></li><li class="show-hide-spotlight"><span class="dashicons dashicons-visibility"></span></li></ul>');
+		var tabs = $('<ul id="image-builder-tabs"><li class="icons"><span class="dashicons dashicons-forms"></span></li><li class="content"><span class="dashicons dashicons-text"></span></li><li class="show-hide-cover"><span class="dashicons dashicons-visibility"></span></li></ul>');
 
 		//builderHeading.insertBefore($(el).find($("li[id*=customize-control-builder-options_image-icon-type-effect]")))
 		if ( $("#image-builder-tabs").length !== 1 ) {
 			tabs.insertBefore($(el).find($("li[id*=customize-control-builder-options_image-parts-content-type]")));
 		}
 
-		var spotlightToggle = $(el).find('li[id*=customize-control-builder-options_image-show-spotlight]').addClass('hidden');
+		var coverToggle = $(el).find('li[id*=customize-control-builder-options_image-show-cover]').addClass('hidden');
 
 		/***** modify icon builder *****/
 		$(el).find($("li[id*=customize-control-builder-options_image-icon-type-]"))
 			.wrapAll('<ul id="image-icon-options" class="clearfix"></ul>');
 
-		var iconSortable = $(el).find('li[id*=customize-control-builder-options_image-spotlight-icon-type]');
+		var iconSortable = $(el).find('li[id*=customize-control-builder-options_image-cover-icon-type]');
 
 		$(el).find('#image-icon-options')
 			.addClass('image-options-wrapper')
@@ -42,25 +42,25 @@
 		contentSortable.find('> label > .customize-control-title').remove();
 		contentSortable.find('p.description').remove();
 
-		var spotlightLi = $(el).find('li[id*=customize-control-builder-options_thumb-spotlight-type]');
-		var spotlightSelect = spotlightLi.find('select');
+		var coverLi = $(el).find('li[id*=customize-control-builder-options_thumb-cover-type]');
+		var coverSelect = coverLi.find('select');
 
 		//toggle on click
-		if ( spotlightToggle.find('input').prop('checked') === true ) {
+		if ( coverToggle.find('input').prop('checked') === true ) {
 			
-			$('.show-hide-spotlight').removeClass('active');
+			$('.show-hide-cover').removeClass('active');
 			$('.disabled-line').remove();
-			spotlightToggle.find('input').prop('checked', true).val(1).trigger('change');
-			contentSortable.add(tabs.find('li.icons')).add(tabs.find('li.content')).add(iconSortable).removeClass('spotlight-disabled');
-			$('.show-hide-spotlight').attr('data-toggled','off');
+			coverToggle.find('input').prop('checked', true).val(1).trigger('change');
+			contentSortable.add(tabs.find('li.icons')).add(tabs.find('li.content')).add(iconSortable).removeClass('cover-disabled');
+			$('.show-hide-cover').attr('data-toggled','off');
 
 		} else  {
 
-			$('.show-hide-spotlight').addClass('active');
-			spotlightToggle.find('input').prop('checked', false).val(0).trigger('change');
+			$('.show-hide-cover').addClass('active');
+			coverToggle.find('input').prop('checked', false).val(0).trigger('change');
 			contentSortable.add(iconSortable).append('<div class="disabled-line"></div>');
-			contentSortable.add(tabs.find('li.icons')).add(tabs.find('li.content')).add(iconSortable).addClass('spotlight-disabled');
-			$('.show-hide-spotlight').attr('data-toggled','on');
+			contentSortable.add(tabs.find('li.icons')).add(tabs.find('li.content')).add(iconSortable).addClass('cover-disabled');
+			$('.show-hide-cover').attr('data-toggled','on');
 			
 		}
 
@@ -70,7 +70,7 @@
 
 				tabs.find('li').removeClass('active');
 				$(this).addClass('active');
-				spotlightSelect.val('icons').trigger('change');
+				coverSelect.val('icons').trigger('change');
 				iconSortable.removeClass('hidden');
 				contentSortable.addClass('hidden');
 
@@ -78,18 +78,18 @@
 
 				tabs.find('li').removeClass('active');
 				$(this).addClass('active');
-				spotlightSelect.val('content').trigger('change');
+				coverSelect.val('content').trigger('change');
 				iconSortable.addClass('hidden');
 				contentSortable.removeClass('hidden');
 
-			} else if ($(this).hasClass('show-hide-spotlight')) {
+			} else if ($(this).hasClass('show-hide-cover')) {
 
 				if (!$(this).attr('data-toggled') || $(this).attr('data-toggled') === 'off') {
 
 					$(this).addClass('active');
-					spotlightToggle.find('input').prop('checked', false).val(0).trigger('change');
+					coverToggle.find('input').prop('checked', false).val(0).trigger('change');
 					contentSortable.add(iconSortable).append('<div class="disabled-line"></div>');
-					contentSortable.add(tabs.find('li.icons')).add(tabs.find('li.content')).add(iconSortable).addClass('spotlight-disabled');
+					contentSortable.add(tabs.find('li.icons')).add(tabs.find('li.content')).add(iconSortable).addClass('cover-disabled');
 					$(this).attr('data-toggled','on');
 
 				}
@@ -97,8 +97,8 @@
 
 					$(this).removeClass('active');
 					$('.disabled-line').remove();
-					spotlightToggle.find('input').prop('checked', true).val(1).trigger('change');
-					contentSortable.add(tabs.find('li.icons')).add(tabs.find('li.content')).add(iconSortable).removeClass('spotlight-disabled');
+					coverToggle.find('input').prop('checked', true).val(1).trigger('change');
+					contentSortable.add(tabs.find('li.icons')).add(tabs.find('li.content')).add(iconSortable).removeClass('cover-disabled');
 					$(this).attr('data-toggled','off');
 
 				}
@@ -112,18 +112,18 @@
 	function showBuilder(el) {
 
 			var tabs = $(el).find('#image-builder-tabs');
-			var iconSortable = $(el).find('li[id*=customize-control-builder-options_image-spotlight-icon-type]');
+			var iconSortable = $(el).find('li[id*=customize-control-builder-options_image-cover-icon-type]');
 			var contentSortable = $(el).find('li[id*=customize-control-builder-options_image-parts-content-type]');
-			var spotlightLi = $(el).find('li[id*=customize-control-builder-options_thumb-spotlight-type]');
-			var spotlightSelect = spotlightLi.find('select');
+			var coverLi = $(el).find('li[id*=customize-control-builder-options_thumb-cover-type]');
+			var coverSelect = coverLi.find('select');
 			
-			if (spotlightSelect.val() === 'icons') {
+			if (coverSelect.val() === 'icons') {
 
 				tabs.find('li.icons').addClass('active');
 				iconSortable.removeClass('hidden');
 				contentSortable.addClass('hidden');
 
-			} else if (spotlightSelect.val() === 'content') {
+			} else if (coverSelect.val() === 'content') {
 
 				tabs.find('li.content').addClass('active');
 				iconSortable.addClass('hidden');
@@ -151,7 +151,7 @@
 			$(this).find('.dashicons').removeClass('dashicons-plus').addClass('dashicons-minus');
 			$(this).addClass('open').nextUntil($("li[id*=toggle-heading-]")).removeClass('hidden');
 			hideElements($(this).siblings('li[id*=-hide-]'));
-			if ( $(this).is('li[id*=customize-control-builder-options_toggle-heading-build-spotlight]') ) {
+			if ( $(this).is('li[id*=customize-control-builder-options_toggle-heading-build-cover]') ) {
 				showBuilder($(el));
 			}
 
@@ -231,7 +231,7 @@
 				.addClass('control-section accordion-section')
 				.wrapAll('<ul id="' + image + '-options" class="clearfix"></ul>');
 
-			var imageSortable = $(el).find($("li[id*=customize-control-builder-options_image-spotlight-icon-type-icons-] li." + image + ""));
+			var imageSortable = $(el).find($("li[id*=customize-control-builder-options_image-cover-icon-type-icons-] li." + image + ""));
 
 			$(el).find('#' + image + '-options')
 				.addClass('image-options builder-options')
@@ -410,7 +410,7 @@
 			}
 		});
 
-		spotlightBuilder($(el));
+		coverBuilder($(el));
 
 		$.each(part_types, function(index, part_type) {
 
