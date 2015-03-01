@@ -426,13 +426,15 @@ class View_Builder_Assets {
 
 						<?php echo $autoplay_hover_pause; ?>
 
-						<?php echo $autoplay_timeout; ?>
+						<?php echo $nav_next_prev; ?>
 
 						<?php echo $nav_text; ?>
 
 						<?php echo $auto_height; ?>
 
 						responsive:true,
+						themeClass: 'owl-theme owl-nav-<?php echo $nav_position_class; ?>',
+						navContainerClass: 'owl-nav position-<?php echo $nav_position_class; ?>',
 						responsive:{
 							<?php echo $responsive_js; ?>
 						}
