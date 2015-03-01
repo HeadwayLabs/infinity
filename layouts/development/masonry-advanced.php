@@ -82,11 +82,11 @@ $filter_before_text = isset(views()->options['masonry-before-filter-text']) ? vi
 			<div class="before-filter"><?php echo $filter_before_text; ?></div>
 		<?php endif; ?>
 		<select id="size" name="filter by" class="magnet-filter">
-		<option value="">View by...</option>
-		<option value="all">All</option>
+		<option value="">View by...',
+		<option value="all">All',
 		<?php 
 			foreach($terms as $term){
-				echo '<option value="' . strtolower(str_replace (" ", "-", $term->name)) . '" data-filter="' . strtolower(str_replace (" ", "-", $term->name)) . '">' . $term->name . '</option>';
+				echo '<option value="' . strtolower(str_replace (" ", "-", $term->name)) . '" data-filter="' . strtolower(str_replace (" ", "-", $term->name)) . '">' . $term->name . '',';
 			}
 		 ?>
 		</select>
