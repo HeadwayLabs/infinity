@@ -13,7 +13,8 @@
   	$post = get_post( $post->ID );
   	$post_type = $post->post_type;
 
-	$before = $before != false ? '<span>' . $before . '</span>' : null;
+	$before = $before != false ? '<span class="before-part">' . $before . '</span>' : null;
+	$after = $after != false ? '<span class="after-part">' . $before . '</span>' : null;
 	$display_as = $display_as != null ? ' display-' . $display_as : null;
 
 	if ( $post_type !== 'product' )
@@ -38,11 +39,11 @@
 
 		if ( $as_percentage_off == true ) {
 
-			$sale = ceil(( ($regular_price - $sale_price) / $regular_price ) * 100) .'%';
+			$sale = '<span class="sale-flash-text">' . ceil(( ($regular_price - $sale_price) / $regular_price ) * 100) .'%</span>';
 
 		} else {
 
-			$sale = __( $sale_text, 'woocommerce' );
+			$sale = '<span class="sale-flash-text">' . __( $sale_text, 'woocommerce' ) . '</span>';
 
 		}
 

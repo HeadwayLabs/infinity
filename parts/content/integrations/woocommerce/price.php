@@ -10,7 +10,7 @@
   	$post = get_post( $post->ID );
   	$post_type = $post->post_type;
 
-	$before = $before != false ? '<span>' . $before . '</span>' : null;
+	$before = $before != false ? '<span class="before-part">' . $before . '</span>' : null;
 	$display_as = $display_as != null ? ' display-' . $display_as : null;
 
 	if ( $post_type !== 'product' )
@@ -20,7 +20,7 @@
 
 	<div class="vb-part price-part<?php echo $display_as ?> wc-part" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 		
-		<p class="price"><?php echo $before; ?><?php echo $product->get_price_html(); ?></p>
+		<p><?php echo $before; ?><span class="price-text"><?php echo $product->get_price_html(); ?></span></p>
 
 		<meta itemprop="price" content="<?php echo $product->get_price(); ?>" />
 		<meta itemprop="priceCurrency" content="<?php echo get_woocommerce_currency(); ?>" />

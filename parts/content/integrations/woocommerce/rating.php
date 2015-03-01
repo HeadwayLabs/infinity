@@ -12,7 +12,7 @@
   	$post = get_post( $post->ID );
   	$post_type = $post->post_type;
 
-	$before = $before != false ? '<span>' . $before . '</span>' : null;
+	$before = $before != false ? '<span class="before-part">' . $before . '</span>' : null;
 	$display_as = $display_as != null ? ' display-' . $display_as : null;
 	$show_as_stars = $show_as_stars == true ? ' woocommerce' : '';
 
@@ -33,7 +33,7 @@
 			<?php echo $before; ?>
 			<?php echo $product->get_rating_html(); ?>
 			<?php if( $show_review_count ) : ?>
-				<p><a href="<?php echo the_permalink(); ?>#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf( _n( '%s customer review', '%s customer reviews', $count, 'woocommerce' ), '<span itemprop="ratingCount" class="count">' . $count . '</span>' ); ?>)</a></p>
+				<p class="wc-rating-review"><a href="<?php echo the_permalink(); ?>#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf( _n( '%s customer review', '%s customer reviews', $count, 'woocommerce' ), '<span itemprop="ratingCount" class="count">' . $count . '</span>' ); ?>)</a></p>
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
