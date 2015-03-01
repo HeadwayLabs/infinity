@@ -1,0 +1,354 @@
+/**
+ * View Style: Headway
+ *
+ * Headway style - Used when adding styling with Headway
+ * This is a skeleton .less file that contains the structure of the 
+ * CSS as well as the structural CSS styles that support headway and that 
+ * are not possible to set in Headway's VE currently.
+ *
+ * @package View Builder
+ * @since 0.2
+ */
+
+@import "common/mixins.less";
+
+/* Parts
+***************************/
+.view-wrapper {
+
+	.vb-part {
+
+	}
+
+	.content-part {
+		
+	}
+
+	.image-part {
+
+	}
+
+	.post-format-part a {
+		
+	}
+
+	.readmore-part,
+	.add-to-cart-part {
+		
+	}
+
+}
+
+/* Thumb Cover */
+
+.vb-spotlight {
+	
+	/* Cover Buttons */
+	.thumb-cover {
+		
+	}
+
+	.thumb-icons {
+
+		span {
+			display: inline-block !important;
+			float: none !important;
+			height: 40px;
+			width: 40px;
+
+			> a {
+
+				display: block;
+
+				i {
+
+					display: inline-block;
+					font-family: FontAwesome;
+					text-rendering: auto;
+					-webkit-font-smoothing: antialiased;
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+/* WooCommerce
+***************************/
+.view-wrapper {
+
+	.add-to-cart-part {
+		
+	}
+
+	.added_to_cart {
+
+		&:after {
+			content: "";
+		}
+	}
+
+	.sale-flash-part {
+
+		span {
+			
+		}
+
+	}
+
+}
+
+/* Meta Parts
+***************************/
+.view-wrapper {
+
+	.vb-part.meta-part {
+
+		a {
+			
+		}
+
+	}
+
+}
+
+
+/* Filter Nav
+***************************/
+.magnet-filter {
+
+	li {
+
+		&.active a {
+			
+		}
+
+	}
+
+	li a {
+		
+	}
+
+}
+
+.before-filter {
+	
+}
+
+/* pagination
+***************************/
+.vb-pagination {
+	clear: both;
+	width: 100%;
+
+	&.center {
+		text-align:center;
+	}
+
+	&.right {
+		text-align:right;
+	}
+
+	a,
+	span.pages,
+	span.dots,
+	span.current {
+		display: inline-block;
+		text-decoration: none;
+	}
+
+	a:hover,
+	a:focus,
+	span.current {
+		
+	}
+
+}
+
+/* Owl Modifications */
+.owl-nav,
+.owl-slider-nav {
+
+	width: 100%;
+
+	&.position-center  {
+		top: 50%;
+		margin-top: -20px;
+		position: absolute;
+
+	}
+
+	&.position-bottom {
+		position: absolute;
+		top: 100%;
+		padding-top: 10px;
+		margin: 0;
+	}
+
+	.owl-prev ,
+	.owl-next {
+		position: absolute;
+	}
+
+	.owl-prev {
+		left: 0;
+	}
+
+	.owl-next {
+		right: 0;
+	}
+
+}
+
+.owl-dots {
+	position: absolute;
+	top: 100%;
+	width: 100%;
+}
+
+
+
+.owl-theme {
+	.owl-nav {
+		text-align: center;
+		-webkit-tap-highlight-color: transparent;
+		
+		[class*='owl-'] {
+			display: inline-block;
+			cursor: pointer;
+
+			&:hover {
+
+			}
+		}
+		.disabled {
+			opacity: .5;
+			cursor: default;
+		}
+	}
+
+	// Styling dots
+	.owl-nav.disabled + .owl-dots {
+
+	}
+	.owl-dots {
+		text-align: center;
+		-webkit-tap-highlight-color: transparent;
+		
+		.owl-dot {
+			display: inline-block;
+			zoom: 1;
+			*display: inline;
+
+			span {
+				width: 10px;
+				height: 10px;
+				display: block;
+				-webkit-backface-visibility: visible;
+				.transition(opacity, 200ms, ease);
+			}
+
+			&.active,
+			&:hover {
+				span {
+
+				}
+			}
+		}
+	}
+}
+
+.owl-theme {
+
+	&.owl-nav-bottom .owl-dots.slider {
+		width: 91%;
+		margin-right: 4.5%;
+		margin-left: 4.5%;
+	}
+
+	.owl-stage-outer {
+		margin-bottom: 60px;
+	}
+
+	.owl-slider-nav {
+		-webkit-tap-highlight-color: transparent;
+		width: 100%;
+		
+		[class*='owl-'] {
+
+			display: inline-block;
+			cursor: pointer;
+
+			&:hover {
+				
+			}
+		}
+		.disabled {
+			opacity: .5;
+			cursor: default;
+		}
+	}
+
+	// Styling dots
+	.olw-slider-nav.disabled + .owl-dots {
+	}
+	.owl-dots {
+		-webkit-tap-highlight-color: transparent;
+
+		&.slider {
+			top: 100%;
+			width: 100%;
+		}
+
+		&.dots {
+			margin-top: 25px;
+		}
+
+		&.numbers {
+			margin-top: 12px;
+		}
+
+		&.thumbs {
+			margin-top: 10px;
+		}
+		
+		.owl-dot {
+			display: inline-block;
+			zoom: 1;
+			*display: inline;
+
+			span {
+				width: 10px
+				height: 10px;
+				display: block;
+				-webkit-backface-visibility: visible;
+				.transition(opacity, 200ms, ease);
+			}
+
+			div {
+				min-width: 13px;
+				display: block;
+			}
+
+			img {
+				display: block;
+			}
+
+			&.active,
+			&:hover {
+				span,
+				div,
+				img {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
+
+
