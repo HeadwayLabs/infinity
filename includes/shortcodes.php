@@ -206,43 +206,6 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			return $content;
 		}
 
-		public static function get_thumb_contents_parts( $builder_options ) {
-
-			$view_name = strtolower(views()->view_name);
-
-			$parts = $builder_options->getOption( 'image-parts-content-type-' . $view_name . '' );
-			$title_tag = $builder_options->getOption( 'title-option-html-tag-' . $view_name . '' );
-
-			if ( $parts ) {
-
-				foreach ($parts as $position => $part) {
-	
-					if ( $part == 'title' ) {
-						echo do_shortcode(stripslashes('[vb_title 
-							linked="0" 
-							html_tag="' . $title_tag . '"]'));
-					}
-
-					if ( $part == 'excerpt' ) {
-						$content_to_show = $builder_options->getOption( 'excerpt-option-content-to-show-' . $view_name . '' );
-						$excerpt_length = $builder_options->getOption( 'excerpt-option-length-' . $view_name . '' );
-						$excerpt_more = $builder_options->getOption( 'excerpt-option-more-' . $view_name . '' );
-						echo do_shortcode(stripslashes('[vb_excerpt
-							content_to_show="'. $content_to_show .'" 
-							excerpt_more="'. $excerpt_more .'" 
-							excerpt_length="'. $excerpt_length .'"]'));
-					}
-
-					if ( $part == 'date' ) {
-						echo do_shortcode(stripslashes('[vb_date]'));
-					}
-
-				}
-
-			}
-
-		}
-
 		public static function get_post_parts( $builder_options, $parts, $view_name, $include_image=true ) {
 
 			if ( $parts ) {
