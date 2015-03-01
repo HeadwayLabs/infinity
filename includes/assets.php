@@ -396,6 +396,7 @@ class View_Builder_Assets {
 	$autoplay_hover_pause = ( isset( $options['carousel-autoplay-hover-pause'] ) == true ) ? 'autoplayHoverPause:' . $options['carousel-autoplay-hover-pause'] . ',' : 'autoplayHoverPause: false,';
 	$autoplay_timeout = ( isset( $options['carousel-autoplay-timeout'] ) ) ? 'autoplayTimeout:' . $options['carousel-autoplay-timeout'] . ',' : null;
 	$auto_height = ( isset( $options['carousel-auto_height'] ) ) ? 'autoHeight:true,' : 'autoHeight:false,';
+	$nav_next_prev = ( isset( $options['carousel-show-nav'] ) ) ? 'nav:' . $options['carousel-show-nav'] . ',' : 'nav: false,';
 
 	$nav_text_prev = ( isset( $options['carousel-navtext-prev'] ) == true ) ? $options['carousel-navtext-prev'] : null;
 	$nav_text_next = ( isset( $options['carousel-navtext-next'] ) == true ) ? $options['carousel-navtext-next'] : null;
@@ -403,6 +404,9 @@ class View_Builder_Assets {
 	$nav_text = null;
 	if( $nav_text_prev && $nav_text_next )
 		$nav_text = "navText: ['". $nav_text_prev ."','". $nav_text_next ."'],";
+
+	$nav_position_class = ( isset( $options['carousel-nav-position'] ) != '' ) ? $options['carousel-nav-position'] : null;
+
 
 	?>
 
