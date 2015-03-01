@@ -296,7 +296,7 @@ class View_Builder_Assets {
 
 			wp_enqueue_script('vb-carousel', views()->plugin_url . 'layouts/assets/js/min/owl.carousel-min.js', array('jquery'), views()->version, 1);
 
-			wp_enqueue_style('vb-owl-structure', views()->plugin_url . 'layouts/assets/css/owl.carousel.css');
+			wp_enqueue_style('vb-owl-structure', views()->plugin_url . 'layouts/assets/css/owl.carousel.core.css');
 			array_push(self::$general_css, 'vb-owl-structure');
 
 		}
