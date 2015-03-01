@@ -10,7 +10,7 @@
 			'thumbnail_height'              	=> '200',
 			'crop_vertically_height_ratio' 	=> '60',
 			'show_spotlight'               	=> 'on',
-			'thumb_spotlight_effect'        	=> 'vb-overlay',
+			'thumb_spotlight_effect'        	=> 'ImageFade',
 			'thumb_spotlight_type'          	=> 'icons',//icons or content
 			'thumb_content_hover_effect'   	=>  'H',
 			'thumb_icon_effect'             	=> 'StyleH',
@@ -90,8 +90,8 @@
 		</a>
 
 		<?php if ( $show_spotlight == 'on' && $thumb_spotlight_type == 'icons') : ?>
-			<div class="<?php echo $thumb_spotlight_effect; ?>"></div>
-         <div class="<?php echo $thumb_icon_effect; ?>">
+			<div class="<?php echo $thumb_spotlight_effect; ?> thumb-cover"></div>
+         <div class="<?php echo $thumb_icon_effect; ?> thumb-icons">
 
 				<?php 
 
@@ -103,7 +103,7 @@
 							$use_lightbox = ($cover_button_link1 == 'lightbox') ? 'vb-lightbox' : null;
 							?>
 							
-							<span class="spotlight-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
+							<span class="cover-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
 			             	<?php if (!empty($cover_button_link1)) : ?>
 			             		<?php if ($cover_button_link1 == 'lightbox') : ?>
 			             			<a href="#" <?php echo $lightbox_url; ?>>
@@ -126,7 +126,7 @@
 							$use_lightbox = ($cover_button_link2 == 'lightbox') ? 'vb-lightbox' : null;
 							?>
 							
-							<span class="spotlight-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
+							<span class="cover-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
 			             	<?php if (!empty($cover_button_link2)) : ?>
 			             		<?php if ($cover_button_link2 == 'lightbox') : ?>
 			             			<a href="#" <?php echo $lightbox_url; ?>>
@@ -149,7 +149,7 @@
 							$use_lightbox = ($cover_button_link3 == 'lightbox') ? 'vb-lightbox' : null;
 							?>
 							
-							<span class="spotlight-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
+							<span class="cover-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
 			             	<?php if (!empty($cover_button_link3)) : ?>
 			             		<?php if ($cover_button_link3 == 'lightbox') : ?>
 			             			<a href="#" <?php echo $lightbox_url; ?>>
@@ -172,7 +172,7 @@
 							$use_lightbox = ($cover_button_link4 == 'lightbox') ? 'vb-lightbox' : null;
 							?>
 							
-							<span class="spotlight-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
+							<span class="cover-button <?php echo $use_lightbox.' '.$thumb_icon_style; ?>">
 			             	<?php if (!empty($cover_button_link4)) : ?>
 			             		<?php if ($cover_button_link4 == 'lightbox') : ?>
 			             			<a href="#" <?php echo $lightbox_url; ?>>

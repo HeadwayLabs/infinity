@@ -466,8 +466,8 @@ if ( $the_query->have_posts() ) :
                     'id' => 'image-icon-type-spotlight-effect-' . $view_name . '',
                     'type' => 'select',
                     'options' => array(
-                        'vb-overlay' => 'Fade In',
-                        'vb-overlaye' => 'Expand Outwards Top & Bottom',
+                        'ImageFade' => 'Fade In',
+                        'ImageFadeExpand' => 'Expand Outwards Top & Bottom',
                         'ImageOverlayLi' => 'Expand Inwards Top & Bottom',
                         'ImageOverlayB' => 'Expand Outwards Left & Right',
                         'ImageOverlayC' => 'Expand Inwards Left & Right',
@@ -486,13 +486,14 @@ if ( $the_query->have_posts() ) :
                         'ImageOverlaySc' => 'Flip In Bottom',
                         'ImageOverlayTi' => 'Flip In Top Right',
                     ),
-                    'default' => 'vb-overlay'
+                    'default' => 'ImageFade'
                 ) );
                 $section->createOption( array(
                     'name' => 'Icon Style',
                     'id' => 'image-icon-type-style-' . $view_name . '',
                     'type' => 'select',
                     'options' => array(
+                        'Headway' => 'Style in Headway',
                         'WhiteRounded' => 'White Rounded',
                         'BlackRounded' => 'Black Rounded',
                         'WhiteHollowRounded' => 'White Hollow Rounded',
@@ -505,7 +506,7 @@ if ( $the_query->have_posts() ) :
                     ),
                     'default' => 'WhiteRounded',
                     'livepreview' => '
-                        var element = $("article .spotlight-button");
+                        var element = $("article .cover-button");
                         var elClass = element.attr("class");
                         var lastword = elClass.split(" ").pop();
                         element.removeClass(lastword).addClass(value);
