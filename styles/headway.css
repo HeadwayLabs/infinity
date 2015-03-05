@@ -13,22 +13,70 @@
 ***************************/
 /* Thumb Cover */
 .infinity-cover {
+  display: block;
+  overflow: hidden;
+  position: relative;
   /* Cover Buttons */
+  /* Content Cover */
+}
+.infinity-cover .thumb-cover {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+}
+.infinity-cover .cover-button {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .infinity-cover .thumb-icons span {
+  background-color: white;
+  border: medium none;
   display: inline-block !important;
   float: none !important;
+  font-size: 14px;
+  font-weight: normal;
   height: 40px;
+  line-height: 40px;
+  margin: 0 2px;
+  text-align: center;
   width: 40px;
+  -o-border-radius: 50%;
+  border-radius: 50%;
 }
 .infinity-cover .thumb-icons span > a {
+  color: #222;
   display: block;
+  font-weight: normal;
 }
 .infinity-cover .thumb-icons span > a i {
   display: inline-block;
-  font-family: FontAwesome;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
+}
+.infinity-cover .content-cover {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.infinity-cover .content-cover-content {
+  width: 100%;
+  position: absolute;
+}
+.infinity-cover .content-cover-content.vertical-top {
+  top: 0%;
+}
+.infinity-cover .content-cover-content.vertical-center {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.infinity-cover .content-cover-content.vertical-bottom {
+  bottom: 0%;
 }
 /* WooCommerce
 ***************************/
@@ -57,6 +105,28 @@
 .vb-pagination span.current {
   display: inline-block;
   text-decoration: none;
+}
+#infscr-loading {
+  border-radius: 6px;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  border: 1px solid #aaa;
+  text-align: center;
+  width: 300px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  right: 0;
+  z-index: 100;
+  background: #fff;
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+#infscr-loading img {
+  margin-bottom: 15px;
 }
 /* Owl Modifications */
 .owl-nav,
