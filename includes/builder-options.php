@@ -207,7 +207,7 @@ if ( $the_query->have_posts() ) :
                     'id' => 'style-name-' . $view_name . '',
                     'type' => 'select',
                     'options' => get_styles_list(),
-                    'default' => 'boxed'
+                    'default' => 'headway'
                 ) );
 
                 $section->createOption( array(

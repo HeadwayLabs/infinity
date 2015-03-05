@@ -16,7 +16,7 @@ $options = views()->options;
 $view_name = strtolower(str_replace(' ', '-', views()->view_name));
 $view_id = views()->id;
 $grid_spacing = views()->get_infinity_option( 'postopts-post-spacing-' . $view_id . '', '20' )/2;
-$style_name = views()->get_infinity_option( 'style-name-' . $view_name . '', 'boxed' );
+$style_name = views()->get_infinity_option( 'style-name-' . $view_name . '', 'headway' );
 $parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
 if ( empty($parts) ) {
 	$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
