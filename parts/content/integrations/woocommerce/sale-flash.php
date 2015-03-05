@@ -1,7 +1,7 @@
 <?php
 
 	extract( shortcode_atts( array(
-		'as_percentage_off' => false,
+		'as_percentage_off' => 'off',
 		'sale_text' => 'On Sale!',
 		'before' => false,
 		'after' => false,
@@ -37,7 +37,7 @@
 			$sale_price = $variation ->sale_price;
 		}
 
-		if ( $as_percentage_off == true ) {
+		if ( $as_percentage_off == 'on' ) {
 
 			$sale = '<span class="sale-flash-text">' . ceil(( ($regular_price - $sale_price) / $regular_price ) * 100) .'%</span>';
 

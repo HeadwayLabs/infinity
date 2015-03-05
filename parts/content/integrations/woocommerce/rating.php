@@ -1,8 +1,8 @@
 <?php
 
 	extract( shortcode_atts( array(
-		'show_as_stars' => true,
-		'show_review_count' => false,
+		'show_as_stars' => 'on',
+		'show_review_count' => 'off',
 		'before' => false,
 		'display_as' => 'inline-block',
 	), $atts ) );
@@ -14,7 +14,7 @@
 
 	$before = $before != false ? '<span class="before-part">' . $before . '</span>' : null;
 	$display_as = $display_as != null ? ' display-' . $display_as : null;
-	$show_as_stars = $show_as_stars == true ? ' woocommerce' : '';
+	$show_as_stars = $show_as_stars == 'on' ? ' woocommerce' : '';
 
 	if ( $post_type !== 'product' )
 		return;
@@ -32,7 +32,7 @@
 		<div class="vb-part rating-part<?php echo $display_as ?> wc-part<?php echo $show_as_stars; ?>">
 			<?php echo $before; ?>
 			<?php echo $product->get_rating_html(); ?>
-			<?php if( $show_review_count ) : ?>
+			<?php if( $show_review_count == 'on' ) : ?>
 				<p class="wc-rating-review"><a href="<?php echo the_permalink(); ?>#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf( _n( '%s customer review', '%s customer reviews', $count, 'woocommerce' ), '<span itemprop="ratingCount" class="count">' . $count . '</span>' ); ?>)</a></p>
 			<?php endif; ?>
 		</div>

@@ -2,7 +2,7 @@
 
 	extract( shortcode_atts( array(
 			'excerpt_limit' 	=> '140',
-			'show_always'		=> false,
+			'show_always'		=> 'off',
 			'more_text'		=> 'Read more',
 			'display_as' => 'block'
 		), $atts ) );
@@ -19,7 +19,7 @@
 
 	$more_link = '<a href="'. get_permalink($post->ID) . '" class="vb-part readmore-part' . $display_as . '">' . $more_text . '</a>';
 	
-	if ( $excerpt_length > $excerpt_limit || $show_always == true ) {
+	if ( $excerpt_length > $excerpt_limit || $show_always == 'on' ) {
 		
 		echo $more_link;
 

@@ -714,8 +714,12 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => 'Show Always',
                     'id' => 'readmore-option-show-always-' . $view_name . '',
-                    'type' => 'checkbox',
-                    'default' => false
+                    'type' => 'radio-toggle-infinity',
+                    'options' => array(
+                        'on' => 'Yes',
+                        'off' => 'No'
+                    ),
+                    'default' => 'off'
                 ) );
 
                 $section->createOption( array(
@@ -864,8 +868,12 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => 'Link to author page?',
                     'id' => 'author-option-linked-' .  $view_name . '',
-                    'type' => 'checkbox',
-                    'default' => true
+                    'type' => 'radio-toggle-infinity',
+                    'options' => array(
+                        'on' => 'Yes',
+                        'off' => 'No'
+                    ),
+                    'default' => 'on'
                 ) );
 
                 $section->createOption( array(
@@ -892,8 +900,12 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => 'Link to author page?',
                     'id' => 'avatar-option-linked-' .  $view_name . '',
-                    'type' => 'checkbox',
-                    'default' => true
+                    'type' => 'radio-toggle-infinity',
+                    'options' => array(
+                        'on' => 'Yes',
+                        'off' => 'No'
+                    ),
+                    'default' => 'on'
                 ) );
 
                 $section->createOption( array(
@@ -996,8 +1008,12 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => 'Twitter New Window',
                     'id' => 'share-option-twitter-target-' . $view_name . '',
-                    'type' => 'checkbox',
-                    'default' => true
+                    'type' => 'radio-toggle-infinity',
+                    'options' => array(
+                        'on' => 'Yes',
+                        'off' => 'No'
+                    ),
+                    'default' => 'on'
                 ) );
 
                 $section->createOption( array(
@@ -1010,8 +1026,12 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => 'Facebook New Window',
                     'id' => 'share-option-facebook-target-' . $view_name . '',
-                    'type' => 'checkbox',
-                    'default' => true
+                    'type' => 'radio-toggle-infinity',
+                    'options' => array(
+                        'on' => 'Yes',
+                        'off' => 'No'
+                    ),
+                    'default' => 'on'
                 ) );
 
                 $section->createOption( array(
@@ -1024,8 +1044,12 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => 'Google Plus New Window',
                     'id' => 'share-option-googleplus-target-' . $view_name . '',
-                    'type' => 'checkbox',
-                    'default' => true
+                    'type' => 'radio-toggle-infinity',
+                    'options' => array(
+                        'on' => 'Yes',
+                        'off' => 'No'
+                    ),
+                    'default' => 'on'
                 ) );
 
                 $section->createOption( array(
@@ -1038,8 +1062,12 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => 'LinkedIn New Window',
                     'id' => 'share-option-linkedin-target-' . $view_name . '',
-                    'type' => 'checkbox',
-                    'default' => true
+                    'type' => 'radio-toggle-infinity',
+                    'options' => array(
+                        'on' => 'Yes',
+                        'off' => 'No'
+                    ),
+                    'default' => 'on'
                 ) );
 
                 $section->createOption( array(
@@ -1102,14 +1130,22 @@ if ( $the_query->have_posts() ) :
                     $section->createOption( array(
                         'name' => 'Show as stars',
                         'id' => 'wc-rating-option-show-as-stars-' . $view_name . '',
-                        'type' => 'checkbox',
-                        'default' => true
+                        'type' => 'radio-toggle-infinity',
+                        'options' => array(
+                            'on' => 'Yes',
+                            'off' => 'No'
+                        ),
+                        'default' => 'on'
                     ) );
                     $section->createOption( array(
                         'name' => 'Show review count',
                         'id' => 'wc-rating-option-show-review-count-' . $view_name . '',
-                        'type' => 'checkbox',
-                        'default' => false
+                        'type' => 'radio-toggle-infinity',
+                        'options' => array(
+                            'on' => 'Yes',
+                            'off' => 'No'
+                        ),
+                        'default' => 'off'
                     ) );
                     $section->createOption( array(
                         'name' => 'Before Rating text',
@@ -1156,8 +1192,12 @@ if ( $the_query->have_posts() ) :
                         'name' => 'Show sale as percent',
                         'desc' => 'Replaces on sale flash text',
                         'id' => 'wc-sale-flash-option-as-percent-off-' . $view_name . '',
-                        'type' => 'checkbox',
-                        'default' => false
+                        'type' => 'radio-toggle-infinity',
+                        'options' => array(
+                            'on' => 'Yes',
+                            'off' => 'No'
+                        ),
+                        'default' => 'off'
                     ) );
 
                     $section->createOption( array(

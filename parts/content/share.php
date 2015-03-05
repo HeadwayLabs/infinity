@@ -4,13 +4,13 @@
 		'share_icon_image_w'	=> 32,
 		'share_icon_image_h'	=> 32,
 		'facebook_image'		=> views()->plugin_url.'parts/content/images/social/share-facebook.png',
-		'facebook_target'		=> false,
+		'facebook_target'		=> 'on',
 		'twitter_image'		=> views()->plugin_url.'parts/content/images/social/share-twitter.png',
-		'twitter_target'		=> true,
+		'twitter_target'		=> 'on',
 		'linkedin_image'		=> views()->plugin_url.'parts/content/images/social/share-linkedin.png',
-		'linkedin_target'		=> true,
+		'linkedin_target'		=> 'on',
 		'googleplus_image'	=> views()->plugin_url.'parts/content/images/social/share-googleplus.png',
-		'googleplus_target'	=> true,
+		'googleplus_target'	=> 'on',
 		'before' 				=> 'Share this: ',
 		'display_as' 			=> 'block',
 	), $atts ) );
@@ -24,10 +24,10 @@
 	$before = $before != false ? '<li class="before-share">' . $before . '</li>' : null;
 	$display_as = $display_as != null ? ' display-' . $display_as : null;
 
-	$facebook_target = $facebook_target ? ' target="_blank"' : null;
-	$twitter_target = $twitter_target ? ' target="_blank"' : null;
-	$googleplus_target = $googleplus_target ? ' target="_blank"' : null;
-	$linkedin_target = $linkedin_target ? ' target="_blank"' : null;
+	$facebook_target = $facebook_target == 'on' ? ' target="_blank"' : null;
+	$twitter_target = $twitter_target == 'on' ? ' target="_blank"' : null;
+	$googleplus_target = $googleplus_target == 'on' ? ' target="_blank"' : null;
+	$linkedin_target = $linkedin_target == 'on' ? ' target="_blank"' : null;
 
 	if ( is_numeric( $facebook_image ) ) {
 	
