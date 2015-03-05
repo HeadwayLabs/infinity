@@ -1,0 +1,239 @@
+/**
+ * View Style: Skeleton
+ *
+ * This is a skeleton .less file that contains the structure of the 
+ * CSS and only and no colors. This can be 
+ * used as a base to add styles to. Copy this to your theme or child 
+ * theme to start your own style.
+ *
+ * @package View Builder
+ * @since 0.2
+ */
+/* Parts
+***************************/
+/* Thumb Cover */
+.infinity-cover {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  /* Cover Buttons */
+  /* Content Cover */
+}
+.infinity-cover .thumb-cover {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+}
+.infinity-cover .cover-button {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.infinity-cover .thumb-icons span {
+  position: absolute;
+  background-color: white;
+  border: medium none;
+  display: inline-block !important;
+  float: none !important;
+  font-size: 14px;
+  font-weight: normal;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 2px;
+  text-align: center;
+  width: 40px;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+.infinity-cover .thumb-icons span > a {
+  color: #222;
+  display: block;
+  font-weight: normal;
+}
+.infinity-cover .thumb-icons span > a i {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+.infinity-cover .content-cover {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.infinity-cover .content-cover-content {
+  width: 100%;
+  position: absolute;
+}
+.infinity-cover .content-cover-content.vertical-top {
+  top: 0%;
+}
+.infinity-cover .content-cover-content.vertical-center {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.infinity-cover .content-cover-content.vertical-bottom {
+  bottom: 0%;
+}
+/* WooCommerce
+***************************/
+.view-wrapper .added_to_cart:after {
+  content: "";
+}
+/* Meta Parts
+***************************/
+/* Filter Nav
+***************************/
+/* pagination
+***************************/
+.vb-pagination {
+  clear: both;
+  width: 100%;
+}
+.vb-pagination.center {
+  text-align: center;
+}
+.vb-pagination.right {
+  text-align: right;
+}
+.vb-pagination a,
+.vb-pagination span.pages,
+.vb-pagination span.dots,
+.vb-pagination span.current {
+  display: inline-block;
+  text-decoration: none;
+}
+/* Owl Modifications */
+.owl-nav,
+.owl-slider-nav {
+  width: 100%;
+}
+.owl-nav.position-center,
+.owl-slider-nav.position-center {
+  top: 50%;
+  margin-top: -20px;
+  position: absolute;
+}
+.owl-nav.position-bottom,
+.owl-slider-nav.position-bottom {
+  position: absolute;
+  top: 100%;
+  padding-top: 10px;
+  margin: 0;
+}
+.owl-nav .owl-prev,
+.owl-slider-nav .owl-prev,
+.owl-nav .owl-next,
+.owl-slider-nav .owl-next {
+  position: absolute;
+}
+.owl-nav .owl-prev,
+.owl-slider-nav .owl-prev {
+  left: 0;
+}
+.owl-nav .owl-next,
+.owl-slider-nav .owl-next {
+  right: 0;
+}
+.owl-dots {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+.owl-theme .owl-nav {
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.owl-theme .owl-nav [class*='owl-'] {
+  display: inline-block;
+  cursor: pointer;
+}
+.owl-theme .owl-nav .disabled {
+  opacity: .5;
+  cursor: default;
+}
+.owl-theme .owl-dots {
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.owl-theme .owl-dots .owl-dot {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+.owl-theme .owl-dots .owl-dot span {
+  width: 10px;
+  height: 10px;
+  display: block;
+  -webkit-backface-visibility: visible;
+  -webkit-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
+}
+.owl-theme.owl-nav-bottom .owl-dots.slider {
+  width: 91%;
+  margin-right: 4.5%;
+  margin-left: 4.5%;
+}
+.owl-theme .owl-stage-outer {
+  margin-bottom: 60px;
+}
+.owl-theme .owl-slider-nav {
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+}
+.owl-theme .owl-slider-nav [class*='owl-'] {
+  display: inline-block;
+  cursor: pointer;
+}
+.owl-theme .owl-slider-nav .disabled {
+  opacity: .5;
+  cursor: default;
+}
+.owl-theme .owl-dots {
+  -webkit-tap-highlight-color: transparent;
+}
+.owl-theme .owl-dots.slider {
+  top: 100%;
+  width: 100%;
+}
+.owl-theme .owl-dots.dots {
+  margin-top: 25px;
+}
+.owl-theme .owl-dots.numbers {
+  margin-top: 12px;
+}
+.owl-theme .owl-dots.thumbs {
+  margin-top: 10px;
+}
+.owl-theme .owl-dots .owl-dot {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+.owl-theme .owl-dots .owl-dot span {
+  width: 10px
+				height: 10px;
+  display: block;
+  -webkit-backface-visibility: visible;
+  -webkit-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
+}
+.owl-theme .owl-dots .owl-dot div {
+  min-width: 13px;
+  display: block;
+}
+.owl-theme .owl-dots .owl-dot img {
+  display: block;
+}
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span,
+.owl-theme .owl-dots .owl-dot.active div,
+.owl-theme .owl-dots .owl-dot:hover div,
+.owl-theme .owl-dots .owl-dot.active img,
+.owl-theme .owl-dots .owl-dot:hover img {
+  cursor: pointer;
+}
