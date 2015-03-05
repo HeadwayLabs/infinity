@@ -107,6 +107,28 @@
   display: inline-block;
   text-decoration: none;
 }
+#infscr-loading {
+  border-radius: 6px;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  border: 1px solid #aaa;
+  text-align: center;
+  width: 300px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  right: 0;
+  z-index: 100;
+  background: #fff;
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+#infscr-loading img {
+  margin-bottom: 15px;
+}
 /* Owl Modifications */
 .owl-nav,
 .owl-slider-nav {
