@@ -179,7 +179,6 @@ if ( ! class_exists( 'HW_Builder' ) ) :
 
 			/* Add integration with titan */
 			require_once( $this->plugin_dir . 'includes/titan-framework/titan-framework-embedder.php' );
-			require_once( $this->plugin_dir . 'includes/titan-framework/class-option.php' );
 
 			require_once( $this->plugin_dir . 'includes/integrations/titan/class-option-multicheck-infinity.php' );
 			require_once( $this->plugin_dir . 'includes/integrations/titan/class-option-multicheck-categories-infinity.php' );
