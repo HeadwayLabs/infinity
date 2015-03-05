@@ -2,8 +2,8 @@
 
 	extract( shortcode_atts( array(
 			'html_tag' 	=> 'h1',
-			'linked'		=> true,
-			'shorten'	=>	false,
+			'linked'		=> 'link',
+			'shorten'	=>	'on',
 			'limit'		=> 50,
 			'before'		=> null,
 			'display_as' => null
@@ -23,18 +23,18 @@
 	$display_as = $display_as != null ? ' display-' . $display_as : null;
 	$before = $before != false ? '<span>' . $before . '</span>' : null;
 
-	if (!$shorten)
+	if ( $shorten == 'off' )
 		$title = get_the_title($id);
 
 	ob_start();
 
-	if($linked)
+	if($linked == 'link')
 		echo '
-		<' . $html_tag . ' class="vb-part title-part entry-title' . $display_as . '">
+		<' . $html_tag . ' class="vb-part title-part' . $display_as . '">
 			'. $before . '
 			<a href="'. get_permalink($id) .'" rel="bookmark" title="'. the_title_attribute (array('echo' => 0) ) .'">'. $title .'</a>
 		</' . $html_tag . '>';
-	if(!$linked)
+	if($linked == 'unlink')
 		echo '
 		<' . $html_tag . ' class="vb-part title-part entry-title' . $display_as . '">
 			'. $before . '

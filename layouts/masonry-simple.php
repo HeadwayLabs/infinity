@@ -109,7 +109,9 @@ $filter_before_text = isset(views()->options['masonry-before-filter-text']) ? vi
 
 		<article id="post-<?php the_ID(); ?>" class="article-<?php echo views()->count; ?> article magnet-item item clearfix hentry <?php echo tax_term_classes( $taxonomy ) ?>">
 
-			<?php View_Builder_Shortcodes::get_post_parts( $builder_options, $parts, $view_name ); ?>
+			<div class="article-inner">
+				<?php View_Builder_Shortcodes::get_post_parts( $builder_options, $parts, $view_name ); ?>
+			</div>
 
 		</article>
 

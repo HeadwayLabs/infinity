@@ -55,7 +55,7 @@ if ( $the_query->have_posts() ) :
             /*
              * View customizer options
              */
-            if (view_widget_in_use($id)) {
+            //if (view_widget_in_use($id)) {
 
                 $section = $builder_options->createThemeCustomizerSection( array(
                     'name' =>  get_the_title(),
@@ -75,7 +75,7 @@ if ( $the_query->have_posts() ) :
                     $section->createOption( array(
                         'name' => 'Posts:',
                         'id' => 'postopts-post-count-' . $id . '',
-                        'desc' => 'The total number of posts to show per view.',
+                        'desc' => 'The total number of posts to show per view per page.',
                         'type' => 'text',
                         'default' => '20'
                     ) );
@@ -264,6 +264,60 @@ if ( $the_query->have_posts() ) :
                     'default' => ''
                 ) );
 
+                $section->createOption( array(
+                    'name' => 'Title Markup',
+                    'id' => 'title-option-html-tag-' . $view_name . '',
+                    'type' => 'select',
+                    'options' => array(
+                        'h1' => 'H1',
+                        'h2' => 'H2',
+                        'h3' => 'H3',
+                    ),
+                    'default' => 'h2',
+                    'livepreview' => '',
+                ) );
+
+                $section->createOption( array(
+                    'name' => 'Link title',
+                    'id' => 'title-option-link-' . $view_name . '',
+                    'type' => 'radio-toggle-infinity',
+                    'options' => array(
+                        'link' => 'Link',
+                        'unlink' => 'UnLink'
+                    ),
+                    'default' => 'link'
+                ) );
+
+                $section->createOption( array(
+                    'name' => 'Shorten Title',
+                    'id' => 'title-option-shorten-title-' . $view_name . '',
+                    'type' => 'radio-toggle-infinity',
+                    'options' => array(
+                        'on' => 'Yes',
+                        'off' => 'No'
+                    ),
+                    'default' => 'on'
+                ) );
+
+                $section->createOption( array(
+                    'name' => 'Limit to characters',
+                    'id' => 'title-option-shorten-limit-' . $view_name . '',
+                    'type' => 'text',
+                    'default' => '50'
+                ) );
+
+                $section->createOption( array(
+                    'name' => 'Display As',
+                    'id' => 'title-styles-display-as-' . $view_name . '',
+                    'type' => 'select',
+                    'default' => '',
+                    'options' => array(
+                        '' => 'None',
+                        'block' => 'Block',
+                        'inline' => 'Inline',
+                        'inline-block' => 'Inline Block'
+                    )
+                ) );
 
                 //Excerpt Options
 
@@ -358,6 +412,12 @@ if ( $the_query->have_posts() ) :
 
                 $section->createOption( array(
                     'name' => 'Thumb Alignment',
+                    'id' => 'image-option-thumb-align-heading-' . $view_name . '',
+                    'type' => 'heading-infinity'
+                ) );
+
+                $section->createOption( array(
+                    'name' => '',
                     'id' => 'image-option-thumb-align-' . $view_name . '',
                     'type' => 'radio-toggle-infinity',
                     'options' => array(
@@ -519,6 +579,7 @@ if ( $the_query->have_posts() ) :
                     'id' => 'image-content-type-hover-effect-' . $view_name . '',
                     'type' => 'select',
                     'options' => array(
+                        'ShowFirst' => 'Show On Load',
                         'H' => 'Fade In',
                         'He' => 'Scale In',
                         'Li' => 'Scale Out & In',
@@ -549,6 +610,19 @@ if ( $the_query->have_posts() ) :
                         'Zn' => 'Flip Vertical'
                     ),
                     'default' => 'H'
+                ) );
+
+                $section->createOption( array(
+                    'name' => 'Center Content Vertically',
+                    'id' => 'image-content-type-content-vertical-align-' . $view_name . '',
+                    'type' => 'radio-toggle-infinity',
+                    'options' => array(
+                        'top' => 'Top',
+                        'center' => 'Center',
+                        'bottom' => 'Bottom'
+                    ),
+                    'default' => 'center'
+
                 ) );
 
                 $section->createOption( array(
@@ -984,29 +1058,27 @@ if ( $the_query->have_posts() ) :
                     'type' => 'text',
                     'default' => 'Share this: '
                 ) );
+
                 $section->createOption( array(
-                    'name' => 'Share Icon Width',
-                    'id' => 'share-option-icon-w-' . $view_name . '',
-                    'type' => 'text',
-                    'default' => '32'
+                    'name' => 'Twitter Icon',
+                    'id' => 'share-option-icon-twitter-heading-' . $view_name . '',
+                    'type' => 'heading-infinity'
                 ) );
 
                 $section->createOption( array(
-                    'name' => 'Share Icon Height',
-                    'id' => 'share-option-icon-h-' . $view_name . '',
-                    'type' => 'text',
-                    'default' => '32'
+                    'name' => '',
+                    'id' => 'share-option-icon-fa-twitter-' . $view_name . '',
+                    'type' => 'select',
+                    'default' => 'fa-twitter',
+                    'options' => array(
+                        'hide' => 'None (Hide)',
+                        'fa-twitter' => 'Twitter',
+                        'fa-twitter-square' => 'Twitter Square' 
+                    ),                    
                 ) );
 
                 $section->createOption( array(
-                    'name' => 'Twitter Share Icon',
-                    'id' => 'share-option-twitter-share-icon-' . $view_name . '',
-                    'type' => 'upload',
-                    'default' => views()->plugin_url.'parts/content/images/social/share-twitter.png'
-                ) );
-
-                $section->createOption( array(
-                    'name' => 'Twitter New Window',
+                    'name' => 'New Window',
                     'id' => 'share-option-twitter-target-' . $view_name . '',
                     'type' => 'radio-toggle-infinity',
                     'options' => array(
@@ -1017,14 +1089,25 @@ if ( $the_query->have_posts() ) :
                 ) );
 
                 $section->createOption( array(
-                    'name' => 'Facebook Share Icon',
-                    'id' => 'share-option-facebook-share-icon-' . $view_name . '',
-                    'type' => 'upload',
-                    'default' => views()->plugin_url.'parts/content/images/social/share-facebook.png'
+                    'name' => 'Facebook Icon',
+                    'id' => 'share-option-icon-fa-facebook-heading-' . $view_name . '',
+                    'type' => 'heading-infinity'
                 ) );
 
                 $section->createOption( array(
-                    'name' => 'Facebook New Window',
+                    'name' => '',
+                    'id' => 'share-option-icon-fa-facebook-' . $view_name . '',
+                    'type' => 'select',
+                    'default' => 'fa-facebook',
+                    'options' => array(
+                        'hide' => 'None (Hide)',
+                        'fa-facebook' => 'Facebook',
+                        'fa-facebook-square' => 'Facebook Square'
+                    ),                    
+                ) );
+
+                $section->createOption( array(
+                    'name' => 'New Window',
                     'id' => 'share-option-facebook-target-' . $view_name . '',
                     'type' => 'radio-toggle-infinity',
                     'options' => array(
@@ -1035,14 +1118,25 @@ if ( $the_query->have_posts() ) :
                 ) );
 
                 $section->createOption( array(
-                    'name' => 'Google Plus Share Icon',
-                    'id' => 'share-option-googleplus-share-icon-' . $view_name . '',
-                    'type' => 'upload',
-                    'default' => views()->plugin_url.'parts/content/images/social/share-googleplus.png'
+                    'name' => 'Google Plus Icon',
+                    'id' => 'share-option-icon-fa-google-plus-heading-' . $view_name . '',
+                    'type' => 'heading-infinity'
                 ) );
 
                 $section->createOption( array(
-                    'name' => 'Google Plus New Window',
+                    'name' => '',
+                    'id' => 'share-option-icon-fa-google-plus-' . $view_name . '',
+                    'type' => 'select',
+                    'default' => 'fa-google-plus',
+                    'options' => array(
+                        'hide' => 'None (Hide)',
+                        'fa-google-plus' => 'Google Plus',
+                        'fa-google-plus-square' => 'Google Plus Square'
+                    ),                    
+                ) );
+
+                $section->createOption( array(
+                    'name' => 'New Window',
                     'id' => 'share-option-googleplus-target-' . $view_name . '',
                     'type' => 'radio-toggle-infinity',
                     'options' => array(
@@ -1053,14 +1147,25 @@ if ( $the_query->have_posts() ) :
                 ) );
 
                 $section->createOption( array(
-                    'name' => 'LinkedIn Share Icon',
-                    'id' => 'share-option-linkedin-share-icon-' . $view_name . '',
-                    'type' => 'upload',
-                    'default' => views()->plugin_url.'parts/content/images/social/share-linkedin.png'
+                    'name' => 'Linkedin Icon',
+                    'id' => 'share-option-icon-fa-linkedin-heading-' . $view_name . '',
+                    'type' => 'heading-infinity'
                 ) );
 
                 $section->createOption( array(
-                    'name' => 'LinkedIn New Window',
+                    'name' => '',
+                    'id' => 'share-option-icon-fa-linkedin-' . $view_name . '',
+                    'type' => 'select',
+                    'default' => 'fa-linkedin',
+                    'options' => array(
+                        'hide' => 'None (Hide)',
+                        'fa-linkedin' => 'Linkedin',
+                        'fa-linkedin-square' => 'Linkedin Square'
+                    ),                    
+                ) );
+
+                $section->createOption( array(
+                    'name' => 'New Window',
                     'id' => 'share-option-linkedin-target-' . $view_name . '',
                     'type' => 'radio-toggle-infinity',
                     'options' => array(
@@ -1089,6 +1194,16 @@ if ( $the_query->have_posts() ) :
                     'id' => 'likes-option-before-' . $view_name . '',
                     'type' => 'text',
                     'default' => 'Likes: '
+                ) );
+                $section->createOption( array(
+                    'name' => 'Show like/unlike text',
+                    'id' => 'likes-option-show_like_text-' . $view_name . '',
+                    'type' => 'radio-tog gle-infinity',
+                        'options' => array(
+                            'show' => 'Show',
+                            'hide' => 'Hide'
+                        ),
+                    'default' => 'show'
                 ) );
                 $section->createOption( array(
                     'name' => 'Display As',
@@ -1317,7 +1432,7 @@ if ( $the_query->have_posts() ) :
                     'default' => false
                 ) );
 
-            }
+            //} disabled view_widget_in_use
 
     endwhile; 
 

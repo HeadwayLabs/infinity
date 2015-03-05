@@ -185,17 +185,22 @@ class View_Builder_Assets {
 				if ( empty($parts) ) {
 					$parts = array('title', 'image', 'excerpt', 'date', 'readmore');
 				}
+				$cover_parts = $builder_options->getOption( 'image-parts-content-type-' . $view_name . '' );
+				if ( empty($cover_parts) ) {
+					$cover_parts = array('title', 'categories', );
+				}
 				$cover = $builder_options->getOption( 'image-show-cover-hide-' . $view_name . '' );
 
-				if (!empty($parts)) {
+				//TODO: Must modify for all instances of parts where a check is done
+				if (!empty($parts) || !empty($cover_parts)) {
 
-					if (in_array('image', $parts))
+					if (in_array('image', $parts) || in_array('image', $cover_parts))
 						$enqueue_image = true;
 
-					if (in_array('likes', $parts))
+					if (in_array('likes', $parts) || in_array('likes', $cover_parts))
 						$enqueue_likes = true;
 
-					if (in_array('post-format', $parts))
+					if (in_array('post-format', $parts) || in_array('post-format', $cover_parts))
 						$enqueue_dashicons = true;
 
 				}

@@ -34,7 +34,9 @@ if ( empty($parts) ) {
 
 			<article id="post-<?php the_ID(); ?>" class="article-<?php echo views()->count; ?> article item clearfix hentry" <?php echo display_slider_navigation($slider_nav_type, $slider_nav_thumb_width, $slider_nav_thumb_height, views()->count); ?>>
 	
-				<?php View_Builder_Shortcodes::get_post_parts( $builder_options, $parts, $view_name ); ?>
+				<div class="article-inner">
+					<?php View_Builder_Shortcodes::get_post_parts( $builder_options, $parts, $view_name ); ?>
+				</div>
 
 			</article>
 

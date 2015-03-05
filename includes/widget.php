@@ -87,7 +87,7 @@ class Infinity_Widget extends WP_Widget  {
 	<p>
 	<?php 
 		if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
-			echo '<a href="' . wp_customize_url( get_template() ) . '" class="load-customize hide-if-no-customize button button-secondary">'
+			echo '<a href="' . wp_customize_url( get_stylesheet() ) . '" class="load-customize hide-if-no-customize button button-secondary">'
 		. __( 'Open Customizer' ) . '</a>';
 		}
 	?>

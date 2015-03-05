@@ -277,6 +277,9 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 								$show_cover  					= $builder_options->getOption( 'image-show-cover-hide-' . $view_name . '' );
 				  				$show_cover 					= (!empty($show_cover)) ? 'show_cover="' . $show_cover . '"' : null;
 
+				  				$content_vertical_align  	= $builder_options->getOption( 'image-content-type-content-vertical-align-' . $view_name . '' );
+				  				$content_vertical_align 	= (!empty($content_vertical_align)) ? 'content_vertical_align="' . $content_vertical_align . '"' : null;
+
 								$thumb_cover_type			= $builder_options->getOption( 'thumb-cover-type-hide-' . $view_name . '' );
 								$thumb_cover_type 			= (!empty($thumb_cover_type)) ? 'thumb_cover_type="' . $thumb_cover_type . '"' : null;
 
@@ -336,7 +339,8 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 								' . $thumb_cover_type . ' 
 								' . $thumb_content_hover_effect . ' 
 								' . $thumbnail_height . ' 
-								' . $thumbnail_width . ' 
+								' . $thumbnail_width . '
+								' . $content_vertical_align . ' 
 								' . $show_cover . ' 
 								' . $thumb_cover_effect . ' 
 								' . $thumb_icon_style . ' 
@@ -527,22 +531,16 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			  				break;
 
 			  			case 'share':
-							$share_icon_image_w		= $builder_options->getOption( 'share-option-icon-w-' . $view_name . '' );
-							$share_icon_image_w 		= (!empty($share_icon_image_w)) ? 'share_icon_image_w="' . $share_icon_image_w . '"' : null;
-
-							$share_icon_image_h		= $builder_options->getOption( 'share-option-icon-h-' . $view_name . '' );
-							$share_icon_image_h 		= (!empty($share_icon_image_h)) ? 'share_icon_image_h="' . $share_icon_image_h . '"' : null;
-
-							$facebook_image 			= $builder_options->getOption( 'share-option-facebook-share-icon-' . $view_name . '' );
+							$facebook_image 			= $builder_options->getOption( 'share-option-icon-fa-facebook-' . $view_name . '' );
 						  	$facebook_image 			= (!empty($facebook_image)) ? 'facebook_image="' . $facebook_image . '"' : null;
 
-						   $twitter_image 			= $builder_options->getOption( 'share-option-twitter-share-icon-' . $view_name . '' );
+						   $twitter_image 			= $builder_options->getOption( 'share-option-icon-fa-twitter-' . $view_name . '' );
 						   $twitter_image 			= (!empty($twitter_image)) ? 'twitter_image="' . $twitter_image . '"' : null;
 
-						   $googleplus_image 		= $builder_options->getOption( 'share-option-googleplus-share-icon-' . $view_name . '' );
+						   $googleplus_image 		= $builder_options->getOption( 'share-option-icon-fa-google-plus-' . $view_name . '' );
 						  	$googleplus_image 		= (!empty($googleplus_image)) ? 'googleplus_image="' . $googleplus_image . '"' : null;
 
-						   $linkedin_image 			= $builder_options->getOption( 'share-option-linkedin-share-icon-' . $view_name . '' );
+						   $linkedin_image 			= $builder_options->getOption( 'share-option-icon-fa-linkedin-' . $view_name . '' );
 						   $linkedin_image 			= (!empty($linkedin_image)) ? 'linkedin_image="' . $linkedin_image . '"' : null;
 
 						   $facebook_target 			= $builder_options->getOption( 'share-option-facebook-target-' . $view_name . '' );
@@ -558,14 +556,12 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 						   $linkedin_target 			= (!empty($linkedin_target)) ? 'linkedin_target="' . $linkedin_target . '"' : null;
 
 						   $share_before 				= $builder_options->getOption( 'share-option-before-' . $view_name . '' );
-							$share_before 				= (!empty($share_before)) ? 'before="' . $share_before . '"' : null;
+							$share_before 				= (!empty($share_before)) ? 'before="' . $share_before . '"' : 'before=""';
 
 							$share_display_as 		= $builder_options->getOption( 'share-styles-display-as-' . $view_name . '' );
 							$share_display_as 		= (!empty($share_display_as)) ? 'display_as="' . $share_display_as . '"' : null;
 
 			  				echo do_shortcode(stripslashes('[vb_share 
-			  				'. $share_icon_image_w .' 
-			  				'. $share_icon_image_h .' 
 							'. $facebook_image .' 
 							'. $twitter_image .' 
 							'. $googleplus_image .' 
@@ -583,11 +579,15 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 							$likes_before 				= $builder_options->getOption( 'likes-option-before-' . $view_name . '' );
 							$likes_before 					= (!empty($likes_before)) ? 'before="' . $likes_before . '"' : null;
 
+							$show_like_text 				= $builder_options->getOption( 'likes-option-show_like_text-' . $view_name . '' );
+							$show_like_text 				= (!empty($show_like_text)) ? 'show_like_text="' . $show_like_text . '"' : null;
+
 							$likes_display_as 		= $builder_options->getOption( 'likes-styles-display-as-' . $view_name . '' );
 			  				$likes_display_as 					= (!empty($likes_display_as)) ? 'display_as="' . $likes_display_as . '"' : null;
 
 			  				echo do_shortcode(stripslashes('[vb_likes 
 							'. $likes_display_as .' 
+							' . $show_like_text .' 
 							'. $likes_before .' 
 							]'));
 			  				break;

@@ -41,7 +41,9 @@ if ( empty($parts) ) {
 
 				<article id="post-<?php the_ID(); ?>" class="article-<?php echo views()->count; ?> article item clearfix hentry">
 		
-					<?php View_Builder_Shortcodes::get_post_parts( $builder_options, $parts, $view_name ); ?>
+					<div class="article-inner">
+						<?php View_Builder_Shortcodes::get_post_parts( $builder_options, $parts, $view_name ); ?>
+					</div>
 
 				</article>
 
@@ -75,8 +77,8 @@ if ( empty($parts) ) {
 
 		foreach ( $options['grid-group'] as $option ) {
 
-			$width = $option['masonry-width'];
-			$columns = $option['masonry-columns']; 
+			$width = $option['grid-width'];
+			$columns = $option['grid-columns']; 
 
 
 			if(++$i === $numItems) {

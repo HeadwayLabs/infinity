@@ -38,9 +38,11 @@ if ( empty($parts) ) {
 
 			<?php views()->count++; ?>
 
-			<article id="post-<?php the_ID(); ?>" class="article-<?php echo views()->count; ?> article item clearfix hentry">
+			<article id="post-<?php the_ID(); ?>" class="article-<?php echo views()->count; ?> article item clearfix">
 	
-				<?php View_Builder_Shortcodes::get_post_parts( $builder_options, $parts, $view_name ); ?>
+				<div class="article-inner">
+					<?php View_Builder_Shortcodes::get_post_parts( $builder_options, $parts, $view_name ); ?>
+				</div>
 
 			</article>
 

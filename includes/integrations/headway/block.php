@@ -68,6 +68,13 @@ class HeadwayInfinityBlock extends HeadwayBlockAPI {
 			'selector' => '.view-wrapper article'
 		));
 
+			$this->register_block_element(array(
+				'id' => 'view-wrapper-article-inner', 
+				'parent' => 'view-wrapper-article', 
+				'name' => 'Inner Article',
+				'selector' => '.view-wrapper article .article-inner'
+			));
+
 		$this->register_block_element(array(
 			'id' => 'parts',
 			'name' => 'Article Parts',
@@ -79,21 +86,21 @@ class HeadwayInfinityBlock extends HeadwayBlockAPI {
 				'id' => 'content-title',
 				'name' => 'Title',
 				'parent' => 'parts',
-				'selector' => '.title-part.entry-title',
+				'selector' => '.vb-part.title-part',
 			));
 
 				$this->register_block_element(array(
 					'id' => 'title',
 					'parent' => 'content-title',
 					'name' => 'Title Link',
-					'selector' => '.title-part.entry-title a',
+					'selector' => '.vb-part.title-part a',
 				));
 
 					$this->register_block_element(array(
 						'id' => 'title-before',
 						'parent' => 'content-title',
 						'name' => 'Before Title',
-						'selector' => '.title-part.entry-title > span',
+						'selector' => '.vb-part.title-part > span',
 					));
 
 			$this->register_block_element(array(
@@ -102,6 +109,13 @@ class HeadwayInfinityBlock extends HeadwayBlockAPI {
 				'parent' => 'parts',
 				'selector' => '.content-part',
 			));
+
+				$this->register_block_element(array(
+					'id' => 'content-part-paragraph',
+					'name' => 'Content Paragraph',
+					'parent' => 'content-part',
+					'selector' => '.content-part p',
+				));
 
 				$this->register_block_element(array(
 					'id' => 'content-part-link',
@@ -134,7 +148,7 @@ class HeadwayInfinityBlock extends HeadwayBlockAPI {
 				$this->register_block_element(array(
 					'id' => 'thumbnail-cover',
 					'parent' => 'thumbnail',
-					'name' => 'Thumb Cover',
+					'name' => 'Thumb Icon Cover',
 					'selector' => 'figure.image-part .thumb-cover',
 				));
 
@@ -158,6 +172,20 @@ class HeadwayInfinityBlock extends HeadwayBlockAPI {
 					'name' => 'Cover Link Icon',
 					'selector' => '.thumb-icons .cover-button a i',
 				));
+
+				$this->register_block_element(array(
+					'id' => 'thumbnail-cover-content',
+					'parent' => 'thumbnail',
+					'name' => 'Thumb Content Cover',
+					'selector' => 'figure.image-part .content-cover',
+				));
+
+					$this->register_block_element(array(
+						'id' => 'thumbnail-cover-content-contents',
+						'parent' => 'thumbnail-cover-content',
+						'name' => 'Cover Content',
+						'selector' => 'figure.image-part .content-cover-content',
+					));
 
 			$this->register_block_element(array(
 				'id' => 'author-part',
@@ -306,6 +334,9 @@ class HeadwayInfinityBlock extends HeadwayBlockAPI {
 					'name' => 'Like Post Link',
 					'parent' => 'likes-part',
 					'selector' => '.likes-part > a',
+					'states' => array(
+						'Liked' => '.likes-part > a.vb-post-like.liked'
+					)
 				));
 
 					$this->register_block_element(array(
@@ -352,6 +383,13 @@ class HeadwayInfinityBlock extends HeadwayBlockAPI {
 				'selector' => '.readmore-part',
 			));
 
+			$this->register_block_element(array(
+				'parent' => 'readmore-part',
+				'name' => 'Read More Link',
+				'id' => 'readmore-part-link',
+				'selector' => '.readmore-part a',
+			));
+
 
 			$this->register_block_element(array(
 				'id' => 'share-part',
@@ -368,17 +406,27 @@ class HeadwayInfinityBlock extends HeadwayBlockAPI {
 				));
 
 				$this->register_block_element(array(
-					'id' => 'share-part-item-link',
-					'name' => 'Share Item Link',
+					'id' => 'share-part-item',
+					'name' => 'Share Item',
 					'parent' => 'share-part',
-					'selector' => '.share-part li a',
+					'selector' => 'article .vb-part.share-part li',
 				));
 
 				$this->register_block_element(array(
-					'id' => 'share-part-item-link-image',
-					'name' => 'Share Item Image',
-					'parent' => 'share-part',
-					'selector' => '.share-part li a img',
+					'id' => 'share-part-item-link',
+					'name' => 'Share Item Link',
+					'parent' => 'share-part-item',
+					'selector' => 'article .vb-part.share-part li a'
+				));
+
+				$this->register_block_element(array(
+					'id' => 'share-part-item-link-icon',
+					'name' => 'Share Item Icon',
+					'parent' => 'share-part-item-link',
+					'selector' => 'article .vb-part.share-part li a i',
+					'states' => array(
+						'Hover' => 'article .vb-part.share-part li a:hover i'
+					)
 				));
 
 			$this->register_block_element(array(

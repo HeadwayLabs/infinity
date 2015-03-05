@@ -92,7 +92,7 @@ class View_Builder_Admin {
 		echo '<div id="views-toolbar">';
 
 			if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
-				echo '<a id="open-customizer" href="' . wp_customize_url( get_template() ) . '" title="Open Wordpress Customizer to start editing this View." target="_blank" class="load-customize hide-if-no-customize open-customizer toolbar-wrap"><span class="dashicons dashicons-admin-appearance"></span></a>';
+				echo '<a id="open-customizer" href="' . wp_customize_url( get_stylesheet() ) . '" title="Open Wordpress Customizer to start editing this View." target="_blank" class="load-customize hide-if-no-customize open-customizer toolbar-wrap"><span class="dashicons dashicons-admin-appearance"></span></a>';
 			}
 
 			$id = $post->ID;

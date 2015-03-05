@@ -78,7 +78,6 @@ class TitanFrameworkOptionRadioImage extends TitanFrameworkOption {
 			'type' => 'select',
 			'choices' => $this->settings['options'],
 			'settings' => $this->getID(),
-			'type' => 'radio-image',
 			'description' => $this->settings['desc'],
 			'priority' => $priority,
 		) ) );

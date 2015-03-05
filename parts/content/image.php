@@ -23,6 +23,7 @@
 			'cover_button_link3'        	=> null,
 			'cover_button4'             	=> null,
 			'cover_button_link4'        	=> null,
+			'content_vertical_align' 		=> 'center',
 			'lightbox_width'                 => '1024',
 			'lightbox_height'               	=> '768',
 			'display_as' => null
@@ -84,10 +85,6 @@
 	?>
 
 	<figure class="vb-part align<?php echo $thumb_align; ?><?php echo $display_as; ?> image-part infinity-cover<?php echo $figure_class; ?>">
-
-		<a href="<?php echo get_permalink() ?>" class="post-thumb" title="<?php echo get_the_title(); ?>">
-			<img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo get_the_title(); ?>"  width="<?php echo $thumbnail_width; ?>" height="<?php echo $thumbnail_height; ?>"/>
-		</a>
 
 		<?php if ( $show_cover == 'on' && $thumb_cover_type == 'icons') : ?>
 			<div class="<?php echo $thumb_cover_effect; ?> thumb-cover"></div>
@@ -204,8 +201,8 @@
 
       <?php if ( $show_cover == 'on' && $thumb_cover_type == 'content') :  ?>
 
-      	<div class="<?php echo 'Content'. $thumb_content_hover_effect . ''; ?>">
-            <div class="Content">
+      	<div class="<?php echo 'Content'. $thumb_content_hover_effect . ''; ?> content-cover">
+            <div class="Content content-cover-content vertical-<?php echo $content_vertical_align; ?>">
                  
 					<?php 
 						$cover_parts = $builder_options->getOption( 'image-parts-content-type-' . $view_name . '' );
@@ -219,6 +216,11 @@
          </div>
 
 		<?php endif; ?>
+
+			<a href="<?php echo get_permalink() ?>" class="post-thumb" title="<?php echo get_the_title(); ?>">
+			<img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo get_the_title(); ?>"  width="<?php echo $thumbnail_width; ?>" height="<?php echo $thumbnail_height; ?>"/>
+		</a>
+
 
 	</figure>
 

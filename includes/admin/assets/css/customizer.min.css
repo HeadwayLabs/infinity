@@ -100,7 +100,20 @@
 #customize-theme-controls ul.builder-options li.customize-control.customize-control-heading {
   padding-bottom: 0;
 }
-#customize-theme-controls ul.builder-options li.customize-control h3,
+#customize-theme-controls ul.builder-options li.customize-control h3 {
+  cursor: pointer;
+  color: #666;
+  padding: 16px 18px;
+  font-size: 12px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 10px -18px 0 -18px;
+  width: 219px;
+  line-height: .8;
+  border: 1px solid #ddd;
+  background: #fff;
+}
 #customize-theme-controls ul.builder-options li.customize-control h3.customize-control-title {
   cursor: pointer;
   color: #666;

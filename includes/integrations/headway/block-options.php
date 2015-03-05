@@ -51,8 +51,8 @@ class HeadwayInfinityBlockOptions extends HeadwayBlockOptionsAPI {
 									<a href="wp-admin/edit.php?post_type=view" target="_blank">view</a>
 									 from the list below.</p>
 									 <p> If you want to style your view, make sure you are in design mode in Headway. To 
-									 <a id="open-customizer" href="' . wp_customize_url( get_template() ) . '" title="Open Wordpress Customizer to start editing this View." target="_blank">Build the layout & Configure your view</a>
-									 . You use the <a id="open-customizer" href="' . wp_customize_url( get_template() ) . '" title="Open Wordpress Customizer to start editing this View." target="_blank">Wordpress Customizer.</a></p>';
+									 <a id="open-customizer" href="' . wp_customize_url( get_stylesheet() ) . '" title="Open Wordpress Customizer to start editing this View." target="_blank">Build the layout & Configure your view</a>
+									 . You use the <a id="open-customizer" href="' . wp_customize_url( get_stylesheet() ) . '" title="Open Wordpress Customizer to start editing this View." target="_blank">Wordpress Customizer.</a></p>';
 		
 		$this->tab_notices['add-view'] = $customizer_link;
 		

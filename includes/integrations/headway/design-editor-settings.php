@@ -31,8 +31,10 @@ function infinity_builder_block_default_design_settings() {
 
 		'block-infinity-block-parts' => array(
 	      'properties' => array(
-	         'margin-top' => '2em',
-	         'margin-bottom' => '2em'
+	         'margin-top' => '1em',
+	         'margin-bottom' => '1em',
+	         'margin-left' => '0',
+	         'margin-right' => '0'
 	      )
 		),
 
@@ -168,7 +170,6 @@ function infinity_builder_block_default_design_settings() {
 
 		'block-infinity-block-cover-button' => array(
 			'properties' => array(
-				'position' => 'absolute',
 				'background-color' => '#FFFFFF',
 				'font-size' => '12px',
 				'line-height' => '40px',
@@ -438,6 +439,22 @@ function infinity_builder_block_default_design_settings() {
 				'border-top-right-radius' => '2px',
 				'border-bottom-left-radius' => '2px',
 				'border-bottom-right-radius' => '2px'
+			)
+		),
+
+		'block-infinity-block-share-part-item' => array(
+			'properties' => array()
+		),
+
+		'block-infinity-block-share-part-item-link' => array(
+			'properties' => array(
+				'text-decoration' => 'none',
+			)
+		),
+
+		'block-infinity-block-share-part-item-link-icon' => array(
+			'properties' => array(
+				'font-size' => '16px',
 			)
 		)
 
