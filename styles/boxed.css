@@ -62,6 +62,9 @@
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
+.infinity-cover .thumb-icons {
+  z-index: 3;
+}
 .infinity-cover .thumb-icons span {
   background-color: white;
   border: medium none;
