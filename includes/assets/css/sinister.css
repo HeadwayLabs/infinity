@@ -1,0 +1,2353 @@
+/*
+--------------------------------------------------------
+
+Item Information
+
+--------------------------------------------------------
+
+Author: IncisiveStudio
+Author UI: http://IncisiveStudio.com
+Item Name: Sinister
+Description: CSS Animation and Effects
+Version: 1.6.4
+
+-------------------------------------------------------- */
+/*  =============================================
+Button Layout and Color Scheme
+============================================= */
+.WhiteRounded {
+  background-color: #fff;
+  border: medium none;
+  display: inline-block !important;
+  float: none!important;
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 2px;
+  text-align: center;
+  width: 40px;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.WhiteRounded > a {
+  color: #222;
+  display: block;
+  font-weight: 400;
+}
+.BlackRounded {
+  background-color: #222;
+  border: medium none;
+  display: inline-block !important;
+  float: none!important;
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 2px;
+  text-align: center;
+  width: 40px;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.BlackRounded > a {
+  color: #fff!important;
+  display: block;
+  font-weight: 400;
+}
+.WhiteHollowRounded {
+  border: 1px solid #fff;
+  display: inline-block !important;
+  float: none!important;
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 2px;
+  text-align: center;
+  width: 40px;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+.WhiteHollowRounded > a {
+  color: #fff!important;
+  display: block;
+  font-weight: 400;
+}
+.BlackHollowRounded {
+  border: 1px solid #222;
+  display: inline-block !important;
+  float: none!important;
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 2px;
+  text-align: center;
+  width: 40px;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+.BlackHollowRounded > a {
+  color: #222;
+  display: block;
+  font-weight: 400;
+}
+.WhiteSquare {
+  background-color: #fff!important;
+  border: medium none;
+  display: inline-block !important;
+  float: none!important;
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 2px;
+  text-align: center;
+  width: 40px;
+  -o-border-radius: 4px 4px 4px;
+  border-radius: 4px 4px 4px;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.WhiteSquare > a {
+  color: #222;
+  display: block;
+  font-weight: 400;
+}
+.BlackSquare {
+  background-color: #222;
+  border: medium none;
+  display: inline-block !important;
+  float: none!important;
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 2px;
+  text-align: center;
+  width: 40px;
+  -o-border-radius: 4px 4px 4px;
+  border-radius: 4px 4px 4px;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.BlackSquare > a {
+  color: #fff!important;
+  display: block;
+  font-weight: 400;
+}
+.WhiteHollowSquare {
+  border: 1px solid #fff;
+  display: inline-block !important;
+  float: none!important;
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 2px;
+  text-align: center;
+  width: 40px;
+  -o-border-radius: 4px 4px 4px;
+  border-radius: 4px 4px 4px;
+}
+.WhiteHollowSquare > a {
+  color: #fff!important;
+  display: block;
+  font-weight: 400;
+}
+.BlackHollowSquare {
+  border: 1px solid #222;
+  display: inline-block !important;
+  float: none!important;
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 2px;
+  text-align: center;
+  width: 40px;
+  -o-border-radius: 4px 4px 4px;
+  border-radius: 4px 4px 4px;
+}
+.BlackHollowSquare > a {
+  color: #222;
+  display: block;
+  font-weight: 400;
+}
+.VisibleButtons {
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  margin-top: -20px;
+}
+.VisibleImageOverlay {
+  position: absolute;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: .6;
+  visibility: visible;
+}
+/*  =============================================
+Overlay Effects
+============================================= */
+.infinity-cover .ImageFade {
+  bottom: 0;
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageFade {
+  opacity: 1;
+}
+.infinity-cover .ImageFadeExpand {
+  display: block;
+  height: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageFadeExpand {
+  height: 100%;
+  top: 0;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayLi:after {
+  height: 100%;
+  content: "";
+  display: block;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: -100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayLi:after {
+  top: -50%;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayLi:before {
+  bottom: -100%;
+  height: 100%;
+  content: "";
+  display: block;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayLi:before {
+  bottom: -50%;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayBe:after {
+  height: 100%;
+  content: "";
+  display: block;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: -100%;
+  -webkit-transition: all .6s ease 0;
+  transition: all .6s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayBe:after {
+  top: 50%;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayBe:before {
+  bottom: -100%;
+  height: 100%;
+  content: "";
+  display: block;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  -webkit-transition: all .6s ease 0;
+  transition: all .6s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayBe:before {
+  bottom: 50%;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayB {
+  height: 100%;
+  display: block;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 0;
+}
+.infinity-cover:hover .ImageOverlayB {
+  left: 0;
+  width: 100%;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayC:after {
+  height: 100%;
+  content: "";
+  display: block;
+  right: -100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayC:after {
+  right: -50%;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayC:before {
+  height: 100%;
+  content: "";
+  display: block;
+  left: -100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayC:before {
+  left: -50%;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayC {
+  height: 100%;
+  display: block;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 0;
+}
+.infinity-cover .ImageOverlayN:after {
+  height: 100%;
+  content: "";
+  display: block;
+  right: -100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all .6s ease 0;
+  transition: all .6s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayN:after {
+  right: 50%;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayN:before {
+  height: 100%;
+  content: "";
+  display: block;
+  left: -100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all .6s ease 0;
+  transition: all .6s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayN:before {
+  left: 50%;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayO {
+  height: 100%;
+  display: block;
+  left: -100%;
+  opacity: 0;
+  position: absolute;
+  top: -100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayO {
+  left: 0;
+  top: 0;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayF {
+  height: 100%;
+  display: block;
+  right: -100%;
+  opacity: 0;
+  position: absolute;
+  top: -100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayF {
+  right: 0;
+  top: 0;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayNe {
+  height: 100%;
+  display: block;
+  left: -100%;
+  opacity: 0;
+  position: absolute;
+  bottom: -100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayNe {
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayNa {
+  height: 100%;
+  display: block;
+  right: -100%;
+  opacity: 0;
+  position: absolute;
+  bottom: -100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayNa {
+  bottom: 0;
+  right: 0;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayMg {
+  height: 100%;
+  display: block;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: -100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayMg {
+  top: 0;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayAl {
+  height: 100%;
+  display: block;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  bottom: -100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayAl {
+  bottom: 0;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlaySi {
+  height: 100%;
+  display: block;
+  top: 0;
+  opacity: 0;
+  position: absolute;
+  right: -100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlaySi {
+  right: 0;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayP {
+  height: 100%;
+  display: block;
+  top: 0;
+  opacity: 0;
+  position: absolute;
+  left: -100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+}
+.infinity-cover:hover .ImageOverlayP {
+  left: 0;
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayS {
+  height: 100%;
+  display: block;
+  top: 0;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+  -webkit-transform: rotate(180deg) scale(0);
+  -ms-transform: rotate(180deg) scale(0);
+  transform: rotate(180deg) scale(0);
+}
+.infinity-cover:hover .ImageOverlayS {
+  -webkit-transform: rotate(0deg) scale(1);
+  -ms-transform: rotate(0deg) scale(1);
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayCl {
+  height: 100%;
+  display: block;
+  top: 0;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  width: 100%;
+  -webkit-transform: rotate(-180deg) scale(0);
+  -ms-transform: rotate(-180deg) scale(0);
+  transform: rotate(-180deg) scale(0);
+}
+.infinity-cover:hover .ImageOverlayCl {
+  -webkit-transform: rotate(0deg) scale(1);
+  -ms-transform: rotate(0deg) scale(1);
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayArLeft:before {
+  opacity: 0;
+  content: "";
+  display: block;
+  position: absolute;
+  top: -50%;
+  -webkit-transition: all .2s ease 0;
+  transition: all .2s ease 0;
+  width: 100%;
+  height: 100%;
+  left: -100%;
+  overflow: hidden;
+}
+.infinity-cover .ImageOverlayArLeft:after {
+  opacity: 0;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  -webkit-transition: all .2s ease .2s;
+  transition: all .2s ease .2s;
+  width: 100%;
+  height: 100%;
+  left: -100%;
+  overflow: hidden;
+}
+.infinity-cover .ImageOverlayArRight:before {
+  opacity: 0;
+  content: "";
+  display: block;
+  position: absolute;
+  top: -50%;
+  -webkit-transition: all .2s ease .3s;
+  transition: all .2s ease .3s;
+  width: 100%;
+  height: 100%;
+  right: -100%;
+  overflow: hidden;
+}
+.infinity-cover .ImageOverlayArRight:after {
+  opacity: 0;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  -webkit-transition: all .2s ease .5s;
+  transition: all .2s ease .5s;
+  width: 100%;
+  height: 100%;
+  right: -100%;
+  overflow: hidden;
+}
+.infinity-cover:hover .ImageOverlayArLeft:before,
+.infinity-cover:hover .ImageOverlayArLeft:after {
+  opacity: 1;
+  left: 50%;
+}
+.infinity-cover:hover .ImageOverlayArRight:before,
+.infinity-cover:hover .ImageOverlayArRight:after {
+  opacity: 1;
+  right: 50%;
+}
+.infinity-cover .ImageOverlayK {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transform-style: preserve-3D;
+  -ms-transform-style: preserve-3D;
+  transform-style: preserve-3D;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .ImageOverlayK {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayCa {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: top right;
+  -ms-transform-origin: top right;
+  transform-origin: top right;
+  -webkit-transform-style: preserve-3D;
+  -ms-transform-style: preserve-3D;
+  transform-style: preserve-3D;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .ImageOverlayCa {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  opacity: 1;
+}
+.infinity-cover .ImageOverlaySc {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: bottom left;
+  -ms-transform-origin: bottom left;
+  transform-origin: bottom left;
+  -webkit-transform-style: preserve-3D;
+  -ms-transform-style: preserve-3D;
+  transform-style: preserve-3D;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .ImageOverlaySc {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  opacity: 1;
+}
+.infinity-cover .ImageOverlayTi {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: bottom right;
+  -ms-transform-origin: bottom right;
+  transform-origin: bottom right;
+  -webkit-transform-style: preserve-3D;
+  -ms-transform-style: preserve-3D;
+  transform-style: preserve-3D;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .ImageOverlayTi {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  opacity: 1;
+}
+/*  =============================================
+Cubic Effects
+============================================= */
+.infinity-cover .CStyleH {
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+  -webkit-transition: all 400ms cubic-bezier(1, -0.6, 0.57, -0.15);
+  transition: all 400ms cubic-bezier(1, -0.6, 0.57, -0.15);
+}
+.infinity-cover:hover .CStyleH {
+  margin-top: -20px;
+  opacity: 1;
+  top: 50%;
+  visibility: visible;
+}
+.infinity-cover .CStyleHe {
+  visibility: hidden;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  -webkit-transition: all 400ms cubic-bezier(1, -0.6, 0.57, -0.15);
+  transition: all 400ms cubic-bezier(1, -0.6, 0.57, -0.15);
+}
+.infinity-cover:hover .CStyleHe {
+  margin-bottom: -20px;
+  opacity: 1;
+  bottom: 50%;
+  visibility: visible;
+}
+.infinity-cover .CStyleLi {
+  visibility: hidden;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: right;
+  right: 0;
+  width: 100%;
+  top: 50%;
+  margin-top: -20px;
+  -webkit-transition: all 400ms cubic-bezier(1, -0.6, 0.57, -0.15);
+  transition: all 400ms cubic-bezier(1, -0.6, 0.57, -0.15);
+}
+.infinity-cover:hover .CStyleLi {
+  margin-right: -42px;
+  opacity: 1;
+  right: 50%;
+  visibility: visible;
+}
+.infinity-cover .CStyleBe {
+  visibility: hidden;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: left;
+  left: 0;
+  width: 100%;
+  top: 50%;
+  margin-top: -20px;
+  -webkit-transition: all 400ms cubic-bezier(1, -0.6, 0.57, -0.15);
+  transition: all 400ms cubic-bezier(1, -0.6, 0.57, -0.15);
+}
+.infinity-cover:hover .CStyleBe {
+  margin-left: -42px;
+  opacity: 1;
+  left: 50%;
+  visibility: visible;
+}
+.infinity-cover .CStyleB {
+  visibility: hidden;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  margin-top: -20px;
+  -webkit-transform: scale(0.2);
+  -ms-transform: scale(0.2);
+  transform: scale(0.2);
+  -webkit-transition: all 400ms cubic-bezier(1, -0.6, 0.57, -0.15);
+  transition: all 400ms cubic-bezier(1, -0.6, 0.57, -0.15);
+}
+.infinity-cover:hover .CStyleB {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.infinity-cover .CStyleC span {
+  position: absolute;
+}
+.infinity-cover .CStyleC span:nth-of-type(1) {
+  bottom: 50%;
+  top: 50%;
+  left: 0;
+  margin: -20px 0 0 -68px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 400ms cubic-bezier(1, 0, 0.57, 0) !important;
+  -webkit-transition: all 400ms cubic-bezier(1, -0.36, 0.57, -0.15) !important;
+  transition: all 400ms cubic-bezier(1, -0.36, 0.57, -0.15) !important;
+}
+.infinity-cover .CStyleC span:nth-of-type(2) {
+  bottom: 50%;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  margin: -20px 0 0 -20px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover .CStyleC span:nth-of-type(3) {
+  bottom: 50%;
+  top: 50%;
+  right: 0;
+  margin: -20px -68px 0 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 400ms cubic-bezier(1, 0, 0.57, 0) !important;
+  -webkit-transition: all 400ms cubic-bezier(1, -0.36, 0.57, -0.15) !important;
+  transition: all 400ms cubic-bezier(1, -0.36, 0.57, -0.15) !important;
+}
+.infinity-cover:hover .CStyleC span:nth-of-type(1) {
+  left: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover:hover .CStyleC span:nth-of-type(2) {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.infinity-cover:hover .CStyleC span:nth-of-type(3) {
+  right: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+/*  =============================================
+Button Effects
+============================================= */
+.infinity-cover .StyleH {
+  visibility: hidden;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  margin-top: -20px;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleH {
+  opacity: 1;
+  visibility: visible;
+}
+.infinity-cover .StyleHe {
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleHe {
+  margin-top: -20px;
+  opacity: 1;
+  top: 50%;
+  visibility: visible;
+}
+.infinity-cover .StyleLi {
+  visibility: hidden;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleLi {
+  margin-bottom: -20px;
+  opacity: 1;
+  bottom: 50%;
+  visibility: visible;
+}
+.infinity-cover .StyleBe {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  text-align: right;
+  right: 0;
+  width: 100%;
+  top: 50%;
+  margin-top: -20px;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleBe {
+  margin-right: -42px;
+  opacity: 1;
+  right: 50%;
+  visibility: visible;
+}
+.infinity-cover .StyleB {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  text-align: left;
+  left: 0;
+  width: 100%;
+  top: 50%;
+  margin-top: -20px;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleB {
+  margin-left: -42px;
+  opacity: 1;
+  left: 50%;
+  visibility: visible;
+}
+.infinity-cover .StyleC {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  margin-top: -20px;
+  -webkit-transform: scale(0.2);
+  -ms-transform: scale(0.2);
+  transform: scale(0.2);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleC {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.infinity-cover .StyleN {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  margin-top: -20px;
+  visibility: visible;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleN {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.infinity-cover .StyleO span {
+  position: absolute;
+}
+.infinity-cover .StyleO span:nth-of-type(1) {
+  bottom: 50%;
+  top: 50%;
+  left: 50%;
+  margin: -20px 0 0 -42px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover .StyleO span:nth-of-type(2) {
+  bottom: 50%;
+  top: 50%;
+  right: 50%;
+  margin: -20px -42px 0 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleO span:nth-of-type(1) {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.infinity-cover:hover .StyleO span:nth-of-type(2) {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.infinity-cover .StyleF {
+  visibility: hidden;
+  -webkit-transform: scale(0.5) rotateX(360deg);
+  -ms-transform: scale(0.5) rotateX(360deg);
+  transform: scale(0.5) rotateX(360deg);
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  margin-top: -20px;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleF {
+  opacity: 1;
+  -webkit-transform: scale(1) rotateX(0deg);
+  -ms-transform: scale(1) rotateX(0deg);
+  transform: scale(1) rotateX(0deg);
+  visibility: visible;
+}
+.infinity-cover .StyleNe {
+  visibility: hidden;
+  margin: 0;
+  -webkit-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  margin-top: -20px;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleNe {
+  opacity: 1;
+  -webkit-transform: rotateY(360deg);
+  -ms-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+  visibility: visible;
+}
+.infinity-cover .StyleNa {
+  visibility: hidden;
+  -webkit-transform: scale(0.2) rotateY(360deg);
+  -ms-transform: scale(0.2) rotateY(360deg);
+  transform: scale(0.2) rotateY(360deg);
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  margin-top: -20px;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleNa {
+  opacity: 1;
+  -webkit-transform: scale(1) rotateY(0deg);
+  -ms-transform: scale(1) rotateY(0deg);
+  transform: scale(1) rotateY(0deg);
+  visibility: visible;
+}
+.infinity-cover .StyleMg span {
+  position: absolute;
+}
+.infinity-cover .StyleMg span:nth-of-type(1) {
+  bottom: 50%;
+  top: 50%;
+  left: 50%;
+  margin: -20px 0 0 -82px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover .StyleMg span:nth-of-type(2) {
+  bottom: 50%;
+  top: 50%;
+  right: 50%;
+  margin: -20px -82px 0 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleMg span:nth-of-type(1) {
+  margin: -20px 0 0 -42px;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover:hover .StyleMg span:nth-of-type(2) {
+  margin: -20px -42px 0 0;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover .StyleAl span {
+  position: absolute;
+}
+.infinity-cover .StyleAl span:nth-of-type(1) {
+  top: 0;
+  left: 50%;
+  margin: -20px 0 0 -42px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover .StyleAl span:nth-of-type(2) {
+  bottom: 0;
+  right: 50%;
+  margin: 0 -42px -20px 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleAl span:nth-of-type(1) {
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover:hover .StyleAl span:nth-of-type(2) {
+  bottom: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover .StyleSi span {
+  position: absolute;
+}
+.infinity-cover .StyleSi span:nth-of-type(1) {
+  bottom: 0;
+  left: 50%;
+  margin: 0 0 -20px -42px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover .StyleSi span:nth-of-type(2) {
+  top: 0;
+  right: 50%;
+  margin: -20px -42px 0 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleSi span:nth-of-type(1) {
+  bottom: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover:hover .StyleSi span:nth-of-type(2) {
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover .StyleP span {
+  position: absolute;
+}
+.infinity-cover .StyleP span:nth-of-type(1) {
+  top: 0;
+  left: 0;
+  margin: -40px 0 0 -40px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover .StyleP span:nth-of-type(2) {
+  bottom: 0;
+  right: 0;
+  margin: 0 -40px -40px 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleP span:nth-of-type(1) {
+  top: 50%;
+  left: 50%;
+  margin: -20px 0 0 -42px;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover:hover .StyleP span:nth-of-type(2) {
+  bottom: 50%;
+  right: 50%;
+  margin: 0 -42px -20px 0;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover .StyleS span {
+  position: absolute;
+}
+.infinity-cover .StyleS span:nth-of-type(1) {
+  bottom: 0;
+  left: 0;
+  margin: -40px 0 0 -40px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover .StyleS span:nth-of-type(2) {
+  top: 0;
+  right: 0;
+  margin: 0 -40px -40px 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleS span:nth-of-type(1) {
+  bottom: 50%;
+  left: 50%;
+  margin: 0 0 -20px -42px;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover:hover .StyleS span:nth-of-type(2) {
+  top: 50%;
+  right: 50%;
+  margin: -20px -42px 0 0;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover .StyleCl {
+  visibility: hidden;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  margin-top: -20px;
+  visibility: visible;
+  -webkit-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleCl {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotateX(360deg);
+  -ms-transform: rotateX(360deg);
+  transform: rotateX(360deg);
+}
+.infinity-cover .StyleAr span {
+  position: absolute;
+}
+.infinity-cover .StyleAr span:nth-of-type(1) {
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+  margin: -20px 0 0 -42px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: scale(0.2) rotate(0deg);
+  -ms-transform: scale(0.2) rotate(0deg);
+  transform: scale(0.2) rotate(0deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover .StyleAr span:nth-of-type(2) {
+  top: 50%;
+  bottom: 50%;
+  right: 50%;
+  margin: -20px -42px 0 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: scale(0.2) rotate(0deg);
+  -ms-transform: scale(0.2) rotate(0deg);
+  transform: scale(0.2) rotate(0deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleAr span:nth-of-type(1) {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1) rotate(360deg);
+  -ms-transform: scale(1) rotate(360deg);
+  transform: scale(1) rotate(360deg);
+}
+.infinity-cover:hover .StyleAr span:nth-of-type(2) {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1) rotate(360deg);
+  -ms-transform: scale(1) rotate(360deg);
+  transform: scale(1) rotate(360deg);
+}
+.infinity-cover .StyleK span {
+  position: absolute;
+}
+.infinity-cover .StyleK span:nth-of-type(1) {
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+  margin: -20px 0 0 -42px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover .StyleK span:nth-of-type(2) {
+  top: 50%;
+  bottom: 50%;
+  right: 50%;
+  margin: -20px -42px 0 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleK span:nth-of-type(1) {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: rotateY(360deg);
+  -ms-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+}
+.infinity-cover:hover .StyleK span:nth-of-type(2) {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: rotateY(360deg);
+  -ms-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+}
+.infinity-cover .StyleCa span {
+  position: absolute;
+}
+.infinity-cover .StyleCa span:nth-of-type(1) {
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+  margin: -20px 0 0 -42px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: scale(0.2) rotateY(0deg);
+  -ms-transform: scale(0.2) rotateY(0deg);
+  transform: scale(0.2) rotateY(0deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover .StyleCa span:nth-of-type(2) {
+  top: 50%;
+  bottom: 50%;
+  right: 50%;
+  margin: -20px -42px 0 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: scale(0.2) rotateY(0deg);
+  -ms-transform: scale(0.2) rotateY(0deg);
+  transform: scale(0.2) rotateY(0deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleCa span:nth-of-type(1) {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1) rotateY(360deg);
+  -ms-transform: scale(1) rotateY(360deg);
+  transform: scale(1) rotateY(360deg);
+}
+.infinity-cover:hover .StyleCa span:nth-of-type(2) {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1) rotateY(360deg);
+  -ms-transform: scale(1) rotateY(360deg);
+  transform: scale(1) rotateY(360deg);
+}
+.infinity-cover .StyleSc span {
+  position: absolute;
+}
+.infinity-cover .StyleSc span:nth-of-type(1) {
+  bottom: 50%;
+  top: 50%;
+  left: 0;
+  margin: -20px 0 0 -68px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover .StyleSc span:nth-of-type(2) {
+  top: 0;
+  right: 50%;
+  left: 50%;
+  margin: -20px 0 0 -20px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover .StyleSc span:nth-of-type(3) {
+  bottom: 50%;
+  top: 50%;
+  right: 0;
+  margin: -20px -68px 0 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleSc span:nth-of-type(1) {
+  left: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover:hover .StyleSc span:nth-of-type(2) {
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover:hover .StyleSc span:nth-of-type(3) {
+  right: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover .StyleTi span {
+  position: absolute;
+}
+.infinity-cover .StyleTi span:nth-of-type(1) {
+  bottom: 50%;
+  top: 50%;
+  left: 0;
+  margin: -20px 0 0 -68px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover .StyleTi span:nth-of-type(2) {
+  bottom: 50%;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  margin: -20px 0 0 -20px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover .StyleTi span:nth-of-type(3) {
+  bottom: 50%;
+  top: 50%;
+  right: 0;
+  margin: -20px -68px 0 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.infinity-cover:hover .StyleTi span:nth-of-type(1) {
+  left: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover:hover .StyleTi span:nth-of-type(2) {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.infinity-cover:hover .StyleTi span:nth-of-type(3) {
+  right: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover .StyleV span {
+  position: absolute;
+}
+.infinity-cover .StyleV span:nth-of-type(1) {
+  top: 0;
+  left: 50%;
+  margin: -20px 0 0 -68px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 200ms cubic-bezier(0, 1.135, 0.73, 1.405) 0.2s;
+  transition: all 200ms cubic-bezier(0, 1.135, 0.73, 1.405) 0.2s;
+}
+.infinity-cover .StyleV span:nth-of-type(2) {
+  top: 0;
+  left: 50%;
+  margin: -20px 0 0 -20px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 200ms cubic-bezier(0, 1.135, 0.73, 1.405) 0.3s;
+  transition: all 200ms cubic-bezier(0, 1.135, 0.73, 1.405) 0.3s;
+}
+.infinity-cover .StyleV span:nth-of-type(3) {
+  top: 0;
+  right: 50%;
+  margin: -20px -68px 0 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 200ms cubic-bezier(0, 1.135, 0.73, 1.405) 0.4s;
+  transition: all 200ms cubic-bezier(0, 1.135, 0.73, 1.405) 0.4s;
+}
+.infinity-cover:hover .StyleV span:nth-of-type(1) {
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover:hover .StyleV span:nth-of-type(2) {
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+.infinity-cover:hover .StyleV span:nth-of-type(3) {
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+/*  =============================================
+Content Transform
+============================================= */
+/* Style to show the content hover instead of hide it */
+.ContentWrapperShowFirst .ContentShowFirst {
+  position: absolute;
+  visibility: visible;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperH .ContentH {
+  top: 0;
+  left: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperH:hover .ContentH {
+  opacity: 1;
+  visibility: visible;
+}
+.ContentWrapperHe .ContentHe {
+  top: 0;
+  left: 0;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperHe:hover .ContentHe {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.ContentWrapperLi img {
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperLi:hover img {
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+.ContentWrapperLi .ContentLi {
+  top: 0;
+  left: 0;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperLi:hover .ContentLi {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.ContentWrapperBe img {
+  -webkit-transition: all .3s ease 0;
+  transition: all .3s ease 0;
+  opacity: 1;
+}
+.ContentWrapperBe:hover img {
+  -webkit-transform: scale(10);
+  -ms-transform: scale(10);
+  transform: scale(10);
+  opacity: 0;
+}
+.ContentWrapperBe .ContentBe {
+  top: 0;
+  left: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperBe:hover .ContentBe {
+  opacity: 1;
+  visibility: visible;
+}
+.ContentWrapperB img {
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperB:hover img {
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+}
+.ContentWrapperB .ContentB {
+  top: -100%;
+  left: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperB:hover .ContentB {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+}
+.ContentWrapperC img {
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperC:hover img {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.ContentWrapperC .ContentC {
+  bottom: -100%;
+  left: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperC:hover .ContentC {
+  opacity: 1;
+  visibility: visible;
+  bottom: 0;
+}
+.ContentWrapperN img {
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperN:hover img {
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+.ContentWrapperN .ContentN {
+  top: 0;
+  right: -100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperN:hover .ContentN {
+  opacity: 1;
+  visibility: visible;
+  right: 0;
+}
+.ContentWrapperO img {
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperO:hover img {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+}
+.ContentWrapperO .ContentO {
+  top: 0;
+  left: -100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperO:hover .ContentO {
+  opacity: 1;
+  visibility: visible;
+  left: 0;
+}
+.ContentWrapperF img {
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperF:hover img {
+  -webkit-transform: translateX(20%);
+  -ms-transform: translateX(20%);
+  transform: translateX(20%);
+}
+.ContentWrapperF .ContentF {
+  position: absolute;
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  width: 50%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  -webkit-transform: perspective(600px) rotateY(90deg);
+  -ms-transform: perspective(600px) rotateY(90deg);
+  transform: perspective(600px) rotateY(90deg);
+  -webkit-transform-origin: left center 0;
+  -ms-transform-origin: left center 0;
+  transform-origin: left center 0;
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperF:hover .ContentF {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: perspective(600px) rotateY(0deg);
+  -ms-transform: perspective(600px) rotateY(0deg);
+  transform: perspective(600px) rotateY(0deg);
+}
+.ContentWrapperNe img {
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperNe:hover img {
+  -webkit-transform: translateY(20%);
+  -ms-transform: translateY(20%);
+  transform: translateY(20%);
+}
+.ContentWrapperNe .ContentNe {
+  position: absolute;
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 50%;
+  display: block;
+  top: 0;
+  left: 0;
+  -webkit-transform: perspective(600px) rotateX(-90deg);
+  -ms-transform: perspective(600px) rotateX(-90deg);
+  transform: perspective(600px) rotateX(-90deg);
+  -webkit-transform-origin: center top 0;
+  -ms-transform-origin: center top 0;
+  transform-origin: center top 0;
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperNe:hover .ContentNe {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: perspective(600px) rotateX(0deg);
+  -ms-transform: perspective(600px) rotateX(0deg);
+  transform: perspective(600px) rotateX(0deg);
+}
+.ContentWrapperNa img {
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperNa:hover img {
+  -webkit-transform: translateX(-20%);
+  -ms-transform: translateX(-20%);
+  transform: translateX(-20%);
+}
+.ContentWrapperNa .ContentNa {
+  position: absolute;
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  width: 50%;
+  height: 100%;
+  display: block;
+  top: 0;
+  right: 0;
+  -webkit-transform: perspective(600px) rotateY(-90deg);
+  -ms-transform: perspective(600px) rotateY(-90deg);
+  transform: perspective(600px) rotateY(-90deg);
+  -webkit-transform-origin: right center 0;
+  -ms-transform-origin: right center 0;
+  transform-origin: right center 0;
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperNa:hover .ContentNa {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: perspective(600px) rotateY(0deg);
+  -ms-transform: perspective(600px) rotateY(0deg);
+  transform: perspective(600px) rotateY(0deg);
+}
+.ContentWrapperMg img {
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperMg:hover img {
+  -webkit-transform: translateY(-20%);
+  -ms-transform: translateY(-20%);
+  transform: translateY(-20%);
+}
+.ContentWrapperMg .ContentMg {
+  position: absolute;
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 50%;
+  display: block;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: perspective(600px) rotateX(90deg);
+  -ms-transform: perspective(600px) rotateX(90deg);
+  transform: perspective(600px) rotateX(90deg);
+  -webkit-transform-origin: center bottom 0;
+  -ms-transform-origin: center bottom 0;
+  transform-origin: center bottom 0;
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperMg:hover .ContentMg {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: perspective(600px) rotateY(0deg);
+  -ms-transform: perspective(600px) rotateY(0deg);
+  transform: perspective(600px) rotateY(0deg);
+}
+.ContentWrapperAl .ContentAl {
+  top: 0;
+  left: 0;
+  -webkit-transform: rotateY(0deg) scale(0);
+  -ms-transform: rotateY(0deg) scale(0);
+  transform: rotateY(0deg) scale(0);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperAl:hover .ContentAl {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotateY(360deg) scale(0.9);
+  -ms-transform: rotateY(360deg) scale(0.9);
+  transform: rotateY(360deg) scale(0.9);
+}
+.ContentWrapperSi .ContentSi {
+  top: 0;
+  left: 0;
+  -webkit-transform: rotateX(0deg) scale(0);
+  -ms-transform: rotateX(0deg) scale(0);
+  transform: rotateX(0deg) scale(0);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperSi:hover .ContentSi {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotateX(360deg) scale(0.9);
+  -ms-transform: rotateX(360deg) scale(0.9);
+  transform: rotateX(360deg) scale(0.9);
+}
+.ContentWrapperP .ContentP {
+  top: 0;
+  left: 0;
+  -webkit-transform: rotateY(0deg) scale(0.9);
+  -ms-transform: rotateY(0deg) scale(0.9);
+  transform: rotateY(0deg) scale(0.9);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperP:hover .ContentP {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotateY(360deg) scale(0.9);
+  -ms-transform: rotateY(360deg) scale(0.9);
+  transform: rotateY(360deg) scale(0.9);
+}
+.ContentWrapperS .ContentS {
+  top: 0;
+  left: 0;
+  -webkit-transform: rotateX(0deg) scale(0.96);
+  -ms-transform: rotateX(0deg) scale(0.96);
+  transform: rotateX(0deg) scale(0.96);
+  -webkit-transition: all .5s ease 0;
+  transition: all 0.5s ease 0;
+}
+.ContentWrapperS:hover .ContentS {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotateX(360deg) scale(0.96);
+  -ms-transform: rotateX(360deg) scale(0.96);
+  transform: rotateX(360deg) scale(0.96);
+}
+.ContentWrapperCl {
+  overflow: visible !important;
+}
+.ContentWrapperCl img {
+  position: relative;
+  z-index: 455;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperCl:hover img {
+  -webkit-transform: translateY(-40%);
+  -ms-transform: translateY(-40%);
+  transform: translateY(-40%);
+}
+.ContentWrapperCl .ContentCl {
+  position: absolute;
+  background: #fff;
+  opacity: 1;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  display: block;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperCl:hover .ContentCl {
+  visibility: visible;
+}
+.ContentWrapperCl .ContentCl .Content {
+  top: 65%;
+  display: block;
+}
+.ContentWrapperAr {
+  overflow: visible !important;
+}
+.ContentWrapperAr img {
+  position: relative;
+  z-index: 455;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperAr:hover img {
+  -webkit-transform: translateY(40%);
+  -ms-transform: translateY(40%);
+  transform: translateY(40%);
+}
+.ContentWrapperAr .ContentAr {
+  position: absolute;
+  background: #fff;
+  opacity: 1;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  display: block;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperAr:hover .ContentAr {
+  visibility: visible;
+}
+.ContentWrapperK {
+  overflow: visible !important;
+}
+.ContentWrapperK img {
+  position: relative;
+  z-index: 455;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperK:hover img {
+  -webkit-transform: translateX(-20%);
+  -ms-transform: translateX(-20%);
+  transform: translateX(-20%);
+}
+.ContentWrapperK .ContentK {
+  position: absolute;
+  background: #fff;
+  opacity: 1;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  display: block;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperK:hover .ContentK {
+  visibility: visible;
+}
+.ContentWrapperK .ContentK .Content {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+.ContentWrapperCa {
+  overflow: visible !important;
+}
+.ContentWrapperCa img {
+  position: relative;
+  z-index: 455;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperCa:hover img {
+  -webkit-transform: translateX(20%);
+  -ms-transform: translateX(20%);
+  transform: translateX(20%);
+}
+.ContentWrapperCa .ContentCa {
+  position: absolute;
+  background: #fff;
+  opacity: 1;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  display: block;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperCa:hover .ContentCa {
+  visibility: visible;
+}
+.ContentWrapperCa .ContentCa .Content {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+.ContentWrapperSc .ContentSc {
+  position: absolute;
+  background: #fff;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: -100%;
+  left: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperSc:hover .ContentSc {
+  visibility: visible;
+  top: 0;
+}
+.ContentWrapperTi .ContentTi {
+  position: absolute;
+  background: #fff;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: -100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperTi:hover .ContentTi {
+  visibility: visible;
+  left: 0;
+}
+.ContentWrapperV .ContentV {
+  position: absolute;
+  background: #fff;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  right: -100%;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperV:hover .ContentV {
+  visibility: visible;
+  right: 0;
+}
+.ContentWrapperCr .ContentCr {
+  position: absolute;
+  background: #fff;
+  visibility: hidden;
+  width: 100%;
+  height: 0;
+  display: block;
+  bottom: -100%;
+  left: 0;
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperCr:hover .ContentCr {
+  visibility: visible;
+  height: 100%;
+  bottom: 0;
+}
+.ContentWrapperMn .ContentMn {
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transform-style: preserve-3D;
+  -ms-transform-style: preserve-3D;
+  transform-style: preserve-3D;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperMn:hover .ContentMn {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.ContentWrapperFe .ContentFe {
+  top: 0;
+  right: 0;
+  -webkit-transform-origin: top right;
+  -ms-transform-origin: top right;
+  transform-origin: top right;
+  -webkit-transform-style: preserve-3D;
+  -ms-transform-style: preserve-3D;
+  transform-style: preserve-3D;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperFe:hover .ContentFe {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.ContentWrapperCo .ContentCo {
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: bottom left;
+  -ms-transform-origin: bottom left;
+  transform-origin: bottom left;
+  -webkit-transform-style: preserve-3D;
+  -ms-transform-style: preserve-3D;
+  transform-style: preserve-3D;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperCo:hover .ContentCo {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.ContentWrapperCo .ContentCo .Content h2 {
+  font: 16px 'Source Sans Pro', Arial, sans-serif;
+  color: #8CA757;
+  padding: 0 0 6px;
+}
+.ContentWrapperCo .ContentCo .Content p {
+  font: normal 12px 'Source Sans Pro';
+  color: #666666;
+}
+.ContentWrapperCo .ContentCo .Content .ReadMore {
+  float: right;
+  margin: 16px 0 0;
+  background: #D1CDC3;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d1cdc3), color-stop(100%, #c9c5ba));
+  background: -webkit-linear-gradient(top, #d1cdc3 0%, #c9c5ba 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#d1cdc3), to(#c9c5ba));
+  background: linear-gradient(to bottom, #d1cdc3 0%, #c9c5ba 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D1CDC3', endColorstr='#C9C5BA', GradientType=0);
+  -o-border-radius: 2px 2px 2px 2px;
+  border-radius: 2px 2px 2px 2px;
+  -webkit-box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.08) inset, 0 1px 1px 0 rgba(0, 0, 0, 0.11), 0 0 0 rgba(0, 0, 0, 0);
+  -ms-box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.08) inset, 0 1px 1px 0 rgba(0, 0, 0, 0.11), 0 0 0 rgba(0, 0, 0, 0);
+  -o-box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.08) inset, 0 1px 1px 0 rgba(0, 0, 0, 0.11), 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.08) inset, 0 1px 1px 0 rgba(0, 0, 0, 0.11), 0 0 0 rgba(0, 0, 0, 0);
+}
+.ContentWrapperCo .ContentCo .Content .ReadMore a {
+  color: #757167;
+  padding: 6px 16px;
+  display: block;
+  font: normal 12px 'Source Sans Pro';
+}
+.ContentWrapperNi .ContentNi {
+  top: 0;
+  right: 0;
+  -webkit-transform-origin: bottom right;
+  -ms-transform-origin: bottom right;
+  transform-origin: bottom right;
+  -webkit-transform-style: preserve-3D;
+  -ms-transform-style: preserve-3D;
+  transform-style: preserve-3D;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperNi:hover .ContentNi {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.ContentWrapperCu img {
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperCu:hover img {
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.ContentWrapperCu .ContentCu {
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperCu:hover .ContentCu {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+.ContentWrapperZn img {
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperZn:hover img {
+  -webkit-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+.ContentWrapperZn .ContentZn {
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  -webkit-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+  -webkit-transition: all .3s ease 0;
+  transition: all 0.3s ease 0;
+}
+.ContentWrapperZn:hover .ContentZn {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}

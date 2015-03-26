@@ -11,6 +11,9 @@
  */
 /* Parts
 ***************************/
+.view-wrapper .image-part {
+  position: relative;
+}
 /* Thumb Cover */
 .infinity-cover {
   display: block;
@@ -21,6 +24,7 @@
 }
 .infinity-cover .thumb-cover {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+  z-index: 2;
 }
 .infinity-cover .cover-button {
   -webkit-box-sizing: border-box;
@@ -28,7 +32,6 @@
           box-sizing: border-box;
 }
 .infinity-cover .thumb-icons span {
-  position: absolute;
   background-color: white;
   border: medium none;
   display: inline-block !important;
@@ -42,6 +45,7 @@
   width: 40px;
   -o-border-radius: 50%;
   border-radius: 50%;
+  z-index: 3;
 }
 .infinity-cover .thumb-icons span > a {
   color: #222;
@@ -62,6 +66,7 @@
   width: 100%;
   height: 100%;
   display: block;
+  z-index: 2;
 }
 .infinity-cover .content-cover-content {
   width: 100%;
@@ -133,6 +138,7 @@
 .owl-nav,
 .owl-slider-nav {
   width: 100%;
+  z-index: 1;
 }
 .owl-nav.position-center,
 .owl-slider-nav.position-center {
@@ -173,6 +179,10 @@
 .owl-theme .owl-nav [class*='owl-'] {
   display: inline-block;
   cursor: pointer;
+}
+.owl-theme .owl-nav [class*='owl-'] span.dashicons {
+  width: auto;
+  height: auto;
 }
 .owl-theme .owl-nav .disabled {
   opacity: .5;

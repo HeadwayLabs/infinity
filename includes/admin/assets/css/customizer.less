@@ -131,8 +131,8 @@
 		padding: 16px 18px;
 		font-size: 12px;
 		box-sizing: border-box;
-		margin: 10px -18px 0 -18px;
-		width: 219px;
+		margin: 10px -18px 0 -16px;
+		width: 200px;
 		line-height: .8;
 		border: 1px solid #ddd;
 		background: #fff;
@@ -145,7 +145,7 @@
 		font-size: 12px;
 		box-sizing: border-box;
 		margin: 10px -16px 0 -16px;
-		width: 215px;
+		width: 200px;
 		line-height: .8;
 		border: 1px solid #ddd;
 		background: #fff;
@@ -189,6 +189,10 @@
 	display: none;
 }
 
+#customize-theme-controls li[id*=customize-control-builder-options_view-layout] {
+	width: 264px;
+}
+
 #customize-theme-controls li[id*=customize-control-builder-options_view-layout] .description {
 	display: block;
 }
@@ -196,6 +200,7 @@
 #customize-theme-controls .tf-radio-image.active {
 	box-shadow: 0 0 2px rgb(0, 216, 255);
 	border: 1px solid rgb(2, 148, 174);
+	padding: 0;
 }
 
 #customize-theme-controls .image-options-wrapper {
@@ -425,10 +430,12 @@
 }
 
 /* Radio Input Adjustments */
-.tf-radio-image {
+.customize-control .tf-radio-image {
 	position: relative;
-	width: 78px;
-	height: 82px;
+	width: 73px;
+	height: 77px;
+	margin-right: 10px;
+	padding: 1px;
 
 	img {
 		position: absolute;

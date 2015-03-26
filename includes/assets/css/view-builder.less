@@ -101,7 +101,19 @@ a.liked:focus {
 
 .magnet-filter {
 
-	display:inline-block;
+  	&.centered {
+  		width: 100%;
+  		text-align: center;
+
+  		li {
+			float:none;
+	  		display: inline;	
+
+			a {
+				display:inline-block;
+			}
+  		}
+  	}
 
 	li {
 		float:left;

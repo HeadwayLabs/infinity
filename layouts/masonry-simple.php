@@ -42,6 +42,7 @@ if ( !$disable_filter ) {
 	
 
 $filter_before_text = isset(views()->options['masonry-before-filter-text']) ? views()->options['masonry-before-filter-text'] : null;
+$nav_position = isset(views()->options['masonry-nav-position']) ? ' ' . views()->options['masonry-nav-position'] : null;
 
 ?>
 <style>
@@ -55,9 +56,9 @@ $filter_before_text = isset(views()->options['masonry-before-filter-text']) ? vi
 
 		<?php if( $filter_type == 'buttons' ) : ?>
 
-		<nav class="magnet-filter infinity-filter">
+		<nav class="magnet-filter infinity-filter<?php echo $nav_position; ?>">
 
-			<ul class="reset-list clearer">
+			<ul class="reset-list clearfix">
 
 				<?php if( $filter_before_text ) : ?>
 					<li class="before-filter"><?php echo $filter_before_text; ?></li>
@@ -80,18 +81,21 @@ $filter_before_text = isset(views()->options['masonry-before-filter-text']) ? vi
 		<?php endif; ?>
 
 		<?php if( $filter_type == 'select' ) : ?>
-		<?php if( $filter_before_text ) : ?>
-			<div class="before-filter"><?php echo $filter_before_text; ?></div>
-		<?php endif; ?>
-		<select id="size" name="filter by" class="magnet-filter">
-		<option value="">View by...</option>
-		<option value="all">All</option>
-		<?php 
-			foreach($terms as $term){
-				echo '<option value="' . strtolower(str_replace (" ", "-", $term->name)) . '" data-filter="' . strtolower(str_replace (" ", "-", $term->name)) . '">' . $term->name . '</option>';
-			}
-		 ?>
-		</select>
+
+		<div class="infinity-filter<?php echo $nav_position; ?>">
+			<?php if( $filter_before_text ) : ?>
+				<div class="before-filter"><?php echo $filter_before_text; ?></div>
+			<?php endif; ?>
+			<select id="size" name="filter by" class="magnet-filter">
+			<option value="">View by...</option>
+			<option value="all">All</option>
+			<?php 
+				foreach($terms as $term){
+					echo '<option value="' . strtolower(str_replace (" ", "-", $term->name)) . '" data-filter="' . strtolower(str_replace (" ", "-", $term->name)) . '">' . $term->name . '</option>';
+				}
+			 ?>
+			</select>
+		</div>
 
 		<?php endif; ?>
 

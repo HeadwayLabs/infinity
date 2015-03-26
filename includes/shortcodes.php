@@ -275,7 +275,7 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 								$thumbnail_width 					= (!empty($thumbnail_width)) ? 'thumbnail_width="' . $thumbnail_width . '"' : null;
 
 								$show_cover  					= $builder_options->getOption( 'image-show-cover-hide-' . $view_name . '' );
-				  				$show_cover 					= (!empty($show_cover)) ? 'show_cover="' . $show_cover . '"' : null;
+				  				$show_cover 					= (!empty($show_cover)) ? 'show_cover="' . $show_cover . '"' : 'show_cover="' . $show_cover . '"';
 
 				  				$content_vertical_align  	= $builder_options->getOption( 'image-content-type-content-vertical-align-' . $view_name . '' );
 				  				$content_vertical_align 	= (!empty($content_vertical_align)) ? 'content_vertical_align="' . $content_vertical_align . '"' : null;

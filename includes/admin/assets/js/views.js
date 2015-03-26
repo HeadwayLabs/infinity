@@ -20,6 +20,12 @@ function showHideQueryBox(el, handle) {
 
 		if ($('body').is('.post-php')) {
 
+			$('#masonry, #slider, #carousel, #grid').hide();
+
+			var layout = $('#field-current-layouts .field-type-raw').text();
+
+			$('#'+layout).show();
+
 			setTimeout( function() {
 				$('#message, .update-nag').fadeOut();
 			}, 3500 );
@@ -49,7 +55,7 @@ function showHideQueryBox(el, handle) {
 			});
 
 
-			var shortcode = $('#to-move').find('.field-type-raw').text();
+			var shortcode = $('#to-move').find('#field-shortcode-info .field-type-raw').text();
 
 			var html = '<div id="shortcode-preview" class="toolbar-wrap">'+ shortcode +'</div>';
 

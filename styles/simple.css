@@ -17,10 +17,11 @@
 .view-wrapper .vb-part {
   margin: 2em 0;
 }
-.view-wrapper .excerpt-part {
+.view-wrapper .content-part {
   line-height: 1.5;
 }
 .view-wrapper .image-part {
+  position: relative;
   margin-left: -2em;
   margin-right: -2em;
 }

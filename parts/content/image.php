@@ -9,7 +9,7 @@
 			'thumbnail_width'               	=> '250',
 			'thumbnail_height'              	=> '200',
 			'crop_vertically_height_ratio' 	=> '60',
-			'show_cover'               	=> 'on',
+			'show_cover'               	=> true,
 			'thumb_cover_effect'        	=> 'ImageFade',
 			'thumb_cover_type'          	=> 'icons',//icons or content
 			'thumb_content_hover_effect'   	=>  'H',
@@ -86,7 +86,7 @@
 
 	<figure class="vb-part align<?php echo $thumb_align; ?><?php echo $display_as; ?> image-part infinity-cover<?php echo $figure_class; ?>">
 
-		<?php if ( $show_cover == 'on' && $thumb_cover_type == 'icons') : ?>
+		<?php if ( $show_cover && $thumb_cover_type == 'icons' ) : ?>
 			<div class="<?php echo $thumb_cover_effect; ?> thumb-cover"></div>
          <div class="<?php echo $thumb_icon_effect; ?> thumb-icons">
 
@@ -199,7 +199,7 @@
 
       <?php endif; ?>
 
-      <?php if ( $show_cover == 'on' && $thumb_cover_type == 'content') :  ?>
+      <?php if ( $show_cover && $thumb_cover_type == 'content') :  ?>
 
       	<div class="<?php echo 'Content'. $thumb_content_hover_effect . ''; ?> content-cover">
             <div class="Content content-cover-content vertical-<?php echo $content_vertical_align; ?>">

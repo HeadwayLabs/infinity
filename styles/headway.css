@@ -11,6 +11,9 @@
  */
 /* Parts
 ***************************/
+.view-wrapper .image-part {
+  position: relative;
+}
 /* Thumb Cover */
 .infinity-cover {
   display: block;
@@ -21,6 +24,7 @@
 }
 .infinity-cover .thumb-cover {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+  z-index: 2;
 }
 .infinity-cover .cover-button {
   -webkit-box-sizing: border-box;
@@ -41,6 +45,7 @@
   width: 40px;
   -o-border-radius: 50%;
   border-radius: 50%;
+  z-index: 3;
 }
 .infinity-cover .thumb-icons span > a {
   color: #222;
@@ -61,6 +66,7 @@
   width: 100%;
   height: 100%;
   display: block;
+  z-index: 2;
 }
 .infinity-cover .content-cover-content {
   width: 100%;
@@ -132,6 +138,7 @@
 .owl-nav,
 .owl-slider-nav {
   width: 100%;
+  z-index: 1;
 }
 .owl-nav.position-center,
 .owl-slider-nav.position-center {
@@ -205,10 +212,15 @@
 .owl-theme .owl-slider-nav {
   -webkit-tap-highlight-color: transparent;
   width: 100%;
+  z-index: 1;
 }
 .owl-theme .owl-slider-nav [class*='owl-'] {
   display: inline-block;
   cursor: pointer;
+}
+.owl-theme .owl-slider-nav [class*='owl-'] span.dashicons {
+  width: auto;
+  height: auto;
 }
 .owl-theme .owl-slider-nav .disabled {
   opacity: .5;
@@ -249,6 +261,9 @@
 }
 .owl-theme .owl-dots .owl-dot img {
   display: block;
+}
+.owl-theme .owl-dots .owl-dot:last-of-type img {
+  margin-right: 0!important;
 }
 .owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span,

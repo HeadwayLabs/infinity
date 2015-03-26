@@ -652,7 +652,8 @@ class HeadwayInfinityBlock extends HeadwayBlockAPI {
 					'selector' => '.view-wrapper.slider .owl-dot img',
 					'states' => array(
 						'Hover' => '.view-wrapper.slider .owl-dot img:hover', 
-						'Active' => '.view-wrapper.slider .owl-dot img.active'
+						'Active' => '.view-wrapper.slider .owl-dot.active img',
+						'Last' => '#whitewrap .view-wrapper.slider .owl-dot:last-of-type img'
 					)
 				));
 

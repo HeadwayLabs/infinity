@@ -37,7 +37,6 @@ if ( $the_query->have_posts() ) :
 
         $id = $the_query->post->ID;
 
-
         if ( $postid == $id ) {
             $view_name = strtolower(str_replace(' ', '-', get_the_title()));
             break;
@@ -74,6 +73,11 @@ $sections['to-move'] = array(
                 'off' => __('Off', 'fluent'),
             ),
             'default' => 0,
+        ),
+        'current-layouts' => array(
+            'title' => 'Current Layout',
+            'type' => 'raw',
+            'content' => $layout
         )
     ),
 );
@@ -462,7 +466,7 @@ $sections['advanced-query-params'] = array(
 ); 
 
 
-if ( $layout == 'carousel' ) {
+//if ( $layout == 'carousel' ) {
 
     $sections['carousel'] = array(
         'dash_icon' => '',
@@ -636,9 +640,9 @@ if ( $layout == 'carousel' ) {
         ),
     );
 
-}
+//}
 
-if ( $layout == 'simple-masonry' ) {
+//if ( $layout == 'simple-masonry' ) {
     $sections['masonry'] = array(
         'dash_icon' => '',
         'title' =>  __('Masonry Settings', 'fluent'),
@@ -656,6 +660,15 @@ if ( $layout == 'simple-masonry' ) {
                 'options' => array(
                     'yes' => __('Yes', 'fluent')
                 ) 
+            ),
+            'masonry-nav-position' => array(
+                'title' => 'Filter Nav Position?',
+                'type' => 'select',
+                'options' => array(
+                    'left' => __('Left', 'fluent'),
+                    'centered' => __('Centered', 'fluent')
+                ),
+                'default' => 'centered'
             ),
             'masonry-alltext' => array(
                 'title' => 'All Button Text',
@@ -739,9 +752,9 @@ if ( $layout == 'simple-masonry' ) {
             ),
         ),
     );
-}
+//}
 
-if ( $layout == 'grid' ) {
+//if ( $layout == 'grid' ) {
     $sections['grid'] = array(
         'dash_icon' => '',
         'title' =>  __('Grid Settings', 'fluent'),
@@ -772,9 +785,9 @@ if ( $layout == 'grid' ) {
         ),
     );
 
-}
+//}
 
-if ( $layout == 'slider' ) {
+//if ( $layout == 'slider' ) {
     $sections['slider'] = array(
         'dash_icon' => '',
         'title' =>  __('Slider Settings', 'fluent'),
@@ -973,7 +986,7 @@ if ( $layout == 'slider' ) {
         )
     );
 
-}
+//}
 
 /* load meta boxes */
 $args = array(

@@ -55,7 +55,7 @@ $filter_before_text = isset(views()->options['masonry-before-filter-text']) ? vi
 
 		<nav class="magnet-filter">
 
-			<ul class="reset-list clearer">
+			<ul class="reset-list clearfix">
 
 				<?php if( $filter_before_text ) : ?>
 					<li class="before-filter"><?php echo $filter_before_text; ?></li>

@@ -168,6 +168,12 @@ function infinity_builder_block_default_design_settings() {
 			)
 		),
 
+		'block-infinity-block-thumbnail-cover-content' => array(
+			'properties' => array(
+				'background-color' => 'rgba(0,0,0,0.5)'
+			)
+		),
+
 		'block-infinity-block-cover-button' => array(
 			'properties' => array(
 				'background-color' => '#FFFFFF',

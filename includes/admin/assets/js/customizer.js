@@ -519,7 +519,7 @@
 		
 	});//end parts options modifications
 
-	}, 2000);
+	}, 3000);
 	
 	});
 })(jQuery);
