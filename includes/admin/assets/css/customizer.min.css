@@ -130,6 +130,7 @@
 }
 #customize-theme-controls ul.builder-options li.customize-control h3.customize-control-title {
   margin-bottom: 20px;
+  line-height: 1.5;
 }
 #customize-theme-controls ul.builder-options li.customize-control .description {
   line-height: 20px;

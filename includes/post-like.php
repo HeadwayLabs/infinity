@@ -170,6 +170,7 @@ function AlreadyLiked( $post_id ) { // test if user liked before
  */
 function getPostLikeLink( $post_id, $show_like_text ) {
 	$like_count = get_post_meta( $post_id, "_post_like_count", true ); // get post likes
+	$like_title = null;
 	if ($show_like_text == 'show')
 		$like_title = esc_attr( 'Like' );
 	$count = ( empty( $like_count ) || $like_count == "0" ) ? $like_title : esc_attr( $like_count );

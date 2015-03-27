@@ -429,7 +429,7 @@ if ( $the_query->have_posts() ) :
                 ) );
 
                 $section->createOption( array(
-                    'name' => 'Automatically Size Thumbnail',
+                    'name' => 'Automatically Size Thumb',
                     'desc' => 'Auto resizes to fit the full width of the article column.',
                     'id' => 'image-option-auto-size-' . $view_name . '',
                     'type' => 'radio-toggle-infinity',

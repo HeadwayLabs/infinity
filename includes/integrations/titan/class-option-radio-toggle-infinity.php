@@ -104,9 +104,7 @@ function registerTitanFrameworkOptionRadioToggleInfinityControl() {
 			// print the images
 			$value = $this->value();
 			$uniqueid = uniqid();
-			$i == 0;
 			foreach ( $this->choices as $optval => $text ) {
-				$i++;
 				// Get the correct value, we might get a blank if index / value is 0
 				if ( $value === '' ) {
 					$value = $optval;
