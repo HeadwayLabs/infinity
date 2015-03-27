@@ -84,6 +84,8 @@ class View_Builder_Admin {
 
 		$screen = get_current_screen();
 
+		global $post;
+
 		if ( 'view' != $screen->id || $screen->action == 'add')
 			return;
 

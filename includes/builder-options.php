@@ -1198,7 +1198,7 @@ if ( $the_query->have_posts() ) :
                 $section->createOption( array(
                     'name' => 'Show like/unlike text',
                     'id' => 'likes-option-show_like_text-' . $view_name . '',
-                    'type' => 'radio-tog gle-infinity',
+                    'type' => 'radio-toggle-infinity',
                         'options' => array(
                             'show' => 'Show',
                             'hide' => 'Hide'

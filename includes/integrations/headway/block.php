@@ -14,31 +14,12 @@ class HeadwayInfinityBlock extends HeadwayBlockAPI {
 
 	public $description = 'The Infinity block for Headway is a companion block for the Infinity Builder. A plugin for Wordpress. Use it to add infinity\'s views to your website, then style every aspect of your new layouts.';
 		 
-	function enqueue_action($block_id) {
+	static function enqueue_action($block_id) {
 								
 		$block = HeadwayBlocksData::get_block($block_id);
 
 		return;
 				
-	}
-
-	function init_action($block_id) {
-
-		return;
-		
-	}
-	
-	function dynamic_js($block_id) {
-
-		return;
-		
-	}
-	
-
-	function dynamic_css($block_id) {
-		
-		return;
-		
 	}
 
 	function setup_elements() {
@@ -653,7 +634,6 @@ class HeadwayInfinityBlock extends HeadwayBlockAPI {
 					'states' => array(
 						'Hover' => '.view-wrapper.slider .owl-dot img:hover', 
 						'Active' => '.view-wrapper.slider .owl-dot.active img',
-						'Last' => '#whitewrap .view-wrapper.slider .owl-dot:last-of-type img'
 					)
 				));
 

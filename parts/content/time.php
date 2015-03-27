@@ -10,7 +10,7 @@
 	global $post;
 	$id = $post->ID;
 
-	$time = ($format != 'wordpress-default') ? get_the_time($format) : get_the_time();
+	$time = ($time_format != 'wordpress-default') ? get_the_time($time_format) : get_the_time();
 	$before = $before != false ? '<span>' . $before . '</span>' : null;
 	$display_as = $display_as != null ? ' display-' . $display_as : null;
 

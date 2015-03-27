@@ -38,15 +38,6 @@ $args = array(
     'menu_position'        => null,
     'menu_icon'            => null,
     'capability_type'      => 'post',
-    'capabilities'    => array(
-        'edit_post'          => 'edit_theme_options',
-        'delete_post'        => 'edit_theme_options',
-        'read_post'          => 'read',
-        'edit_posts'         => 'edit_theme_options',
-        'edit_others_posts'  => 'edit_theme_options',
-        'publish_posts'      => 'edit_theme_options',
-        'read_private_posts' => 'edit_theme_options'
-    ),
     'map_meta_cap'         => null,
     'supports'             => array( 'title' ),
     'register_meta_box_cb' => null,
