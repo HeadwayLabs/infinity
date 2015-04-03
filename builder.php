@@ -2,7 +2,7 @@
 /**
  * Builder plugin
  *
- * @package 	HW_Builder
+ * @package 	Infinity_Builder
  * @author		Andy Neale - Headway Labs
  * @copyright 	Copyright (c) 2012 - 2014, HeadwayLabs
  * @link			http://www.headwaylabs.com
@@ -14,7 +14,7 @@
  * Description: Create Infinite view of your wordpress content with ease.
  * Author: Andy Neale
  * Author URI: http://www.headwaylabs.com
- * Version: 1.0.0
+ * Version: 0.0.1
  * License: 	GPL3
  *
  * This script is free software; you can redistribute it and/or modify
@@ -35,14 +35,14 @@
 // Exit if accessed directly
 if( ! defined( 'ABSPATH' ) ) exit;
 
-if ( ! class_exists( 'HW_Builder' ) ) :
+if ( ! class_exists( 'Infinity_Builder' ) ) :
 	/**
-	 * Main HW_Builder Instance
+	 * Main Infinity_Builder Instance
 	 *
-	 * @package HW_Builder
+	 * @package Infinity_Builder
 	 * @since 1.0.0
 	 */
-	class HW_Builder {
+	class Infinity_Builder {
 	   
 	   /**
 		 * @var string Post ID of the view.
@@ -74,12 +74,12 @@ if ( ! class_exists( 'HW_Builder' ) ) :
 		var $builder_options;
 
 		/**
-		 * @var HW_Builder Stores the instance of this class.
+		 * @var Infinity_Builder Stores the instance of this class.
 		 */
 		private static $instance;
 
 		/**
-		 * HW_Builder Instance
+		 * Infinity_Builder Instance
 		 *
 		 * Makes sure that there is only ever one instance of the HW Builder
 		 *
@@ -89,7 +89,7 @@ if ( ! class_exists( 'HW_Builder' ) ) :
 
 			if ( ! isset( self::$instance ) ) {
 
-				self::$instance = new HW_Builder;
+				self::$instance = new Infinity_Builder;
 				self::$instance->setup_globals();
 				self::$instance->includes();
 
@@ -102,31 +102,31 @@ if ( ! class_exists( 'HW_Builder' ) ) :
 		/**
 		* A dummy constructor to prevent loading more than once.
 		* @since 	1.0.0
-	 	* @see 	HW_Builder::instance()
+	 	* @see 	Infinity_Builder::instance()
 		*/
 		private function __construct() { 
 			// Do nothing here
 		}
 
 		/**
-		 * A dummy magic method to prevent HW_Builder from being cloned
+		 * A dummy magic method to prevent Infinity_Builder from being cloned
 		 */
 		public function __clone() { wp_die( __( 'Cheatinâ€™ uh?' ) ); }
 
 		/**
-		 * A dummy magic method to prevent HW_Builder from being unserialized
+		 * A dummy magic method to prevent Infinity_Builder from being unserialized
 		 */
 		public function __wakeup() { wp_die( __( 'Cheatinâ€™ uh?' ) ); }
 
 		/**
 		 * Setup Globals
 		 *
-		 * @package HW_Builder
+		 * @package Infinity_Builder
 		 * @since 1.0.0
 		 */
 		private function setup_globals() {
 
-			$this->version    	= '1.0.0';
+			$this->version    	= '0.0.1';
 
 			$this->file       = __FILE__;
 			$this->basename   = plugin_basename( $this->file );
@@ -143,7 +143,7 @@ if ( ! class_exists( 'HW_Builder' ) ) :
 		/**
 		 * Load Includes
 		 *
-		 * @package HW_Builder
+		 * @package Infinity_Builder
 		 * @since 1.0.0
 		 */
 		private function includes() {
@@ -186,7 +186,7 @@ if ( ! class_exists( 'HW_Builder' ) ) :
 		/**
 		 * Simplifies getting options with a default
 		 *
-		 * @package HW_Builder
+		 * @package Infinity_Builder
 		 * @since 1.0.0
 		*/
 		public function get_infinity_option($option, $default=null) {
@@ -206,7 +206,7 @@ if ( ! class_exists( 'HW_Builder' ) ) :
 	 * Return the class instance with a function and call it on the init add_action
 	 */
 	function views() {
-	   return HW_Builder::instance();
+	   return Infinity_Builder::instance();
 	}
 
 	add_action ( 'plugins_loaded', 'views', 1 );
