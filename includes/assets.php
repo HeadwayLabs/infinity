@@ -179,7 +179,7 @@ class View_Builder_Assets {
 				$view_name = strtolower(str_replace(' ', '-', get_the_title()));
 
 				$builder_options = TitanFramework::getInstance( 'builder-options' );
-				$layout = (!empty($builder_options->getOption( 'view-layout-' . $id . '' ))) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
+				$layout = ( $builder_options->getOption( 'view-layout-' . $id . '' ) == true ) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
 	
 				$parts = $builder_options->getOption( 'builder_parts' . $view_name . '' );
 				if ( empty($parts) ) {

@@ -41,7 +41,7 @@ class Infinity_Widget extends WP_Widget  {
 		$builder_options = TitanFramework::getInstance( 'builder-options' );
 		$view_name = strtolower(views()->view_name);
 
-		$layout = (!empty($builder_options->getOption( 'view-layout-' . $id . '' ))) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
+		$layout = ( $builder_options->getOption( 'view-layout-' . $id . '' ) == true ) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
 
 		echo vb_render_view( $id, $layout, null, 'shortcode' );
 

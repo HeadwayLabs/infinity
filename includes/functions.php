@@ -743,7 +743,7 @@ function vb_shortcode( $atts ) {
 
 	$view_name = strtolower(views()->view_name);
 
-	$layout = (!empty($builder_options->getOption( 'view-layout-' . $id . '' ))) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
+	$layout = ( $builder_options->getOption( 'view-layout-' . $id . '' ) == true ) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
 
 	return vb_render_view( $id, $layout, null, 'shortcode' );
 

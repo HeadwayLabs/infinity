@@ -831,8 +831,7 @@ class HeadwayInfinityBlock extends HeadwayBlockAPI {
 
 			$builder_options = TitanFramework::getInstance( 'builder-options' );
 
-			$layout = (!empty($builder_options->getOption( 'view-layout-' . $view_id . '' ))) ? $builder_options->getOption( 'view-layout-' . $view_id . '' ) : 'blog';
-
+			$layout = ( $builder_options->getOption( 'view-layout-' . $view_id . '' ) ==  true ) ? $builder_options->getOption( 'view-layout-' . $view_id . '' ) : 'blog';
 			echo vb_render_view( $view_id, $layout, null, 'shortcode' );
 
 		}

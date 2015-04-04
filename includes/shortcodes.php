@@ -245,7 +245,7 @@ if ( ! class_exists( 'View_Builder_Shortcodes' ) ) :
 			  			case 'image':
 
 			  				if ($include_image) {
-				  				$layout = (!empty($builder_options->getOption( 'view-layout-' . $id . '' ))) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
+				  				$layout = ( $builder_options->getOption( 'view-layout-' . $id . '' ) == true ) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
 				
 								$columns = $builder_options->getOption( 'postopts-columns-' . $id . '' );
 								$columns = (!empty($columns)) ? 'columns="' . $columns . '"' : null;

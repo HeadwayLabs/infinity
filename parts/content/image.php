@@ -40,7 +40,7 @@
 		$btns = array('btn1', 'btn2');
 	}
 	$display_as = $display_as != null ? ' display-' . $display_as : null;
-	$layout = (!empty($builder_options->getOption( 'view-layout-' . $id . '' ))) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
+	$layout = ( $builder_options->getOption( 'view-layout-' . $id . '' ) == true ) ? $builder_options->getOption( 'view-layout-' . $id . '' ) : 'blog';
 
 	if ( $layout == 'slider' ||  $layout == 'blog') {
 		$columns	= '1';
