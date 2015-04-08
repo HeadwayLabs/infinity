@@ -157,7 +157,7 @@ if ( ! class_exists( 'Infinity_Builder' ) ) :
 		 */
 		private function setup_globals() {
 
-			$this->version    	= '0.0.1';
+			$this->version    	= '0.0.2';
 
 			$this->file       = __FILE__;
 			$this->basename   = plugin_basename( $this->file );
