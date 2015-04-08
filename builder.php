@@ -35,6 +35,37 @@
 // Exit if accessed directly
 if( ! defined( 'ABSPATH' ) ) exit;
 
+// Don't do anything when we're activating a plugin to prevent errors
+// on redeclaring Titan classes
+if ( ! empty( $_GET['action'] ) && ! empty( $_GET['plugin'] ) ) {
+    if ( $_GET['action'] == 'activate' ) {
+        return;
+    }
+}
+// Check if the framework plugin is activated
+$useEmbeddedFramework = true;
+$activePlugins = get_option('active_plugins');
+if ( is_array( $activePlugins ) ) {
+    foreach ( $activePlugins as $plugin ) {
+        if ( is_string( $plugin ) ) {
+            if ( stripos( $plugin, '/titan-framework.php' ) !== false ) {
+                $useEmbeddedFramework = false;
+                break;
+            }
+        }
+    }
+}
+// Use the embedded Titan Framework
+if ( $useEmbeddedFramework ) {
+   require_once( plugin_dir_path( __FILE__ ) . 'titan-framework/titan-framework.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'includes/integrations/titan/class-option-multicheck-infinity.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'includes/integrations/titan/class-option-multicheck-categories-infinity.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'includes/integrations/titan/class-option-heading-infinity.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'includes/integrations/titan/class-option-sortable-infinity.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'includes/integrations/titan/class-option-radio-toggle-infinity.php' );
+}
+
+
 if ( ! class_exists( 'Infinity_Builder' ) ) :
 	/**
 	 * Main Infinity_Builder Instance
@@ -176,9 +207,6 @@ if ( ! class_exists( 'Infinity_Builder' ) ) :
 				require( $this->plugin_dir . 'includes/admin/admin.php' );
 				
 			}
-
-			/* Add integration with titan */
-			require_once( $this->plugin_dir . 'titan-framework/titan-framework-embedder.php' );
 
 	
 		}

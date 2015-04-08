@@ -55,22 +55,11 @@ if ( ! class_exists( 'TitanFrameworkEmbedder' ) ) {
 		public function performCheck() {
 			if ( class_exists( 'TitanFramework' ) ) {
 
-			require_once( views()->plugin_dir . 'includes/integrations/titan/class-option-multicheck-infinity.php' );
-			require_once( views()->plugin_dir . 'includes/integrations/titan/class-option-multicheck-categories-infinity.php' );
-			require_once( views()->plugin_dir . 'includes/integrations/titan/class-option-heading-infinity.php' );
-			require_once( views()->plugin_dir . 'includes/integrations/titan/class-option-sortable-infinity.php' );
-			require_once( views()->plugin_dir . 'includes/integrations/titan/class-option-radio-toggle-infinity.php' );
-
 			return;
 			
 			}
 			require_once( 'titan-framework.php' );
 			
-			require_once( views()->plugin_dir . 'includes/integrations/titan/class-option-multicheck-infinity.php' );
-			require_once( views()->plugin_dir . 'includes/integrations/titan/class-option-multicheck-categories-infinity.php' );
-			require_once( views()->plugin_dir . 'includes/integrations/titan/class-option-heading-infinity.php' );
-			require_once( views()->plugin_dir . 'includes/integrations/titan/class-option-sortable-infinity.php' );
-			require_once( views()->plugin_dir . 'includes/integrations/titan/class-option-radio-toggle-infinity.php' );
 
 		}
 
