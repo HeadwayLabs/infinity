@@ -29,10 +29,8 @@ function view_widget_in_use($view_id){
 
 function builder_options() {
 
-if ( !class_exists( 'TitanFramework' ) )
-return;
-
 $builder_options = TitanFramework::getInstance( 'builder-options' );
+
 
 $args = array(
     'post_type' => 'view',
@@ -49,11 +47,7 @@ if ( $the_query->have_posts() ) :
 
         $options = vb_options( $id );
 
-        if (isset( $options['query-mode'] )) {
-            $query_mode = $options['query-mode'];
-        } else {
-            $query_mode = 0;
-        }
+        $query_mode = $options['query-mode'];
 
         $title = get_the_title();
         $view_name = strtolower(str_replace(' ', '-', get_the_title()));

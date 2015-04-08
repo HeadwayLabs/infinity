@@ -7,7 +7,6 @@
  * @version 1.0.2
  */
 
-
 $builder_options = TitanFramework::getInstance( 'builder-options' );
 
 //TODO: must make it return null if not on view edit screen
@@ -1003,3 +1002,5 @@ $args = array(
 $instance = new Fluent_Options_Meta($args, $sections);
 
 Fluent_Store::set('view_metaboxes', $instance);
+
+ 

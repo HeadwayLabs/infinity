@@ -36,8 +36,9 @@ class View_Builder_Admin {
 		add_action( 'admin_head', array( __CLASS__, 'view_add_tinymce' ) );
 		add_action( 'before_wp_tiny_mce', array( __CLASS__, 'views_mce_head' ) );
 
-		if ( self::is_infinity_cpt_edit_screen() )
-			require_once( views()->plugin_dir .'includes/view-meta.php' );
+
+
+		require_once( views()->plugin_dir .'includes/view-meta.php' );
 
 	}
 
@@ -100,11 +101,7 @@ class View_Builder_Admin {
 
 			$options = vb_options( $id );
 
-			if (isset( $options['query-mode'] )) {
-			   $query_mode = $options['query-mode'];
-			} else {
-			   $query_mode = 0;
-			}
+			$query_mode = $options['query-mode'];
 
 			echo '<div class="add-toolbar toolbar-wrap"">';
 
@@ -275,25 +272,6 @@ class View_Builder_Admin {
 	        ';
 
 	    }
-	}
-
-	/**
-	 * Tests to see if we are on the Infinity View Edit Screen
-	 *
-	 * @package View_Builder
-	 * @since 1.0.0
-	 */
-	public static function is_infinity_cpt_edit_screen() {
-
-		global $pagenow, $typenow;
-		if (empty($typenow) && !empty($_GET['post'])) {
-		  $post = get_post($_GET['post']);
-		  $typenow = $post->post_type;
-		}
-
-		if ( $typenow == 'view' )
-			return true;
-
 	}
 
 
