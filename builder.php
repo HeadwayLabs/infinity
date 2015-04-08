@@ -14,7 +14,7 @@
  * Description: Create Infinite view of your wordpress content with ease.
  * Author: Andy Neale
  * Author URI: http://www.headwaylabs.com
- * Version: 0.0.1
+ * Version: 0.0.2
  * License: 	GPL3
  *
  * This script is free software; you can redistribute it and/or modify
