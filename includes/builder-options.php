@@ -29,8 +29,10 @@ function view_widget_in_use($view_id){
 
 function builder_options() {
 
-$builder_options = TitanFramework::getInstance( 'builder-options' );
+if ( !class_exists( 'TitanFramework' ) )
+return;
 
+$builder_options = TitanFramework::getInstance( 'builder-options' );
 
 $args = array(
     'post_type' => 'view',
